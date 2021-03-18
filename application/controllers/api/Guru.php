@@ -6,7 +6,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class User extends REST_Controller
+class Guru extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -18,40 +18,17 @@ class User extends REST_Controller
     {
         $id = $this->get('id_user');
         if ($id == '') {      
-            $this->db->where('id_user_role', 2);      
-            $user = $this->db->get('user')->result();
+            $this->db->where('id_user_role', 3);      
+            $guru = $this->db->get('user')->result();
         } 
         else {
             $this->db->where('id_user', $id);
-            $user = $this->db->get('user')->result();
+            $guru = $this->db->get('user')->result();
         }
-        $this->response($user,200);
+        $this->response($guru,200);
        
     }
-    function guru()
-    {
-        $id = $this->get('id_user');
-        if ($id == '') { 
-            $this->db->where('id_user_role', 3);           
-            $guru = $this->db->get('user')->result();
-        } else {
-            $this->db->where('id_user', $id);
-            $guru = $this->db->get('user')->result();
-        }
-        $this->response($guru, 200);
-    } 
-    function siswa()
-    {
-        $id = $this->get('id_user');
-        if ($id == '') {     
-            $this->db->where('id_user_role', 4);       
-            $user4 = $this->db->get('user')->result();
-        } else {
-            $this->db->where('id_user', $id);
-            $user4 = $this->db->get('user')->result();
-        }
-        $this->response($user4, 200);
-    }
+   
     function index_post()
     {
         $data = array(

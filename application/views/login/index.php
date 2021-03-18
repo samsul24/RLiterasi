@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>KEMENAG Kota Malang </title>
+  <title>Literasi </title>
   <!-- Custom fonts for this theme -->
   <link href="<?php echo base_url('assets/user')?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -77,8 +77,7 @@
           </div>
       </div>
         
-        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Balai Besar Pengembangan
-        <br>Penjaminan Mutu Pendidikan Vokasi Bidang Otomotif dan Elektronika<br>Kota Malang</h4>
+        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Literasi SMA Negeri 1 Geger <br>Kota Madiun</h4>
         <div class="col-md-2" style="margin-left:545px;">
                 <!-- <a href="<?php echo site_url(); ?>antrianclient" class="btn btn-dark btn-block banner" role="button" style="margin: center">
                   Ambil Antrian                </a> -->

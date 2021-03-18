@@ -11,6 +11,8 @@ class UserClient extends CI_Controller
         $this->load->library('curl');
         
         $this->API = "http://localhost:8080/RLiterasi/api/user";
+        $this->API3 = "http://localhost:8080/RLiterasi/api/guru";
+        $this->API4= "http://localhost:8080/RLiterasi/api/siswa";
     }
 
     public function index()
@@ -20,6 +22,26 @@ class UserClient extends CI_Controller
         $this->load->view('header1');
         $this->load->view('bar');
         $this->load->view('admin/useradmin', $data);
+        $this->load->view('footer');
+       
+    }
+    public function guru()
+    {
+        $data['guru'] = json_decode($this->curl->simple_get($this->API3));
+        $data['title'] = "user";
+        $this->load->view('header1');
+        $this->load->view('bar');
+        $this->load->view('admin/useradmin3', $data);
+        $this->load->view('footer');
+       
+    }
+    public function siswa()
+    {
+        $data['siswa'] = json_decode($this->curl->simple_get($this->API4));
+        $data['title'] = "user";
+        $this->load->view('header1');
+        $this->load->view('bar');
+        $this->load->view('admin/useradmin4', $data);
         $this->load->view('footer');
        
     }

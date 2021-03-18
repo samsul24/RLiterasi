@@ -53,15 +53,6 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>userclient" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                  <p>Admin</p>
-                </a>
-              </li>
-            </ul>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
                 <a href="<?php echo site_url(); ?>userclient/guru" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>Guru</p>

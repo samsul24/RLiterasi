@@ -44,7 +44,12 @@
                 <tr>
                   <th>Id</th>
                   <th>User Role</th>
+                  <th>NIS</th>
                   <th>Nama</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Kelas</th>
+                  <th>Jurusan</th>
+                  <th>NO. Telp</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Aksi</th>
@@ -53,14 +58,17 @@
                 </thead>
                 <tbody>
           
-                    <?php 
-                    $i=1;
-                    foreach ($user as $rows) : ?>
+                    <?php $i=1; foreach ($siswa as $rows) : ?>
                     <tr>
             
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $rows->id_user_role; ?></td>
+                        <td><?php echo $rows->nis; ?></td>
                         <td><?php echo $rows->nama; ?></td>
+                        <td><?php echo $rows->jenis_kelamin; ?></td>
+                        <td><?php echo $rows->kelas; ?></td>
+                        <td><?php echo $rows->jurusan; ?></td>
+                        <td><?php echo $rows->no_telp; ?></td>
                         <td><?php echo $rows->username; ?></td>
                         <td><?php echo $rows->password; ?></td>
                         <td>

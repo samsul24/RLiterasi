@@ -44,7 +44,9 @@
                 <tr>
                   <th>Id</th>
                   <th>User Role</th>
+                  <th>NIP</th>
                   <th>Nama</th>
+                  <th>No. Telp</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>Aksi</th>
@@ -53,14 +55,14 @@
                 </thead>
                 <tbody>
           
-                    <?php 
-                    $i=1;
-                    foreach ($user as $rows) : ?>
+                    <?php $i=1;foreach ($guru as $rows) : ?>
                     <tr>
             
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $rows->id_user_role; ?></td>
+                        <td><?php echo $rows->nis; ?></td>
                         <td><?php echo $rows->nama; ?></td>
+                        <td><?php echo $rows->no_telp; ?></td>
                         <td><?php echo $rows->username; ?></td>
                         <td><?php echo $rows->password; ?></td>
                         <td>
