@@ -14,20 +14,16 @@ class Ulasan extends REST_Controller
         parent::__construct($config);
     }
 
-    function index_get($limit,$start)
+    function index_get()
     {
         $id = $this->get('id_ulasan');
         if ($id == '') {
-            $soal = $this->db->get('ulasan',$limit=1,$start=1)->result_array();
+            $ulasan = $this->db->get('ulasan')->result();
         } else {
             $this->db->where('id_ulasan', $id);
-            $soal = $this->db->get('ulasan',$limit,$start)->result_array();
+            $ulasan = $this->db->get('ulasan')->result();
         }
-        $this->response($soal, 200);
-    }
-
-    public function getUjian($limit,$start){
-        return $this->db->get('ulasan',$limit,$start)->result_array();
+        $this->response($ulasan, 200);
     }
 
     function index_post()
@@ -45,4 +41,16 @@ class Ulasan extends REST_Controller
             $this->response(array('status' => 'fail', 502));
         }
     }
+    function index_delete()
+    {
+        $id = $this->delete('id_ulasan');
+        $this->db->where('id_ulasan', $id);
+        $delete = $this->db->delete('ulasan');
+        if ($delete) {
+            $this->response(array('status' => 'success'), 201);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
 }
+?>

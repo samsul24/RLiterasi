@@ -43,9 +43,9 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Foto</th>
                   <th>Nama</th>
-                  <th>Diskripsi</th>
+                  <th>judul Buku</th>
+                  <th>Keterangan</th>
                   <th>Aksi</th>
                  
                 </tr>
@@ -54,18 +54,18 @@
                     
                     <?php 
                     $i=1;
-                    foreach ($buku as $rows) : ?>
+                    foreach ($ulasan as $rows) : ?>
                     <tr>
             
                         <td><?php echo $i++; ?></td>
-                        <td><iframe src="<?php echo base_url('file_buku/' . $rows->file_pdf) ?>" width="90" hight="120" ></iframe></td>
-                        <td><?php echo $rows->nama_buku; ?></td>
-                        <td><?php echo $rows->diskripsi; ?></td>
+                        <td><?php echo $rows->id_user; ?></td>
+                        <td><?php echo $rows->judul; ?></td>
+                        <td><?php echo $rows->keterangan; ?></td>
                        
                     <td>
-                            <a href="<?php echo site_url(); ?>bukuclient/put/<?php echo $rows->id_buku; ?>" class="btn btn-warning">
+                            <a href="<?php echo site_url(); ?>guruclient/put/<?php echo $rows->id_ulasan; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>
-                            <a href="<?= base_url(); ?>bukuclient/delete/<?= $rows->id_buku ;?>" class="btn btn-danger"
+                            <a href="<?= base_url(); ?>guruclient/delete/<?= $rows->id_ulasan ;?>" class="btn btn-danger"
                             onClick="return confirm('yakin mau hapus');">
                             <i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>

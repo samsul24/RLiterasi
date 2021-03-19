@@ -68,7 +68,7 @@
             </a>
           </li>
           <li class="nav-item">
-           <a href="<?php echo site_url(); ?>bukuclient" class="nav-link" id="navHome">
+           <a href="<?php echo site_url(); ?>guruclient/ulasan" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Ulasan

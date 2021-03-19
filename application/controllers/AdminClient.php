@@ -20,5 +20,6 @@ class AdminClient extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('footer');
     }
+    
 }
 ?>

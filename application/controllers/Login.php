@@ -67,10 +67,9 @@ class Login extends CI_Controller
       }
     } else {
       $this->session->set_flashdata('result', 'Login gagal');
-      print_r('gagal');
+      redirect('login');
     }
-    print_r('berhasil');
-    exit;
+    redirect('login');
   }
     
   public function reg()

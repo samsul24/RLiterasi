@@ -29,7 +29,6 @@ class GuruClient extends CI_Controller
     public function akses()
     {
         $data['buku'] = json_decode($this->curl->simple_get($this->API));
-        $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
         $data['title'] = "Buku";
         $this->load->view('header2');
         $this->load->view('bar1');
@@ -54,6 +53,27 @@ class GuruClient extends CI_Controller
         $this->load->view('bar1');
         $this->load->view('guru/buku', $data);
         $this->load->view('footer');
+    }
+    public function ulasan()
+    {
+        $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
+        $data['title'] = "Ulasan";
+        $this->load->view('header2');
+        $this->load->view('bar1');
+        $this->load->view('guru/ulasan', $data);
+        $this->load->view('footer');
+       
+    }
+    public function delete()
+    {
+        $params = array('id_ulasan' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API1, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data Gagal');
+        }
+        redirect('guruclient/ulasan');
     }
 }
 ?>
