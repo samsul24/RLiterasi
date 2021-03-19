@@ -82,9 +82,67 @@
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-        <?php 
-        $i=1;
-        foreach ($buku as $rows) : ?>
+
+              <html>
+
+<body>
+<div>Time left = <span id="timer"></span></div>
+</body>
+</html>
+<script>
+document.getElementById('timer').innerHTML =
+  0 + ":" + 05;
+startTimer();
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  //if(m<0){alert('timer completed')}
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {
+                window.location.href="<?php echo site_url(); ?>siswaclient/ulasan/";
+              }
+
+  return sec;
+}
+</script>
+
+
+
+<!-- 
+    <p id="demo"></p>
+      <script>
+      var countDownDate = new Date("march 19, 2021 08:08:00").getTime();
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+              
+            var distance = countDownDate - now;
+              
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              
+            document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+              
+              if (distance < 0) {
+                clearInterval(x);
+                window.location.href="<?php echo site_url(); ?>siswaclient/ulasan/";
+              }
+        }, 1000);
+      </script> -->
+
+
+      <?php $i=1; foreach ($buku as $rows) : ?>
                 <h2 class="title-a" style="color:#85a657">Buku <?php echo $rows->nama_buku; ?></h2>
                 <tr>
                     <iframe src="<?php echo base_url('file_buku/' . $rows->file_pdf) ?>" width="1110" height="1110" ></iframe>

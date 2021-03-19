@@ -1,4 +1,4 @@
-<?php if($this->session->userdata('id_user_role')!=2){redirect('login');};?>
+<?php if($this->session->userdata('id_user_role')!=2){redirect('adminclient');};?>
 
 <style>
     nav-treeview:hover{

@@ -8,7 +8,7 @@
       <div class="container-fluid" >
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-user-plus" ></i> Data Buku </h2>
+            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-user-plus" ></i> Data User </h2>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
     <div class="content">
       <div class="container-fluid">
       <div class="alert alert-secondary" role="alert">
-      <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp;  &nbsp;<i class="nav-icon fas fa-user"></i>  Buku 
+      <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp;  &nbsp;<i class="nav-icon fas fa-user"></i>  User 
         </div>
         
         <div class="row">
@@ -26,53 +26,55 @@
               <!-- Tabel -->
               <div class="card">
             <!-- /.card-header -->
-            <div class="card-b  ody">
+            <div class="card-body">
             <div class='card-header' style="margin-left:-20px;">
-                <a class='btn btn-success'href="<?php echo site_url(); ?>guruclient/post/">
+                <a class='btn btn-primary'href="<?php echo site_url(); ?>userclient/post/">
                     <i class="fa fa-plus"></i>
                     <span >
                         Tambah
                     </span>
                     </a>
                    
-                  </a> 
-                  <a class='btn btn-primary'href="<?php echo site_url(); ?>guruclient/time/">
-                    <i class="fa fa-TIME"></i>
-                    <span >
-                        Schedule
-                    </span>
-                    </a>
-                   
                   </a> <br>
             </div>   
             <br>
+            
               <table id="tabel" class="table table-bordered">
                 <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Foto</th>
+                  <th>Id</th>
+                  <th>User Role</th>
+                  <th>NIS</th>
                   <th>Nama</th>
-                  <th>Diskripsi</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Kelas</th>
+                  <th>Jurusan</th>
+                  <th>NO. Telp</th>
+                  <th>Username</th>
+                  <th>Password</th>
                   <th>Aksi</th>
                  
                 </tr>
                 </thead>
                 <tbody>
-                    
-                    <?php 
-                    $i=1;
-                    foreach ($buku as $rows) : ?>
+          
+                    <?php $i=1; foreach ($siswa as $rows) : ?>
                     <tr>
             
                         <td><?php echo $i++; ?></td>
-                        <td><iframe src="<?php echo base_url('file_buku/' . $rows->file_pdf) ?>" width="90" hight="120" ></iframe></td>
-                        <td><?php echo $rows->nama_buku; ?></td>
-                        <td><?php echo $rows->diskripsi; ?></td>
-                       
-                    <td>
-                            <a href="<?php echo site_url(); ?>bukuclient/put/<?php echo $rows->id_buku; ?>" class="btn btn-warning">
+                        <td><?php echo $rows->id_user_role; ?></td>
+                        <td><?php echo $rows->nis; ?></td>
+                        <td><?php echo $rows->nama; ?></td>
+                        <td><?php echo $rows->jenis_kelamin; ?></td>
+                        <td><?php echo $rows->kelas; ?></td>
+                        <td><?php echo $rows->jurusan; ?></td>
+                        <td><?php echo $rows->no_telp; ?></td>
+                        <td><?php echo $rows->username; ?></td>
+                        <td><?php echo $rows->password; ?></td>
+                        <td>
+                            <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>
-                            <a href="<?= base_url(); ?>bukuclient/delete/<?= $rows->id_buku ;?>" class="btn btn-danger"
+                            <a href="<?= base_url(); ?>userclient/delete/<?= $rows->id_user ;?>" class="btn btn-danger"
                             onClick="return confirm('yakin mau hapus');">
                             <i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>

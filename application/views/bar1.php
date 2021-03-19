@@ -1,4 +1,4 @@
-<?php if($this->session->userdata('id_user_role')!=2){redirect('login');};?>
+<?php if($this->session->userdata('id_user_role')!=3){redirect('guruclient');};?>
 
 <style>
     nav-treeview:hover{
@@ -34,7 +34,7 @@
                with font-awesome or any other icon font library -->
                
           <li class="nav-item ">
-           <a href="<?php echo site_url(); ?>adminclient" class="nav-link" id="navHome">
+           <a href="<?php echo site_url(); ?>guruclient" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Dashboard
@@ -53,23 +53,14 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>userclient/guru" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Guru</p>
-                </a>
-              </li>
-            </ul>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo site_url(); ?>userclient/siswa" class="nav-link">
+                <a href="<?php echo site_url(); ?>guruclient/siswa" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>Siswa</p>
                 </a>
               </li>
             </ul>
           <li class="nav-item">
-           <a href="<?php echo site_url(); ?>bukuclient" class="nav-link" id="navHome">
+           <a href="<?php echo site_url(); ?>guruclient/buku" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Buku

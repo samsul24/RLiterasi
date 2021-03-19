@@ -74,256 +74,8 @@
      
     </div>
 </nav>
-
-  <div class="intro intro-carousel">
-    <div id="carousel" class="owl-carousel owl-theme">
-    <div class="carousel-item-a intro-item bg-image" style="background-image:url(<?php echo base_url(); ?>css/assets/img1/4.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span> <br>Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/3.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/1.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/2.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/5.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- End Intro Section -->
   <br><br>
- 
-  <div class="sec text-center aos-init aos-animate" data-aos="zoom-in-up">
-	<h1 class="text-center big"style="color:#85a657">Vidios</h1>
-	<h2 class="subHeading" >Vidios</h2>
-<div class="sec text-center" style="padding: 70px;">
-	<!-- Grid row -->
-	<div class="row">
-		<!-- Grid column -->
-		<div class="col-lg-4 col-md-12 mb-4">
 
-			<!--Modal: Name-->
-			<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-
-					<!--Content-->
-					<div class="modal-content">
-
-						<!--Body-->
-						<div class="modal-body mb-0 p-0">
-
-							<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tJ65wgRPS3o" allowfullscreen=""></iframe>
-							</div>
-
-						</div>
-
-						<!--Footer-->
-						<div class="modal-footer justify-content-center">
-							<span class="mr-4">Spread the word!</span>
-							<a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-							<!--Twitter-->
-							<a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-							<!--Google +-->
-							<a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-							<!--Linkedin-->
-							<a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-							<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-						</div>
-
-					</div>
-					<!--/.Content-->
-
-				</div>
-			</div>
-			<!--Modal: Name-->
-
-			<a><img class="img-fluid z-depth-1" style="height=10px" src="<?php echo base_url(); ?>css/assets/img1/1.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=730&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal1"></a>
-
-		</div>
-		<!-- Grid column -->
-
-		<!-- Grid column -->
-		<div class="col-lg-4 col-md-6 mb-4">
-
-			<!--Modal: Name-->
-			<div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-
-					<!--Content-->
-					<div class="modal-content">
-
-						<!--Body-->
-						<div class="modal-body mb-0 p-0">
-
-							<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HduzzmUDZcI" allowfullscreen=""></iframe>
-							</div>
-
-						</div>
-
-						<!--Footer-->
-						<div class="modal-footer justify-content-center">
-							<span class="mr-4">Spread the word!</span>
-							<a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-							<!--Twitter-->
-							<a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-							<!--Google +-->
-							<a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-							<!--Linkedin-->
-							<a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-							<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-						</div>
-
-					</div>
-					<!--/.Content-->
-
-				</div>
-			</div>
-			<!--Modal: Name-->
-
-			<a><img class="img-fluid z-depth-1" src="<?php echo base_url(); ?>css/assets/img1/2.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=780&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal6"></a>
-
-		</div>
-		<!-- Grid column -->
-
-		<!-- Grid column -->
-		<div class="col-lg-4 col-md-6 mb-4">
-
-			<!--Modal: Name-->
-			<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-
-					<!--Content-->
-					<div class="modal-content">
-
-						<!--Body-->
-						<div class="modal-body mb-0 p-0">
-
-							<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HeJDyVYfUV8" allowfullscreen=""></iframe>
-							</div>
-
-						</div>
-
-						<!--Footer-->
-						<div class="modal-footer justify-content-center">
-							<span class="mr-4">Spread the word!</span>
-							<a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-							<!--Twitter-->
-							<a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-							<!--Google +-->
-							<a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-							<!--Linkedin-->
-							<a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-							<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-						</div>
-
-					</div>
-					<!--/.Content-->
-
-				</div>
-			</div>
-			<!--Modal: Name-->
-
-			<a><img class="img-fluid z-depth-1" src="<?php echo base_url(); ?>css/assets/img1/3.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal4"></a>
-
-		</div>
-		<!-- Grid column -->
-
-	</div>
-	<!-- Grid row -->
-</div>
-</div>
 
 
   <main id="main">
@@ -335,6 +87,18 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
+              <div class='card-header' style="margin-left:-20px;">
+                  <a class='btn btn-success'href="<?php echo site_url(); ?>siswaclient/literasi/">
+                      <i class="fa fa-book"></i>
+                      <span >
+                          Literasi
+                      </span>
+                      </a>
+                     
+                    </a>
+                
+                     <br><br>
+              </div>   
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
                 <h2 class="title-a" style="color:#85a657">Galeri</h2>
@@ -398,6 +162,41 @@
     </section><!-- End Latest News Section -->
 
     </section><!-- End Testimonials Section -->
+
+    <br><br><br>
+<div class="sec text-center aos-init aos-animate" data-aos="zoom-in-up">
+	<h1 class="text-center big" style="color:#85a657">Some Thing in Here</h1>
+	<h2 class="subHeading">Some Thing in Here</h2>
+	<div class="sec d-flex flex-row mt-4">
+		<div class="card-img-d" style="padding:70px">
+    <br>
+			<img src="<?php echo base_url(); ?>css/assets/img1/4.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="" class="img-d img-fluid" style="">
+			<br><br><br>
+			<img src="<?php echo base_url(); ?>css/assets/img1/5.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="" class="img-d img-fluid">
+      <br><br><br>
+    	<img src="<?php echo base_url(); ?>css/assets/img1/1.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="" class="img-d img-fluid">
+		</div>
+		<div class="text-left">
+    <br><br><br><br><br>
+			<p class="futura-content" style="margin : 1.5rem 0.5rem;">
+      &nbsp; &nbsp;Dalam biologi, tumbuhan adalah organisme eukariota multiseluler yang tergolong ke dalam kerajaan Plantae. 
+      Di dalamnya terdiri atas beberapa klad yakni, tanaman berbunga, Gymnospermae atau Tumbuhan berbiji terbuka, 
+     
+			</p><br><br><br><br><br><br>
+			<p class="futura-content" style="margin : 1.5rem 3rem;">
+      &nbsp; &nbsp;Ciri yang segera mudah dikenali pada tumbuhan adalah warna kehijauan tetapi bisa kuning yang dominan akibat 
+      kandungan pigmen klorofil yang berperan vital dalam proses penangkapan energi melalui fotosintesis. Dengan demikian, 
+     
+			</p><br><br><br><br><br><br>
+			<p class="futura-content" style="margin : 1.5rem 3rem;">
+      &nbsp; &nbsp;Klasifikasi tumbuhan masa lalu memasukkan pula semua alga ("ganggang") dan fungi 
+      (cendawan, termasuk jamur lendir, bahkan bakteri), sebagai anggotanya. Batasan tumbuhan 
+      semacam ini dikenal sebagai tumbuhan dalam arti luas, yang kini dianggap sudah usang.
+     
+			</p>
+		</div>
+	</div>
+</div>
 
   </main><!-- End #main -->
 

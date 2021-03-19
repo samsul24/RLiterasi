@@ -79,8 +79,36 @@
  <div class="w3-panel w3-teal">
  <center><h3 style="color:white;">Form Ulasan </h3></center>
  </div>
+ <body>
+<div>Time left = <span id="timer"></span></div>
+</body>
+</html>
+<script>
+document.getElementById('timer').innerHTML =
+  0 + ":" + 05;
+startTimer();
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  //if(m<0){alert('timer completed')}
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {
+                window.location.href="<?php echo site_url(); ?>siswaclient/berhasil/";
+              }
 
- 
+  return sec;
+}
+</script>
+
+
  <form action="<?php echo site_url('siswaclient/ulasan_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data">
  
  <td height="27"><div align="left"><strong><?php echo "Tanggal : ".date("d-M-y");?></strong></div></td>

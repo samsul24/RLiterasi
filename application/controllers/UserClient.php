@@ -43,7 +43,6 @@ class UserClient extends CI_Controller
         $this->load->view('bar');
         $this->load->view('admin/useradmin4', $data);
         $this->load->view('footer');
-       
     }
     public function post()
     {

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php if($this->session->userdata('id_user_role')!=2){redirect('adminclient');};?>
+<?php if($this->session->userdata('id_user_role')!=3){redirect('guruclient');};?>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="shortcut icon" href="<?php echo base_url();?>css/assets/img/logo-sma.png">
-  <title>Admin</title>
+  <title>Guru</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url().'assets/admin/plugins/fontawesome-free/css/all.min.css' ?>">

@@ -36,14 +36,7 @@
                   </a>
                  
                 </a> 
-              <a class='btn btn-success'href="<?php echo site_url(); ?>countdown">
-                  <i class="fa fa-times"></i>
-                  <span >
-                      Schedule
-                  </span>
-                  </a>
-                 
-                </a> <br>
+              <br>
             </div>   
             <br>
               <table id="tabel" class="table table-bordered">
