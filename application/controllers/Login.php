@@ -22,29 +22,6 @@ class Login extends CI_Controller
 
   public function log_process()
   {
-    // $user = htmlspecialchars($this->input->post('user', true));
-    // $password = htmlspecialchars($this->input->post('password', true));
-    // $check = $this->login_model->login($user, $password);
-    // if ($check) {
-    //   $this->session->set_userdata('id_user', $check->id_user);
-    //   $this->session->set_userdata('username', $check->username);
-    //   $this->session->set_userdata('id_user_role', $check->id_user_role);
-    //     if ($this->session->userdata('id_user_role') == 1) {
-    //       redirect('superadminclient');
-    //     }else if($this->session->userdata('id_user_role') == 2) {
-    //       redirect('adminclient');
-    //     }else if($this->session->userdata('id_user_role') == 3) {
-    //       redirect('guruclient');
-    //     }else if($this->session->userdata('id_user_role') == 4) {
-    //       redirect('userclient');
-    //     }else{
-    //     return false;
-    //   }
-    // }
-    // else {
-    //   $this->session->set_flashdata('result', 'Login gagal');
-    //   redirect('login');
-    // }
     $user = $this->input->post('user');
     $password = $this->input->post('password');
     $check = $this->login_model->login($user, $password);
