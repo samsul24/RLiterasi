@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('id_user_role') != 2) {
+<?php if ($this->session->userdata('id_user_role') != 1) {
   redirect('login');
 }; ?>
 <div class="cc">

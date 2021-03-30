@@ -8,6 +8,10 @@ class Login extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    // $this->user= $this->session->userdata('user_login');
+    // if(empty($this->user)){
+    //   redirect('login');
+    // }
     $this->load->library('curl');
     $this->load->library('session');
     $this->load->model('login_model');
@@ -15,11 +19,10 @@ class Login extends CI_Controller
 
   public function index()
   {
+
     $data['title'] = 'login';
     $this->load->view('login/index', $data);
   }
-
-
   public function log_process()
   {
     $user = $this->input->post('user');
@@ -27,17 +30,25 @@ class Login extends CI_Controller
     $check = $this->login_model->login($user, $password);
     if ($check) {
       foreach ($check as $rows) {
-        $this->session->set_userdata('id_user', $rows->id_user);
-        $this->session->set_userdata('username', $rows->username);
-        $this->session->set_userdata('id_user_role', $rows->id_user_role);
-      }
+        $session_data = array(
+          'username' => $rows->username,
+          'id_user_role' => $rows->id_user_role,
+          'id_user' => $rows->id_user,
+          'id_sekolah' => $rows->id_sekolah,
+          'nama_sekolah' => $rows->nama_sekolah,
+          'kabupaten' => $rows->kabupaten
+      );
+      // var_dump($session_data);
+      // exit;
+      $this->session->set_userdata($session_data);
+    }
       if ($this->session->userdata('id_user_role') == 1) {
         redirect('superadminclient');
       } elseif ($this->session->userdata('id_user_role') == 2) {
         redirect('adminclient');
       } elseif ($this->session->userdata('id_user_role') == 3) {
         redirect('guruclient');
-      } elseif ($this->session->userdata('id_user_role') == 4) {
+      } elseif($this->session->userdata('id_user_role') == 4){
         redirect('siswaclient');
       } else {
         redirect('userlogin');
@@ -48,7 +59,7 @@ class Login extends CI_Controller
     }
     redirect('login');
   }
-    
+
   public function reg()
   {
     $data['title'] = 'registrasi';
@@ -90,4 +101,3 @@ class Login extends CI_Controller
 }
 
 /* End of file Home.php */
-?>

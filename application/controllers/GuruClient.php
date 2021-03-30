@@ -12,15 +12,20 @@ class GuruClient extends CI_Controller
         $this->API = "http://localhost:8080/RLiterasi/api/buku";
         $this->API1 = "http://localhost:8080/RLiterasi/api/ulasan";
         $this->API2= "http://localhost:8080/RLiterasi/api/siswa";
+        $this->load->model('login_model');       
 
 
     }
 
     public function index()
     {
+        if($this->session->userdata('id_user_role')){
+        $username = $this->session->userdata('username');
+        $data['results'] = $this->login_model->get_user($username);
         $data['title'] = "Dashboard";
         $this->load->view('guru/index', $data, FALSE);
     }
+}
     public function galeri()
     {
         $data['title'] = "Buku";

@@ -10,25 +10,27 @@ class SiswaClient extends CI_Controller
     parent::__construct();
     $this->load->library('curl');
     $this->load->model("literasi_model");
-
-
-
+    $this->load->model('login_model');       
     $this->API = "http://localhost:8080/RLiterasi/api/buku";
     $this->API1 = "http://localhost:8080/RLiterasi/api/ulasan";
+    $this->API2 = "http://localhost:8080/RLiterasi/api/sekolah";
+
 
 
   }
 
   public function index()
   {
+    if($this->session->userdata('id_user_role')){
+    $username = $this->session->userdata('username');
+    $data['results'] = $this->login_model->get_user($username);
     $this->load->library('curl');
-
     $data['user'] = json_decode($this->curl->simple_get($this->API));
+    $data['sekolah'] = json_decode($this->curl->simple_get($this->API2));
     $data['title'] = "Dashboard";
-    // $this->load->view('header4', $data, FALSE);
     $this->load->view('user/index', $data, FALSE);
-    // $this->load->view('footer', $data, FALSE);
   }
+}
   public function buku()
   {
       $data['title'] = "Buku";

@@ -59,7 +59,7 @@
 
             <ul class="nav nav-treeview" style="margin-left:30px; ">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>userclient" class="nav-link" >
+                <a href="<?php echo site_url(); ?>superadminclient/admin" class="nav-link" >
                 <i class="fas fa-user-tie"></i>
                   <p >&nbsp; Admin</p>
                 </a>
@@ -68,7 +68,7 @@
 
             <ul class="nav nav-treeview" style="margin-left:30px;">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>laporanexcel" class="nav-link">
+                <a href="<?php echo site_url(); ?>superadminclient/guru" class="nav-link">
                   <i class="fas fa-user-tie"></i>
                   <p>&nbsp; Guru</p>
                 </a>
@@ -77,12 +77,20 @@
 
             <ul class="nav nav-treeview" style="margin-left:30px;">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>laporanexcel" class="nav-link">
+                <a href="<?php echo site_url(); ?>superadminclient/siswa" class="nav-link">
                   <i class="fas fa-user-tie"></i>
                   <p>&nbsp; Siswa</p>
                 </a>
               </li>
             </ul>
+          <li class="nav-item">
+           <a href="<?php echo site_url(); ?>sekolahclient" class="nav-link" id="navHome">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Sekolah
+              </p>
+            </a>
+          </li>
             <li class="nav-item">
            <a href="<?php echo site_url(); ?>userrole" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-user-tie"></i>

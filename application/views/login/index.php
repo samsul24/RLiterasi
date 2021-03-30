@@ -91,26 +91,10 @@
         <div class="divider-custom-line"></div>
       </div>
       <!-- Masthead Subheading -->
-      <?php if(!empty($this->session->userdata('id_user'))){ ?>
-        <div class="row" style="width: 60%;">
-          <div class="col-md-5 text-right">
-            <label><h5>Nomor Antrian Anda :</label></h5>
-          </div>
-          <!-- <div class="col-md-2 text-justify"><h5><?php echo $nomor ?></h5></div> -->
-          <?php if(!empty($id_antrian)){?>
-            <div class="col-md-5"><a href="<?php echo base_url('Index/cetak')."/".$id_antrian ?>" style="color: #000; background: #fff; padding: 10px;" target="_blank">Cetak</a></div>
-          <?php } ?>
-        </div>
-        <div class="row" style="width: 60%;">
-          <div class="col-md-5 text-right"><label><h5>Poli :</label></h5></div>
-          <!-- <div class="col-md-5 text-justify"><h5><?php echo $nama?></h5></div> -->
-        </div>
-      <?php } ?>
-    </div>
+    
   </header>
   <!-- Portfolio Section -->
   <section class="page-section portfolio" id="login">
-     <?php if(empty($this->session->userdata('id_user'))){ ?>
       <div class="container">
         <!-- Portfolio Section Heading -->
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Login</h2>
@@ -129,14 +113,7 @@
               <div class="col-md-4" style="margin-top: 20px">
                 <!-- <h1 align="center">Login </h1> -->
                 <form action="<?php echo site_url() ?>login/log_process" method='post'>
-                <?php if ($this->session->flashdata('result') != '') { ?>
-                        <div class="alert alert-dark alert-dismissible fade show">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <?php echo $this->session->flashdata('result'); ?>
-                        </div>
-                    <?php
-                    }
-                ?>
+               
                   <label >Username</label>
                     <input type="text" class="form-control" id="user" placeholder="Masukkan username" name="user" required>
                   <label>Password</label>
@@ -152,70 +129,7 @@
         </div>
         <!-- /.row -->
       </div>
-    <?php }else{ ?>
-      <div class="container">
-        <!-- Portfolio Section Heading -->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Ambil Antrian</h2>
-        <!-- Icon Divider -->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Portfolio Grid Items -->
-        <div class="row">
-          <div class="container">
-            <div class="row justify-content-md-center">
-              <div class="col-md-12" style="margin-top: 20px">
-                <!-- <h1 align="center">Login </h1> -->
-                <form action="<?php echo base_url('Index/saveAntrian') ?>" method="post">
-                  <div class ="row">
-                    <div class ="col-md-2">
-                      <h6><label>Pilih Layanan</label></h6>   
-                    </div>
-                    <div class="col-md-5">
-                      <select name="id_antrian" id="id_antrian" class="form-control" onchange="noAntrian(this.value)">
-                        <option value=""> pilih </option>
-                        <?php foreach ($getPoli as $row ) {
-                        ?>
-                          <option value="<?php echo $row->id_antrian; ?>"> <?php echo $row->kode; ?> </option>
-                        <?php } ?>
-                      </select>
-                    </div>
-                  </div>
-                  <div class ="row">
-                    <div class ="col-md-2">
-                      <h6><label>No Antrian</label></h6>    
-                    </div>
-                    <div class="col-md-5">
-                      <input type="text" name="nomor" id="nomor" value="" disabled="" class="form-control">
-                      <input type="hidden" name="nomor" id="nomor" value="" class="form-control">
-                      <!-- <input type="hidden" name="nomor" value="<?php echo $nomor ?>"> -->
-                    </div>
-                  </div>
-                  <div class="row text-right">
-                    <div class="col-md-7">
-                      <input type="submit" name="simpan" id="simpan" value="Ambil Antrian" class="btn btn-primary">
-                    </div>
-                  </div>
-                </form>
-                 <div class="row text-justify" >
-                 <h6>Keterangan :</h6>
-                  <ol>
-                    <li>UMUM DAN KESEKRETARIATAN (A)</li>
-                    <li>PENDIDIKAN (B)</li>
-                    <li>AGAMA DAN PHU (C)</li>
-                  </ol>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.row -->
-      </div>
-    <?php } ?>
+    
   </section>
   <!-- About Section -->
   <section class="page-section bg-primary text-white mb-0" id="bantuan">
