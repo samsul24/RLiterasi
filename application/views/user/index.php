@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('id_user_role') != 4) {
+<!-- <?php if ($this->session->userdata('id_user_role') != 4) {
   redirect('login');
 }; ?>
 
@@ -17,20 +17,16 @@
     <script src="<?php echo base_url() ?>css/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
     <script src="<?php echo base_url() ?>css/assets/vendor/scrollreveal/scrollreveal.min.js"></script>
 
-    <!-- Vendor CSS Files -->
     <title>RLiterasi</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
 
     <link rel="icon" href="<?php echo base_url() ?>css/assets/img/vedc.jpg">
     <link href="<?php echo base_url() ?>css/assets/img1/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
     <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/animate.css/animate.min.css">
@@ -182,17 +178,16 @@
           </div>
         </div>
       </div>
-    </div><!-- End Intro Section -->
+    </div>
     <br><br>
 
     <div class="sec text-center aos-init aos-animate" data-aos="zoom-in-up">
       <h1>
-      <?php
-$kalimat="Sedang serius belajar PHP di duniailkom";
-$posisi=strpos($kalimat,"php",9);
-var_dump($posisi);
-// bool(false)
-?>
+        <?php
+        $kalimat = "Sedang serius belajar PHP di duniailkom";
+        $posisi = strpos($kalimat, "php", 9);
+        var_dump($posisi);
+        ?>
 
       </h1>
       <br>
@@ -201,19 +196,14 @@ var_dump($posisi);
       <h1 class="text-center big" style="color:#85a657">Vidios</h1>
       <h2 class="subHeading">Vidios</h2>
       <div class="sec text-center" style="padding: 70px;">
-        <!-- Grid row -->
         <div class="row">
-          <!-- Grid column -->
           <div class="col-lg-4 col-md-12 mb-4">
 
-            <!--Modal: Name-->
             <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
 
-                <!--Content-->
                 <div class="modal-content">
 
-                  <!--Body-->
                   <div class="modal-body mb-0 p-0">
 
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
@@ -222,15 +212,11 @@ var_dump($posisi);
 
                   </div>
 
-                  <!--Footer-->
                   <div class="modal-footer justify-content-center">
                     <span class="mr-4">Spread the word!</span>
                     <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-                    <!--Twitter-->
                     <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-                    <!--Google +-->
                     <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-                    <!--Linkedin-->
                     <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
 
                     <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
@@ -238,28 +224,21 @@ var_dump($posisi);
                   </div>
 
                 </div>
-                <!--/.Content-->
 
               </div>
             </div>
-            <!--Modal: Name-->
 
             <a><img class="img-fluid z-depth-1" style="height=10px" src="<?php echo base_url(); ?>css/assets/img1/1.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=730&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal1"></a>
 
           </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
           <div class="col-lg-4 col-md-6 mb-4">
 
-            <!--Modal: Name-->
             <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
 
-                <!--Content-->
                 <div class="modal-content">
 
-                  <!--Body-->
                   <div class="modal-body mb-0 p-0">
 
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
@@ -268,15 +247,11 @@ var_dump($posisi);
 
                   </div>
 
-                  <!--Footer-->
                   <div class="modal-footer justify-content-center">
                     <span class="mr-4">Spread the word!</span>
                     <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-                    <!--Twitter-->
                     <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-                    <!--Google +-->
                     <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-                    <!--Linkedin-->
                     <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
 
                     <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
@@ -284,28 +259,21 @@ var_dump($posisi);
                   </div>
 
                 </div>
-                <!--/.Content-->
 
               </div>
             </div>
-            <!--Modal: Name-->
 
             <a><img class="img-fluid z-depth-1" src="<?php echo base_url(); ?>css/assets/img1/2.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=780&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal6"></a>
 
           </div>
-          <!-- Grid column -->
 
-          <!-- Grid column -->
           <div class="col-lg-4 col-md-6 mb-4">
 
-            <!--Modal: Name-->
             <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
 
-                <!--Content-->
                 <div class="modal-content">
 
-                  <!--Body-->
                   <div class="modal-body mb-0 p-0">
 
                     <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
@@ -314,15 +282,11 @@ var_dump($posisi);
 
                   </div>
 
-                  <!--Footer-->
                   <div class="modal-footer justify-content-center">
                     <span class="mr-4">Spread the word!</span>
                     <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-                    <!--Twitter-->
                     <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-                    <!--Google +-->
                     <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-                    <!--Linkedin-->
                     <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
 
                     <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
@@ -330,28 +294,22 @@ var_dump($posisi);
                   </div>
 
                 </div>
-                <!--/.Content-->
 
               </div>
             </div>
-            <!--Modal: Name-->
 
             <a><img class="img-fluid z-depth-1" src="<?php echo base_url(); ?>css/assets/img1/3.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal4"></a>
 
           </div>
-          <!-- Grid column -->
 
         </div>
-        <!-- Grid row -->
       </div>
     </div>
 
 
     <main id="main">
 
-      <!-- ======= Agents Section ======= -->
 
-      <!-- ======= Latest News Section ======= -->
       <section class="section-news section-t8">
         <div class="container">
           <div class="row">
@@ -416,11 +374,11 @@ var_dump($posisi);
               </div>
             </div>
 
-      </section><!-- End Latest News Section -->
+      </section>
 
-      </section><!-- End Testimonials Section -->
+      </section>
 
-    </main><!-- End #main -->
+    </main>
 
 
 
@@ -549,8 +507,6 @@ var_dump($posisi);
             </div>
             <div class="copyright-footer">
               <p class="copyright color-text-a">
-                <!-- © Copyright -->
-                <!-- <span class="color-a">EstateAgency</span> All Rights Reserved. -->
               </p>
             </div>
             <div class="credits">
@@ -561,4 +517,5 @@ var_dump($posisi);
     </footer>
     <script src="<?php echo base_url() ?>css/assets/js/main.js"></script>
   </body>
-  </html>
+
+  </html> -->
