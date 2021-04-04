@@ -91,7 +91,7 @@
 </html>
 <script>
 document.getElementById('timer').innerHTML =
-  0 + ":" + 05;
+  0 + ":" + 59;
 startTimer();
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;

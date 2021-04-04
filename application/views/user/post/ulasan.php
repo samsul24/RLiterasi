@@ -85,7 +85,7 @@
 </html>
 <script>
 document.getElementById('timer').innerHTML =
-  0 + ":" + 05;
+  0 + ":" + 59;
 startTimer();
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
@@ -122,7 +122,7 @@ function checkSecond(sec) {
     <div class="w3-padding">
             <textarea name="keterangan"style="width:640px;height:200px" id="keterangan"  placeholder="Keterangan"></textarea>
     </div>
-    <button type="button" class="w3-button w3-block w3-teal w3-section w3-padding" data-toggle="modal" data-target="#myModal" style="margin-left:15px;width:640px;height:40px">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left:px;width:140px;height:40px">
                                 Kirim
                             </button>
                             <!-- The Modal -->
