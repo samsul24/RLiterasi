@@ -35,7 +35,13 @@ class Login extends CI_Controller
           'id_user' => $rows->id_user,
           'id_sekolah' => $rows->id_sekolah,
           'nama_sekolah' => $rows->nama_sekolah,
-          'kabupaten' => $rows->kabupaten
+          'visi' => $rows->visi,
+          'misi' => $rows->misi,
+          'email' => $rows->email,
+          'no_telp' => $rows->no_telp,
+          'alamat_sekolah' => $rows->alamat_sekolah,
+          'website' => $rows->website,
+          'kabupaten' => $rows->kabupaten,
         );
         $this->session->set_userdata($session_data);
       }

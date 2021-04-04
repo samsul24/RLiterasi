@@ -1,544 +1,533 @@
 
-<div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/background2.jpg)">
+<?php if ($this->session->userdata('id_user_role') != 3) {
+  redirect('login');
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<img src="<?php echo base_url(); ?>css/assets/img/12.png"  width="50px" height="50px">
-<script src="<?php echo base_url() ?>css/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?php echo base_url() ?>css/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo base_url() ?>css/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="<?php echo base_url() ?>css/assets/vendor/php-email-form/validate.js"></script>
-  <script src="<?php echo base_url() ?>css/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="<?php echo base_url() ?>css/assets/vendor/scrollreveal/scrollreveal.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Vendor CSS Files -->
-  <title>RLiterasi</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  <!-- maps -->
 
-  <!-- Favicons -->
-  
-<link rel="icon" href="<?php echo base_url() ?>css/assets/img/vedc.jpg">
-<link href="<?php echo base_url() ?>css/assets/img1/apple-touch-icon.png" rel="apple-touch-icon">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <!-- end maps -->
+  <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>PT KAWI SAKTI MANDIRI - Construction</title>
 
-  <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/animate.css/animate.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/vendor/owl.carousel/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style.css">
+  <!-- Icon css link -->
+  <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>css/materialdesignicons.min.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Rev slider css -->
+  <link href="<?php echo base_url(); ?>vendors/revolution/css/settings.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>vendors/revolution/css/layers.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>vendors/revolution/css/navigation.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>vendors/animate-css/animate.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Extra plugin css -->
+  <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-    <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand" href="index.html">
-    <img src="<?php echo base_url(); ?>css/assets/img/logo-sma.png"  width="50px" height="50px">
-          R-<span class="color-b">Literasi</span></a>
-      <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
-        <span class="fa fa-search" aria-hidden="true"></span>
-      </button>
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url(); ?>guruclient">Beranda</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url(); ?>guruclient/galeri">Buku</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url(); ?>guruclient/ulasan">Ulasan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url(); ?>guruclient/akses">Guru</a>
-          </li>
-         
-        </ul>
-      </div>
-     
-    </div>
-</nav>
-
-  <div class="intro intro-carousel">
-    <div id="carousel" class="owl-carousel owl-theme">
-    <div class="carousel-item-a intro-item bg-image" style="background-image:url(<?php echo base_url(); ?>css/assets/img1/4.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span> <br>Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/3.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/1.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/2.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(<?php echo base_url(); ?>css/assets/img1/5.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top">Website Literasi
-                      <br> 2021</p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b">SMAN 01 Geger</span><br> Kota Madiun </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- End Intro Section -->
-  <br><br>
- 
-  <div class="sec text-center aos-init aos-animate" data-aos="zoom-in-up">
-	<h1 class="text-center big"style="color:#85a657">Vidios</h1>
-	<h2 class="subHeading" >Vidios</h2>
-<div class="sec text-center" style="padding: 70px;">
-	<!-- Grid row -->
-	<div class="row">
-		<!-- Grid column -->
-		<div class="col-lg-4 col-md-12 mb-4">
-
-			<!--Modal: Name-->
-			<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-
-					<!--Content-->
-					<div class="modal-content">
-
-						<!--Body-->
-						<div class="modal-body mb-0 p-0">
-
-							<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tJ65wgRPS3o" allowfullscreen=""></iframe>
-							</div>
-
-						</div>
-
-						<!--Footer-->
-						<div class="modal-footer justify-content-center">
-							<span class="mr-4">Spread the word!</span>
-							<a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-							<!--Twitter-->
-							<a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-							<!--Google +-->
-							<a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-							<!--Linkedin-->
-							<a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-							<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-						</div>
-
-					</div>
-					<!--/.Content-->
-
-				</div>
-			</div>
-			<!--Modal: Name-->
-
-			<a><img class="img-fluid z-depth-1" style="height=10px" src="<?php echo base_url(); ?>css/assets/img1/1.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=730&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal1"></a>
-
-		</div>
-		<!-- Grid column -->
-
-		<!-- Grid column -->
-		<div class="col-lg-4 col-md-6 mb-4">
-
-			<!--Modal: Name-->
-			<div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-
-					<!--Content-->
-					<div class="modal-content">
-
-						<!--Body-->
-						<div class="modal-body mb-0 p-0">
-
-							<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HduzzmUDZcI" allowfullscreen=""></iframe>
-							</div>
-
-						</div>
-
-						<!--Footer-->
-						<div class="modal-footer justify-content-center">
-							<span class="mr-4">Spread the word!</span>
-							<a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-							<!--Twitter-->
-							<a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-							<!--Google +-->
-							<a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-							<!--Linkedin-->
-							<a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-							<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-						</div>
-
-					</div>
-					<!--/.Content-->
-
-				</div>
-			</div>
-			<!--Modal: Name-->
-
-			<a><img class="img-fluid z-depth-1" src="<?php echo base_url(); ?>css/assets/img1/2.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=780&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal6"></a>
-
-		</div>
-		<!-- Grid column -->
-
-		<!-- Grid column -->
-		<div class="col-lg-4 col-md-6 mb-4">
-
-			<!--Modal: Name-->
-			<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-
-					<!--Content-->
-					<div class="modal-content">
-
-						<!--Body-->
-						<div class="modal-body mb-0 p-0">
-
-							<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-								<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/HeJDyVYfUV8" allowfullscreen=""></iframe>
-							</div>
-
-						</div>
-
-						<!--Footer-->
-						<div class="modal-footer justify-content-center">
-							<span class="mr-4">Spread the word!</span>
-							<a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-							<!--Twitter-->
-							<a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-							<!--Google +-->
-							<a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-							<!--Linkedin-->
-							<a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-							<button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-						</div>
-
-					</div>
-					<!--/.Content-->
-
-				</div>
-			</div>
-			<!--Modal: Name-->
-
-			<a><img class="img-fluid z-depth-1" src="<?php echo base_url(); ?>css/assets/img1/3.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="video" data-toggle="modal" data-target="#modal4"></a>
-
-		</div>
-		<!-- Grid column -->
-
-	</div>
-	<!-- Grid row -->
-</div>
-</div>
 
 
-  <main id="main">
-
-    <!-- ======= Agents Section ======= -->
-
-    <!-- ======= Latest News Section ======= -->
-    <section class="section-news section-t8">
+  <!--================Header Area =================-->
+  <header class="main_header_area">
+    <div class="header_top_area">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a" style="color:#85a657">Galeri</h2>
-              </div>
-              <div class="title-link">
-                <a href="<?php echo site_url(); ?>userlogin/galeri">All News
-                  <span class="ion-ios-arrow-forward"></span>
-                </a>
-              </div>
+        <div class="pull-left">
+          <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
+          <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
+          <a href="#"><i class="mdi mdi-clock"></i>08 AM - 04 PM</a>
+        </div>
+        <!--  <div class="pull-right">
+                        <ul class="header_social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div> -->
+      </div>
+    </div>
+    <div class="main_menu_area">
+      <div class="container">
+        <nav class="navbar navbar-default">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="index.php"><img src="img/logo.png"></a> -->
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<?php echo site_url(); ?>siswaclient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>guruclient/ulasan">Ulasan</a></li>
+              <li><a href="<?php echo site_url(); ?>siswaclient/buku">Buku</a></li>
+              <li><a href="<?php echo site_url(); ?>guruclient/akses">Guru</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
+
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!--================Header Area =================-->
+
+  <!--================Main Slider Area =================-->
+  <section class="main_slider_area">
+    <div id="main_slider" class="rev_slider" data-version="5.3.1.6">
+      <ul>
+        <li data-index="rs-2972" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+          <!-- MAIN IMAGE -->
+          <img src="<?php echo base_url(); ?>img/home-slider/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+          <!-- LAYERS -->
+          <div class="slider_text_box2">
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['70','70','70','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Literasi  <br><?= $this->session->userdata('nama_sekolah') ?><br></div>
+
+            <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><br>Kota <?= $this->session->userdata('kabupaten') ?></div>
+
+            <div class="tp-caption" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['140','140','140','130','90']" data-fontsize="['28','28','28','28']" data-lineheight="['38','38','38','38']" data-width="['730']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><a class="slider_btn" href="skafoldBar.php"> Do-literacy </a></div>
+          </div>
+        </li>
+        <li data-index="rs-2973" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+          <!-- MAIN IMAGE -->
+          <img src="<?php echo base_url(); ?>img/home-slider/slider-2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+          <!-- LAYERS -->
+          <div class="slider_text_box2">
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['80','80','60','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to PT Kawi Sakti Megah</div>
+
+            <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">Rental Scaffolding and Build Constrution</div>
+
+            <div class="tp-caption" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['140','140','140','130','90']" data-fontsize="['28','28','28','28']" data-lineheight="['38','38','38','38']" data-width="['730']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><a class="slider_btn" href="#">browse services</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="our_service_area">
+    <div class="left_service">
+      <div class="left_service_inner">
+        <div class="service_item">
+          <div class="service_item_inner">
+            <div class="service_icon">
+              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
+            <a href="#">
+              <h4>Literasi 15 Menit</h4>
+            </a>
+            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis </p>
+
           </div>
         </div>
-        <div id="new-carousel" class="owl-carousel owl-theme">
-          <div class="carousel-item-c">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="<?php echo base_url(); ?>css/assets/img/2.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Learning</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="blog-single.html">Learning is comming
-                        <br> new</a>
-                    </h2>
-                  </div>
-                  <div class="card-date">
-                    <span class="date-b">18 Sep. 2021</span>
-                  </div>
-                </div>
-              </div>
+        <div class="service_item">
+          <div class="service_item_inner">
+            <div class="service_icon">
+              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
+            <a href="#">
+              <h4>Literasi Bebas</h4>
+            </a>
+            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+
           </div>
-          <div class="carousel-item-c">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="<?php echo base_url(); ?>css/assets/img/1.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Politik</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="blog-single.html">Politik is comming
-                        <br> new</a>
-                    </h2>
-                  </div>
-                  <div class="card-date">
-                    <span class="date-b">18 Sep. 2021</span>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="service_item">
+          <div class="service_item_inner">
+            <div class="service_icon">
+              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
+            <a href="#">
+              <h4>Literasi Bebas</h4>
+            </a>
+            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis </p>
+
           </div>
-         
-    </section><!-- End Latest News Section -->
+        </div>
+        <div class="service_item">
+          <div class="service_item_inner">
+            <div class="service_icon">
+              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/s-icon-hover-4.png" alt="">
+            </div>
+            <a href="#">
+              <h4>Literasi Bebas</h4>
+            </a>
+            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+          </div>
+        </div>
+        <div class="service_item">
+          <div class="service_item_inner">
+            <div class="service_icon">
+              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/s-icon-hover-4.png" alt="">
+            </div>
+            <a href="#">
+              <h4>Literasi Bebas</h4>
+            </a>
+            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+          </div>
+        </div>
+        <div class="service_item">
+          <div class="service_item_inner">
+            <div class="service_icon">
+              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/s-icon-hover-4.png" alt="">
+            </div>
+            <a href="#">
+              <h4>Literasi Bebas</h4>
+            </a>
+            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis <br></p>
 
-    </section><!-- End Testimonials Section -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right_service">
+      <div class="right_service_text">
+        <div class="main_b_title">
+          <h2>Lingkup <br class="title_br" /> Literasi</h2>
+          <h6><?= $this->session->userdata('nama_sekolah') ?></h6>
+        </div>
+        <p>Visi :</p>
+        <p><?= $this->session->userdata('visi') ?></p>
+        <p>Misi :</p>
+        <p><?= $this->session->userdata('misi') ?></p>
+        <div class="border_bar"></div>
+      </div>
+    </div>
+  </section>
+  <!--================End Our Service Area =================-->
 
-  </main><!-- End #main -->
-
-
-
-
- <section class="section-footer">
+  <!--================Our Project Area =================-->
+  <section class="our_project_area">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-4">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">R-<span class="color-b">Literasi</h3>
+        <div class="col-md-3">
+          <div class="project_left_side">
+            <div class="main_w_title">
+              <h2>Literasi <br class="title_br" /></h2>
+              <h6><?= $this->session->userdata('nama_sekolah') ?></h6>
             </div>
-            <div class="w-body-a">
-              <p class="w-text-a color-text-a">
-              Literasi adalah kemampuan seseorang dalam mengolah 
-              dan memahami informasi saat melakukan proses membaca dan menulis.  </p>
-            </div>
-            <div class="w-footer-a">
-              <ul class="list-unstyled">
-                <li class="color-a">
-                <li class="color-a">
-                  <span class="color-text-a">Email .</span>sman1geger@gmail.com</li>
-              </ul>
-            </div>
+            <ul class="our_project_filter">
+              <li class="active" data-filter="*"><a href="#">All</a></li>
+              <li data-filter=".building"><a href="#">Sejarah Indonesia</a></li>
+              <li data-filter=".interior"><a href="#">Komik</a></li>
+              <li data-filter=".design"><a href="#">Pusat Dunia</a></li>
+              <li data-filter=".isolation"><a href="#">Ilmu Komunikasi</a></li>
+              <li data-filter=".plumbing"><a href="#">Sains</a></li>
+              <li data-filter=".tiling"><a href="#">History </a></li>
+            </ul>
           </div>
         </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">Event</h3>
-            </div>
-            <div class="w-body-a">
-              <div class="w-body-a">
-                <ul class="list-unstyled">
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="http://sman1geger.sch.id/2020/12/12/sma-award-2020/">SMA Award 2020</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="http://sman1geger.sch.id/2020/11/25/dampak-pendidikan-di-era-pandemi-covid-19/">Dampak Pendidkan (Covid-19)</a>
-                  </li>
-                
-                </ul>
+        <div class="col-md-9">
+          <div class="our_project_details">
+            <div class="project_item building isolation tiling">
+              <img src="img/project/project-2.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Sejarah Indonesia</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-4 section-md-t3">
-          <div class="widget-a">
-            <div class="w-header-a">
-              <h3 class="w-title-a text-brand">About</h3>
+            <div class="project_item building isolation plumbing">
+              <img src="img/project/project-2.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Komik</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="w-body-a">
-              <ul class="list-unstyled">
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="http://sman1geger.sch.id">SMAN 1 Geger</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="http://belajar.sman1geger.sch.id/perpus/">Perpustakaan</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="http://elearning.sman1geger.sch.id/login/index.php">Elearning</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="http://belajar.sman1geger.sch.id/ekstrasmager">Blog SMAN 1 Geger</a>
-                </li>
-               
-              </ul>
+            <div class="project_item building interior design">
+              <img src="img/project/project-3.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Pusat Dunia </h4>
+                    </a>
+                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="project_item interior isolation plumbing">
+              <img src="img/project/project-4.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Ilmu Komunikasi</h4>
+                    </a>
+                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project_item interior design tiling">
+              <img src="img/project/project-4.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Sains</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div> 
+                </div>
+              </div>
+            </div>
+            <div class="project_item design plumbing tiling">
+              <img src="img/project/project-3.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>History</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <footer>
+  <!--================End Our Project Area =================-->
+
+  <!--================Work Area =================-->
+  <section class="work_area">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="nav-footer">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">Home</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">About</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Property</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Blog</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="socials-a">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
+      <div class="work_content">
+        <div class="main_c_title">
+          <h2>Membaca<br class="title_br" />dengan Kami</h2>
+          <h6>Mari MeningkatkaN Minat Baca Di Indonesia</h6>
+        </div>
+        <p>Literasi adalah kemampuan seseorang dalam mengolah 
+              dan memahami informasi saat melakukan proses membaca dan menulis.</p>
+        <a class="get_bg_btn" href="#">Lihat Profile</a>
+      </div>
+    </div>
+  </section>
+  <!--================End Work Area =================-->
+
+  <!--================Our Team Area =================-->
+
+  <!--================End Our Team Area =================-->
+
+  <!--================Counter Area =================-->
+  <section class="counter_area">
+    <div class="container">
+      <div class="row counter_inner">
+        <div class="col-md-3 col-sm-6">
+          <div class="counter_item">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+            <h4 class="counter">245</h4>
+            <h5>Total Buku</h5>
           </div>
-          <div class="copyright-footer">
-            <p class="copyright color-text-a">
-              <!-- © Copyright -->
-              <!-- <span class="color-a">EstateAgency</span> All Rights Reserved. -->
-            </p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="counter_item">
+            <i class="fa fa-building-o" aria-hidden="true"></i>
+            <h4 class="counter">535</h4>
+            <h5>Total Siswa</h5>
           </div>
-          <div class="credits">
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="counter_item">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <h4 class="counter">288</h4>
+            <h5>Total Guru</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="counter_item">
+            <i class="fa fa-smile-o" aria-hidden="true"></i>
+            <h4 class="counter">750</h4>
+            <h5>Koleksi</h5>
           </div>
         </div>
       </div>
     </div>
-  </footer>
-  <script src="<?php echo base_url() ?>css/assets/js/main.js"></script>
+  </section>
 
+
+  <!--================Map Area =================-->
+  <div src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5125777338626!2d112.61432889942874!3d-7.945863381324911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sState%20Polytechnic%20of%20Malang!5e0!3m2!1sen!2sid!4v1617527585670!5m2!1sen!2sid" id="mapBox" class="mapBox row m0" data-lat="-7.9465344" data-lon="112.6138529" data-zoom="10" data-marker="img/map-marker.png" data-info="Malang, uttara, Sector 10, Road 22" data-mlat="40.7112969" data-mlon="-74.1393991"></div>
+  <footer class="footer_area">
+    <div class="footer_widgets_area">
+      <div class="container">
+        <div class="row footer_widgets_inner">
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget about_widget">
+              <!-- <img src="img/footer-logo.png"> -->
+              <p><?= $this->session->userdata('visi') ?></p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+              </ul>
+            </aside>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget recent_widget">
+              <div class="f_w_title">
+                <h3>New Event</h3>
+              </div>
+              <div class="recent_w_inner">
+                <div class="media">
+                  <div class="media-left">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">
+                      <p><?= $this->session->userdata('website') ?></p>
+                    </a>
+                  </div>
+                </div>
+               
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget address_widget">
+              <div class="f_w_title">
+                <h3>Office Address</h3>
+              </div>
+              <div class="address_w_inner">
+                <div class="media">
+                  <div class="media-left">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <div class="media-body">
+                    <p> <?= $this->session->userdata('alamat_sekolah') ?></p>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="media-left">
+                    <i class="fa fa-phone"></i>
+                  </div>
+                  <div class="media-body">
+                    <p><?= $this->session->userdata('no_telp') ?> </p>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="media-left">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <div class="media-body">
+                    <p><?= $this->session->userdata('website') ?></p>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget give_us_widget">
+              <h5>Give Us A Call</h5>
+              <h4><?= $this->session->userdata('no_telp') ?> </h4>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_copy_right">
+      <div class="container">
+        <h4>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </h4>
+      </div>
+    </div>
+  </footer>
+  <!--================End Footer Area =================-->
+
+
+
+
+
+
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="<?php echo base_url(); ?>css/js/jquery-2.2.4.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="<?php echo base_url(); ?>css/js/bootstrap.min.js"></script>
+  <!-- Rev slider js -->
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+  <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
+
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="<?php echo base_url(); ?>css/js/gmaps.min.js"></script>
+
+  <script src="<?php echo base_url(); ?>css/js/theme.js"></script>
 </body>
 
-</html> 
+
+
+
+
+
