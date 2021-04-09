@@ -68,7 +68,7 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0"><img class="masthead-avatar mb-3" src="<?=base_url();?>css/assets/img/logo-sma.png" alt=""><br>LITERASI</h1><br>
+      <h1 class="masthead-heading text-uppercase mb-0"><img class="masthead-avatar mb-3" src="<?=base_url();?>css/assets/img/logo-sma" alt=""><br>LITERASI</h1><br>
       <div class="row">
           <div class="col-md-12" style="border: thin solid; ">
            <h3></h3>
@@ -77,7 +77,7 @@
           </div>
       </div>
         
-        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Literasi SMA Negeri 1 Geger <br>Kota Madiun</h4>
+        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Rumah Literasi Bersama <br>Berkumpul, Berbagi, Bergerak Bersama</h4>
         <div class="col-md-2" style="margin-left:545px;">
                 <!-- <a href="<?php echo site_url(); ?>antrianclient" class="btn btn-dark btn-block banner" role="button" style="margin: center">
                   Ambil Antrian                </a> -->
@@ -176,40 +176,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form action="<?php echo base_url('Index/registrasi') ?>" method="post">
-            <div>
-                <label >Nomor Antrian <sup>*</sup></label>
-                <input type="text" id="nomor" name="nomor" class="form-control" value="" placeholder="Nomor Antrian" required="">
-            </div>
-            <div>
-              <label >Layanan</label>
-              <select id="id_layanan" name="id_layanan" class="form-control">
-              <option value="">Pilih</option>
-              <option value="1">1. UMUM DAN KESEKRETARIATAN</option>
-              <option value="2">2. PENDIDIKAN</option>
-              <option value="3">3. AGAMA DAN PHU</option>
-              </select>
-            </div>
-            <div>
-                <label >Tanggal <sup>*</sup></label>
-                <input type="date" id="tanggal" name="tanggal" class="form-control" value="" placeholder="Tanggal" required="">
-            </div>
-            <div>
-              <label >Id Layanan</label>
-              <textarea id="id_layanan" name="id_layanan" class="form-control" placeholder="Id Layanan"></textarea>
-            </div>
-            <div>
-                <label >Id Instansi</label>
-                <input type="id_instansi" id="id_instansi" name="id_instansi" class="form-control" value="" placeholder="Id Instansi">
-            </div>
-            <br><br>
-            <div align="right">
-            <!-- <a href="<?php //echo base_url() ?>"  >Registrasi</a> -->
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-          </form>
+      
       </div>
     </div>
   </div>

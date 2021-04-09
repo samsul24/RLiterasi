@@ -2,6 +2,7 @@
   redirect('login');
 };
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
   <!-- end maps -->
   <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>PT KAWI SAKTI MANDIRI - Construction</title>
+  <title>Literasi </title>
 
   <!-- Icon css link -->
   <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
@@ -91,7 +92,7 @@
               <li><a href="<?php echo site_url(); ?>siswaclient/buku">Buku</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
               <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
-              <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li>
+              <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
 
             </ul>
           </div><!-- /.navbar-collapse -->

@@ -37,8 +37,7 @@ class login_model extends CI_Model
                 'id_user' => $cek->id_user,
                 'username' => $cek->username,
                 'id_sekolah' => $cek->id_sekolah,
-                'visi' => $rows->visi,
-                'misi' => $rows->misi,
+                
             );
             $this->session->set_userdata($data_session);
             return $query->result();

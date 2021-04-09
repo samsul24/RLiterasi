@@ -61,6 +61,9 @@
             <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url(); ?>bukuclient/buku">Buku</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
+            </li>
 
           </ul>
         </div>
