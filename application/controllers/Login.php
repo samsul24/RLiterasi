@@ -45,21 +45,21 @@ class Login extends CI_Controller
         $this->session->set_userdata($session_data);
       }
       if ($this->session->userdata('id_user_role') == 1) {
-        redirect('superadminclient');
+        redirect('SuperAdminClient');
       } elseif ($this->session->userdata('id_user_role') == 2) {
-        redirect('adminclient');
+        redirect('AdminClient');
       } elseif ($this->session->userdata('id_user_role') == 3) {
-        redirect('guruclient');
+        redirect('GuruClient');
       } elseif ($this->session->userdata('id_user_role') == 4) {
-        redirect('siswaclient');
+        redirect('SiswaClient');
       } else {
-        redirect('userlogin');
+        redirect('UserLogin');
       }
     } else {
       $this->session->set_flashdata('result', 'Login gagal');
-      redirect('login');
+      redirect('Login');
     }
-    redirect('login');
+    redirect('Login');
   }
 
   public function reg()

@@ -17,10 +17,8 @@ class SekolahClient extends CI_Controller
     {
         $data['sekolah'] = json_decode($this->curl->simple_get($this->API));
         $data['title'] = "Sekolah";
-        $this->load->view('header');
-        $this->load->view('superbar');
-        $this->load->view('superadmin/sekolah', $data);
-        $this->load->view('footer');
+        $this->load->view('superadmin/superbar');
+    $this->load->view('superadmin/sekolah', $data);
     }
 }
 ?>

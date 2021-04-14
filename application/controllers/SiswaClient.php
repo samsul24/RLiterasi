@@ -57,12 +57,20 @@ class SiswaClient extends CI_Controller
   public function ulasan_process()
   {
       $data = array(            
+          // 'id_user'      => $this->input->post('id_user'),
           'judul'      => $this->input->post('judul'),
-          'keterangan'         => $this->input->post('keterangan'),
+          'ket_siswa'         => $this->input->post('ket_siswa'),
       );
-      $this->literasi_model->input_data($data);
-      redirect('siswaclient/berhasil ','refresh');
-      
-  }
+      $insert = $this->curl->simple_post($this->API1, $data);
+      if ($insert) {
+        echo 'berhasil';
+      } else {
+        echo 'gagal';
+      }
+      var_dump($insert);
+      exit;
+      // redirect('siswaclient/berhasil ','refresh');
+
+    }
 }
 ?>

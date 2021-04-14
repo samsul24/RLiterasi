@@ -16,10 +16,8 @@ class UserRole extends CI_Controller
     {
         $data['role'] = json_decode($this->curl->simple_get($this->API));
         $data['title'] = "Role user";
-        $this->load->view('header');
-        $this->load->view('superbar');
+        $this->load->view('superadmin/superbar',true);
         $this->load->view('superadmin/role', $data);
-        $this->load->view('footer');
+    
     }
 }
-?>

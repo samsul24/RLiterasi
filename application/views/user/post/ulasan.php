@@ -109,18 +109,19 @@ function checkSecond(sec) {
 </script>
 
 
+ <td height="27"><div align="left"><strong><?php echo "Tanggal : ".date("d-M-y");?></strong></div></td>
  <form action="<?php echo site_url('siswaclient/ulasan_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data">
  
- <td height="27"><div align="left"><strong><?php echo "Tanggal : ".date("d-M-y");?></strong></div></td>
    
  <div class="w3-row-padding">
         <div class="w3-half">
-                <input class="w3-input w3-border" type="text" placeholder="Judul" name="judul" style="width:200px;hight:100px" id="judul">
+        <input type="text" value="<?= $this->session->userdata('username') ?>" required readonly>
+                <input class="w3-input w3-border" type="text" placeholder="Judul" name="judul" style="width:200px;" id="judul">
         </div>
     </div>
     <br>
     <div class="w3-padding">
-            <textarea name="keterangan"style="width:640px;height:200px" id="keterangan"  placeholder="Keterangan"></textarea>
+            <textarea name="ket_siswa"style="width:640px;height:200px" id="ket_siswa"  placeholder="Keterangan"></textarea>
     </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left:px;width:140px;height:40px">
                                 Kirim

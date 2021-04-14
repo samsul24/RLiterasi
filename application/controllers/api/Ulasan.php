@@ -29,9 +29,9 @@ class Ulasan extends REST_Controller
     function index_post()
     {
         $data = array(
-          'id_user'      => $this->input->post('id_user'),
-          'judul'      => $this->input->post('judul'),
-          'keterangan'         => $this->input->post('keterangan'),
+        //   'id_user'      => $this->post('id_user'),
+          'judul'      => $this->post('judul'),
+          'ket_siswa'         => $this->post('ket_siswa'),
       
         );
         $insert = $this->db->insert('ulasan',$data);

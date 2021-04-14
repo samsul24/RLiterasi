@@ -4,7 +4,7 @@
 
 <style>
   nav-treeview:hover {
-    color: #006eff;
+    color: #006eff; 
   }
 </style>
 
