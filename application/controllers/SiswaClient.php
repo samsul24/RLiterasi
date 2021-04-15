@@ -9,7 +9,7 @@ class SiswaClient extends CI_Controller
   {
     parent::__construct();
     $this->load->library('curl');
-    $this->load->model("literasi_model");
+    // $this->load->model("literasi_model");
     $this->load->model('login_model');       
     $this->API = "http://localhost:8080/RLiterasi/api/Buku";
     $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
@@ -71,6 +71,11 @@ class SiswaClient extends CI_Controller
       exit;
       // redirect('SiswaClient/berhasil ','refresh');
 
+    }
+    public function profile()
+    {
+      $data['title'] = "Buku";
+      $this->load->view('user/buku', $data, FALSE);
     }
 }
 ?>
