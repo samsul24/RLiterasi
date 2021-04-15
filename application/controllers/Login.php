@@ -11,8 +11,8 @@ class Login extends CI_Controller
 
     $this->load->library('curl');
     $this->load->library('session');
-    $this->load->model('login_model');
-    $this->load->model('regist_model');
+    $this->load->model('Login_model');
+    $this->load->model('Regist_model');
   }
 
   public function index()
@@ -25,7 +25,7 @@ class Login extends CI_Controller
   {
     $user = $this->input->post('user');
     $password = $this->input->post('password');
-    $check = $this->login_model->login($user, $password);
+    $check = $this->Login_model->login($user, $password);
     if ($check) {
       foreach ($check as $rows) {
         $session_data = array(
@@ -73,7 +73,7 @@ class Login extends CI_Controller
   {
 
     $verification_key = md5(rand());
-    $this->API = "http://localhost:8080/RLiterasi/api/sekolah";
+    $this->API = "http://localhost:8080/RLiterasi/api/Sekolah";
     $data = array(
 
       'nama_sekolah'         => $this->input->post('nama_sekolah'),
@@ -92,7 +92,7 @@ class Login extends CI_Controller
       'misi'                    => 'null',
       'verification_key'        =>  $verification_key
     );
-    $update = $this->regist_model->insert($data);
+    $update = $this->Regist_model->insert($data);
     if ($update > 0) {
       $resultText = "Harap Verifikasi EMail untuk Login";
       $message = "<p> HI " . $this->input->post('nama_sekolah') . "</p>
@@ -107,7 +107,7 @@ class Login extends CI_Controller
         'smtp_pass' => 'literasi2021',
         'smtp_port' => 465,
         'smtp_crypto' => 'ssl',
-        'mailtype' => 'html', 
+        'mailtype' => 'html',
         'smtp_timeout' => '4',
         'charset' => 'iso-8859-1',
         'wordwrap' => TRUE
@@ -120,16 +120,16 @@ class Login extends CI_Controller
       $this->email->to($this->input->post('email'));
       $this->email->cc('ensiserver2021@gmail.com');
       $this->email->subject($resultText);
-      $this->email->message($message );
+      $this->email->message($message);
 
       if ($data = $this->email->send()) {
-        $berhasil=array('berhasil'=>'Selamat registrasi anda kami proses, cek email anda');
+        $berhasil = array('berhasil' => 'Selamat registrasi anda kami proses, cek email anda');
         $this->load->view('welcome_message', $berhasil);
       } else {
-        $gagal=array('gagal'=>'cek server anda');
+        $gagal = array('gagal' => 'cek server anda');
         $this->load->view('welcome_message', $gagal);
       }
-      redirect('login/', 'refresh');
+      redirect('Login/', 'refresh');
     }
   }
 
@@ -138,7 +138,7 @@ class Login extends CI_Controller
 
     if ($this->uri->segment(3)) {
       $verification_key = $this->uri->segment(3);
-      if ($this->regist_model->verify_email($verification_key)) {
+      if ($this->Regist_model->verify_email($verification_key)) {
         $data['message'] = '<h1 align="center"> EMAIL SUdah diverifikasi silahkan anda bisa masuk <a href="' . base_url() . 'Login">here</a></h1>';
       } else {
         $data['message'] = '<h1 align="center">Invalid Link</h1>';
@@ -151,7 +151,6 @@ class Login extends CI_Controller
   public function out()
   {
     $this->session->sess_destroy();
-    redirect('login', 'refresh');
+    redirect('Login', 'refresh');
   }
 }
-

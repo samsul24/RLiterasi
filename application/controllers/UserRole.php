@@ -10,7 +10,7 @@ class UserRole extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
         
-        $this->API = "http://localhost:8080/RLiterasi/api/role";
+        $this->API = "http://localhost:8080/RLiterasi/api/Role";
     }
     public function index()
     {

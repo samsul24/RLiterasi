@@ -11,9 +11,9 @@ class SiswaClient extends CI_Controller
     $this->load->library('curl');
     $this->load->model("literasi_model");
     $this->load->model('login_model');       
-    $this->API = "http://localhost:8080/RLiterasi/api/buku";
-    $this->API1 = "http://localhost:8080/RLiterasi/api/ulasan";
-    $this->API2 = "http://localhost:8080/RLiterasi/api/sekolah";
+    $this->API = "http://localhost:8080/RLiterasi/api/Buku";
+    $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
+    $this->API2 = "http://localhost:8080/RLiterasi/api/Sekolah";
 
 
 
@@ -69,7 +69,7 @@ class SiswaClient extends CI_Controller
       }
       var_dump($insert);
       exit;
-      // redirect('siswaclient/berhasil ','refresh');
+      // redirect('SiswaClient/berhasil ','refresh');
 
     }
 }

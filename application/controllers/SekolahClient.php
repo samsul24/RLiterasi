@@ -10,7 +10,7 @@ class SekolahClient extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
 
-        $this->API = "http://localhost:8080/RLiterasi/api/sekolah";
+        $this->API = "http://localhost:8080/RLiterasi/api/Sekolah";
     }
 
     public function index()

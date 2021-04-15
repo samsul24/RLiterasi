@@ -51,7 +51,6 @@ public function admin()
         $data['title'] = "user";
         $this->load->view('superadmin/superbar',true);
         $this->load->view('superadmin/users/siswa', $data);
-        $this->load->view('footer');
     }
 }
 ?>

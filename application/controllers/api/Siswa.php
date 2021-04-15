@@ -18,7 +18,8 @@ class Siswa extends REST_Controller
     {
         $id = $this->get('id_user');
         if ($id == '') {      
-            $this->db->where('id_user_role', 4);      
+            $this->db->where('id_user_role', 4);     
+            $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
             $siswa = $this->db->get('user')->result();
         } 
         else {

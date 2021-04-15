@@ -9,10 +9,10 @@ class GuruClient extends CI_Controller
     {
         parent::__construct();
         $this->load->library('curl');
-        $this->API = "http://localhost:8080/RLiterasi/api/buku";
-        $this->API1 = "http://localhost:8080/RLiterasi/api/ulasan";
-        $this->API2= "http://localhost:8080/RLiterasi/api/siswa";
-        $this->load->model('login_model');       
+        $this->API = "http://localhost:8080/RLiterasi/api/Buku";
+        $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
+        $this->API2= "http://localhost:8080/RLiterasi/api/Siswa";
+        $this->load->model('Login_model');       
 
 
     }
@@ -78,7 +78,7 @@ class GuruClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data Gagal');
         }
-        redirect('guruclient/ulasan');
+        redirect('GuruClient/ulasan');
     }
 }
 ?>

@@ -10,17 +10,16 @@ class BukuClient extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
 
-        $this->API = "http://localhost:8080/RLiterasi/api/buku";
+        $this->API = "http://localhost:8080/RLiterasi/api/Buku";
     }
 
     public function index()
     {
         $data['buku'] = json_decode($this->curl->simple_get($this->API));
         $data['title'] = "Buku";
-        $this->load->view('header1');
-        $this->load->view('bar');
+        $this->load->view('admin/adminbar');
         $this->load->view('admin/buku', $data);
-        $this->load->view('footer');
+
     }
     public function post()
     {
@@ -61,14 +60,30 @@ class BukuClient extends CI_Controller
         if ($insert) {
           $this->session->set_flashdata('result', '');
   
-          redirect('bukuclient', 'refresh');
+          redirect('BukuClient', 'refresh');
         } else {
           $this->session->set_flashdata('result', '');
         }
-        redirect('bukuclient', 'refresh');
+        redirect('BukuClient', 'refresh');
       }
     }
 }
+// function split_pdf(string $filename, string $directory)
+// {
+//     $pdf = new Fpdi();
+//     $pageCount = $pdf->setSourceFile($filename);
+//     $file = pathinfo($filename, PATHINFO_FILENAME);
+
+//     for ($i = 1; $i <= $pageCount; $i++) {
+//         $newPdf = new Fpdi();
+//         $newPdf->addPage();
+//         $newPdf->setSourceFile($filename);
+//         $newPdf->useTemplate($newPdf->importPage($i));
+
+//         $newFilename = sprintf('%s/%s_%s.pdf', $directory, $file, $i);
+//         $newPdf->output($newFilename, 'F');
+//     }
+// }             
   
     public function delete()
     {
@@ -79,7 +94,7 @@ class BukuClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data Gagal');
         }
-        redirect('bukuclient');
+        redirect('BukuClient');
     }
     
 }

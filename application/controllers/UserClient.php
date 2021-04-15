@@ -10,9 +10,9 @@ class UserClient extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
         
-        $this->API = "http://localhost:8080/RLiterasi/api/user";
-        $this->API3 = "http://localhost:8080/RLiterasi/api/guru";
-        $this->API4= "http://localhost:8080/RLiterasi/api/siswa";
+        $this->API = "http://localhost:8080/RLiterasi/api/User";
+        $this->API3 = "http://localhost:8080/RLiterasi/api/Guru";
+        $this->API4= "http://localhost:8080/RLiterasi/api/Siswa";
     }
 
     public function index()
@@ -76,7 +76,7 @@ class UserClient extends CI_Controller
         }
         // print_r($insert);
         // die;
-        redirect('userclient');
+        redirect('UserClient');
       }
     
 
@@ -117,7 +117,7 @@ class UserClient extends CI_Controller
         }
         // print_r($update);
         // exit;
-        redirect('userclient');
+        redirect('UserClient');
     }
     public function delete()
     {
@@ -128,7 +128,7 @@ class UserClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data User Gagal');
         }
-        redirect('userclient');
+        redirect('UserClient');
     }
     
 }
