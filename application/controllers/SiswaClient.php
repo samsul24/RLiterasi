@@ -9,8 +9,8 @@ class SiswaClient extends CI_Controller
   {
     parent::__construct();
     $this->load->library('curl');
-    $this->load->model("literasi_model");
-    $this->load->model('login_model');       
+    // $this->load->model("Literasi_model");
+    $this->load->model('Login_model');       
     $this->API = "http://localhost:8080/RLiterasi/api/Buku";
     $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
     $this->API2 = "http://localhost:8080/RLiterasi/api/Sekolah";
@@ -23,7 +23,7 @@ class SiswaClient extends CI_Controller
   {
     if($this->session->userdata('id_user_role')){
     $username = $this->session->userdata('username');
-    $data['results'] = $this->login_model->get_user($username);
+    $data['results'] = $this->Login_model->get_user($username);
     $this->load->library('curl');
     $data['user'] = json_decode($this->curl->simple_get($this->API));
     $data['sekolah'] = json_decode($this->curl->simple_get($this->API2));
