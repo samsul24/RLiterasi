@@ -1,236 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Literasi </title>
-  <!-- Custom fonts for this theme -->
-  <link href="<?php echo base_url('assets/user')?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <!-- Theme CSS -->
-  <link href="<?php echo base_url('assets/user')?>/css/freelancer.css" rel="stylesheet">
-  <link href="<?php echo base_url('assets/user')?>/lib/noty.css" rel="stylesheet">
-  <link href="<?php echo base_url('assets/user')?>/lib/themes/metroui.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <title>Login - Bayya Bitcoin Crypto Currency Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/magnific-popup.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/select2.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/stylelogin.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/color.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/styleswitcher.css">
+
+    <!-- Template JS Files -->
+    <script src="https://widgets.bitcoin.com/widget.js" id="btcwdgt">
+    </script>
+    <script src="<?php echo base_url() ?>css/js/modernizr.js"></script>
+
+    <style type="text/css"></style>
 </head>
-<style type="text/css">
-  .btncostume{
-    background: #006eff;
-    color: white;
-  }
-  sup{
-    color: red;
-  }
-  .border1{
-    border: thin solid;
-  }
-  .costum{
-    background: white;
-    border: thin solid #fff;
-  }
-  .masthead .masthead-avatar {
-    width: 8rem !important;
-}
-</style>
-<body id="page-top">
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav" >
-    <div class="container" >
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">LITERASI</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" >
-      Menu
-      <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive" >
-        <ul class="navbar-nav ml-auto" >
-          <?php if(empty($this->session->userdata('id_user'))) {?>
-            <li class="nav-item mx-0 mx-lg-1" >
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login">Login</a>
-            </li>
-          <?php }else{?>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#"><?php echo $this->session->userdata('nama'); ?></a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?= base_url().'login/out' ?>">Logout</a>
-            </li>
-          <?php }?>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#bantuan">Bantuan</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Masthead -->
-  <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-      <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0"><img class="masthead-avatar mb-3" src="<?=base_url();?>css/assets/img/logo-sma" alt=""><br>LITERASI</h1><br>
-      <div class="row">
-          <div class="col-md-12" style="border: thin solid; ">
-           <h3></h3>
-            <h1 style="margin-top: 5px;"> 
-            </h1>
-          </div>
-      </div>
-        
-        <h4 class="masthead mb-0" style="margin-top: 10px !important;padding: 20px;">Selamat Datang di Rumah Literasi Bersama <br>Berkumpul, Berbagi, Bergerak Bersama</h4>
-        <div class="col-md-2" style="margin-left:545px;">
-                <!-- <a href="<?php echo site_url(); ?>antrianclient" class="btn btn-dark btn-block banner" role="button" style="margin: center">
-                  Ambil Antrian                </a> -->
+
+<div class="wrapper">
+    <div class="container-fluid user-auth">
+        <div class="hidden-xs col-sm-4 col-md-4 col-lg-4">
+            <!-- Logo Starts -->
+            <a class="logo" href="index.html">
+                <!-- <img id="logo-user" class="img-responsive" src="<?= base_url(); ?>css/assets/img/logo-sma.png" alt="logo"> -->
+            </a>
+            <!-- Logo Ends -->
+            <!-- Slider Starts -->
+            <div id="carousel-testimonials" class="carousel slide carousel-fade" data-ride="carousel">
+                <!-- Indicators Starts -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-testimonials" data-slide-to="0" class=""></li>
+                    <li data-target="#carousel-testimonials" data-slide-to="1" class=""></li>
+                    <li data-target="#carousel-testimonials" data-slide-to="2" class=""></li>
+                </ol>
+                <!-- Indicators Ends -->
+                <!-- Carousel Inner Starts -->
+                <div class="carousel-inner">
+                    <!-- Carousel Item Starts -->
+                    <div class="item item-1">
+                        <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1.jpg" alt="logo" style="">
+                        <div>
+                            <blockquote>
+                                <p>pengetahuan dan kecakapan untuk mengaplikasikan pemahaman tentang konsep, risiko, keterampilan dan motivasi dalam konteks finansial</p>
+                                <footer><span>Literasi</span>, Finansial</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Carousel Item Ends -->
+                    <!-- Carousel Item Starts -->
+                    <div class="item item-2 active">
+                        <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi2.jpg" alt="logo">
+                        <div>
+                            <blockquote>
+                                <p>Literasi sains merupakan kecakapan memahami fenomena alam dan sosial di sekitar kita</p>
+                                <footer><span>Literasi</span>, Sains</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Carousel Item Ends -->
+                    <!-- Carousel Item Starts -->
+                    <div class="item item-3">
+                        <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi3.jpg" alt="logo">
+                        <div>
+                            <blockquote>
+                                <p>Literasi adalah istilah umum yang merujuk kepada seperangkat kemampuan dan keterampilan individu dalam membaca, menulis, berbicara, menghitung dan memecahkan masalah pada tingkat keahlian tertentu yang diperlukan dalam kehidupan sehari-hari</p>
+                                <footer><span>Literasi</span>, Pengertian</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Carousel Item Ends -->
+                </div>
+                <!-- Carousel Inner Ends -->
             </div>
-      <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
+            <!-- Slider Ends -->
         </div>
-        <div class="divider-custom-line"></div>
-      </div>
-      <!-- Masthead Subheading -->
-    
-  </header>
-  <!-- Portfolio Section -->
-  <section class="page-section portfolio" id="login">
-      <div class="container">
-        <!-- Portfolio Section Heading -->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Login</h2>
-        <!-- Icon Divider -->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Portfolio Grid Items -->
-        <div class="row">
-          <div class="container">
-            <div class="row justify-content-md-center">
-              <div class="col-md-4" style="margin-top: 20px">
-                <!-- <h1 align="center">Login </h1> -->
-                <form action="<?php echo site_url() ?>login/log_process" method='post'>
-               
-                  <label >Username</label>
-                    <input type="text" class="form-control" id="user" placeholder="Masukkan username" name="user" required>
-                  <label>Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Masukkan password" name="password" required>
-                  <br><br>
-                  <div align="right">
-                  <button type="submit" class="btn btn-dark">Login</button>
-                  </div>  
-                </form>
-              </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <!-- Logo Starts -->
+            <a class="visible-xs" href="index.html">
+                <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1" alt="logo">
+            </a>
+            <!-- Logo Ends -->
+            <div class="form-container">
+                <div>
+                    <!-- Section Title Starts -->
+                    <div class="row text-center">
+                      <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
+                        <h2 class="title-head hidden-xs">Log<span>-in </span>Siswa</h2>
+                    </div>
+                    <!-- Section Title Ends -->
+                    <!-- Form Starts -->
+                    <form action="<?php echo site_url() ?>login/log_process" method='post'>
+                        <!-- Input Field Starts -->
+                        <div class="form-group">
+                            <input class="form-control" name="user" id="user" placeholder="Masukkan username" type="text" required="">
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Input Field Starts -->
+                        <div class="form-group">
+                            <input class="form-control" name="password" id="password" placeholder="Masukkan password" type="password" required="">
+                        </div>
+                        <!-- Input Field Ends -->
+                        <!-- Submit Form Button Starts -->
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">login</button>
+                            </p>
+                        </div>
+                        <!-- Submit Form Button Ends -->
+                    </form>
+                    <!-- Form Ends -->
+                </div>
             </div>
-          </div>
         </div>
-        <!-- /.row -->
-      </div>
-    
-  </section>
-  <!-- About Section -->
-  <section class="page-section bg-primary text-white mb-0" id="bantuan">
-    <div class="container">
-      <!-- About Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-white">Bantuan</h2>
-      <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-      <!-- About Section Content -->
-    <div class="container">  
-      <div class="row">
-        <div class="col-lg-4.ml-auto" align="center" >
-         <p class="lead">Kunjungi halaman website kami <br><button><a  href="<?php echo site_url(); ?>login/reg" class="nav-link" id="navHome" type="button">Registrasi</a></button></p></center>
-          <p class="lead"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
-      </div>
     </div>
-    </div>
-  </section>
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>&copy; Literasi </small>
-    </div>
-  </section>
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-  <div class="scroll-to-top d-lg-none position-fixed ">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-  </div>
-   <!-- Modal -->
-<div class="modal fad e bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ambil No antrian</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      
-      </div>
-    </div>
-  </div>
+    <!-- Template JS Files -->
+    <script src="<?php echo base_url() ?>css/js/jquery-2.2.4.min.js"></script>
+    <script src="<?php echo base_url() ?>css/js/bootstrap.min1.js"></script>
+    <script src="<?php echo base_url() ?>css/js/select2.min.js"></script>
+    <script src="<?php echo base_url() ?>css/js/jquery.magnific-popup.min.js"></script>
+
+
 </div>
-  <!-- Bootstrap core JavaScript -->
-  <script src="<?php echo base_url('assets/user')?>/vendor/jquery/jquery.min.js"></script>
-  <script src="<?php echo base_url('assets/user')?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Plugin JavaScript -->
-  <script src="<?php echo base_url('assets/user')?>/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Contact Form JavaScript -->
-  <script src="<?php echo base_url('assets/user')?>/js/jqBootstrapValidation.js"></script>
-  <script src="<?php echo base_url('assets/user')?>/js/contact_me.js"></script>
-  <!-- Custom scripts for this template -->
-  <script src="<?php echo base_url('assets/user')?>/js/freelancer.min.js"></script>
-  <script src="<?php echo base_url('assets/user')?>/lib/noty.min.js"></script>
-  <script type="text/javascript">
-    function noAntrian(id_antrian){
-    // alert(id_antrian);?
-    if(id_antrian!=""){
-      $.ajax({
-        url: "<?php echo base_url('Index/getNoAntrian'); ?>",
-        type : "POST",
-        data : "id_antrian="+id_antrian,
-        datatype: "json",
-        success:function(response){
-          console.log(response);
-          // alert(data);
-          var output = JSON.parse(response);
-          if(output.no > output.maks){
-            $("#nomor").val('Data Sudah Penuh');
-            // $("#simpan").toggle('slow');
-            $("#simpan").prop("disabled",true);
-          }else{
-            $("#nomor").val(output.no_hasil);
-            $("#nomor").val(output.no_hasil);
-            $("#simpan").prop("disabled",false);
-          }
-        } // Munculkan alert error
-      });
-    }else{
-      $("#nomor").val("");
-      $("#nomor").val("");
-    }
-  }
-  </script>
-   <?php if($this->session->flashdata('notif')){?>
-        <script type="text/javascript">
-            new Noty({     
-                text: '<?php echo $this->session->flashdata('pesan'); ?>',
-                timeout: 3000,
-                theme: "metroui",
-                type: "<?php echo $this->session->flashdata('type'); ?>",                
-            }).show();
-        </script>
-        <?php } ?>
+<!-- Wrapper Ends -->
+
+
 </body>
-</html>
