@@ -1,7 +1,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Login - Bayya Bitcoin Crypto Currency Template</title>
+    <title>Login - Literasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/styleswitcher.css">
 
     <!-- Template JS Files -->
-    <script src="https://widgets.bitcoin.com/widget.js" id="btcwdgt">
     </script>
     <script src="<?php echo base_url() ?>css/js/modernizr.js"></script>
 
@@ -86,6 +85,7 @@
             <a class="visible-xs" href="index.html">
                 <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1" alt="logo">
             </a>
+            
             <!-- Logo Ends -->
             <div class="form-container">
                 <div>
@@ -118,6 +118,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
     <!-- Template JS Files -->
     <script src="<?php echo base_url() ?>css/js/jquery-2.2.4.min.js"></script>

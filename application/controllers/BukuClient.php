@@ -25,10 +25,8 @@ class BukuClient extends CI_Controller
     {
     //   $data['buku'] = json_decode($this->curl->simple_get($this->API));
       $data['title'] = "Tambah Data buku";
-      $this->load->view('header1');
-      $this->load->view('bar');
+      $this->load->view('admin/adminbar');
       $this->load->view('admin/post/buku', $data, FALSE);
-      $this->load->view('footer');
     }
 
     public function post_process()
@@ -98,4 +96,3 @@ class BukuClient extends CI_Controller
     }
     
 }
-?>
