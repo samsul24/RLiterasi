@@ -104,6 +104,7 @@
     <div class="container">
       <div class="banner_inner_text">
         <h4>Edit User Profile</h4>
+        <h4><?= $this->session->userdata('username') ?></h4>
       </div>
     </div>
   </section>
@@ -119,7 +120,13 @@
         <div class="row">
           <div class="col-md-3 border-right">
             <br> <br>
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img  class="rounded-circle mt-5" src="img/users/<?php echo $rows->foto; ?>" width="200">
+            <form action="#" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="foto" id="foto" />
+                                    <input type="submit" name="submit" id="submit" value="Change Photos" />
+                                </form>
+            </div>
           </div>
           <div class="col-md-5 border-right">
             <div class="p-3 py-5">
@@ -138,8 +145,10 @@
                 <div class="col-md-12"><label for="no_telp" class="labels">PhoneNumber</label><input type="text" class="form-control" placeholder="enter address" id="no_telp" value="<?php echo $rows->no_telp; ?>" name="nama" required ></div>
                 <div class="col-md-12"><label for="jenis_kelamin" class="labels">Jenis Kelamin</label><input type="text" class="form-control" placeholder="enter address" id="jenis_kelamin" value="<?php echo $rows->jenis_kelamin; ?>" name="nama" required ></div>
               </div>
-        
-              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+        <br>
+              <!-- <div class="col-md-6"><button class="btn btn-success profile-button" type="button"  >Reset Password</button></div> -->
+              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" style="margin-right:-350px">Save Profile</button></div>
+              
             </div>
           </div>
           <div class="col-md-4 border-right">
