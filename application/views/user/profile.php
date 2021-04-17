@@ -19,6 +19,7 @@
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Rev slider css -->
     <link href="<?php echo base_url(); ?>vendors/revolution/css/settings.css" rel="stylesheet">
@@ -30,6 +31,8 @@
     <!-- Extra plugin css -->
     <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +41,9 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
+<style>
 
+</style>
 <body>
 
 
@@ -104,47 +109,51 @@
     <!--================End Banner Area =================-->
     <!-- <section class="our_project2_area project_grid_two"> -->
     <br>
-    <div class="container-fluid">
-        <div class="product-status mg-b-30">
-            <div class="container-fluid" style="background-color: #FFB74D">
-                <h5> <b> Silahkan edit profile anda </b></h5><br>
-                <div class="product-status-wrap">
-                    <div class="row">
-                        <?php while ($show = mysqli_fetch_array($queryUser)) { ?>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <img id="myImg" src="img/users/<?php echo $show['foto']; ?>" width="200"><br><br><br>
-                                <form action="uploadPhotos.php" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="foto" id="foto" />
-                                    <input type="submit" name="submit" id="submit" value="Change Photos" />
-                                </form>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <!-- EDIT DATA PROFIL -->
-                                <form action="" method="post">
-                                    <h4><b> Nama &emsp;&emsp;&emsp; &emsp; &emsp; &emsp; : <input type="text" name="nama" placeholder="nama" value="<?php echo $show['nama']; ?>"></h4> </b> <br>
-                                    <h4><b> E-mail &emsp;&emsp;&emsp; &emsp; &emsp; &emsp; : <input type="text" name="email" placeholder="email" value="<?php echo $show['email']; ?>"></h4></b><br>
-                                    <h4><b> No Telepon &emsp;&emsp; &emsp; &emsp;: <input type="text" name="noTelp" placeholder="noTelp" value="<?php echo $show['no_telp']; ?>"></h4></b><br>
-                                    <h4><b> Alamat &emsp;&emsp;&emsp;&emsp; &emsp; &emsp; : <input type="text" name="alamat" placeholder="alamat" value="<?php echo $show['alamat']; ?>"></h4></b><br>
-                                    <br>
-                                    <br>
-                                    <input class="btn btn-primary" type="submit" value="submit" name="submit">
-                                    <a type="button" href="ProfilBar.php" class="btn btn-danger">Kembali Ke Profile</a>
-                                    <a type="button" class="btn btn-info" href="admin/forgot-password/forgot-password.php?edit">Ganti Password</a>
-                                </form>
-                            </div>
-                            <br>
-                            <br>
-                        <?php } ?>
-                        <br>
-                        <br>
-                    </div>
+    <br>
+    <br>
+    <form action="<?php echo site_url(); ?>pengirimanclient/put_process"  class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
+    <?php foreach ($siswa as $rows) : ?>
+   
+    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+    <br> <br>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+               
+                <div class="row mt-2">
+                    <div class="col-md-6"><label for="id_user" class="labels">ID</label><input type="text" class="form-control" placeholder="surname" id="id_user" value="<?php echo $rows->id_user; ?>" name="id_user" required readonly></div>
+                    <div class="col-md-6"><label for="" class="labels">Name</label><input type="text" class="form-control" placeholder="first name"></div>
                 </div>
-                <br>
-                <br>
-                <br>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="text" class="form-control" placeholder="enter phone number"></div>
+                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="enter address"></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id"></div>
+                    <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country"></div>
+                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" placeholder="state"></div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
         </div>
+        <div class="col-md-4 border-right" >
+            <div class="p-3 py-5">
+                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience"></div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details"></div>
+            </div>
+        </div>
+        
     </div>
+</div>
+</div>
+</div>
+<?php endforeach; ?>
+
+                    </form>
     <br>
     <!--================Our Project2 Area =================-->
     <!--================End Our Project2 Area =================-->

@@ -29,6 +29,7 @@ class Login extends CI_Controller
     if ($check) {
       foreach ($check as $rows) {
         $session_data = array(
+          'id_user' => $rows->id_user,
           'username' => $rows->username,
           'id_user_role' => $rows->id_user_role,
           'id_user' => $rows->id_user,

@@ -64,8 +64,11 @@ class Siswa extends REST_Controller
             'nama'             => $this->put('nama'),
             'jenis_kelamin'    => $this->put('jenis_kelamin'),
             'kelas'            => $this->put('kelas'),
+            'email'          => $this->put('email'),
             'jurusan'          => $this->put('jurusan'),
+            'no_telp'          => $this->put('jurusan'),
             'id_user_role'     => $this->put('id_user_role'),
+            'id_sekolah'     => $this->put('id_sekolah'),
             );
         $this->db->where('id_user', $id);
         $update = $this->db->update('user', $data);

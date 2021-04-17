@@ -90,8 +90,15 @@
               <!-- <li><a href="projectBar.php">Project</a></li> -->
               <!-- <li><a href="AboutUs.php">About Us</a></li> -->
               <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile"><?= $this->session->userdata('username') ?></a></li>
+              <!-- <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li> -->
+             
+              <?php if (empty($this->session->userdata('id_user'))) {?>
+                
+                                <li><a href="<?php echo site_url(); ?>Login">Login</a></li>
+                                <?php }else{?>
+                                <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user');?>">Profile</a></li>
+                               <li><a class="nav-link active"  href="<?php echo site_url(); ?>Login/out">Log Out</a></li>
+                               <?php }?>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
 
             </ul>
