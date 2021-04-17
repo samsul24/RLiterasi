@@ -119,9 +119,9 @@
       <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
           <div class="col-md-3 border-right">
-            <br> <br>
+            <br> 
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-            <img  class="rounded-circle mt-5" src="img/users/<?php echo $rows->foto; ?>" width="200">
+            <img  class="rounded-circle mt-5" src="https://cdn.popbela.com/content-images/post/20201228/img-2997-2cd8a4e6266c02b5bca570f4b6bc8387.JPG" width="200">
             <form action="#" method="post" enctype="multipart/form-data">
                                     <input type="file" name="foto" id="foto" />
                                     <input type="submit" name="submit" id="submit" value="Change Photos" />
