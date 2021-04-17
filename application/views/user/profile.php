@@ -6,34 +6,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Literasi</title>
-  <!-- Icon css link -->
-  <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>img/favicon-32x32.png" sizes="32x32" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Profile - Literasi</title>
+    <!-- Icon css link -->
+    <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/materialdesignicons.min.css" rel="stylesheet">
 
-  <!-- Bootstrap -->
-  <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Rev slider css -->
-  <link href="<?php echo base_url(); ?>vendors/revolution/css/settings.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/revolution/css/layers.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/revolution/css/navigation.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/animate-css/animate.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Rev slider css -->
+    <link href="<?php echo base_url(); ?>vendors/revolution/css/settings.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>vendors/revolution/css/layers.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>vendors/revolution/css/navigation.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>vendors/animate-css/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-  <!-- Extra plugin css -->
-  <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
+    <!-- Extra plugin css -->
+    <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
@@ -93,186 +93,75 @@
     </div>
   </header>
   <!--================Header Area =================-->
-
-  <!--================Banner Area =================-->
-  <section class="banner_area">
-    <div class="container">
-      <div class="banner_inner_text">
-        <h4>Welcome to Types Of Book</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li class="active"><a href="#"><?= $this->session->userdata('nama_sekolah') ?></a></li>
-        </ul>
-      </div>
+    <!--================Banner Area =================-->
+    <section class="banner_area">
+        <div class="container">
+            <div class="banner_inner_text">
+                <h4>Edit User Profile</h4>
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+    <!-- <section class="our_project2_area project_grid_two"> -->
+    <br>
+    <div class="container-fluid">
+        <div class="product-status mg-b-30">
+            <div class="container-fluid" style="background-color: #FFB74D">
+                <h5> <b> Silahkan edit profile anda </b></h5><br>
+                <div class="product-status-wrap">
+                    <div class="row">
+                        <?php while ($show = mysqli_fetch_array($queryUser)) { ?>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <img id="myImg" src="img/users/<?php echo $show['foto']; ?>" width="200"><br><br><br>
+                                <form action="uploadPhotos.php" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="foto" id="foto" />
+                                    <input type="submit" name="submit" id="submit" value="Change Photos" />
+                                </form>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <!-- EDIT DATA PROFIL -->
+                                <form action="" method="post">
+                                    <h4><b> Nama &emsp;&emsp;&emsp; &emsp; &emsp; &emsp; : <input type="text" name="nama" placeholder="nama" value="<?php echo $show['nama']; ?>"></h4> </b> <br>
+                                    <h4><b> E-mail &emsp;&emsp;&emsp; &emsp; &emsp; &emsp; : <input type="text" name="email" placeholder="email" value="<?php echo $show['email']; ?>"></h4></b><br>
+                                    <h4><b> No Telepon &emsp;&emsp; &emsp; &emsp;: <input type="text" name="noTelp" placeholder="noTelp" value="<?php echo $show['no_telp']; ?>"></h4></b><br>
+                                    <h4><b> Alamat &emsp;&emsp;&emsp;&emsp; &emsp; &emsp; : <input type="text" name="alamat" placeholder="alamat" value="<?php echo $show['alamat']; ?>"></h4></b><br>
+                                    <br>
+                                    <br>
+                                    <input class="btn btn-primary" type="submit" value="submit" name="submit">
+                                    <a type="button" href="ProfilBar.php" class="btn btn-danger">Kembali Ke Profile</a>
+                                    <a type="button" class="btn btn-info" href="admin/forgot-password/forgot-password.php?edit">Ganti Password</a>
+                                </form>
+                            </div>
+                            <br>
+                            <br>
+                        <?php } ?>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
     </div>
-  </section>
-  <!--================End Banner Area =================-->
-
-  <!--================Our Project2 Area =================-->
-  <section class="our_project2_area project_grid_three">
-    <div class="container">
-      <div class="main_c_b_title">
-        <h2><br class="title_br">Book</h2>
-        <h6>Many Types Of Book</h6>
-      </div>
-      <ul class="our_project_filter">
-        <li class="active" data-filter="*"><a href="#">All</a></li>
-        <li data-filter=".building"><a href="#">Sejarah Indonesia</a></li>
-        <li data-filter=".interior"><a href="#">Komik</a></li>
-        <li data-filter=".design"><a href="#">Pusat Dunia</a></li>
-        <li data-filter=".isolation"><a href="#">Ilmu Komunikasi</a></li>
-        <li data-filter=".plumbing"><a href="#">Sains</a></li>
-        <li data-filter=".tiling"><a href="#">History </a></li>
-      </ul>
-      <div class="row our_project_details">
-        <div class="col-md-3 col-sm-6 building isolation interior">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-2.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>Sejarah Indonesia</h4>
-                  </a>
-                  <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
+    <br>
+    <!--================Our Project2 Area =================-->
+    <!--================End Our Project2 Area =================-->
+    <!--================Get Quote Area =================-->
+    <section class="get_quote_area yellow_get_quote">
+        <div class="container">
+            <div class="pull-left">
+                <h4>Looking for a quality and affordable constructor for your next project?</h4>
             </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 building isolation tiling design">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-3.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>Komik</h4>
-                  </a>
-                  <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
+            <div class="pull-right">
+                <a class="get_btn_black" href="#">GET A QUOTE</a>
             </div>
-          </div>
         </div>
-        <div class="col-md-3 col-sm-6 isolation tiling interior design plumbing">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-4.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>Pusat Dunia </h4>
-                  </a>
-                  <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 building isolation tiling plumbing">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-2.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>Ilmu Komunikasi</h4>
-                  </a>
-                  <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 isolation tiling interior plumbing">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-2.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>Sains</h4>
-                  </a>
-                  <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 building isolation tiling design plumbing">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-3.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>History</h4>
-                  </a>
-                  <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 building isolation tiling plumbing">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-3.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>History</h4>
-                  </a>
-                  <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 building isolation tiling design plumbing">
-          <div class="project_item">
-            <img src="<?php echo site_url(); ?>img/project/project-4.jpg" alt="">
-            <div class="project_hover">
-              <div class="project_hover_inner">
-                <div class="project_hover_content">
-                  <a href="#">
-                    <h4>Ilmu Komunikasi</h4>
-                  </a>
-                  <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                  <a class="view_btn" href="#">View Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================End Our Project2 Area =================-->
-
-  <!--================Get Quote Area =================-->
-  <section class="get_quote_area yellow_get_quote">
-    <div class="container">
-      <div class="pull-left">
-        <h4>Yuk Kita Literasi </h4>
-      </div>
-      <div class="pull-right">
-        <a class="get_btn_black"  href="<?php echo site_url(); ?>siswaclient/literasi/">Ayo Literasi</a>
-      </div>
-    </div>
-  </section>
-  <!--================End Get Quote Area =================-->
-
-  <!--================Footer Area =================-->
-  <footer class="footer_area">
+        <!-- </section> -->
+        <!--================End Get Quote Area =================-->
+<!--================Footer Area =================-->
+<footer class="footer_area">
     <div class="footer_widgets_area">
       <div class="container">
         <div class="row footer_widgets_inner">
@@ -355,31 +244,52 @@
       </div>
     </div>
   </footer>
-  
+        <!--================End Footer Area =================-->
+
+
+
+
+
+
+
+
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="<?php echo base_url(); ?>js/jquery-2.2.4.js"></script>
+        <script src="<?php echo base_url() ?>js/jquery-2.2.4.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
         <!-- Rev slider js -->
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
-        
+        <script src="<?php echo base_url() ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+        <script src="<?php echo base_url() ?>vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/isotope/isotope.pkgd.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/counterup/waypoints.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/counterup/jquery.counterup.min.js"></script>
+        <script src="<?php echo base_url() ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
+
         <!--gmaps Js-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="<?php echo base_url(); ?>js/gmaps.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>js/theme.js"></script>
-    </body>
+        <script src="<?php echo base_url() ?>js/gmaps.min.js"></script>
+
+        <script src="<?php echo base_url() ?>js/theme.js"></script>
+
+        <script>
+            function showPass() {
+                var x = document.getElementById('password');
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+</body>
+
 </html>

@@ -72,5 +72,9 @@ class SiswaClient extends CI_Controller
       // redirect('SiswaClient/berhasil ','refresh');
 
     }
+  public function profile()
+  {
+    $this->load->view('user/profile');
+  }
 }
 ?>

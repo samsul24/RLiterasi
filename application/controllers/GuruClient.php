@@ -21,7 +21,7 @@ class GuruClient extends CI_Controller
     {
         if($this->session->userdata('id_user_role')){
         $username = $this->session->userdata('username');
-        $data['results'] = $this->login_model->get_user($username);
+        $data['results'] = $this->Login_model->get_user($username);
         $data['title'] = "Dashboard";
         $this->load->view('guru/index', $data, FALSE);
     }
