@@ -75,11 +75,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url(); ?>siswaclient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
               <!-- <li><a href="projectBar.php">Project</a></li> -->
               <!-- <li><a href="AboutUs.php">About Us</a></li> -->
-              <li><a href="<?php echo site_url(); ?>siswaclient/buku">Buku</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
+              <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
               <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
 
@@ -123,7 +123,7 @@ function startTimer() {
 function checkSecond(sec) {
   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
   if (sec < 0) {
-                window.location.href="<?php echo site_url(); ?>siswaclient/berhasil/";
+                window.location.href="<?php echo site_url(); ?>SiswaClient/berhasil/";
               }
 
   return sec;
@@ -132,7 +132,7 @@ function checkSecond(sec) {
 
 
  <td height="27"><div align="left"><strong><?php echo "Tanggal : ".date("d-M-y");?></strong></div></td>
- <form action="<?php echo site_url('siswaclient/ulasan_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data">
+ <form action="<?php echo site_url('SiswaClient/ulasan_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data">
  
    
  <div class="w3-row-padding">

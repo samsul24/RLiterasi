@@ -100,9 +100,9 @@
                     <td><?php echo (str_word_count($rows->misi) > 10 ? substr($rows->misi,0,30)."[..]" : $rows->misi); ?></td>
                     <td>
                       <div class="dataTable-info">
-                        <a href="<?php echo site_url(); ?>sekolahclient/put/<?php echo $rows->id_sekolah; ?>" class="btn btn-warning">
+                        <a href="<?php echo site_url(); ?>SekolahClient/put/<?php echo $rows->id_sekolah; ?>" class="btn btn-warning">
                           <i class="fa fa-pen" aria-hidden="true"></i></a>
-                        <a href="<?= base_url(); ?>sekolahclient/delete/<?= $rows->id_sekolah; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
+                        <a href="<?= base_url(); ?>SekolahClient/delete/<?= $rows->id_sekolah; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
                           <i class="fa fa-trash" aria-hidden="true"></i></a>
                       </div>
                     </td>

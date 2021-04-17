@@ -86,12 +86,12 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url(); ?>siswaclient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
               <!-- <li><a href="projectBar.php">Project</a></li> -->
               <!-- <li><a href="AboutUs.php">About Us</a></li> -->
-              <li><a href="<?php echo site_url(); ?>siswaclient/buku">Buku</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>siswaClient/profile"><?= $this->session->userdata('username') ?></a></li>
+              <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile"><?= $this->session->userdata('username') ?></a></li>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
 
             </ul>

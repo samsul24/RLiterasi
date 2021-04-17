@@ -65,13 +65,13 @@
 
 
             <li class="sidebar-item  ">
-              <a href="<?php echo site_url(); ?>bukuclient" class="sidebar-link">
+              <a href="<?php echo site_url(); ?>BukuClient" class="sidebar-link">
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Buku</span>
               </a>
             </li>
             <li class="sidebar-item  ">
-              <a href="<?php echo site_url(); ?>bukuclient" class="sidebar-link">
+              <a href="<?php echo site_url(); ?>BukuClient" class="sidebar-link">
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Ulasan</span>
               </a>
