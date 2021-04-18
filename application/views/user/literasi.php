@@ -4,90 +4,204 @@
 
   <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>DO-SMART| Literacy</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Literasi</title>
-  <!-- Icon css link -->
-  <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>css/materialdesignicons.min.css" rel="stylesheet">
+		<!-- favicon -->		
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url(); ?>assets/literasi/img/logo/favicon.ico">
 
-  <!-- Bootstrap -->
-  <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+		<!-- all css here -->
 
-  <!-- Rev slider css -->
-  <link href="<?php echo base_url(); ?>vendors/revolution/css/settings.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/revolution/css/layers.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/revolution/css/navigation.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/animate-css/animate.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
+		<!-- bootstrap v3.3.6 css -->
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/bootstrap.min.css">
+		<!-- owl.carousel css -->
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/owl.carousel.css">
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/owl.transitions.css">
+       <!-- Animate css -->
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/animate.css">
+        <!-- meanmenu css -->
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/meanmenu.min.css">
+		<!-- font-awesome css -->
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/font-awesome.min.css">
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/themify-icons.css">
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/flaticon.css">
+		<!-- magnific css -->
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/magnific.min.css">
+		<!-- style css -->
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/style.css">
+		<!-- responsive css -->
+		<link rel="stylesheet" href="<?php echo site_url(); ?>assets/literasi/css/responsive.css">
 
-  <!-- Extra plugin css -->
-  <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+		<!-- modernizr css -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <!--================Header Area =================-->
-  <header class="main_header_area">
-    <div class="header_top_area">
-      <div class="container">
-        <div class="pull-left">
-          <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
-          <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i>08 AM - 04 PM</a>
-        </div>
-        <!--  <div class="pull-right">
-                        <ul class="header_social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                    </div> -->
-      </div>
-    </div>
-    <div class="main_menu_area">
-      <div class="container">
-        <nav class="navbar navbar-default">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt=""></a>
-          </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
-              <!-- <li><a href="projectBar.php">Project</a></li> -->
-              <!-- <li><a href="AboutUs.php">About Us</a></li> -->
-              <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
-              <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
-              <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
-
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </nav>
-      </div>
-    </div>
-  </header>
-  <!--================Header Area =================-->
+<div id="preloader"></div>
+        <header class="header-one">
+            <!-- Start top bar -->
+            <div class="topbar-area fix hidden-xs">
+                <div class="container">
+                    <div class="row">
+                       <div class="col-md-6 col-sm-6">
+                           <div class="topbar-left">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-envelope"></i> info@aievari4.com</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i> +909-654-9805</a></li>
+                                </ul>
+							</div>
+                        </div>
+                        <div class=" col-md-6 col-sm-6">
+                            <div class="topbar-right">
+                                <div class="top-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End top bar -->
+            <!-- header-area start -->
+            <div id="sticker" class="header-area hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="row">
+                                <!-- logo start -->
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="logo">
+                                        <!-- Brand -->
+                                        <a class="navbar-brand page-scroll white-logo" href="<?php echo site_url(); ?>index-2.html">
+                                            <img src="<?php echo site_url(); ?>assets/literasi/img/logo/logo3.png" alt="">
+                                        </a>
+                                        <a class="navbar-brand page-scroll black-logo" href="<?php echo site_url(); ?>index-2.html">
+                                            <img src="<?php echo site_url(); ?>assets/literasi/img/logo/logo.png" alt="">
+                                        </a>
+                                    </div>
+                                    <!-- logo end -->
+                                </div>
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="header-right-link">
+                                        <!-- search option end -->
+                                        <a class="s-menu" href="<?php echo site_url(); ?>login.html">Login</a>
+                                    </div>
+                                    <!-- mainmenu start -->
+                                    <nav class="navbar navbar-default">
+                                        <div class="collapse navbar-collapse" id="navbar-example">
+                                            <div class="main-menu">
+                                                <ul class="nav navbar-nav navbar-right">
+                                                    <li><a class="pages" href="<?php echo site_url(); ?>index-2.html">Home</a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="<?php echo site_url(); ?>index-2.html">Home 01</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>index-3.html">Home 02</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="<?php echo site_url(); ?>about.html">About us</a></li>
+                                                    <li><a href="<?php echo site_url(); ?>investment.html">Investment</a></li>
+                                                    <li><a class="pages" href="#">Pages</a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="<?php echo site_url(); ?>team.html">team</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>faq.html">FAQ</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>review.html">Reviews</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>login.html">Login</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>signup.html">Register</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a class="pages" href="#">Blog</a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="<?php echo site_url(); ?>blog.html">Blog grid</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>blog-sidebar.html">Blog Sidebar</a></li>
+                                                            <li><a href="<?php echo site_url(); ?>blog-details.html">Blog Details</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="<?php echo site_url(); ?>contact.html">contacts</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                    <!-- mainmenu end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-area end -->
+                       <!-- mobile-menu-area start -->
+                       <div class="mobile-menu-area hidden-lg hidden-md hidden-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mobile-menu">
+                                <div class="logo">
+                                    <a href="<?php echo site_url(); ?>index-2.html"><img src="<?php echo site_url(); ?>assets/literasi/img/logo/logo.png" alt="" /></a>
+                                </div>
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li><a class="pages" href="<?php echo site_url(); ?>index-2.html">Home</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="<?php echo site_url(); ?>index-2.html">Home 01</a></li>
+                                                <li><a href="<?php echo site_url(); ?>index-3.html">Home 02</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<?php echo site_url(); ?>about.html">About us</a></li>
+                                        <li><a href="<?php echo site_url(); ?>investment.html">Investment</a></li>
+                                        <li><a class="pages" href="#">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="<?php echo site_url(); ?>team.html">team</a></li>
+                                                <li><a href="<?php echo site_url(); ?>faq.html">FAQ</a></li>
+                                                <li><a href="<?php echo site_url(); ?>review.html">Reviews</a></li>
+                                                <li><a href="<?php echo site_url(); ?>login.html">Login</a></li>
+                                                <li><a href="<?php echo site_url(); ?>signup.html">Register</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="pages" href="#">Blog</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="<?php echo site_url(); ?>blog.html">Blog grid</a></li>
+                                                <li><a href="<?php echo site_url(); ?>blog-sidebar.html">Blog Sidebar</a></li>
+                                                <li><a href="<?php echo site_url(); ?>blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<?php echo site_url(); ?>contact.html">contacts</a></li>
+                                    </ul>
+                                </nav>
+                            </div>					
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile-menu-area end -->		
+        </header>
+        <!-- header end -->
 </body>
+        <!-- Start breadcumb Area -->
+        <div class="page-area">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcrumb text-center">
+                            <div class="section-headline white-headline">
+                                <h3>Blog Sidebar</h3>
+                            </div>
+                            <ul class="breadcrumb-bg">
+                                <li class="home-bread">Home</li>
+                                <li>Blog Sidebar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End breadcumb Area -->
 <br><br><br><br>
 
 <body>
@@ -192,116 +306,138 @@
 
     </main><!-- End #main -->
 
+        <!-- Start Footer Area -->
+        <footer class="footer1">
+            <div class="footer-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="footer-content logo-footer">
+                                <div class="footer-head">
+                                    <div class="footer-logo">
+                                    	<a class="footer-black-logo" href="#"><img src="<?php echo site_url(); ?>assets/literasi/img/logo/logo.png" alt=""></a>
+                                    </div>
+                                    <p>
+                                        Are you looking for professional advice for your new business. Are you looking for professional advice for your new business. Are you looking for professional advice for your new business.
+                                    </p>
+                                    <div class="subs-feilds">
+                                        <div class="suscribe-input">
+                                            <input type="email" class="email form-control width-80" id="sus_email" placeholder="Type Email">
+                                            <button type="submit" id="sus_submit" class="add-btn">Subscribe</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single footer -->
+                        <div class="col-md-4 col-sm-3 col-xs-12">
+                            <div class="footer-content">
+                                <div class="footer-head">
+                                    <h4>Services Link</h4>
+                                    <ul class="footer-list">
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">Services </a></li>
+                                        <li><a href="#">Events</a></li>
+                                        <li><a href="#">Promotion</a></li>
+                                        <li><a href="#">Transition</a></li>
+                                        <li><a href="#">Social Media</a></li>
+                                    </ul>
+                                    <ul class="footer-list hidden-sm">
+										<li><a href="#">Customer Care</a></li>
+                                        <li><a href="#">Live chat</a></li>
+                                        <li><a href="#">Notification</a></li>
+                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="#">Terms & Condition</a></li>
+                                        <li><a href="#">Contact us </a></li>
+									</ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end single footer -->
+                        <div class="col-md-3 col-sm-4 col-xs-12">
+                            <div class="footer-content last-content">
+                                <div class="footer-head">
+                                    <h4>Information</h4> 
+                                    <div class="footer-contacts">
+										<p><span>Tel :</span> +0890-564-5644</p>
+										<p><span>Email :</span> info@aievari4.com</p>
+										<p><span>Location :</span> House- 65/4, London</p>
+									</div> 
+                                    <div class="footer-icons">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-google"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pinterest"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="copyright">
+                                <p>
+                                    Copyright © 2020
+                                    <a href="#">Aievari</a> All Rights Reserved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer area -->
+		
+		<!-- all js here -->
 
-  <!--================Footer Area =================-->
-  <footer class="footer_area">
-    <div class="footer_widgets_area">
-      <div class="container">
-        <div class="row footer_widgets_inner">
-          <div class="col-md-3 col-sm-6">
-            <aside class="f_widget about_widget">
-              <!-- <img src="img/footer-logo.png"> -->
-              <p><?= $this->session->userdata('visi') ?></p>
-              <ul>
-                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-              </ul>
-            </aside>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <aside class="f_widget recent_widget">
-              <div class="f_w_title">
-                <h3>New Event</h3>
-              </div>
-              <div class="recent_w_inner">
-                <div class="media">
-                  <div class="media-left">
-                  </div>
-                  <div class="media-body">
-                    <a href="#">
-                      <p><?= $this->session->userdata('website') ?></p>
-                    </a>
-                  </div>
-                </div>
+		<!-- jquery latest version -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/vendor/jquery-1.12.4.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/bootstrap.min.js"></script>
+		<!-- owl.carousel js -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/owl.carousel.min.js"></script>
+		  <!-- stellar js -->
+        <script src="<?php echo site_url(); ?>assets/literasi/js/jquery.stellar.min.js"></script>
+		<!-- magnific js -->
+        <script src="<?php echo site_url(); ?>assets/literasi/js/magnific.min.js"></script>
+        <!-- wow js -->
+        <script src="<?php echo site_url(); ?>assets/literasi/js/wow.min.js"></script>
+        <!-- meanmenu js -->
+        <script src="<?php echo site_url(); ?>assets/literasi/js/jquery.meanmenu.js"></script>
+		<!-- Form validator js -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/form-validator.min.js"></script>
+		<!-- plugins js -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/plugins.js"></script>
+		<!-- main js -->
+		<script src="<?php echo site_url(); ?>assets/literasi/js/main.js"></script>
+	</body>
 
-              </div>
-            </aside>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <aside class="f_widget address_widget">
-              <div class="f_w_title">
-                <h3>Office Address</h3>
-              </div>
-              <div class="address_w_inner">
-                <div class="media">
-                  <div class="media-left">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                  <div class="media-body">
-                    <p> <?= $this->session->userdata('alamat_sekolah') ?></p>
-                  </div>
-                </div>
-                <div class="media">
-                  <div class="media-left">
-                    <i class="fa fa-phone"></i>
-                  </div>
-                  <div class="media-body">
-                    <p><?= $this->session->userdata('no_telp') ?> </p>
-                  </div>
-                </div>
-                <div class="media">
-                  <div class="media-left">
-                    <i class="fa fa-envelope"></i>
-                  </div>
-                  <div class="media-body">
-                    <p><?= $this->session->userdata('website') ?></p>
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <aside class="f_widget give_us_widget">
-              <h5>Give Us A Call</h5>
-              <h4><?= $this->session->userdata('no_telp') ?> </h4>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer_copy_right">
-      <div class="container">
-
-      </div>
-    </div>
-  </footer>
-  
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="<?php echo base_url(); ?>js/jquery-2.2.4.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-        <!-- Rev slider js -->
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
-        
-        <!--gmaps Js-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="<?php echo base_url(); ?>js/gmaps.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>js/theme.js"></script>
-    </body>
+<!-- Mirrored from rockstheme.com/rocks/aievari-live/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 03 Mar 2020 08:28:19 GMT -->
 </html>

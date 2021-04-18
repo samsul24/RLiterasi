@@ -100,7 +100,7 @@
               <li><a href="<?php echo site_url(); ?>siswaclient">Home</a></li>
               <li><a href="<?php echo site_url(); ?>guruclient/ulasan">Ulasan</a></li>
               <li><a href="<?php echo site_url(); ?>siswaclient/buku">Buku</a></li>
-              <li><a href="<?php echo site_url(); ?>guruclient/akses">Guru</a></li>
+              <li><a href="<?php echo site_url(); ?>guruclient/profile">Guru</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
             </ul>
