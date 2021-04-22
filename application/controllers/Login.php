@@ -66,8 +66,7 @@ class Login extends CI_Controller
   public function reg()
   {
     $data['title'] = 'registrasi';
-    $this->load->view('header3', $data, FALSE);
-    $this->load->view('login/registrasi', $data, FALSE);
+    $this->load->view('login/regist', $data, FALSE);
   }
 
   public function reg_process()
@@ -94,10 +93,13 @@ class Login extends CI_Controller
       'verification_key'        =>  $verification_key
     );
     $update = $this->Regist_model->insert($data);
+
     if ($update > 0) {
-      $resultText = "Harap Verifikasi EMail untuk Login";
-      $message = "<p> HI " . $this->input->post('nama_sekolah') . "</p>
-        <p>Terimakasih sudah registrasi, tahap selanjutnya silahkan klik <a href='" . base_url() . "login/verify_email/" . $verification_key . "'>link</a>.</p>
+
+      $resultText = "Verifikasi Email";
+      $message = "<p> Halo " . $this->input->post('nama_sekolah') . "</p>
+        <p>Terimakasih sudah melakukan registrasi, <br> untuk tahap selanjutnya silahkan klik <a href='" . base_url() . "login/verify_email/" . $verification_key . "'>link</a>. untuk melakukan registrasi akun dan mendapatkan username dan password akun anda</p>
+        <p><a href='" . base_url() . "login/verify_email/" . $verification_key . "'>" . base_url() . "login/verify_email/" . $verification_key . "</a></p>
         <p>Terimakasih,</p>";
 
       $config = [
@@ -124,28 +126,73 @@ class Login extends CI_Controller
       $this->email->message($message);
 
       if ($data = $this->email->send()) {
-        $berhasil = array('berhasil' => 'Selamat registrasi anda kami proses, cek email anda');
-        $this->load->view('welcome_message', $berhasil);
+        $berhasil = array('status' => 'Selamat registrasi anda kami proses, cek email anda');
+        $this->load->view('login/status', $berhasil);
       } else {
-        $gagal = array('gagal' => 'cek server anda');
-        $this->load->view('welcome_message', $gagal);
+        $berhasil = array('status' => 'Registrasi gagal, harap coba lagi');
+        $this->load->view('login/status', $berhasil);
       }
-      redirect('Login/', 'refresh');
     }
   }
 
   function verify_email()
   {
-
     if ($this->uri->segment(3)) {
       $verification_key = $this->uri->segment(3);
       if ($this->Regist_model->verify_email($verification_key)) {
-        $data['message'] = '<h1 align="center"> EMAIL SUdah diverifikasi silahkan anda bisa masuk <a href="' . base_url() . 'Login">here</a></h1>';
-      } else {
-        $data['message'] = '<h1 align="center">Invalid Link</h1>';
-      }
+        $sekolahData = $this->Regist_model->search_code($verification_key);
 
-      $this->load->view('login/email_verification', $data);
+        $userrandom = array(
+          "username" => uniqid("admin_"),
+          "password" => rand(),
+          "id_user_role" => 2,
+          "id_sekolah" => $sekolahData->id_sekolah
+        );
+
+        $resultText = "Registrasi berhasil";
+        $message = "<p>Username dan password sementara untuk admin</p>
+        <br>
+        <p>username \t\t\t :" . $userrandom['username'] . "</p>
+        <p>password \t\t\t :" . $userrandom['password'] . "</p>
+        <br>
+        <p><strong>Harap segera melengkapi data pengguna anda</strong></p>
+        <p>Registrasi sudah berhasil, tahap selanjutnya silahkan klik <a href='" . base_url() . "login/'>link</a></p>
+        <p>Terimakasih</p>";
+
+        $config = [
+          'protocol' => 'smtp',
+          'smtp_ssl' => 'auto',
+          'smtp_host' => 'smtp.googlemail.com',
+          'smtp_user' => 'ensiserver2021@gmail.com',
+          'smtp_pass' => 'literasi2021',
+          'smtp_port' => 465,
+          'smtp_crypto' => 'ssl',
+          'mailtype' => 'html',
+          'smtp_timeout' => '4',
+          'charset' => 'iso-8859-1',
+          'wordwrap' => TRUE
+        ];
+
+        $this->load->library('email', $config);
+        $this->email->initialize($config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('ensiserver2021@gmail.com');
+        $this->email->to($sekolahData->email);
+        $this->email->cc('ensiserver2021@gmail.com');
+        $this->email->subject($resultText);
+        $this->email->message($message);
+        $this->email->send();
+
+        $this->Regist_model->regist_user($userrandom);
+
+        $data['status'] = '';
+        $data['status'] .= '<div style="color:white;">
+        <h3 class="title-body" style="color:white;"> EMAIL Sudah diverifikasi silahkan anda bisa masuk dengan username dan password yang ada di email <a href="' . base_url() . 'Login">here</a></h3><br><br>';
+        $data['status'] .= "<h3 style='color:white;'>Data Account</h3><p style='color:white;'>username \t : " . $userrandom['username'] . "</p><p style='color:white;'>password \t : " . $userrandom['password'] . "</p></div>";
+      } else {
+        $data['status'] = ' <h3 class="title-body" style="color:white;">Invalid Link</h1>';
+      }
+      $this->load->view('login/email_verification', $data, false);
     }
   }
 

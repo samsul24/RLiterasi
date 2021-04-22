@@ -1,19 +1,28 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class regist_model extends CI_Model{
+class regist_model extends CI_Model
+{
 
-  function insert($data){
-    $this->db->insert('sekolah',$data);
+  function insert($data)
+  {
+    $this->db->insert('sekolah', $data);
     return $this->db->insert_id();
   }
 
-  function verify_email($key){
+  public function search_code($code)
+  {
+    $this->db->where('verification_key', $code);
+    return $this->db->get('sekolah')->row();
+  }
+
+  function verify_email($key)
+  {
     $this->db->where('verification_key', $key);
-    $this->db->where('is_email_verified','no');
+    $this->db->where('is_email_verified', 'no');
 
     $query = $this->db->get('sekolah');
-    if($query->num_rows() > 0){
+    if ($query->num_rows() > 0) {
       $data = array(
         'is_email_verified' => 'yes'
       );
@@ -21,10 +30,12 @@ class regist_model extends CI_Model{
       $this->db->where('verification_key', $key);
       $this->db->update('sekolah', $data);
       return true;
-    }else {
+    } else {
       return false;
     }
   }
+  public function regist_user($data)
+  {
+    $this->db->insert('user', $data);
+  }
 }
-
-?>

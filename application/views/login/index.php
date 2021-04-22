@@ -112,6 +112,8 @@
                             <button class="btn btn-primary" type="submit">login</button>
                             </p>
                         </div>
+                        <p class="text-center">don't have an agency account ? <a href="<?php echo site_url() ?>Login/reg">register now</a>
+                        </p>
                         <!-- Submit Form Button Ends -->
                     </form>
                     <!-- Form Ends -->

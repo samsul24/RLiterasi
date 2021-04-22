@@ -29,6 +29,7 @@
 
   <!-- Extra plugin css -->
   <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>css/flex.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -265,7 +266,7 @@
         <h4>Yuk Kita Literasi </h4>
       </div>
       <div class="pull-right">
-        <a class="get_btn_black"  href="<?php echo site_url(); ?>SiswaClient/literasi/">Ayo Literasi</a>
+        <a class="get_btn_black" href="<?php echo site_url(); ?>SiswaClient/literasi/">Ayo Literasi</a>
       </div>
     </div>
   </section>
@@ -355,31 +356,59 @@
       </div>
     </div>
   </footer>
-  
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="<?php echo base_url(); ?>js/jquery-2.2.4.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-        <!-- Rev slider js -->
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
-        
-        <!--gmaps Js-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="<?php echo base_url(); ?>js/gmaps.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>js/theme.js"></script>
-    </body>
+
+  <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" id="myModalLabel"><?= $this->session->flashdata('result') == "success" ? "Berhasil" : "Gagal" ?></h3>
+        </div>
+        <div class="modal-body text-center">
+          <?php if ($this->session->flashdata('result') == "success") { ?>
+            <img class="animated infinite bounce w-25" style="padding: 1rem;" src="<?= base_url(); ?>css/assets/img/berhasil.png" alt="">
+            <h4><strong>Terima kasih sudah memberikan ulasan dari literasi kami</strong></h4>
+          <?php } ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="<?php echo base_url(); ?>css/js/jquery-2.2.4.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="<?php echo base_url(); ?>css/js/bootstrap.min.js"></script>
+  <!-- Rev slider js -->
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+  <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
+
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="<?php echo base_url(); ?>css/js/gmaps.min.js"></script>
+
+  <script src="<?php echo base_url(); ?>css/js/theme.js"></script>
+  <script>
+    <?php if ($this->session->flashdata('result') != null) { ?>
+      setTimeout(() => {
+        $("#resultModal").modal("show");
+      }, 500);
+    <?php } ?>
+  </script>
+</body>
+
 </html>

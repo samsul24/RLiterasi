@@ -9,7 +9,7 @@ use Restserver\Libraries\REST_Controller;
 class Ulasan extends REST_Controller
 {
 
-    function __construct($config ='rest')
+    function __construct($config = 'rest')
     {
         parent::__construct($config);
     }
@@ -29,12 +29,10 @@ class Ulasan extends REST_Controller
     function index_post()
     {
         $data = array(
-        //   'id_user'      => $this->post('id_user'),
-          'judul'      => $this->post('judul'),
-          'ket_siswa'         => $this->post('ket_siswa'),
-      
+            'judul' => $this->post('judul'),
+            'keterangan' => $this->post('keterangan'),
         );
-        $insert = $this->db->insert('ulasan',$data);
+        $insert = $this->db->insert('ulasan', $data);
         if ($insert) {
             $this->response($data, 200);
         } else {
@@ -53,4 +51,3 @@ class Ulasan extends REST_Controller
         }
     }
 }
-?>
