@@ -104,8 +104,11 @@
 
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Email Address">
-                            <span class="text-danger"><?php echo form_error('email'); ?></span>
+                            <!-- <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Email Address"> -->
+                            <input type="text" class="form-control form-control-user border-left-primary"
+                                        id="email" name="email" placeholder="Email" value="<?= set_value('email')  ?>">
+                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <!-- <span class="text-danger"><?php echo form_error('email'); ?></span> -->
                         </div>
                         <div class="form-group row">
 

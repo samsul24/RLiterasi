@@ -13,6 +13,8 @@ class Login extends CI_Controller
     $this->load->library('session');
     $this->load->model('Login_model');
     $this->load->model('Regist_model');
+    $this->load->library('form_validation');
+
   }
 
   public function index()
@@ -65,10 +67,25 @@ class Login extends CI_Controller
 
   public function reg()
   {
+      $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+        'is_unique' => 'Email sudah digunakan !',
+        'required' => 'Email tidak boleh kosong !',
+        'valid_email' => "Email tidak valid !"
+    ]);
+    // $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+    //     'matches' => 'Konfirmasi Password tidak sama !',
+    //     'required' => 'Password tidak boleh kosong !',
+    //     'min_length' => 'Password terlalu pendek!'
+    // ]);
+    // $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+
+    if ($this->form_validation->run() == false) {
     $data['title'] = 'registrasi';
     $this->load->view('login/regist', $data, FALSE);
+  }else{
+    echo"gagal";
   }
-
+  }
   public function reg_process()
   {
 
@@ -126,7 +143,7 @@ class Login extends CI_Controller
       $this->email->message($message);
 
       if ($data = $this->email->send()) {
-        $berhasil = array('status' => 'Selamat registrasi anda kami proses, cek email anda');
+        $berhasil = array('status' => 'Selamat registrasi anda sedang kami proses,<br> cek email anda');
         $this->load->view('login/status', $berhasil);
       } else {
         $berhasil = array('status' => 'Registrasi gagal, harap coba lagi');
@@ -143,12 +160,16 @@ class Login extends CI_Controller
         $sekolahData = $this->Regist_model->search_code($verification_key);
 
         $userrandom = array(
-          "username" => uniqid("admin_"),
+          "username" => "admin_".$sekolahData->npsn,
+          // "npsn" => $sekolahData->npsn,
           "password" => rand(),
           "id_user_role" => 2,
           "id_sekolah" => $sekolahData->id_sekolah
         );
+        $this->db->insert('user', $userrandom);
 
+          // var_dump($userrandom);
+          // exit;
         $resultText = "Registrasi berhasil";
         $message = "<p>Username dan password sementara untuk admin</p>
         <br>
@@ -187,7 +208,7 @@ class Login extends CI_Controller
 
         $data['status'] = '';
         $data['status'] .= '<div style="color:white;">
-        <h3 class="title-body" style="color:white;"> EMAIL Sudah diverifikasi silahkan anda bisa masuk dengan username dan password yang ada di email <a href="' . base_url() . 'Login">here</a></h3><br><br>';
+        <h3 class="title-body" style="color:white;"> EMAIL Sudah diverifikasi,<br>Silahkan anda bisa masuk dengan username dan password yang ada di email <a href="' . base_url() . 'Login">here</a></h3><br><br>';
         $data['status'] .= "<h3 style='color:white;'>Data Account</h3><p style='color:white;'>username \t : " . $userrandom['username'] . "</p><p style='color:white;'>password \t : " . $userrandom['password'] . "</p></div>";
       } else {
         $data['status'] = ' <h3 class="title-body" style="color:white;">Invalid Link</h1>';

@@ -12,6 +12,7 @@ class User extends REST_Controller
     function __construct($config = 'rest')
     {
         parent::__construct($config);
+        $this->load->model('Login_model');
     }
 
     function index_get()
@@ -107,6 +108,34 @@ class User extends REST_Controller
         } else {
             $this->response(array('status' => 'fail', 502));
         }
+    }
+    public function login_post()
+    {
+      $user = $this->post('username');
+      $password = $this->post('password');
+      $check = $this->Login_model->login($user, $password);
+      if ($check) {
+        foreach ($check as $rows) {
+          $session_data = array(
+            'id_user' => $rows->id_user,
+            'username' => $rows->username,
+            'id_user_role' => $rows->id_user_role,
+            'id_user' => $rows->id_user,
+            'id_sekolah' => $rows->id_sekolah,
+            'nama_sekolah' => $rows->nama_sekolah,
+            'visi' => $rows->visi,
+            'misi' => $rows->misi,
+            'email' => $rows->email,
+            'no_telp' => $rows->no_telp,
+            'alamat_sekolah' => $rows->alamat_sekolah,
+            'website' => $rows->website,
+            'kabupaten' => $rows->kabupaten,
+          );
+        }
+        $this->response(array('status' => 'success','data'=>$session_data), 200);
+      }else{
+        $this->response(array('status' => 'error','data'=>0), 404);
+      }
     }
 }
 ?>
