@@ -92,27 +92,25 @@
                     <!-- Section Title Starts -->
                     <div class="row text-center">
                         <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
-                        <h2 class="title-head hidden-xs"><span>Register </span>Siswa</h2>
+                        <h2 class="title-head hidden-xs"><span>Register </span>Sekolah</h2>
                     </div>
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->
                     <form class="user" method="post" action="<?php echo base_url(); ?>login/reg_process">
                         <div class="form-group row">
 
-                            <input type="text" name="nama_sekolah" class="form-control" id="exampleLastName" placeholder="Nama Sekolah">
+                            <input type="text" name="nama_sekolah" class="form-control" id="exampleLastName" placeholder="Nama Sekolah" required>
                             <span class="text-danger"><?php echo form_error('nama_sekolah'); ?></span>
 
                         </div>
                         <div class="form-group">
-                            <!-- <input type="email" name="email" class="form-control" id="exampleInputEmail" placeholder="Email Address"> -->
                             <input type="text" class="form-control form-control-user border-left-primary"
-                                        id="email" name="email" placeholder="Email" value="<?= set_value('email')  ?>">
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                            <!-- <span class="text-danger"><?php echo form_error('email'); ?></span> -->
+                                        id="email" name="email" placeholder="Email" value="<?= set_value('email')?>" required is_unique>
+                                        <span class="text-danger"> <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?></span>
                         </div>
                         <div class="form-group row">
 
-                            <input type="text" name="npsn" class="form-control form-control-user" id="npsn" placeholder="NPSN">
+                            <input type="text" name="npsn" class="form-control form-control-user" id="npsn" placeholder="NPSN" required>
                             <span class="text-danger"><?php echo form_error('npsn'); ?></span>
 
                         </div>

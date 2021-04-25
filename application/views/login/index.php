@@ -82,16 +82,17 @@
         </div>
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <!-- Logo Starts -->
-            <a class="visible-xs" href="index.html">
+            <!-- <a class="visible-xs" href="index.html">
                 <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1" alt="logo">
             </a>
-            
+             -->
             <!-- Logo Ends -->
             <div class="form-container">
+
                 <div>
                     <!-- Section Title Starts -->
                     <div class="row text-center">
-                      <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
+                        <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
                         <h2 class="title-head hidden-xs">Log<span>-in </span>Siswa</h2>
                     </div>
                     <!-- Section Title Ends -->
@@ -112,15 +113,18 @@
                             <button class="btn btn-primary" type="submit">login</button>
                             </p>
                         </div>
-                        <p class="text-center">don't have an agency account ? <a href="<?php echo site_url() ?>Login/reg">register now</a>
+                        <p class="text-center">don't have an agency account ? <a href="<?php base_url() ?>Register">register now</a>
                         </p>
                         <!-- Submit Form Button Ends -->
                     </form>
                     <!-- Form Ends -->
+
+            <a style="margin-left:800px"href="<?php echo site_url() ?>Login/reg">admin<i class="fa fa-cog fa-spin"></i></a>
+                </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
     <!-- Template JS Files -->
     <script src="<?php echo base_url() ?>css/js/jquery-2.2.4.min.js"></script>

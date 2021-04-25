@@ -14,7 +14,6 @@ class Login extends CI_Controller
     $this->load->model('Login_model');
     $this->load->model('Regist_model');
     $this->load->library('form_validation');
-
   }
 
   public function index()
@@ -28,6 +27,7 @@ class Login extends CI_Controller
     $user = $this->input->post('user');
     $password = $this->input->post('password');
     $check = $this->Login_model->login($user, $password);
+    
     if ($check) {
       foreach ($check as $rows) {
         $session_data = array(
@@ -44,22 +44,27 @@ class Login extends CI_Controller
           'alamat_sekolah' => $rows->alamat_sekolah,
           'website' => $rows->website,
           'kabupaten' => $rows->kabupaten,
+          'is_active' => 'aktif',
         );
         $this->session->set_userdata($session_data);
       }
-      if ($this->session->userdata('id_user_role') == 1) {
+      if ($this->session->userdata('id_user_role') == 1 && $this->session->userdata('is_active') == 'aktif') {
         redirect('SuperAdminClient');
-      } elseif ($this->session->userdata('id_user_role') == 2) {
+      } elseif ($this->session->userdata('id_user_role') == 2 && $this->session->userdata('is_active') == 'aktif') {
         redirect('AdminClient');
-      } elseif ($this->session->userdata('id_user_role') == 3) {
+      } elseif ($this->session->userdata('id_user_role') == 3 && $this->session->userdata('is_active') == 'aktif') {
         redirect('GuruClient');
-      } elseif ($this->session->userdata('id_user_role') == 4) {
+      } elseif ($this->session->userdata('id_user_role') == 4 && $this->session->userdata('is_active') == 'aktif') {
         redirect('SiswaClient');
       } else {
-        redirect('UserLogin');
-      }
-    } else {
+      print_r("gagal");
+      exit;
       $this->session->set_flashdata('result', 'Login gagal');
+      redirect('Login');
+    }
+  } else {
+      print_r("gaga;");
+      exit;
       redirect('Login');
     }
     redirect('Login');
@@ -67,10 +72,10 @@ class Login extends CI_Controller
 
   public function reg()
   {
-      $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-        'is_unique' => 'Email sudah digunakan !',
-        'required' => 'Email tidak boleh kosong !',
-        'valid_email' => "Email tidak valid !"
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+      'is_unique' => 'Email sudah digunakan !',
+      'required' => 'Email tidak boleh kosong !',
+      'valid_email' => "Email tidak valid !"
     ]);
     // $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
     //     'matches' => 'Konfirmasi Password tidak sama !',
@@ -80,19 +85,20 @@ class Login extends CI_Controller
     // $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
     if ($this->form_validation->run() == false) {
-    $data['title'] = 'registrasi';
-    $this->load->view('login/regist', $data, FALSE);
-  }else{
-    echo"gagal";
+      $data['title'] = 'registrasi';
+      $this->load->view('login/regist', $data);
+    } else {
+      $email = $this->input->post('email', true);
+
+      echo "gagal";
+    }
   }
-  }
+
   public function reg_process()
   {
-
     $verification_key = md5(rand());
     $this->API = "http://localhost:8080/RLiterasi/api/Sekolah";
     $data = array(
-
       'nama_sekolah'         => $this->input->post('nama_sekolah'),
       'npsn'                 => $this->input->post('npsn'),
       'nss'                  => 'null',
@@ -104,7 +110,7 @@ class Login extends CI_Controller
       'kabupaten'               => 'null',
       'provinsi'                => 'null',
       'website'                 => 'null',
-      'email'                   => $this->input->post('email'),
+      'email'                   => $this->input->post('email', true),
       'visi'                    => 'null',
       'misi'                    => 'null',
       'verification_key'        =>  $verification_key
@@ -136,7 +142,7 @@ class Login extends CI_Controller
       $this->load->library('email', $config);
       $this->email->initialize($config);
       $this->email->set_newline("\r\n");
-      $this->email->from('ensiserver2021@gmail.com');
+      $this->email->from('ensiserver2021@gmail.com', 'Literasi 2021');
       $this->email->to($this->input->post('email'));
       $this->email->cc('ensiserver2021@gmail.com');
       $this->email->subject($resultText);
@@ -160,16 +166,15 @@ class Login extends CI_Controller
         $sekolahData = $this->Regist_model->search_code($verification_key);
 
         $userrandom = array(
-          "username" => "admin_".$sekolahData->npsn,
-          // "npsn" => $sekolahData->npsn,
+          "username" => "admin_" . $sekolahData->npsn,
           "password" => rand(),
+          "is_active" => 'aktif',
           "id_user_role" => 2,
-          "id_sekolah" => $sekolahData->id_sekolah
+          "id_sekolah" => $sekolahData->id_sekolah,
+          'date_created' => time()
+
         );
         $this->db->insert('user', $userrandom);
-
-          // var_dump($userrandom);
-          // exit;
         $resultText = "Registrasi berhasil";
         $message = "<p>Username dan password sementara untuk admin</p>
         <br>
@@ -197,7 +202,7 @@ class Login extends CI_Controller
         $this->load->library('email', $config);
         $this->email->initialize($config);
         $this->email->set_newline("\r\n");
-        $this->email->from('ensiserver2021@gmail.com');
+        $this->email->from('ensiserver2021@gmail.com', 'Literasi 2021');
         $this->email->to($sekolahData->email);
         $this->email->cc('ensiserver2021@gmail.com');
         $this->email->subject($resultText);
