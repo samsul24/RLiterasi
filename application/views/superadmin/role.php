@@ -1,58 +1,105 @@
-<?php if($this->session->userdata('id_user_role')!= 1){redirect('login');};?>
-<div class="cc">
+<?php if ($this->session->userdata('id_user_role') != 1) {
+  redirect('login');
+}; ?>
+<!DOCTYPE html>
+<html lang="en">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid" >
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-user-plus" ></i> Data User Role</h2>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-      <div class="alert alert-secondary" role="alert">
-      <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp;  &nbsp;<i class="nav-icon fas fa-user-plus"></i> User Role
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literasi</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/bootstrap.css">
+
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/style.css">
+
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/app.css">
+  <link rel="shortcut icon" href="<?php echo base_url() ?>assets/super/assets/images/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style1.css">
+
+</head>
+
+<body>
+
+  <div class="page-heading">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+          <h3>DataTable Sekolah</h3>
+          <p class="text-subtitle text-muted">For user to check they list</p>
         </div>
-        <div class="row">
-          <div class="col"> 
-              <!-- Tabel -->
-              <div class="card">
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="tabel" class="table table-bordered">
-                <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>User Role</th>
-                 
-                </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($role as $rows) : ?>
-                    <tr>
-                        <td><?php echo $rows->id_user_role; ?></td>
-                        <td><?php echo $rows->nama_role; ?></td>
-                       
-                    </tr>
-                    <?php endforeach ; ?>
-                </tbody>
-              </table>             
-            <!-- /.card-body -->
-          </div>
-            </div>
-          </div>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+          <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+            </ol>
+          </nav>
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
+    <section class="section">
+      <div class="card">
+        <div class="card-header">
+          Simple Datatable
+        </div>
+        <div class="card-body">
+          <div class="dataTable-container">
+            <table class="table table-striped" id="table1">
+              <thead>
+                <tr>
+
+                  <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">No</th>
+                  <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">Id Role</th>
+                  <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">User Role</th>
+
+              </thead>
+              <tbody>
+                <?php $i = 1;
+                foreach ($role as $rows) : ?>
+                  <tr>
+
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $rows->id_user_role; ?></td>
+                    <td><?php echo $rows->nama_role; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </section>
   </div>
-  <!-- /.content-wrapper -->
+
+  <footer>
+    <div class="footer clearfix mb-0 text-muted">
+      <div class="float-start">
+        <p>2021 &copy; Literasi</p>
+      </div>
+      <div class="float-end">
+        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="#">Literasi 2021</a></p>
+      </div>
+    </div>
+  </footer>
+  </div>
+  </div>
+  <script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
+
+  <script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
+  <script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+  </script>
+
+  <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
+</body>
+
+</html>

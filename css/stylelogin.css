@@ -133,6 +133,8 @@ a:focus {
   transition: .1s;
   outline: 0;
   box-shadow: none;
+  border-radius: 500px;
+
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -155,7 +157,9 @@ a:focus {
   font-size: 14px;
   border-radius: 0;
   outline: 0;
+  /* width: 250px; */
   transition: .1s;
+  border-radius: 500px;
 }
 
 .form-control:focus {
@@ -3331,6 +3335,7 @@ section.shop-checkout {
 
 .latest-post a.btn {
   margin: 15px 0;
+  
 }
 
 .latest-post a img {
@@ -3430,6 +3435,7 @@ section.shop-checkout {
   display: block;
   margin-top: 40px;
   background: transparent;
+  
 }
 
 .call-action-all .action-btn .btn-primary:hover, .call-action-all .action-btn .btn-primary:active, .call-action-all .action-btn .btn-primary:focus {

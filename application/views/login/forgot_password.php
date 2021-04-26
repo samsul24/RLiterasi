@@ -1,7 +1,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Literasi</title>
+    <title>Forgot Password - Literasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
@@ -91,9 +91,23 @@
                 <div>
                     <!-- Section Title Starts -->
                     <div class="row text-center">
-                        <h3 class="title-body" style="color:white;"><?= $status ?></h3>
+                        <h2 class="title-head hidden-xs"><span>Forgot </span>Pssword</h2>
                     </div>
                     <!-- Section Title Ends -->
+                    <!-- Form Starts -->
+                    <form class="user" method="post" action="<?php echo base_url(); ?>Register/forgotPassword">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user border-left-primary" id="email" name="email" placeholder="Email" value="<?= set_value('email') ?>" required is_unique>
+                            <span class="text-danger"> <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value=" Reset Password" class="btn btn-primary btn-user btn-block" />
+                        </div>
+                        <hr>
+
+                    </form>
+                    <!-- Form Ends -->
                 </div>
             </div>
         </div>

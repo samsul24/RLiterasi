@@ -89,15 +89,17 @@
             <!-- Logo Ends -->
             <div class="form-container">
 
-                <div>
+                <div >
                     <!-- Section Title Starts -->
                     <div class="row text-center">
                         <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
                         <h2 class="title-head hidden-xs">Log<span>-in </span>Siswa</h2>
+                        <?= $this->session->flashdata('message'); ?>
+
                     </div>
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->
-                    <form action="<?php echo site_url() ?>login/log_process" method='post'>
+                    <form action="<?php echo site_url() ?>login/log_process" method='post' >
                         <!-- Input Field Starts -->
                         <div class="form-group">
                             <input class="form-control" name="user" id="user" placeholder="Masukkan username" type="text" required="">
@@ -113,13 +115,14 @@
                             <button class="btn btn-primary" type="submit">login</button>
                             </p>
                         </div>
-                        <p class="text-center">don't have an agency account ? <a href="<?php base_url() ?>Register">register now</a>
+                        <p class="text-center" ><a href="<?php base_url() ?>Register/forgotPassword">forgot password ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="<?php base_url() ?>Register">register now</a>
                         </p>
                         <!-- Submit Form Button Ends -->
-                    </form>
+                    </form> 
                     <!-- Form Ends -->
-
-            <a style="margin-left:800px"href="<?php echo site_url() ?>Login/reg">admin<i class="fa fa-cog fa-spin"></i></a>
+<br><br>
+            <a style="margin-left:800px"href="<?php echo site_url() ?>Login/reg"><img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio" style=></a>
                 </div>
                 </div>
             </div>

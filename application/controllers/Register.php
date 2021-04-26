@@ -207,18 +207,18 @@ class Register extends CI_Controller
         ]);
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Literasi | Lupa Password';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/forgot_password');
-            $this->load->view('templates/auth_footer', $data);
+            $data['title'] = 'Literasi | Registrasi';
+            $this->load->view('login/forgot_password', $data);
         } else {
             $email = $this->input->post('email');
+            // $username = $this->input->post('username');
             $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
 
             if ($user) {
                 $token = base64_encode(random_bytes(32));
                 $user_token = [
                     'email' => $email,
+                    // 'username' => $username,
                     'token' => $token,
                     'date_created' => time()
 
@@ -235,7 +235,7 @@ class Register extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('auth/forgotPassword');
+                redirect('Register/forgotPassword');
             } else {
                 $this->session->set_flashdata(
                     'message',
@@ -246,7 +246,7 @@ class Register extends CI_Controller
                         </button>
                     </div>'
                 );
-                redirect('Login/forgotPassword');
+                redirect('Register/forgotPassword');
             }
         }
     }
@@ -274,7 +274,7 @@ class Register extends CI_Controller
                             </button>
                         </div>'
                 );
-                redirect('Login/forgotPassword');
+                redirect('Register/forgotPassword');
             }
         } else {
             $this->session->set_flashdata(
@@ -286,7 +286,7 @@ class Register extends CI_Controller
                         </button>
                     </div>'
             );
-            redirect('Login/forgotPassword');
+            redirect('Register/forgotPassword');
         }
     }
 
@@ -294,7 +294,7 @@ class Register extends CI_Controller
 
     {
         if (!$this->session->userdata('reset_email')) {
-            redirect('Login');
+            redirect('Register');
         }
 
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]');
@@ -302,9 +302,7 @@ class Register extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Literasi | Change Password';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/change_password');
-            $this->load->view('templates/auth_footer');
+            $this->load->view('login/change_password', $data);
         } else {
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');

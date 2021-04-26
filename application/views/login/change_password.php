@@ -1,7 +1,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Registrasi - Literasi</title>
+    <title>Forgot Password - Literasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
@@ -91,33 +91,28 @@
                 <div>
                     <!-- Section Title Starts -->
                     <div class="row text-center">
-                        <h2 class="title-head hidden-xs"><span>Register </span>Sekolah</h2>
-                        <?= $this->session->flashdata('message'); ?>
+                        <h2 class="title-head hidden-xs"><span>change </span>your password </h2>
+                        <h5 class="mb-4"> for</h5>
+                        <h5 class="mb-4"> <?= $this->session->userdata('reset_email'); ?></h5>
 
                     </div>
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->
-                    <form class="user" method="post" action="<?php echo base_url(); ?>login/reg_process">
-                        <div class="form-group row">
+                    <form class="user" method="post" action="<?php echo base_url(); ?>Register/changePassword">
 
-                            <input type="text" name="nama_sekolah" class="form-control" id="exampleLastName" placeholder="Nama Sekolah" required>
-                            <span class="text-danger"><?php echo form_error('nama_sekolah'); ?></span>
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Enter New Password...">
+                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
 
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password...">
+                            <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user border-left-primary"
-                                        id="email" name="email" placeholder="Email" value="<?= set_value('email')?>" required is_unique>
-                                        <span class="text-danger"> <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?></span>
+                            <input type="submit" value=" Change Password" class="btn btn-primary btn-user btn-block" />
                         </div>
-                        <div class="form-group row">
-
-                            <input type="text" name="npsn" class="form-control form-control-user" id="npsn" placeholder="NPSN" required>
-                            <span class="text-danger"><?php echo form_error('npsn'); ?></span>
-
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="register" value="Register" class="btn btn-primary btn-user btn-block" />
-                        </div>
+                        <hr>
 
                     </form>
                     <!-- Form Ends -->

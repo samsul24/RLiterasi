@@ -91,15 +91,16 @@
         <div>
           <!-- Section Title Starts -->
           <div class="row text-center">
-            <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
             <h2 class="title-head hidden-xs"><span>Register </span>Siswa</h2>
+            <?= $this->session->flashdata('message'); ?>
+
           </div>
           <!-- Section Title Ends -->
           <!-- Form Starts -->
           <form class="user" method="post" action="<?= base_url('Register') ?>">
             <div class="form-group row">
               <label for="id_sekolah">Nama Sekolah :</label>
-              <select class="form-control" name="id_sekolah">
+              <select class="form-control " name="id_sekolah">
                 <option value="" selected="">-- Pilih --</option>
                 <?php foreach ($sekolah as $rows) : ?>
                   <option value="<?php echo $rows->id_sekolah; ?>"> <?php echo $rows->nama_sekolah; ?> </option>
@@ -127,7 +128,6 @@
             <button type="submit" class="btn btn-primary btn-user btn-block">
               Register Akun
             </button>
-            <hr>
 
           </form>
           <!-- Form Ends -->

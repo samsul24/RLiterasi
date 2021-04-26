@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Mazer Admin Dashboard</title>
+  <title>Dashboard - Literasi Admin Dashboard</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
@@ -27,7 +27,10 @@
         <div class="sidebar-header">
           <div class="d-flex justify-content-between">
             <div class="logo">
-              <a href="index.html"><img src="<?php echo base_url() ?>assets/super/assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+              <a href="#">
+              <img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/audio.svg" class="me-2" style="width: 1rem" alt="audio">Super Admin
+                <!-- <img src="<?php echo base_url() ?>assets/super/assets/images/logo/logo.png" alt="Logo" srcset=""> -->
+              </a>
             </div>
             <div class="toggler">
               <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>

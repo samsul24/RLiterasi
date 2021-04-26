@@ -42,7 +42,14 @@
                       </div>
                       <div class="col-md-8">
                         <h6 class="text-muted font-semibold">Online </h6>
-                        <h6 class="font-extrabold mb-0">1</h6>
+                        <h6 class="font-extrabold mb-0">
+                        <?php  
+                        $this->db->where('is_active', 'aktif');
+                        $user = $this->db->get('user')->num_rows();
+                        print($user);
+                        ?> 
+
+                        </h6>
                       </div>
                     </div>
                   </div>
