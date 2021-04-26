@@ -24,7 +24,7 @@ class login_model extends CI_Model
         $this->db->select('*');
         $this->db->from('user');
         $this->db->where('username', $username);
-        $this->db->where('password', $password);
+        $this->db->where('password', password_verify($password,$username['password']));
         $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
         $this->db->limit(1);
         $query = $this->db->get();
@@ -45,6 +45,7 @@ class login_model extends CI_Model
             return false;
         }
     }
+    
     public function get_user($username)
     {
 
@@ -52,20 +53,6 @@ class login_model extends CI_Model
         $query = $this->db->get('user');
         return $query->result();
     }
-
-    // public function data_sekolah()
-    // {
-    //     $this->db->select('nama_sekolah');
-    //     $data = $this->db->get($this->table)->result();
-    //     $i = 0;
-    //     foreach ($data as $data_sekolah) {
-    //         $nama_upt = explode(' ', $data_sekolah->nama_sekolah);
-    //         $last_word = array_pop($nama_sekolah);
-    //         $upt[$i] = $last_word;
-    //         $i++;
-    //     }
-    //     return json_encode($upt);
-    // }
 
     public function input_data($data)
     {
