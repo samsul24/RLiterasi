@@ -82,7 +82,7 @@
               </a>
             </li>
             <li class="sidebar-item active ">
-              <a href="<?= base_url().'Login/out' ?>" class="sidebar-link">
+              <a href="<?= base_url().'Login/out' ?>" onClick="return confirm('Logout sekarang ??');" class="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Logout</span>
               </a>
