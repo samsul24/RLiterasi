@@ -1,5 +1,5 @@
 <?php if($this->session->userdata('id_user_role')!= 3){redirect('login');};?>
-<div class="cc">
+<div class="cc" style="width: 2000px;">
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -8,7 +8,7 @@
       <div class="container-fluid" >
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-user-plus" ></i> Data User </h2>
+            <h2 class="m-0 "  style="color:#435ebe;" ><i class="nav-icon fas fa-user-plus"  ></i> Data User </h2>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -58,7 +58,8 @@
                 </thead>
                 <tbody>
           
-                    <?php $i=1; foreach ($siswa as $rows) : ?>
+                    <?php 
+            $i=1; foreach ($siswa as $rows) : ?>
                     <tr>
             
                         <td><?php echo $i++; ?></td>

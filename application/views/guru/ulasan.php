@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/app.css">
     <link rel="shortcut icon" href="<?php echo base_url() ?>assets/super/assets/images/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style1.css">
+    <!-- <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style1.css"> -->
 
 
 
 </head>
-<div class="cc">
+<div class="cc" >
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -31,7 +31,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h2 class="m-0 text-success"><i class="nav-icon fas fa-user-plus"></i> Data Buku </h2>
+            <h2 class="m-0" style="color:#435ebe;"><i class="nav-icon fas fa-user-plus"></i> Data Ulasan </h2>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -41,7 +41,7 @@
     <div class="content">
       <div class="container-fluid">
         <div class="alert alert-secondary" role="alert">
-          <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp; &nbsp;<i class="nav-icon fas fa-user"></i> Buku
+          <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp; &nbsp;<i class="nav-icon fas fa-user"></i> Ulasan
         </div>
 
         <div class="row">
@@ -51,7 +51,7 @@
               <!-- /.card-header -->
               <div class="card-b  ody">
                 <div class='card-header' style="margin-left:-20px;">
-                  <a class='btn btn-success' href="<?php echo site_url(); ?>guruclient/post/">
+                  <a class='btn btn-primary' href="<?php echo site_url(); ?>guruclient/post/">
                     <i class="fa fa-plus"></i>
                     <span>
                       Tambah
@@ -82,8 +82,8 @@
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $rows->id_user; ?></td>
                         <td><?php echo $rows->judul; ?></td>
-                        <td><?php echo $rows->keterangan; ?></td>
-                        <td style="text-align: center;"><?= str_word_count($rows->keterangan); ?></td>
+                        <td><?php echo $rows->ket_siswa; ?></td>
+                        <td style="text-align: center;"><?= str_word_count($rows->ket_siswa); ?></td>
                         <td>
                           <a href="<?php echo site_url(); ?>guruclient/put/<?php echo $rows->id_ulasan; ?>" class="btn btn-warning">
                             <i class="fa fa-pen" aria-hidden="true"></i></a>

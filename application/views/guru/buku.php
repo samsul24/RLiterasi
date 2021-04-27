@@ -1,14 +1,37 @@
-<?php if($this->session->userdata('id_user_role')!= 3){redirect('login');};?>
-<div class="cc">
+<?php if ($this->session->userdata('id_user_role') != 3) {
+  redirect('login');
+}; ?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literasi</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/style.css">
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/app.css">
+    <link rel="shortcut icon" href="<?php echo base_url() ?>assets/super/assets/images/favicon.svg" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style1.css"> -->
+
+
+
+</head>
+<div class="cc" >
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid" >
+      <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h2 class="m-0 text-success" ><i class="nav-icon fas fa-user-plus" ></i> Data Buku </h2>
+            <h2 class="m-0" style="color:#435ebe;"><i class="nav-icon fas fa-user-plus"></i> Data Buku </h2>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -17,42 +40,41 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-      <div class="alert alert-secondary" role="alert">
-      <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp;  &nbsp;<i class="nav-icon fas fa-user"></i>  Buku 
+        <div class="alert alert-secondary" role="alert">
+          <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp; &nbsp;<i class="nav-icon fas fa-user"></i> Buku
         </div>
-        
+
         <div class="row">
-          <div class="col"> 
-              <!-- Tabel -->
-              <div class="card">
-            <!-- /.card-header -->
-            <div class="card-b  ody">
-            <div class='card-header' style="margin-left:-20px;">
-                <a class='btn btn-success'href="<?php echo site_url(); ?>guruclient/post/">
+          <div class="col">
+            <!-- Tabel -->
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-b  ody">
+                <div class='card-header' style="margin-left:-20px;">
+                  <a class='btn btn-primary' href="<?php echo site_url(); ?>guruclient/post/">
                     <i class="fa fa-plus"></i>
-                    <span >
-                        Tambah
+                    <span>
+                      Tambah
                     </span>
-                    </a>
-                   
-                  </a> 
+                  </a>
+                  </a>
                   <br>
-            </div>   
-            <br>
-              <table id="tabel" class="table table-bordered">
-                <thead>
-                <tr>
-                  <th>No</th>
+                </div>
+                <br>
+                <table id="tabel" class="table table-bordered">
+                  <thead>
+                    <tr>
+                    <th>No</th>
                   <th>Foto</th>
                   <th>Nama</th>
                   <th>Diskripsi</th>
                   <th>Aksi</th>
                  
-                </tr>
-                </thead>
-                <tbody>
-                    
-                    <?php 
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  <?php 
                     $i=1;
                     foreach ($buku as $rows) : ?>
                     <tr>
@@ -71,10 +93,10 @@
                         </td>
                     </tr>
                     <?php endforeach ; ?>
-                </tbody>
-              </table>             
-            <!-- /.card-body -->
-          </div>
+                  </tbody>
+                </table>
+                <!-- /.card-body -->
+              </div>
             </div>
           </div>
         </div>

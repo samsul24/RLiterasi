@@ -35,8 +35,8 @@ class GuruClient extends CI_Controller
     {
         $data['buku'] = json_decode($this->curl->simple_get($this->API));
         $data['title'] = "Buku";
-        $this->load->view('header2');
-        $this->load->view('bar1');
+        $this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
         $this->load->view('guru/akses', $data, FALSE);
         $this->load->view('footer');
 
@@ -45,8 +45,8 @@ class GuruClient extends CI_Controller
     {
         $data['siswa'] = json_decode($this->curl->simple_get($this->API2));
         $data['title'] = "user";
-        $this->load->view('header2');
-        $this->load->view('bar1');
+        $this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
         $this->load->view('guru/user/useradmin4', $data);
         $this->load->view('footer');
     }
@@ -54,8 +54,8 @@ class GuruClient extends CI_Controller
     {
         $data['buku'] = json_decode($this->curl->simple_get($this->API));
         $data['title'] = "Buku";
-        $this->load->view('header2');
-        $this->load->view('bar1');
+        $this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
         $this->load->view('guru/buku', $data);
         $this->load->view('footer');
     }
@@ -63,8 +63,8 @@ class GuruClient extends CI_Controller
     {
         $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
         $data['title'] = "Ulasan";
-        $this->load->view('header2');
-        $this->load->view('bar1');
+        $this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
         $this->load->view('guru/ulasan', $data);
         $this->load->view('footer');
        
