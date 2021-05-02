@@ -3,7 +3,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class regist_model extends CI_Model
 {
-
+  
   function insert($data)
   {
     $this->db->insert('sekolah', $data);

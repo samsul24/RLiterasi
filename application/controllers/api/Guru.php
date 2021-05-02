@@ -17,9 +17,13 @@ class Guru extends REST_Controller
     function index_get()
     {
         $id = $this->get('id_user');
-        if ($id == '') {      
-            $this->db->where('id_user_role', 3);      
-            $guru = $this->db->get('user')->result();
+        if ($id == '') {
+            $this->db->select('*');
+            $this->db->from('user');
+            $this->db->where('id_user_role', 3);
+            $this->db->where('sekolah.id_sekolah', true);
+            $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
+            $guru = $this->db->get()->result();
         } 
         else {
             $this->db->where('id_user', $id);

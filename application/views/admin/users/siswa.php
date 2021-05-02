@@ -49,8 +49,7 @@
                             <thead>
                                 <tr>
                                     <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">Id</a></th>
-                                    <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">Id Sekolah</a></th>
-                                    <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">User Role</a></th>
+                                    <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">Id</a></th>
                                     <th data-sortable="" style="width: 18.9824%;"><a href="#" class="dataTable-sorter">NIS</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Nama</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">No Telp</a></th>
@@ -60,6 +59,7 @@
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Jurusan</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Username</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Password</a></th>
+                                    <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Status</a></th>
                                     <th data-sortable="" style="width: 11.4415%;"><a href="#" class="dataTable-sorter">Aksi</a></th>
                                 </tr>
                             </thead>
@@ -69,7 +69,6 @@
             
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $rows->id_sekolah; ?></td>
-                        <td><?php echo $rows->id_user_role; ?></td>
                         <td><?php echo $rows->nis; ?></td>
                         <td><?php echo $rows->nama; ?></td>
                         <td><?php echo $rows->no_telp; ?></td>
@@ -79,10 +78,11 @@
                         <td><?php echo $rows->jurusan; ?></td>
                         <td><?php echo $rows->username; ?></td>
                         <td><?php echo $rows->password; ?></td>
+                        <td><?php echo $rows->is_active; ?></td>
                         <td>
                             <div class="dataTable-info">
                             <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
-                            <i class="fa fa-pen" aria-hidden="true"></i></a>
+                            <i class="fas fa-pen" aria-hidden="true">edit</i></a>
                             <a href="<?= base_url(); ?>userclient/delete/<?= $rows->id_user ;?>" class="btn btn-danger"
                             onClick="return confirm('yakin mau hapus');">
                             <i class="fa fa-trash" aria-hidden="true"></i></a></div>

@@ -121,7 +121,7 @@ class UserClient extends CI_Controller
     }
     public function delete()
     {
-        $params = array('id' =>  $this->uri->segment(3));
+        $params = array('id_user' =>  $this->uri->segment(3));
         $delete =  $this->curl->simple_delete($this->API, $params);
         if ($delete) {
             $this->session->set_flashdata('result', 'Hapus Data User Berhasil');

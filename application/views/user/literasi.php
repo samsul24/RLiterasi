@@ -131,7 +131,7 @@
                 </table>
               </div>
               <br>
-              <a href="<?php echo site_url(); ?>SiswaClient/ulasan/" class="btn btn-warning" role="button">Tulis Ulasan</a>
+              <a href="<?php echo site_url(); ?>SiswaClient/ulasan/" class="btn btn-primary" role="button">Tulis Ulasan</a>
             </div>
         </div>
         <div class="col-md-9">
