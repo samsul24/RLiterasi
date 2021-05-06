@@ -28,9 +28,10 @@ class Buku extends REST_Controller
     function index_post()
     {
         $data = array(
+            'cover'         =>$this->post('cover'),
             'nama_buku'         =>$this->post('nama_buku'),
             'diskripsi'         =>$this->post('diskripsi'),
-            'file_pdf'              =>$this->post('file_pdf'),
+            'pdf_file'              =>$this->post('pdf_file'),
         );
         $insert = $this->db->insert('buku', $data);
         if ($insert) {
@@ -38,13 +39,15 @@ class Buku extends REST_Controller
         } else {
             $this->response(array('status' => 'fail', 502));
         }
+        print_r($insert);
+        exit;
     }
 
     function index_put()
     {
         $id = $this->put('id_buku');
         $data = array(
-            // 'file_pdf'              => $this->put('file_pdf'),
+            // 'pdf_file'              => $this->put('pdf_file'),
             'nama_buku'         => $this->put('nama_buku'),
             'diskripsi'         => $this->put('diskripsi'),
             );

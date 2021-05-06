@@ -32,6 +32,9 @@ class Login extends CI_Controller
       foreach ($check as $rows) {
         $session_data = array(
           'id_user' => $rows->id_user,
+          'nis' => $rows->nis,
+          'foto' => $rows->foto,
+          'nama' => $rows->nama,
           'username' => $rows->username,
           'id_user_role' => $rows->id_user_role,
           'id_user' => $rows->id_user,
@@ -57,14 +60,10 @@ class Login extends CI_Controller
       } elseif ($this->session->userdata('id_user_role') == 4 && $this->session->userdata('is_active') == 'aktif') {
         redirect('SiswaClient');
       } else {
-      print_r("gagal");
-      exit;
       $this->session->set_flashdata('result', 'Login gagal');
       redirect('Login');
     }
   } else {
-      print_r("gaga;");
-      exit;
       redirect('Login');
     }
     redirect('Login');

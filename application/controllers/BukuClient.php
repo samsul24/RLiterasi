@@ -26,34 +26,38 @@ class BukuClient extends CI_Controller
     //   $data['buku'] = json_decode($this->curl->simple_get($this->API));
       $data['title'] = "Tambah Data buku";
       $this->load->view('admin/adminbar');
-      $this->load->view('admin/post/buku', $data, FALSE);
+      $this->load->view('admin/post/coba', $data, FALSE);
     }
 
     public function post_process()
     {
-        $file_name = $_FILES['file_pdf']['name'];
-        if ($file_name != '') {
-            $config['upload_path'] = 'file_buku' ;
-            $config['allowed_types'] = '*';
-
-            $new_name = $file_name;
-            $config['file_name'] = $new_name;
-
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
-
-            if (!$this->upload->do_upload('file_pdf')) {
-                // redirect($_SERVER['HTTP_REFERER']);
-              echo"gagal";
-            } else {
-                $dataFile  = $this->upload->data();
-                $file_name = $dataFile['file_name'];
+      $file_name = $_FILES['pdf_file']['name'];
+      $cover = $_FILES['cover']['name'];
+      if ($file_name != '') {
+          $config['upload_path'] = 'file_buku' ;
+          $config['allowed_types'] = '*';
+  
+          $new_name = $file_name;
+          $config['file_name'] = $new_name;
+  
+          $this->load->library('upload', $config);
+          $this->upload->initialize($config);
+  
+          if (!$this->upload->do_upload('pdf_file')) {
+              // redirect($_SERVER['HTTP_REFERER']);
+            echo"gagal";
+          } else {
+              $dataFile  = $this->upload->data();
+              $file_name = $dataFile['file_name'];
            
         $data = array(
             'nama_buku'         => $this->input->post('nama_buku'),
             'diskripsi'         => $this->input->post('diskripsi'),
-            'file_pdf'              => $file_name,
-        );
+            'cover'              => $cover,
+            'pdf_file'              => $file_name,
+          );
+          // var_dump($data);
+          // exit;
         $insert = $this->curl->simple_post($this->API, $data);
         if ($insert) {
           $this->session->set_flashdata('result', '');

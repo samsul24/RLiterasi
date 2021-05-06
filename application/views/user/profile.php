@@ -130,14 +130,14 @@
     <?php foreach ($siswa as $rows) : ?>
 
       <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
+        <div class="row" style="border-style:2px">
           <div class="col-md-3 border-right">
             <br>
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <img class="rounded-circle mt-5" src="https://cdn.popbela.com/content-images/post/20201228/img-2997-2cd8a4e6266c02b5bca570f4b6bc8387.JPG" width="200">
-              <form action="#" method="post" enctype="multipart/form-data">
-                <input type="file" name="foto" id="foto" />
-                <input type="submit" name="submit" id="submit" value="Change Photos" />
+            <div class="form-control" style="height:360px;"><br>
+              <img class="rounded-circle mt-5" src="<?php echo base_url('img/foto/' . $rows->foto) ?>" width="150"style="margin-left:45px">
+              <form action="#" method="post" enctype="multipart/form-data"><br><br>
+                <input class="btn btn-success"type="file" name="foto" id="foto" style="width:200px; margin-left:20px" ><br>
+                <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Change Photos" style=" margin-left:100px">
               </form>
             </div>
           </div>
@@ -166,15 +166,15 @@
                   <label for="nama" class="labels">Name</label>
                   <input type="text" class="form-control" name="nama" placeholder="first name" id="nama" value="<?php echo $rows->nama; ?>" required>
                 </div>
+                <div class="col-md-12">
+                  <label for="email" class="labels">Email </label>
+                  <input type="text" class="form-control" name="email" placeholder="name@mail.com" id="email" value="<?php echo $rows->email; ?>" required readonly> 
+                </div>
               </div>
               <div class="row mt-3">
                 <div class="col-md-12">
                   <label for="kelas" class="labels">Kelas</label>
                   <input type="text" class="form-control" name="kelas" placeholder="kelas" id="kelas" value="<?php echo $rows->kelas; ?>" required>
-                </div>
-                <div class="col-md-12">
-                  <label for="email" class="labels">Email ID</label>
-                  <input type="text" class="form-control" name="email" placeholder="name@mail.com" id="email" value="<?php echo $rows->email; ?>" required>
                 </div>
                 <div class="col-md-12">
                   <label for="jurusan" class="labels">Jurusan</label>
@@ -199,11 +199,11 @@
             <div class="p-3 py-5">
               <div class="col-md-7">
                 <label for="username" class="labels">Username</label>
-                <input type="text" name="username" class="form-control" placeholder="username" id="username" value="<?php echo $rows->username; ?>" required>
+                <input type="text" name="username" class="form-control" placeholder="username" id="username" value="<?php echo $rows->username; ?>" required readonly>
               </div>
               <div class="col-md-7">
                 <label for="password" class="labels">Password</label>
-                <input type="text" name="password" class="form-control" placeholder="password" id="password" value="<?php echo $rows->password; ?>" required>
+                <input type="text" name="password" class="form-control" placeholder="password" id="password" value="<?php echo $rows->password; ?>" required readonly>
               </div>
             </div>
           </div>

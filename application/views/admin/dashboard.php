@@ -76,15 +76,15 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="stats-icon green">
-                          <i class="iconly-boldAdd-User"></i>
+                          <i class="bi-file-earmark-medical-fill"></i>
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">Role</h6>
+                        <h6 class="text-muted font-semibold">Buku</h6>
                         <h6 class="font-extrabold mb-0">
                         <?php  
-                        $role = $this->db->get('user_role')->num_rows();
-                        print($role);
+                        $buku = $this->db->get('buku')->num_rows();
+                        print($buku);
                         ?> 
                         </h6>
                       </div>
@@ -98,16 +98,17 @@
                     <div class="row">
                       <div class="col-md-4">
                         <div class="stats-icon red">
-                          <i class="iconly-boldHome"></i>
+                          <i class="bi-file-earmark-medical-fill"></i>
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">Sekolah</h6>
+                        <h6 class="text-muted font-semibold">Ulasan</h6>
                         <h6 class="font-extrabold mb-0">
                         <?php  
-                        $sekolah = $this->db->get('sekolah')->num_rows();
-                        print($sekolah);
+                        $role = $this->db->get('ulasan')->num_rows();
+                        print($role);
                         ?> 
+                     
                         </h6>
                       </div>
                     </div>
@@ -119,7 +120,6 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Profile Visit</h4>
                                     </div>
                                     <div class="card-body">
                                         <div id="chart-profile-visit"></div>
@@ -128,73 +128,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-xl-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">Europe</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">862</h5>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="chart-europe"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-success" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">America</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">375</h5>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="chart-america"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="d-flex align-items-center">
-                                                    <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                                        style="width:10px">
-                                                        <use
-                                                            xlink:href="assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                                    </svg>
-                                                    <h5 class="mb-0 ms-3">India</h5>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <h5 class="mb-0">1025</h5>
-                                            </div>
-                                            <div class="col-12">
-                                                <div id="chart-indonesia"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
               <div class="col-12 col-xl-8">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Latest Comments</h4>
+                    <h4>Nilai</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -216,7 +154,7 @@
                               </div>
                             </td>
                             <td class="col-auto">
-                              <p class=" mb-0">Congratulations on your graduation!</p>
+                              <p class=" mb-0">100</p>
                             </td>
                           </tr>
                           <tr>
@@ -229,9 +167,7 @@
                               </div>
                             </td>
                             <td class="col-auto">
-                              <p class=" mb-0">Wow amazing design! Can you make another
-                                tutorial for
-                                this design?</p>
+                              <p class=" mb-0">90</p>
                             </td>
                           </tr>
                         </tbody>
@@ -250,50 +186,13 @@
                     <img src="<?php echo base_url() ?>assets/super/assets/images/faces/1.jpg" alt="Face 1">
                   </div>
                   <div class="ms-3 name">
-                    <h5 class="font-bold">John Duck</h5>
-                    <h6 class="text-muted mb-0">@johnducky</h6>
+                    <h5 class="font-bold"><?=$this->session->userdata('nama') ?></h5>
+                    <h6 class="text-muted mb-0"><?=$this->session->userdata('nis') ?></h6>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header">
-                <h4>Recent Messages</h4>
-              </div>
-              <div class="card-content pb-4">
-                <div class="recent-message d-flex px-4 py-3">
-                  <div class="avatar avatar-lg">
-                    <img src="<?php echo base_url() ?>assets/super/assets/images/faces/4.jpg">
-                  </div>
-                  <div class="name ms-4">
-                    <h5 class="mb-1">Hank Schrader</h5>
-                    <h6 class="text-muted mb-0">@johnducky</h6>
-                  </div>
-                </div>
-                <div class="recent-message d-flex px-4 py-3">
-                  <div class="avatar avatar-lg">
-                    <img src="<?php echo base_url() ?>assets/super/assets/images/faces/5.jpg">
-                  </div>
-                  <div class="name ms-4">
-                    <h5 class="mb-1">Dean Winchester</h5>
-                    <h6 class="text-muted mb-0">@imdean</h6>
-                  </div>
-                </div>
-                <div class="recent-message d-flex px-4 py-3">
-                  <div class="avatar avatar-lg">
-                    <img src="<?php echo base_url() ?>assets/super/assets/images/faces/1.jpg">
-                  </div>
-                  <div class="name ms-4">
-                    <h5 class="mb-1">John Dodol</h5>
-                    <h6 class="text-muted mb-0">@dodoljohn</h6>
-                  </div>
-                </div>
-                <div class="px-4">
-                  <button class="btn btn-block btn-xl btn-light-primary font-bold mt-3">Start
-                    Conversation</button>
-                </div>
-              </div>
-            </div>
+           
             <div class="card">
                             <div class="card-header">
                                 <h4>Visitors Profile</h4>

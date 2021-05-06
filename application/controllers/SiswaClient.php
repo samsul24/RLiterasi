@@ -89,9 +89,26 @@ class SiswaClient extends CI_Controller
 
   public function put_process()
   {
+    $file_name = $_FILES['foto']['name'];
+    if ($file_name != '') {
+        $config['upload_path'] = 'img/foto' ;
+        $config['allowed_types'] = '*';
+
+        $new_name = $file_name;
+        $config['file_name'] = $new_name;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto')) {
+            // redirect($_SERVER['HTTP_REFERER']);
+          echo"gagal";
+        } else {
+            $dataFile  = $this->upload->data();
+            $file_name = $dataFile['file_name'];
     $data = array(
       "id_user" => $this->input->post('id_user'),
-      'foto' => $this->input->post('foto'),
+      'foto' => $file_name,
       'nis' => $this->input->post('nis'),
       'username' => $this->input->post('username'),
       'password' => $this->input->post('password'),
@@ -112,5 +129,7 @@ class SiswaClient extends CI_Controller
       $this->session->set_flashdata('result', 'failed');
     }
     redirect('SiswaClient/profile/' . $this->input->post('id_user'));
+  }
+}
   }
 }
