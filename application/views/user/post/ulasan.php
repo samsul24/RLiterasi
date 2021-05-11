@@ -1,4 +1,7 @@
-<!-- <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/background2.jpg)"> -->
+<?php if ($this->session->userdata('id_user_role') != 4) {
+  redirect('login');
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +28,7 @@
   <link href="<?php echo base_url(); ?>vendors/owl-carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Extra plugin css -->
+  <link href="<?php echo base_url(); ?>css/flex.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
 
@@ -46,7 +50,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i>08 AM - 04 PM</a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">
@@ -90,92 +94,101 @@
     </div>
   </header>
   <!--================Header Area =================-->
-  <br><br><br><br>
-  <div class="row mt-3" style="margin-left:300px;">
-  <div class="col d-flex justify-content-center">
-                <div class="card-body">
-<body>
-<div class="container">
- <div class="w3-panel w3-teal">
- <center><h3 style="color:white;">Form Ulasan </h3></center>
- </div>
- <body>
-<div>Time left = <span id="timer"></span></div>
-</body>
-</html>
-<script>
-document.getElementById('timer').innerHTML =
-  0 + ":" + 59;
-startTimer();
-function startTimer() {
-  var presentTime = document.getElementById('timer').innerHTML;
-  var timeArray = presentTime.split(/[:]+/);
-  var m = timeArray[0];
-  var s = checkSecond((timeArray[1] - 1));
-  if(s==59){m=m-1}
-  //if(m<0){alert('timer completed')}
-  document.getElementById('timer').innerHTML =
-    m + ":" + s;
-  setTimeout(startTimer, 1000);
-}
-function checkSecond(sec) {
-  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-  if (sec < 0) {
-                window.location.href="<?php echo site_url(); ?>siswaclient/berhasil/";
-              }
-  return sec;
-}
-</script>
- <td height="27"><div align="left"><strong><?php echo "Tanggal : ".date("d-M-y");?></strong></div></td>
- <form action="<?php echo site_url('siswaclient/ulasan_process');?>" class="needs-validation" method="POST" enctype="multipart/form-data">
- 
-   
- <div class="w3-row-padding">
-        <div class="w3-half">
-        <input type="text" value="<?= $this->session->userdata('username') ?>" required readonly>
-                <input class="w3-input w3-border" type="text" placeholder="Judul" name="judul" style="width:200px;" id="judul">
-        </div>
-    </div>
-    <br>
-    <div class="w3-padding">
-            <textarea name="ket_siswa"style="width:640px;height:200px" id="ket_siswa"  placeholder="Keterangan"></textarea>
-    </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left:px;width:140px;height:40px">
-                                Kirim
-                            </button>
-                            <!-- The Modal -->
-                            <div class="modal fade" id="myModal">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <!-- Modal body -->
-                                        <div class="modal-body">
-                                            <p>Apa anda yakin ingin menambah data ini ?</p>
-                                        </div>
-                                        <!-- Modal footer -->
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary">Kirim</button>
-                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-        <button class="w3-button w3-block w3-teal w3-section w3-padding" type="submit" >Kirim Komentar</button>
-    </div>
-    </form>
-</div>
-<div class="container">
-     </div>
-     </div>
- </div>
-</body>
-            </div>
-        </div>
-    </div>
 
- <br><br><br><br><br><br><br><br><br>
-</body>
-   <!--================Footer Area =================-->
-   <footer class="footer_area">
+  <!--================Banner Area =================-->
+  <section class="banner_area">
+    <div class="container">
+      <div class="banner_inner_text">
+        <h4>Form Ulasan</h4>
+      </div>
+    </div>
+  </section>
+  <!--================End Banner Area =================-->
+
+  <!--================Our Project Area =================-->
+  <section class="our_project_area">
+    <div class="container">
+      <div class="row">
+        <div align="right"><strong>Time Left :</strong>
+          <span class="badge badge-primary" style="color: #fff;background-color: #007bff;" id="timer"></span>
+        </div>
+        <div class="col-xs-6">
+          <h4><strong>Data Literasi</strong></h4>
+          <hr>
+          <?php $i = 1;
+          foreach ($buku as $rows) : ?>
+            <div>
+              <div class="form-group">
+                <label>ID Buku</label>
+                <input type="number" value="<?= $rows->id_buku; ?>" class="form-control" readonly>
+              </div>
+              <div class="form-group">
+                <label>Nama Buku</label>
+                <input type="text" value="<?= $rows->nama_buku; ?>" class="form-control" readonly>
+              </div>
+              <div class="form-group">
+                <label>Deskripsi</label>
+                <textarea class="form-control" rows="3" readonly>
+                  <?= $rows->diskripsi; ?>
+                </textarea>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+        <div class="col-xs-6">
+          <form id="contactForm" method="POST" action="<?= base_url() ?>SiswaClient/ulasan_process/" class="contact-form">
+            <h4><strong>Ulasan anda</strong></h4>
+            <hr>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <label for="floatingSelect">Tanggal</label>
+              <input type="date" class="form-control" name="tanggal" placeholder="Tanggal ulasan" value="<?php echo date('Y-m-d / H:i:s'); ?>" required data-error="Please enter your message subject" readonly>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <label for="floatingSelect">Nama</label>
+              <input type="text" id="nama" name="nama" class="form-control" placeholder="Name" value="<?= $this->session->userdata('nama') ?>" required data-error="Please enter your name" readonly>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <input type="hidden" id="id_sekolah" name="id_sekolah" class="form-control" placeholder="Name" value="<?= $this->session->userdata('id_sekolah') ?>" required data-error="Please enter your name" readonly>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <label for="floatingSelect">Judul</label>
+              <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul Ulasan" required data-error="Mohon masukan judul ulasan">
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <label for="floatingSelect">Ulasan</label>
+              <textarea id="ket_siswa" name="ket_siswa" rows="7" placeholder="Ulasan" class="form-control" required data-error="Mohon tulis ulasan anda"></textarea>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+              <button type="submit" id="submit" class="btn btn-primary">Send Message</button>
+              <div id="msgSubmit" class="h3 text-center hidden"></div>
+              <div class="clearfix"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Our Project Area =================-->
+  <!--================Get Quote Area =================-->
+  <!-- <section class="get_quote_area yellow_get_quote">
+    <div class="container">
+      <div class="pull-left">
+        <h4>Yuk Kita Literasi </h4>
+      </div>
+      <div class="pull-right">
+        <a class="get_btn_black"  href="<?php echo site_url(); ?>SiswaClient/literasi/">Ayo Literasi</a>
+      </div>
+    </div>
+  </section> -->
+  <!--================End Get Quote Area =================-->
+
+  <!--================Footer Area =================-->
+  <footer class="footer_area">
     <div class="footer_widgets_area">
       <div class="container">
         <div class="row footer_widgets_inner">
@@ -258,31 +271,78 @@ function checkSecond(sec) {
       </div>
     </div>
   </footer>
-  
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="<?php echo base_url(); ?>js/jquery-2.2.4.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-        <!-- Rev slider js -->
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
-        <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
-        
-        <!--gmaps Js-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="<?php echo base_url(); ?>js/gmaps.min.js"></script>
-        
-        <script src="<?php echo base_url(); ?>js/theme.js"></script>
-    </body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-center" id="myModalLabel">Waktu anda sudah habis</h3>
+        </div>
+        <div class="modal-body text-center">
+          <img class="animated infinite bounce w-25" style="padding: 1rem;" src="<?= base_url(); ?>css/assets/img/gagal.png" alt="">
+          <h4><strong>Waktu dalam memberikan ulasan habis</strong></h4>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default" href="<?= base_url() ?>SiswaClient/buku/">Close</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="<?php echo base_url(); ?>css/js/jquery-2.2.4.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="<?php echo base_url(); ?>css/js/bootstrap.min.js"></script>
+  <!-- Rev slider js -->
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+
+  <script src="<?php echo base_url(); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/isotope/imagesloaded.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/isotope/isotope.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
+  <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
+  <!-- <script>
+    document.getElementById('timer').innerHTML =
+      0 + ":" + 59;
+    startTimer();
+
+    function startTimer() {
+      var presentTime = document.getElementById('timer').innerHTML;
+      var timeArray = presentTime.split(/[:]+/);
+      var m = timeArray[0];
+      var s = checkSecond((timeArray[1] - 1));
+      if (s == 59) {
+        m = m - 1
+      }
+      document.getElementById('timer').innerHTML =
+        m + ":" + s;
+      setTimeout(startTimer, 1000);
+    }
+
+    function checkSecond(sec) {
+      if (sec < 10 && sec >= 0) {
+        sec = "0" + sec
+      }; 
+      if (sec < 0) {
+        setTimeout(() => {
+          $("#resultModal").modal("show");
+        }, 500);
+        // window.location.href = "<?php echo site_url(); ?>siswaclient/gagal/";
+      }
+      return sec;
+    }
+    $('#resultModal').on('hide.bs.modal', function(e) {
+      window.location.href = "<?php echo site_url(); ?>siswaclient/buku/";
+    })
+  </script> -->
+</body>
+
 </html>

@@ -18,20 +18,23 @@ class Buku extends REST_Controller
     {
         $id = $this->get('id_buku');
         if ($id == '') {
-            $buku = $this->db->get('buku')->result();
+            $this->db->order_by('id_buku', 'RANDOM');
+            $this->db->limit(1);
+
+            $buku = $this->db->get('buku')->result_array();
         } else {
             $this->db->where('id_buku', $id);
-            $buku = $this->db->get('buku')->result();
+            $buku = $this->db->get('buku')->result_array();
         }
         $this->response($buku, 200);
     }
     function index_post()
     {
         $data = array(
-            'cover'         =>$this->post('cover'),
-            'nama_buku'         =>$this->post('nama_buku'),
-            'diskripsi'         =>$this->post('diskripsi'),
-            'pdf_file'              =>$this->post('pdf_file'),
+            'cover'         => $this->post('cover'),
+            'nama_buku'         => $this->post('nama_buku'),
+            'diskripsi'         => $this->post('diskripsi'),
+            'pdf_file'              => $this->post('pdf_file'),
         );
         $insert = $this->db->insert('buku', $data);
         if ($insert) {
@@ -50,7 +53,7 @@ class Buku extends REST_Controller
             // 'pdf_file'              => $this->put('pdf_file'),
             'nama_buku'         => $this->put('nama_buku'),
             'diskripsi'         => $this->put('diskripsi'),
-            );
+        );
         $this->db->where('id_buku', $id);
         $update = $this->db->update('buku', $data);
         if ($update) {
@@ -59,7 +62,7 @@ class Buku extends REST_Controller
             $this->response(array('status' => 'fail', 502));
         }
     }
-    
+
     function index_delete()
     {
         $id = $this->delete('id_buku');
@@ -72,4 +75,3 @@ class Buku extends REST_Controller
         }
     }
 }
-?>

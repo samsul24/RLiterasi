@@ -15,6 +15,7 @@ class SiswaClient extends CI_Controller
     $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
     $this->API2 = "http://localhost:8080/RLiterasi/api/Sekolah";
     $this->API3 = "http://localhost:8080/RLiterasi/api/Siswa";
+    $this->API4 = "http://localhost:8080/RLiterasi/api/User";
   }
 
   public function index()
@@ -60,16 +61,20 @@ class SiswaClient extends CI_Controller
   }
   public function ulasan()
   {
+    $data['user'] = json_decode($this->curl->simple_get($this->API4));
     $data['buku'] = json_decode($this->curl->simple_get($this->API));
     $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
     $data['title'] = "Buku";
-    $this->load->view('user/ulasan', $data, FALSE);
+    $this->load->view('user/post/ulasan', $data, FALSE);
   }
   public function ulasan_process()
   {
     $data = array(
+      'nama' => $this->input->post('nama'),
       'judul' => $this->input->post('judul'),
-      'keterangan' => $this->input->post('keterangan'),
+      'ket_siswa' => $this->input->post('ket_siswa'),
+      'tanggal' => $this->input->post('tanggal'),
+      'id_sekolah' => $this->input->post('id_sekolah'),
     );
     $insert = $this->curl->simple_post($this->API1, $data);
     if ($insert) {

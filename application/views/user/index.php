@@ -57,7 +57,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i>08 AM - 04 PM</a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">

@@ -51,14 +51,7 @@
               <!-- /.card-header -->
               <div class="card-b  ody">
                 <div class='card-header' style="margin-left:-20px;">
-                  <a class='btn btn-primary' href="<?php echo site_url(); ?>guruclient/post/">
-                    <i class="fa fa-plus"></i>
-                    <span>
-                      Tambah
-                    </span>
-                  </a>
-                  </a>
-                  <br>
+                                   <br>
                 </div>
                 <br>
                 <table id="tabel" class="table table-bordered">
@@ -69,6 +62,7 @@
                       <th>judul Buku</th>
                       <th>Keterangan</th>
                       <th>Jumlah Karakter</th>
+                      <th>Tanggal & Waktu</th>
                       <th>Aksi</t>
                     </tr>
                   </thead>
@@ -80,15 +74,14 @@
                       <tr>
 
                         <td><?php echo $i++; ?></td>
-                        <td><?php echo $rows->id_user; ?></td>
+                        <td><?php echo $rows->nama; ?></td>
                         <td><?php echo $rows->judul; ?></td>
                         <td><?php echo $rows->ket_siswa; ?></td>
                         <td style="text-align: center;"><?= str_word_count($rows->ket_siswa); ?></td>
+                        <td><?php echo $rows->tanggal; ?></td>
                         <td>
-                          <a href="<?php echo site_url(); ?>guruclient/put/<?php echo $rows->id_ulasan; ?>" class="btn btn-warning">
-                            <i class="fa fa-pen" aria-hidden="true"></i></a>
-                          <a href="<?= base_url(); ?>guruclient/delete/<?= $rows->id_ulasan; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                            <i class="fa fa-trash" aria-hidden="true"></i></a>
+                          <a href="<?php echo site_url(); ?>guruclient/detail_ulasan/<?php echo $rows->id_ulasan; ?>" class="btn btn-success">
+                            <i class="nav-icon fas fa-sign-out-alt" aria-hidden="true"></i></a>
                         </td>
                       </tr>
                     <?php endforeach; ?>

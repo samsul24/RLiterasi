@@ -29,11 +29,14 @@ class DetailUlasan extends REST_Controller
     function index_post()
     {
         $data = array(
-          'id_ulasan'      => $this->input->post('id_ulasan'),
-          'ket_guru'         => $this->input->post('ket_guru'),
+          'id_ulasan'      => $this->post('id_ulasan'),
+          'ulasan_siswa'         => $this->post('ulasan_siswa'),
+          'ulasan_guru'         => $this->post('ulasan_guru'),
+          'nama'         => $this->post('nama'),
+          'hasil'         => $this->post('hasil'),
       
         );
-        $insert = $this->db->insert('ulasan',$data);
+        $insert = $this->db->insert('detail_ulasan',$data);
         if ($insert) {
             $this->response($data, 200);
         } else {

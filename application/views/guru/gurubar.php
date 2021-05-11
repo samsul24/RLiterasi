@@ -59,6 +59,31 @@
                 </a>
               </li>
             </ul>
+            <li class="nav-item has-treeview">
+            <a href="" class="nav-link" id="navData" style="background:#435ebe;">
+              <i class="nav-icon fas fa-bookmark" style="color:white"></i>
+              <p style="color:white">
+                Literasi
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url(); ?>guruclient/ulasan" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>Ulasan</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url(); ?>guruclient/detail" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>Detail Ulasan</p>
+                </a>
+              </li>
+            </ul>
           <li class="nav-item">
            <a href="<?php echo site_url(); ?>guruclient/buku" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-book"></i>
@@ -67,15 +92,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-           <a href="<?php echo site_url(); ?>guruclient/ulasan" class="nav-link" id="navHome">
-              <i class="nav-icon fas fa-bookmark"></i>
-              <p>
-                Ulasan
-              </p>
-            </a>
-          </li>
-
           <li class="nav-item">
            <a href="<?php echo site_url(); ?>pendudukclient" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-pen"></i>

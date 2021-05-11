@@ -46,7 +46,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i>08 AM - 04 PM</a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">
@@ -104,6 +104,7 @@
             <h2>Literasi <br class="title_br" /></h2>
             <h6><?= $this->session->userdata('nama_sekolah') ?></h6>
           </div>
+          
           <?php $i = 1;
           foreach ($buku as $rows) : ?>
             <div class="project_left_side">
@@ -135,7 +136,7 @@
             </div>
         </div>
         <div class="col-md-9">
-          <iframe src="<?php echo base_url('file_buku/' . $rows->file_pdf) ?>" width="100%" height="800"></iframe>
+          <iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="100%" height="800"></iframe>
         </div>
       <?php endforeach; ?>
       </div>
@@ -254,7 +255,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="<?php echo base_url(); ?>css/js/gmaps.min.js"></script>
 
-  <script>
+  <!-- <script>
     document.getElementById('timer').innerHTML =
       0 + ":" + 59;
     startTimer();
@@ -282,7 +283,7 @@
       }
       return sec;
     }
-  </script>
+  </script> -->
 
   <script src="<?php echo base_url(); ?>css/js/theme.js"></script>
 </body>

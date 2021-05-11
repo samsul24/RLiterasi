@@ -22,7 +22,7 @@ class Siswa extends REST_Controller
             $this->db->select('*');
             $this->db->from('user');
             $this->db->where('id_user_role', 4);
-            $this->db->where('sekolah.id_sekolah', 2);
+            $this->db->where('sekolah.id_sekolah', $id_Sekolah  );
             $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
             $siswa = $this->db->get()->result();
         } else {

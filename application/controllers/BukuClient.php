@@ -26,7 +26,7 @@ class BukuClient extends CI_Controller
     //   $data['buku'] = json_decode($this->curl->simple_get($this->API));
       $data['title'] = "Tambah Data buku";
       $this->load->view('admin/adminbar');
-      $this->load->view('admin/post/coba', $data, FALSE);
+      $this->load->view('admin/post/buku', $data, FALSE);
     }
 
     public function post_process()
@@ -69,24 +69,7 @@ class BukuClient extends CI_Controller
         redirect('BukuClient', 'refresh');
       }
     }
-}
-// function split_pdf(string $filename, string $directory)
-// {
-//     $pdf = new Fpdi();
-//     $pageCount = $pdf->setSourceFile($filename);
-//     $file = pathinfo($filename, PATHINFO_FILENAME);
-
-//     for ($i = 1; $i <= $pageCount; $i++) {
-//         $newPdf = new Fpdi();
-//         $newPdf->addPage();
-//         $newPdf->setSourceFile($filename);
-//         $newPdf->useTemplate($newPdf->importPage($i));
-
-//         $newFilename = sprintf('%s/%s_%s.pdf', $directory, $file, $i);
-//         $newPdf->output($newFilename, 'F');
-//     }
-// }             
-  
+}       
     public function delete()
     {
         $params = array('id_buku' =>  $this->uri->segment(3));

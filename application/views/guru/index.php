@@ -19,7 +19,7 @@
   <!-- end maps -->
   <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>PT KAWI SAKTI MANDIRI - Construction</title>
+  <title>Literasi</title>
 
   <!-- Icon css link -->
   <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i>08 AM - 04 PM</a> 
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a> 
          <a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -65,8 +65,7 @@
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
          <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
 
         </div>
