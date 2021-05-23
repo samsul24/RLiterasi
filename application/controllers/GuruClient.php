@@ -13,6 +13,8 @@ class GuruClient extends CI_Controller
         $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
         $this->API2= "http://localhost:8080/RLiterasi/api/Siswa";
         $this->API3= "http://localhost:8080/RLiterasi/api/DetailUlasan";
+        $this->API4 = "http://localhost:8080/RLiterasi/api/DetailBuku";
+
         $this->load->model('Login_model');
     $this->load->library('form_validation');
 
@@ -46,21 +48,27 @@ class GuruClient extends CI_Controller
     }
     public function siswa()
     {
-        $data['siswa'] = json_decode($this->curl->simple_get($this->API2));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['siswa'] = json_decode($this->curl->simple_get($this->API2,$params));
         $data['title'] = "user";
         $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
-        $this->load->view('guru/user/useradmin4', $data);
+        $this->load->view('guru/user/siswa', $data);
         $this->load->view('footer');
     }
     public function buku()
     {
-        $data['buku'] = json_decode($this->curl->simple_get($this->API));
+        $data['buku'] = json_decode($this->curl->simple_get($this->API4));
         $data['title'] = "Buku";
         $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
         $this->load->view('guru/buku', $data);
         $this->load->view('footer');
+    }
+    public function buku1()
+    {
+      $data['title'] = "Buku";
+      $this->load->view('guru/user/buku', $data, FALSE);
     }
     public function ulasan()
     {
@@ -152,6 +160,7 @@ class GuruClient extends CI_Controller
 
     $this->form_validation->set_rules('ulasan_guru','Ulasan Guru','trim|required');
     // $this->form_validation->set_rules('hasil','Hasil','trim|required');
+    // $this->form_validation->set_rules('hasil','Hasil','trim|required');
     // $this->form_validation->set_rules('id_ulasan','Id Ulasan','trim|required');
     if($this->form_validation->run() === true)
     {
@@ -184,5 +193,30 @@ class GuruClient extends CI_Controller
         redirect('GuruClient/detail');
     }
     }
+    public function nilai()
+    {
+        if($this->session->userdata('id_user_role')){
+        $username = $this->session->userdata('username');
+        $data['results'] = $this->Login_model->get_user($username);
+        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+        $data['title'] = "Nilai";
+        $this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
+        $this->load->view('guru/user/nilai', $data);
+        $this->load->view('footer');
+  
+    }
+  }
+  public function delete_nilai()
+  {
+      $params = array('id_detail_ulasan' =>  $this->uri->segment(3));
+      $delete =  $this->curl->simple_delete($this->API3, $params);
+      if ($delete) {
+          $this->session->set_flashdata('result', 'Hapus Data nilai Berhasil');
+      } else {
+          $this->session->set_flashdata('result', 'Hapus Data nilai Gagal');
+      }
+      redirect('GuruClient/nilai');
+  }
 
 }

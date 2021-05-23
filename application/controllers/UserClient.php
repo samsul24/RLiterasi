@@ -85,9 +85,9 @@ class UserClient extends CI_Controller
         $params = array('id'=>$this->uri->segment(3));
         $data['user'] = json_decode($this->curl->simple_get($this->API,$params));
         $data['title'] = "Edit Data User";
-        $this->load->view('header0');
+        $this->load->view('header1');
         $this->load->view('bar');
-        $this->load->view('data/put/user', $data);
+        $this->load->view('admin/put/user', $data);
         $this->load->view('footer');
 
     }

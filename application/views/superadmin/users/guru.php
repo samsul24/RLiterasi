@@ -60,7 +60,7 @@
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">No Telp</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Username</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Password</a></th>
-                                    <th data-sortable="" style="width: 11.4415%;"><a href="#" class="dataTable-sorter">Aksi</a></th>
+                                    <th data-sortable="" style="width: 11.4415%;"><a href="#" style="padding:40px">Aksi&nbsp;&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,10 +78,10 @@
                                         <td><?php echo $rows->password; ?></td>
                                         <td>
                                             <div class="dataTable-info">
-                                                <a href="<?php echo site_url(); ?>UserClient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
-                                                    <i class="fa fa-pen" aria-hidden="true"></i></a>
-                                                <a href="<?= base_url(); ?>UserClient/delete/<?= $rows->id_user; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <!-- <a href="<?php echo site_url(); ?>UserClient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
+                                                <i class="bi bi-pen" aria-hidden="true"></i></a> -->
+                                                <a href="<?= base_url(); ?>SuperAdminClient/delete_guru<?= $rows->id_user; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
+                                                <i class="bi bi-trash" aria-hidden="true"></i></a>
                                             </div>
                                         </td>
                                     </tr>

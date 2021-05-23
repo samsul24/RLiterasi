@@ -48,38 +48,52 @@
 
             <li class="sidebar-item  has-sub">
               <a href="#" class="sidebar-link">
-                <i class="bi bi-stack"></i>
+                <i class="bi bi-person-lines-fill"></i>
                 <span>Users</span>
               </a>
               <ul class="submenu ">
 
                 <li class="submenu-item ">
-                  <a href="<?php echo site_url(); ?>AdminClient/guru">Guru</a>
+                  <a href="<?php echo site_url(); ?>AdminClient/guru">
+                <i class="bi bi-person-fill"></i>&nbsp;&nbsp;Guru</a>
                 </li>
                 <li class="submenu-item ">
-                  <a href="<?php echo site_url(); ?>AdminClient/siswa">Siswa</a>
+                  <a href="<?php echo site_url(); ?>AdminClient/siswa">
+                <i class="bi bi-person-fill"></i>&nbsp;&nbsp;Siswa</a>
                 </li>
               </ul>
             </li>
          
             <li class="sidebar-title">Forms &amp; Tables</li>
 
+            <li class="sidebar-item  has-sub">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-book"></i>
+                <span>Literasi</span>
+              </a>
+              <ul class="submenu ">
+
+                <li class="submenu-item ">
+                  <a href="<?php echo site_url(); ?>AdminClient/ulasan">
+                <i class="bi bi-bookmark"></i>&nbsp;&nbsp;Ulasan</a>
+                </li>
+                <li class="submenu-item ">
+                  <a href="<?php echo site_url(); ?>AdminClient/detail">
+                <i class="bi bi-bookmark-check"></i>&nbsp;&nbsp;Detail Ulasan</a>
+                </li>
+              </ul>
+            </li>
 
             <li class="sidebar-item  ">
-              <a href="<?php echo site_url(); ?>BukuClient" class="sidebar-link">
-                <i class="bi bi-file-earmark-medical-fill"></i>
+              <a href="<?php echo site_url(); ?>AdminClient/buku" class="sidebar-link">
+                <i class="bi bi-book-fill"></i>
                 <span>Buku</span>
               </a>
             </li>
+            
             <li class="sidebar-item  ">
-              <a href="<?php echo site_url(); ?>BukuClient" class="sidebar-link">
-                <i class="bi bi-file-earmark-medical-fill"></i>
-                <span>Ulasan</span>
-              </a>
-            </li>
-            <li class="sidebar-item  ">
-              <a href="<?php echo site_url(); ?>AdminClient/siswa" class="sidebar-link">
-                <i class="bi bi-file-earmark-medical-fill"></i>
+              <a href="<?php echo site_url(); ?>AdminClient/nilai" class="sidebar-link">
+                <i class="bi bi-file-check"></i>
                 <span>Nilai</span>
               </a>
             </li>

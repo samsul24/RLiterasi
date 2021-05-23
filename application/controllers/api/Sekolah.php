@@ -52,6 +52,35 @@ class Sekolah extends REST_Controller
             $this->response(array('status' => 'fail', 502));
         }
     }
+    function index_put()
+    {
+        $id = $this->put('id_sekolah');
+        $data = array(
+            'nama_sekolah'         => $this->put('nama_sekolah'),
+            'npsn'                 => $this->put('npsn'),
+            'nss'          => $this->put('nss'),
+            'alamat_sekolah'          => $this->put('alamat_sekolah'),
+            'kode_pos'          => $this->put('kode_pos'),
+            'no_telp'          => $this->put('no_telp'),
+            'kelurahan'          => $this->put('kelurahan'),
+            'kecamatan'          => $this->put('kecamatan'),
+            'kabupaten'          => $this->put('kabupaten'),
+            'provinsi'          => $this->put('provinsi'),
+            'website'          => $this->put('website'),
+            'email'          => $this->put('email'),
+            'visi'          => $this->put('visi'),
+            'misi'          => $this->put('misi'),
+      'verification_key'          => $this->put('verification_key'),
+      'is_email_verified'          => $this->put('is_email_verified'),
+        );
+        $this->db->where('id_sekolah', $id);
+        $update = $this->db->update('sekolah', $data);
+        if ($update) {
+            $this->response($data, 200);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
 
 }
 ?>

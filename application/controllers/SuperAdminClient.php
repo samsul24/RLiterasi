@@ -47,10 +47,43 @@ public function admin()
     }
     public function siswa()
     {
-        $data['siswa'] = json_decode($this->curl->simple_get($this->API4));
+        $data['siswa'] = json_decode($this->curl->simple_get($this->API2));
         $data['title'] = "user";
         $this->load->view('superadmin/superbar',true);
         $this->load->view('superadmin/users/siswa', $data);
+    }
+    public function delete_admin()
+    {
+        $params = array('id_user' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API1, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data Admin Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data Admin Gagal');
+        }
+        redirect('SuperAdminClient/admin');
+    }
+    public function delete_guru()
+    {
+        $params = array('id_user' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API3, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data Guru Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data Guru Gagal');
+        }
+        redirect('SuperAdminClient/guru');
+    }
+    public function delete_siswa()
+    {
+        $params = array('id_user' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API2, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data Siswa Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data Siswa Gagal');
+        }
+        redirect('SuperAdminClient/siswa');
     }
 }
 ?>

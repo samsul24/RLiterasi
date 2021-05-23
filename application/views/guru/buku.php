@@ -66,6 +66,7 @@
                     <tr>
                     <th>No</th>
                   <th>Foto</th>
+                  <th>Ebook</th>
                   <th>Nama</th>
                   <th>Diskripsi</th>
                   <th>Aksi</th>
@@ -80,7 +81,8 @@
                     <tr>
             
                         <td><?php echo $i++; ?></td>
-                        <td><iframe src="<?php echo base_url('file_buku/' . $rows->file_pdf) ?>" width="90" hight="120" ></iframe></td>
+                        <td><img src="<?php echo base_url('file_buku/' . $rows->cover) ?>" width="90" hight="120" ></img></td>
+                        <td><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="90" hight="120" ></iframe></td>
                         <td><?php echo $rows->nama_buku; ?></td>
                         <td><?php echo $rows->diskripsi; ?></td>
                        

@@ -18,7 +18,8 @@ class Admin extends REST_Controller
     {
         $id = $this->get('id_user');
         if ($id == '') {      
-            $this->db->where('id_user_role', 2);      
+            $this->db->where('id_user_role', 2);    
+            $this->db->order_by('id_sekolah', 'ASC');
             $admin = $this->db->get('user')->result();
         } 
         else {

@@ -6,7 +6,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class Buku extends REST_Controller
+class DetailBuku extends REST_Controller
 {
 
     function __construct($config = 'rest')
@@ -18,14 +18,12 @@ class Buku extends REST_Controller
     {
         $id = $this->get('id_buku');
         if ($id == '') {
-            $this->db->order_by('id_buku', 'RANDOM');
-            $this->db->limit(1);
-            $buku = $this->db->get('buku')->result_array();
+            $detail_buku = $this->db->get('buku')->result();
         } else {
             $this->db->where('id_buku', $id);
-            $buku = $this->db->get('buku')->result_array();
+            $detail_buku = $this->db->get('buku')->result_array();
         }
-        $this->response($buku, 200);
+        $this->response($detail_buku, 200);
     }
     function index_post()
     {

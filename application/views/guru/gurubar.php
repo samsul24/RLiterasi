@@ -44,8 +44,8 @@
            
             <li class="nav-item has-treeview">
             <a href="" class="nav-link" id="navData" style="background:#435ebe;">
-              <i class="nav-icon fas fa-users" style="color:white"></i>
-              <p style="color:white">
+              <i class="bi bi-person-lines-fill" style="color:white"></i>
+              <p style="color:white">&nbsp;&nbsp;
                 User
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -61,9 +61,9 @@
             </ul>
             <li class="nav-item has-treeview">
             <a href="" class="nav-link" id="navData" style="background:#435ebe;">
-              <i class="nav-icon fas fa-bookmark" style="color:white"></i>
+              <i class="bi bi-book" style="color:white"></i>
               <p style="color:white">
-                Literasi
+              &nbsp;&nbsp; Literasi
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -71,32 +71,31 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo site_url(); ?>guruclient/ulasan" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Ulasan</p>
+                <i class="bi bi-bookmark"></i>&nbsp;&nbsp;Ulasan
+          
                 </a>
               </li>
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo site_url(); ?>guruclient/detail" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Detail Ulasan</p>
+                <i class="bi bi-bookmark-check"></i>&nbsp;&nbsp;Detail Ulasan
                 </a>
               </li>
             </ul>
           <li class="nav-item">
            <a href="<?php echo site_url(); ?>guruclient/buku" class="nav-link" id="navHome">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="bi bi-book-fill"></i>
               <p>
-                Buku
+              &nbsp;&nbsp;Buku
               </p>
             </a>
           </li>
           <li class="nav-item">
-           <a href="<?php echo site_url(); ?>pendudukclient" class="nav-link" id="navHome">
-              <i class="nav-icon fas fa-pen"></i>
+           <a href="<?php echo site_url(); ?>guruclient/nilai" class="nav-link" id="navHome">
+           <i class="bi bi-file-check"></i>
               <p>
-                Nilai
+              &nbsp;&nbsp;Nilai
               </p>
             </a>
           </li>

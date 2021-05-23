@@ -91,7 +91,7 @@
                                                     echo $percent;
                                                     ?>% Kemiripan</td>
                                                 <td>
-                                                    <a href="<?php echo site_url(); ?>guruclient/delete/<?php echo $rows->id_ulasan; ?>" class="btn btn-danger">
+                                                    <a href="<?php echo site_url(); ?>Guruclient/delete_nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-danger">
                                                         <i class="fa fa-trash" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>

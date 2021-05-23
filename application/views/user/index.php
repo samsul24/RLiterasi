@@ -87,8 +87,6 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
-              <!-- <li><a href="projectBar.php">Project</a></li> -->
-              <!-- <li><a href="AboutUs.php">About Us</a></li> -->
               <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
               <!-- <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li> -->
              

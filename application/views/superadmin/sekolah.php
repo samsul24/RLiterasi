@@ -67,7 +67,7 @@
                   <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">Email</th>
                   <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">Visi</th>
                   <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">Misi</th>
-                  <th data-sortable="" style="width: 41.7354%;"><a href="#" class="dataTable-sorter">Aksi</th>
+                  <th data-sortable="" style="width: 41.7354%;"><a href="#" style="padding:40px">Aksi&nbsp;&nbsp;</th>
 
               </thead>
               <tbody>
@@ -92,10 +92,10 @@
                     <td><?php echo (str_word_count($rows->misi) > 10 ? substr($rows->misi, 0, 30) . "[..]" : $rows->misi); ?></td>
                     <td>
                       <div class="dataTable-info">
-                        <a href="<?php echo site_url(); ?>SekolahClient/put/<?php echo $rows->id_sekolah; ?>" class="btn btn-warning">
-                          <i class="fa fa-pen" aria-hidden="true"></i></a>
-                        <a href="<?= base_url(); ?>SekolahClient/delete/<?= $rows->id_sekolah; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                          <i class="fa fa-trash" aria-hidden="true"></i></a>
+                      &nbsp;&nbsp;&nbsp; <a href="<?php echo site_url(); ?>SekolahClient/put/<?php echo $rows->id_sekolah; ?>" class="btn btn-circle btn-warning">
+                        <i class="bi bi-pen" aria-hidden="true"></i></a>
+                        <a href="<?= base_url(); ?>SekolahClient/delete/<?= $rows->id_sekolah; ?>" class="btn btn-circle btn-danger" onClick="return confirm('yakin mau hapus');">
+                        <i class="bi bi-trash" aria-hidden="true"></i></a>
                       </div>
                     </td>
                   </tr>

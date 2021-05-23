@@ -84,11 +84,11 @@
                         <td><?php echo $rows->password; ?></td>
                         <td>
                             <div class="dataTable-info">
-                            <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
-                            <i class="fa fa-pen" aria-hidden="true"></i></a>
-                            <a href="<?= base_url(); ?>userclient/delete/<?= $rows->id_user ;?>" class="btn btn-danger"
+                            <!-- <a href="<?php echo site_url(); ?>AdminClient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
+                            <i class="fa fa-pen" aria-hidden="true"></i></a> -->
+                            <a href="<?= base_url(); ?>AdminClient/delete_guru/<?= $rows->id_user ;?>" class="btn btn-danger"
                             onClick="return confirm('yakin mau hapus');">
-                            <i class="fa fa-trash" aria-hidden="true"></i></a></div>
+                            <i class="bi bi-trash" aria-hidden="true"></i></a></div>
                         </td>
                     </tr>
                     <?php endforeach ; ?>

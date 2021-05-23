@@ -80,7 +80,7 @@
                         <td style="text-align: center;"><?= str_word_count($rows->ket_siswa); ?></td>
                         <td><?php echo $rows->tanggal; ?></td>
                         <td>
-                          <a href="<?php echo site_url(); ?>guruclient/detail_ulasan/<?php echo $rows->id_ulasan; ?>" class="btn btn-success">
+                          <a href="<?php echo site_url(); ?>Guruclient/detail_ulasan/<?php echo $rows->id_ulasan; ?>" class="btn btn-success">
                             <i class="nav-icon fas fa-sign-out-alt" aria-hidden="true"></i></a>
                         </td>
                       </tr>

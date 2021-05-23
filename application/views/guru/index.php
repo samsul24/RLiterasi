@@ -64,7 +64,6 @@
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      
          <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
 
@@ -96,10 +95,10 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url(); ?>siswaclient">Home</a></li>
-              <li><a href="<?php echo site_url(); ?>guruclient/ulasan">Ulasan</a></li>
-              <li><a href="<?php echo site_url(); ?>siswaclient/buku">Buku</a></li>
-              <li><a href="<?php echo site_url(); ?>guruclient/profile">Guru</a></li>
+              <li><a href="<?php echo site_url(); ?>Siswaclient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/ulasan">Ulasan</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/buku1">Buku</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/profile">Guru</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
             </ul>

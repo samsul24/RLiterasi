@@ -21,7 +21,6 @@ class Guru extends REST_Controller
             $this->db->select('*');
             $this->db->from('user');
             $this->db->where('id_user_role', 3);
-            $this->db->where('sekolah.id_sekolah', true);
             $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
             $guru = $this->db->get()->result();
         } 
