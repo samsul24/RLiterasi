@@ -11,11 +11,11 @@ class SiswaClient extends CI_Controller
     $this->load->library('curl');
     // $this->load->model("Literasi_model");
     $this->load->model('Login_model');
-    $this->API = "http://localhost:8080/RLiterasi/api/Buku";
-    $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
-    $this->API2 = "http://localhost:8080/RLiterasi/api/Sekolah";
-    $this->API3 = "http://localhost:8080/RLiterasi/api/Siswa";
-    $this->API4 = "http://localhost:8080/RLiterasi/api/User";
+    $this->API =base_url('api/Buku');
+    $this->API1 =base_url('api/Ulasan');
+    $this->API2 =base_url('api/Sekolah');
+    $this->API3 =base_url('api/Siswa');
+    $this->API4 =base_url('api/User');
   }
 
   public function index()

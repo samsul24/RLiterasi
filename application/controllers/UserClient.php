@@ -10,9 +10,9 @@ class UserClient extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
         
-        $this->API = "http://localhost:8080/RLiterasi/api/User";
-        $this->API3 = "http://localhost:8080/RLiterasi/api/Guru";
-        $this->API4= "http://localhost:8080/RLiterasi/api/Siswa";
+        $this->API = base_url('api/User');
+        $this->API3 = base_url('api/Guru');
+        $this->API4= base_url('api/Siswa');
     }
 
     public function index()

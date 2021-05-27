@@ -91,6 +91,18 @@
                                                     echo $percent;
                                                     ?>% Kemiripan</td>
                                                 <td>
+                                                <?php
+                                                $myTaskCompress = $ilovepdf->newTask('compress');
+                                                // Add files to task for upload
+                                                $file1 = $myTaskCompress->addFile('path/to/file1_name.pdf');
+                                                $file2 = $myTaskCompress->addFile('path/to/file2_name.pdf');
+                                                // Execute the task
+                                                $myTaskCompress->execute();
+                                                // Download the package files
+                                                $myTaskCompress->download();
+                                                        
+                                                
+                                                ?>
                                                     <a href="<?php echo site_url(); ?>Guruclient/delete_nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-danger">
                                                         <i class="fa fa-trash" aria-hidden="true"></i></a>
                                                 </td>

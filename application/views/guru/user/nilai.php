@@ -75,25 +75,22 @@
 
                                                 <td><?php echo $i++; ?></td>
                                                 <td><?php echo $rows->nama; ?></td>
-                                                <td><?php echo $rows->hasil; ?> <?php
-                                                    $this->input->post('hasil',similar_text($rows->ulasan_siswa, $rows->ulasan_guru, $percent));
-                                                    echo $percent;
-                                                    ?></td>
+                                                <td><?php echo $rows->hasil; ?></td>
                                                     <td >
                                                     <?php 
-                                                    if ($percent<40){
+                                                    if ($rows->hasil<40){
                                                         echo "E";}
-                                                    else if($percent<55){
+                                                    else if($rows->hasil<55){
                                                         echo "D";}
-                                                    else if($percent<60){
+                                                    else if($rows->hasil<60){
                                                         echo "C";}
-                                                    else if($percent<70){
+                                                    else if($rows->hasil<70){
                                                         echo "B";}
-                                                    else if($percent<80){
+                                                    else if($rows->hasil<80){
                                                        echo "B+";}
-                                                    else if ($percent<90){
+                                                    else if ($rows->hasil<90){
                                                         echo "A";}
-                                                    else if ($percent<=100){
+                                                    else if ($rows->hasil<=100){
                                                         echo "A+";}?>
                                                     
                                                     </td>

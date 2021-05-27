@@ -10,7 +10,7 @@ class SekolahClient extends CI_Controller
         parent::__construct();
         $this->load->library('curl');
 
-        $this->API = "http://localhost:8080/RLiterasi/api/Sekolah";
+        $this->API = base_url('api/Sekolah');
     }
 
     public function index()
@@ -54,14 +54,10 @@ class SekolahClient extends CI_Controller
         $update =  $this->curl->simple_put($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
     
         if ($update) {
-            echo"berhasil";
-            // $this->session->set_flashdata('result', 'Update Data User Berhasil');
+            $this->session->set_flashdata('result', 'Update Data User Berhasil');
         } else {
-            echo"gagal";
-            // $this->session->set_flashdata('result', 'Update Data User Gagal');
+            $this->session->set_flashdata('result', 'Update Data User Gagal');
         }
-        // print_r($update);
-        // exit;
         redirect('SekolahClient');
     }
     public function delete()

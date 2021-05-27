@@ -12,10 +12,10 @@ class SuperAdminClient extends CI_Controller
         $this->load->model('super_model');       
          $this->load->model('login_model');       
 
-        $this->API2 = "http://localhost:8080/RLiterasi/api/User";
-        $this->API1 = "http://localhost:8080/RLiterasi/api/Admin";
-        $this->API3 = "http://localhost:8080/RLiterasi/api/Guru";
-        $this->API4= "http://localhost:8080/RLiterasi/api/Siswa";
+        $this->API2 = base_url('api/User');
+        $this->API1 = base_url('api/Admin');
+        $this->API3 = base_url('api/Guru');
+        $this->API4= base_url('api/Siswa');
     }
 
     public function index()

@@ -82,6 +82,12 @@
 
             </div>
             <div class="form-group row">
+            <label for="floatingSelect">sekolah</label>
+                <input style="height:40px; width:547;" type="text" name="id_sekolah" class="form-control form-control-user" id="id_sekolah" value="<?php echo $this->session->userdata('id_sekolah'); ?>" required readonly></input>
+                <span class="text-danger"></span>
+
+            </div>
+            <div class="form-group row">
                 <label for="floatingSelect">Deskripsi</label>
 
                 <textarea style="height:96px; width:547;" type="text" name="diskripsi" class="form-control" id="diskripsi" required></textarea>

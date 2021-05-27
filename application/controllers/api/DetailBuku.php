@@ -29,6 +29,7 @@ class DetailBuku extends REST_Controller
     {
         $data = array(
             'cover'         => $this->post('cover'),
+            'id_sekolah'         => $this->post('id_sekolah'),
             'nama_buku'         => $this->post('nama_buku'),
             'diskripsi'         => $this->post('diskripsi'),
             'pdf_file'              => $this->post('pdf_file'),
@@ -39,20 +40,22 @@ class DetailBuku extends REST_Controller
         } else {
             $this->response(array('status' => 'fail', 502));
         }
-        print_r($insert);
-        exit;
     }
-
+    
     function index_put()
     {
         $id = $this->put('id_buku');
         $data = array(
-            // 'pdf_file'              => $this->put('pdf_file'),
+            'id_sekolah'              => $this->put('id_sekolah'),
+            'cover'              => $this->put('cover'),
             'nama_buku'         => $this->put('nama_buku'),
             'diskripsi'         => $this->put('diskripsi'),
+            'pdf_file'              => $this->put('pdf_file'),
         );
         $this->db->where('id_buku', $id);
         $update = $this->db->update('buku', $data);
+        // print_r($data);
+        // exit;
         if ($update) {
             $this->response($data, 200);
         } else {

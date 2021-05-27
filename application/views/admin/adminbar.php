@@ -84,12 +84,24 @@
               </ul>
             </li>
 
-            <li class="sidebar-item  ">
-              <a href="<?php echo site_url(); ?>AdminClient/buku" class="sidebar-link">
+            <li class="sidebar-item  has-sub">
+              <a href="#" class="sidebar-link">
                 <i class="bi bi-book-fill"></i>
                 <span>Buku</span>
               </a>
+              <ul class="submenu ">
+
+                <li class="submenu-item ">
+                  <a href="<?php echo site_url(); ?>AdminClient/buku">
+                <i class="bi bi-book"></i>&nbsp;&nbsp;Buku</a>
+                </li>
+                <li class="submenu-item ">
+                  <a href="<?php echo site_url(); ?>AdminClient/siswa">
+                <i class="bi bi-book"></i>&nbsp;&nbsp;Detail Buku</a>
+                </li>
+              </ul>
             </li>
+         
             
             <li class="sidebar-item  ">
               <a href="<?php echo site_url(); ?>AdminClient/nilai" class="sidebar-link">
@@ -104,14 +116,14 @@
             <li class="sidebar-item  has-sub">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-life-preserver"></i>
-                <span>Documentation</span>
+                <span>Documentasi Laporan</span>
               </a>
               <ul class="submenu ">
                 <li class="submenu-item ">
-                  <a href="error-403.html">Laporan PDF</a>
+                  <a href="<?php echo site_url(); ?>LaporanPdf">Laporan PDF</a>
                 </li>
                 <li class="submenu-item ">
-                  <a href="error-404.html">Laporan PDF</a>
+                  <a href="<?php echo site_url(); ?>LaporanExcel">Laporan Excel</a>
                 </li>
               </ul>
             </li>

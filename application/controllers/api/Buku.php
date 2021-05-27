@@ -31,6 +31,8 @@ class Buku extends REST_Controller
     {
         $data = array(
             'cover'         => $this->post('cover'),
+            'id_sekolah'         => $this->post('id_sekolah'),
+            'nama_buku'         => $this->post('nama_buku'),
             'nama_buku'         => $this->post('nama_buku'),
             'diskripsi'         => $this->post('diskripsi'),
             'pdf_file'              => $this->post('pdf_file'),
@@ -49,7 +51,9 @@ class Buku extends REST_Controller
     {
         $id = $this->put('id_buku');
         $data = array(
-            // 'pdf_file'              => $this->put('pdf_file'),
+            'pdf_file'              => $this->put('pdf_file'),
+            'cover'              => $this->put('cover'),
+            'id_sekolah'              => $this->put('id_sekolah'),
             'nama_buku'         => $this->put('nama_buku'),
             'diskripsi'         => $this->put('diskripsi'),
         );

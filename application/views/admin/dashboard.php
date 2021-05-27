@@ -40,9 +40,17 @@
                           <i class="iconly-boldShow"></i>
                         </div>
                       </div>
-                      <div class="col-md-8">
+                       <div class="col-md-8">
                         <h6 class="text-muted font-semibold">Online </h6>
-                        <h6 class="font-extrabold mb-0">1</h6>
+                        <h6 class="font-extrabold mb-0">
+                        <?php  
+                        $this->db->where('user.id_sekolah', $this->session->userdata('id_sekolah'));
+                        $this->db->where('is_active', 'aktif');
+                        $user = $this->db->get('user')->num_rows();
+                        print($user);
+                        ?> 
+
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -61,6 +69,7 @@
                         <h6 class="text-muted font-semibold">User</h6>
                         <h6 class="font-extrabold mb-0">
                         <?php  
+                        $this->db->where('user.id_sekolah', $this->session->userdata('id_sekolah'));
                         $user = $this->db->get('user')->num_rows();
                         print($user);
                         ?> 
@@ -83,6 +92,7 @@
                         <h6 class="text-muted font-semibold">Buku</h6>
                         <h6 class="font-extrabold mb-0">
                         <?php  
+                        $this->db->where('buku.id_sekolah', $this->session->userdata('id_sekolah'));
                         $buku = $this->db->get('buku')->num_rows();
                         print($buku);
                         ?> 
@@ -105,6 +115,7 @@
                         <h6 class="text-muted font-semibold">Ulasan</h6>
                         <h6 class="font-extrabold mb-0">
                         <?php  
+                        $this->db->where('ulasan.id_sekolah', $this->session->userdata('id_sekolah'));
                         $role = $this->db->get('ulasan')->num_rows();
                         print($role);
                         ?> 

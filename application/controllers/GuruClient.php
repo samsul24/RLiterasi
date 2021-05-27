@@ -9,11 +9,11 @@ class GuruClient extends CI_Controller
     {
         parent::__construct();
         $this->load->library('curl');
-        $this->API = "http://localhost:8080/RLiterasi/api/Buku";
-        $this->API1 = "http://localhost:8080/RLiterasi/api/Ulasan";
-        $this->API2= "http://localhost:8080/RLiterasi/api/Siswa";
-        $this->API3= "http://localhost:8080/RLiterasi/api/DetailUlasan";
-        $this->API4 = "http://localhost:8080/RLiterasi/api/DetailBuku";
+        $this->API = "http://localhost/RLiterasi/api/Buku";
+        $this->API1 = "http://localhost/RLiterasi/api/Ulasan";
+        $this->API2= "http://localhost/RLiterasi/api/Siswa";
+        $this->API3= "http://localhost/RLiterasi/api/DetailUlasan";
+        $this->API4 = "http://localhost/RLiterasi/api/DetailBuku";
 
         $this->load->model('Login_model');
     $this->load->library('form_validation');
@@ -162,13 +162,14 @@ class GuruClient extends CI_Controller
     // $this->form_validation->set_rules('hasil','Hasil','trim|required');
     // $this->form_validation->set_rules('hasil','Hasil','trim|required');
     // $this->form_validation->set_rules('id_ulasan','Id Ulasan','trim|required');
+
     if($this->form_validation->run() === true)
     {
       $id_ulasan   = $this->input->post('id_ulasan');
       $ulasan_siswa   = $this->input->post('ket_siswa');
       $nama   = $this->input->post('nama');
       $ulasan_guru    = $this->input->post('ulasan_guru');
-      $hasil         = $this->input->post('hasil');
+      similar_text($ulasan_siswa, $ulasan_guru, $hasil);
 
       
 
@@ -179,6 +180,7 @@ class GuruClient extends CI_Controller
               'ulasan_guru' =>$ulasan_guru,
               'hasil' =>$hasil
             );
+
             $insert =   $this->curl->simple_post($this->API3,$data);
             // var_dump($insert);
             // exit;

@@ -10,7 +10,7 @@ class Register extends CI_Controller
         $this->load->library('curl');
 
         $this->load->library('form_validation');
-        $this->API = "http://localhost:8080/RLiterasi/api/Sekolah";
+        $this->API = base_url('api/Sekolah');
     }
 
     public function index()
