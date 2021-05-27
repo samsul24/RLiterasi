@@ -24,45 +24,8 @@ class Splitter extends CI_Controller
 
 	public function split()
 	{
-		$this->_upload();
+		$this->_pdf(FCPATH . 'file_buku\\' . $this->input->post('pdf_file'));
 	}
-
-	public function _upload()
-	{
-		$file_name = $_FILES['pdf_file']['name'];
-		if ($file_name != '') {
-			$config['upload_path'] = 'img/foto' ;
-			$config['max_size'] = 2000;
-			$config['allowed_types'] = '*';
-	
-			$new_name = $file_name;
-			$config['file_name'] = $new_name;
-	
-			$this->load->library('upload', $config);
-			$this->upload->initialize($config);
-
-			if (!$this->upload->do_upload('pdf_file')) {
-				$error = array('error' => $this->upload->display_errors());
-				var_dump($error);
-			} else {
-				$dataFile  = $this->upload->data();
-				$file_name = $dataFile['file_name'];
-			$data = array(
-				'pdf_file'         =>$file_name,
-			);
-			$insert = $this->curl->simple_post($this->API1, $data);
-			if ($insert) {
-				$this->_pdf($data['upload_data']['full_path']);
-				$this->session->set_flashdata('result', '');
-				redirect('AdminClient/split', 'refresh');
-			} else {
-				$this->session->set_flashdata('result', '');
-			}
-			redirect('AdminClient/split', 'refresh');
-			}
-		}
-	}
-
 
 	public function _pdf($filename)
 	{
@@ -77,12 +40,45 @@ class Splitter extends CI_Controller
 			$new_pdf->useTemplate($new_pdf->importPage($i));
 
 			try {
-				$new_filename = str_replace('.pdf', '', $filename) . '_' . $i . ".pdf";
+				$path = FCPATH . 'file_buku\\';
+				$new_path = FCPATH . 'file_buku\split\\';
+
+				$name= str_replace($path,$new_path,$filename);
+				$new_filename = str_replace('.pdf', '', $name) . '_' . $i . ".pdf";
 				$new_pdf->Output($new_filename, "F");
 				echo "Page " . $i . " split into " . $new_filename . "<br />\n";
+				
+				$data = array(
+					'pdf_file'         => str_replace($path, '', $new_filename),
+				);
+
+				$this->curl->simple_post($this->API1, $data);
 			} catch (Exception $e) {
 				echo 'Error';
 			}
 		}
+		redirect('Splitter/detail_buku');
+
 	}
+	public function detail_buku()
+    {
+        $uri = array('id_sekolah' =>  $this->uri->segment(3));
+        $data['buku'] = json_decode($this->curl->simple_get($this->API,$uri));
+        $data['split'] = json_decode($this->curl->simple_get($this->API1,$uri));
+        $data['title'] = "Detail PDF";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/users/detail_buku', $data);
+    
+    }
+	public function delete()
+    {
+        $params = array('id_split' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API1, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data PDF Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data PDF Gagal');
+        }
+        redirect('AdminClient/detail_buku');
+    }
 }

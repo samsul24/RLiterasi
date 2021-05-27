@@ -16,6 +16,7 @@ class AdminClient extends CI_Controller
         $this->API2= base_url('api/Ulasan');    
         $this->API3= base_url('api/DetailUlasan');
         $this->API4= base_url('api/DetailBuku');
+        $this->API5= base_url('api/Split');
     $this->load->library('form_validation');
 
 
@@ -120,6 +121,7 @@ class AdminClient extends CI_Controller
         $this->load->view('admin/users/detail_ulasan', $data);
     
     }
+   
 
     public function proses_detail() {
 

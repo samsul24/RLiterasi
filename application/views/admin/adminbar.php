@@ -96,7 +96,7 @@
                 <i class="bi bi-book"></i>&nbsp;&nbsp;Buku</a>
                 </li>
                 <li class="submenu-item ">
-                  <a href="<?php echo site_url(); ?>AdminClient/siswa">
+                  <a href="<?php echo site_url(); ?>Splitter/detail_buku">
                 <i class="bi bi-book"></i>&nbsp;&nbsp;Detail Buku</a>
                 </li>
               </ul>
