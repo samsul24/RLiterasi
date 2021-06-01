@@ -16,6 +16,7 @@ class SiswaClient extends CI_Controller
     $this->API2 =base_url('api/Sekolah');
     $this->API3 =base_url('api/Siswa');
     $this->API4 =base_url('api/User');
+    $this->API5 =base_url('api/Split');
   }
 
   public function index()
@@ -73,7 +74,9 @@ class SiswaClient extends CI_Controller
       'nama' => $this->input->post('nama'),
       'judul' => $this->input->post('judul'),
       'ket_siswa' => $this->input->post('ket_siswa'),
+      'text_buku' => $this->input->post('text_buku'),
       'tanggal' => $this->input->post('tanggal'),
+      'id_buku' => $this->input->post('id_buku'),
       'id_sekolah' => $this->input->post('id_sekolah'),
     );
     $insert = $this->curl->simple_post($this->API1, $data);

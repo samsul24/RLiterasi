@@ -32,7 +32,9 @@ class Ulasan extends REST_Controller
             'nama' => $this->post('nama'),
             'judul' => $this->post('judul'),
             'ket_siswa' => $this->post('ket_siswa'),
+            'text_buku' => $this->post('text_buku'),
             'tanggal' => $this->post('tanggal'),
+            'id_buku' => $this->post('id_buku'),
             'id_sekolah' => $this->post('id_sekolah'),
         );
         $insert = $this->db->insert('ulasan', $data);

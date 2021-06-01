@@ -11,6 +11,7 @@ class AdminClient extends CI_Controller
         $this->load->library('curl');
         $this->load->model('Login_model');   
         
+        
         $this->API = base_url('api/Guru');
         $this->API1= base_url('api/Siswa');    
         $this->API2= base_url('api/Ulasan');    
@@ -131,7 +132,7 @@ class AdminClient extends CI_Controller
         $id_ulasan   = $this->input->post('id_ulasan');
         $ulasan_siswa   = $this->input->post('ket_siswa');
         $nama   = $this->input->post('nama');
-        $ulasan_guru    = $this->input->post('ulasan_guru');
+        $ulasan_guru    = $this->input->post('text_buku');
         $hasil         = $this->input->post('hasil');
         $data = array(
                 'id_ulasan' => $id_ulasan,

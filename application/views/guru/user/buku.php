@@ -79,13 +79,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
-              <!-- <li><a href="projectBar.php">Project</a></li> -->
-              <!-- <li><a href="AboutUs.php">About Us</a></li> -->
-              <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
-              <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
-              <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
+            <li><a href="<?php echo site_url(); ?>Guruclient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/ulasan">Ulasan</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/buku1">Buku</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/profile">Guru</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
             </ul>
           </div><!-- /.navbar-collapse -->

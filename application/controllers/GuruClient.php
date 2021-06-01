@@ -9,11 +9,12 @@ class GuruClient extends CI_Controller
     {
         parent::__construct();
         $this->load->library('curl');
-        $this->API = "http://localhost/RLiterasi/api/Buku";
-        $this->API1 = "http://localhost/RLiterasi/api/Ulasan";
-        $this->API2= "http://localhost/RLiterasi/api/Siswa";
-        $this->API3= "http://localhost/RLiterasi/api/DetailUlasan";
-        $this->API4 = "http://localhost/RLiterasi/api/DetailBuku";
+        $this->API = base_url('api/Buku');
+        $this->API1 = base_url('api/Ulasan');
+        $this->API2= base_url('api/Siswa');
+        $this->API3= base_url('api/DetailUlasan');
+        $this->API4 = base_url('api/DetailBuku');
+        $this->API5 = base_url('api/Split');
 
         $this->load->model('Login_model');
     $this->load->library('form_validation');
@@ -146,8 +147,10 @@ class GuruClient extends CI_Controller
   public function detail_ulasan()
   {
     $uri = array('id_ulasan' =>  $this->uri->segment(3));
+    $params = array('id_split' =>  $this->session->userdata('id_split'));
     $data['ulasan'] = json_decode($this->curl->simple_get($this->API1,$uri));
     $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+    $data['split'] = json_decode($this->curl->simple_get($this->API5,$params));
     $data['title'] = "Detail Ulasan";
     $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
@@ -159,20 +162,14 @@ class GuruClient extends CI_Controller
   public function proses_detail() {
 
     $this->form_validation->set_rules('ulasan_guru','Ulasan Guru','trim|required');
-    // $this->form_validation->set_rules('hasil','Hasil','trim|required');
-    // $this->form_validation->set_rules('hasil','Hasil','trim|required');
-    // $this->form_validation->set_rules('id_ulasan','Id Ulasan','trim|required');
 
     if($this->form_validation->run() === true)
     {
       $id_ulasan   = $this->input->post('id_ulasan');
       $ulasan_siswa   = $this->input->post('ket_siswa');
       $nama   = $this->input->post('nama');
-      $ulasan_guru    = $this->input->post('ulasan_guru');
+      $ulasan_guru    = $this->input->post('text_buku');
       similar_text($ulasan_siswa, $ulasan_guru, $hasil);
-
-      
-
       $data = array(
               'id_ulasan' => $id_ulasan,
               'nama' =>$nama,
@@ -182,8 +179,8 @@ class GuruClient extends CI_Controller
             );
 
             $insert =   $this->curl->simple_post($this->API3,$data);
-            // var_dump($insert);
-            // exit;
+            var_dump($insert);
+            exit;
       if($insert){
           echo"berhasil";   
           redirect('GuruClient/detail');

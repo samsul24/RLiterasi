@@ -61,10 +61,12 @@
                             <div class="form-group">
                                 <label for="ket_siswa">Ulasan Siswa </label>
                                 <input type="text" class="form-control" id="ket_siswa" value="<?php echo $rows->ket_siswa; ?>" name="ket_siswa" required  readonly>
+                            
                             </div>
                             <div class="form-group">
                                 <label for="ulasan_guru">Ulasan Guru </label>
-                                <input type="text" class="form-control" id="ulasan_guru" name="ulasan_guru" required  >
+                                <input type="text" class="form-control" id="text_buku" name="text_buku" value="<?= $rows->text_buku; ?>" required readonly >
+                            
                             </div>
                             <div class="form-group">
                                 <input type="hidden" class="form-control" id="hasil" name="hasil" value=""  required  >

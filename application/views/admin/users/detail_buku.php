@@ -73,6 +73,7 @@
 
                         <td><?php echo $i++; ?></td>
                         <td><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="90" hight="120"></iframe></td>
+                        <td><?php echo (str_word_count($rows->deskripsi) > 10 ? substr($rows->deskripsi, 0, 30) . "[..]" : $rows->deskripsi); ?></td>
 
                         <td>
                           <a href="<?php echo site_url(); ?>Splitter/put/<?php echo $rows->id_split; ?>" class="btn btn-warning">

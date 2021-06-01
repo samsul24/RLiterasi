@@ -120,18 +120,18 @@
             <div>
               <div class="form-group">
                 <label>ID Buku</label>
-                <input type="number" value="<?= $rows->id_buku; ?>" class="form-control" readonly>
+                <input type="number" value="<?= $rows->id_split; ?>" class="form-control" readonly>
               </div>
               <div class="form-group">
-                <label>Nama Buku</label>
-                <input type="text" value="<?= $rows->nama_buku; ?>" class="form-control" readonly>
+                <label>Buku</label>
               </div>
-              <div class="form-group">
+                <iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="300" height="300"></iframe>
+              <!-- <div class="form-group">
                 <label>Deskripsi</label>
                 <textarea class="form-control" rows="3" readonly>
                   <?= $rows->diskripsi; ?>
                 </textarea>
-              </div>
+              </div> -->
             </div>
           <?php endforeach; ?>
         </div>
@@ -140,17 +140,25 @@
             <h4><strong>Ulasan anda</strong></h4>
             <hr>
             <div class="col-md-12 col-sm-12 col-xs-12">
+              <input type="hidden" id="id_buku" name="id_buku" class="form-control" placeholder="Name" value="<?= $rows->id_split; ?>" readonly>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <input type="hidden" id="text_buku" name="text_buku" class="form-control" placeholder="Name" value="<?= $rows->deskripsi; ?>"readonly>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <input type="hidden" id="id_sekolah" name="id_sekolah" class="form-control" placeholder="Name" value="<?= $this->session->userdata('id_sekolah') ?>" required data-error="Please enter your name" readonly>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
               <label for="floatingSelect">Tanggal</label>
-              <input type="date" class="form-control" name="tanggal" placeholder="Tanggal ulasan" value="<?php echo date('Y-m-d / H:i:s'); ?>" required data-error="Please enter your message subject" readonly>
+              <input type="text" class="form-control" name="tanggal" placeholder="Tanggal ulasan" value="<?php echo date('Y-m-d / H:i:s');?>" required data-error="Please enter your message subject" readonly>
               <div class="help-block with-errors"></div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
               <label for="floatingSelect">Nama</label>
               <input type="text" id="nama" name="nama" class="form-control" placeholder="Name" value="<?= $this->session->userdata('nama') ?>" required data-error="Please enter your name" readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="hidden" id="id_sekolah" name="id_sekolah" class="form-control" placeholder="Name" value="<?= $this->session->userdata('id_sekolah') ?>" required data-error="Please enter your name" readonly>
               <div class="help-block with-errors"></div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">

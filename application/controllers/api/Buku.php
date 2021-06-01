@@ -16,14 +16,14 @@ class Buku extends REST_Controller
 
     function index_get()
     {
-        $id = $this->get('id_buku');
+        $id = $this->get('id_split');
         if ($id == '') {
-            $this->db->order_by('id_buku', 'RANDOM');
+            $this->db->order_by('id_split', 'RANDOM');
             $this->db->limit(1);
-            $buku = $this->db->get('buku')->result_array();
+            $buku = $this->db->get('split')->result_array();
         } else {
-            $this->db->where('id_buku', $id);
-            $buku = $this->db->get('buku')->result_array();
+            $this->db->where('id_split', $id);
+            $buku = $this->db->get('split')->result_array();
         }
         $this->response($buku, 200);
     }

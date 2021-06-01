@@ -53,6 +53,7 @@ class BukuClient extends CI_Controller
           } else {
               $dataFile  = $this->upload->data();
               $file_name = $dataFile['file_name'];
+              // $cover = $dataFile['cover'];
         $data = array(
             'id_sekolah'         => $this->input->post('id_sekolah'),
             'nama_buku'         => $this->input->post('nama_buku'),
@@ -60,8 +61,8 @@ class BukuClient extends CI_Controller
             'cover'              => $cover,
             'pdf_file'              => $file_name,
           );
-          // var_dump($data);
-          // exit;
+          var_dump($data);
+          exit;
         $insert = $this->curl->simple_post($this->API, $data);
         if ($insert) {
           $this->session->set_flashdata('result', '');

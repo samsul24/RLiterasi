@@ -1,4 +1,4 @@
-<?php if($this->session->userdata('id_user_role')!=3){redirect('guruclient');};?>
+<?php if($this->session->userdata('id_user_role')!=3){redirect('GuruClient');};?>
 
 <style>
     nav-treeview:hover{
@@ -34,7 +34,7 @@
                with font-awesome or any other icon font library -->
                
           <li class="nav-item ">
-           <a href="<?php echo site_url(); ?>guruclient" class="nav-link" id="navHome">
+           <a href="<?php echo site_url(); ?>GuruClient" class="nav-link" id="navHome">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Dashboard
@@ -53,7 +53,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>guruclient/siswa" class="nav-link">
+                <a href="<?php echo site_url(); ?>GuruClient/siswa" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>Siswa</p>
                 </a>
@@ -70,7 +70,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>guruclient/ulasan" class="nav-link">
+                <a href="<?php echo site_url(); ?>GuruClient/ulasan" class="nav-link">
                 <i class="bi bi-bookmark"></i>&nbsp;&nbsp;Ulasan
           
                 </a>
@@ -78,13 +78,13 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>guruclient/detail" class="nav-link">
+                <a href="<?php echo site_url(); ?>GuruClient/detail" class="nav-link">
                 <i class="bi bi-bookmark-check"></i>&nbsp;&nbsp;Detail Ulasan
                 </a>
               </li>
             </ul>
           <li class="nav-item">
-           <a href="<?php echo site_url(); ?>guruclient/buku" class="nav-link" id="navHome">
+           <a href="<?php echo site_url(); ?>GuruClient/buku" class="nav-link" id="navHome">
               <i class="bi bi-book-fill"></i>
               <p>
               &nbsp;&nbsp;Buku
@@ -92,7 +92,7 @@
             </a>
           </li>
           <li class="nav-item">
-           <a href="<?php echo site_url(); ?>guruclient/nilai" class="nav-link" id="navHome">
+           <a href="<?php echo site_url(); ?>GuruClient/nilai" class="nav-link" id="navHome">
            <i class="bi bi-file-check"></i>
               <p>
               &nbsp;&nbsp;Nilai

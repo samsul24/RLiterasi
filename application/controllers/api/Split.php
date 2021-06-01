@@ -29,6 +29,7 @@ class Split extends REST_Controller
     {
         $data = array(
             'pdf_file'              => $this->post('pdf_file'),
+            'deskripsi'              => $this->post('deskripsi'),
         );
         $insert = $this->db->insert('split', $data);
         if ($insert) {

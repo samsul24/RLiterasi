@@ -117,16 +117,16 @@
                   <tbody>
                     <tr>
                       <th>ID Buku</th>
-                      <th>: <?php echo $rows->id_buku; ?></th>
+                      <th>: <?php echo json_encode($rows->id_split); ?></th>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                       <th>Nama Buku</th>
                       <th>: <?php echo $rows->nama_buku; ?></th>
-                    </tr>
-                    <tr>
+                    </tr> -->
+                    <!-- <tr>
                       <th>Deskripsi</th>
-                      <th>: <?php echo $rows->diskripsi; ?></th>
-                    </tr>
+                      <th>: <?php echo $rows->deskripsi; ?></th>
+                    </tr> -->
                     <tr>
                   </tbody>
                 </table>

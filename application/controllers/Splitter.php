@@ -47,9 +47,13 @@ class Splitter extends CI_Controller
 				$new_filename = str_replace('.pdf', '', $name) . '_' . $i . ".pdf";
 				$new_pdf->Output($new_filename, "F");
 				echo "Page " . $i . " split into " . $new_filename . "<br />\n";
+
+				$parser = new \Smalot\PdfParser\Parser();
+				$convet_pdf = $parser->parseFile($new_filename);
 				
 				$data = array(
 					'pdf_file'         => str_replace($path, '', $new_filename),
+					'deskripsi'			=> $convet_pdf->getText(),
 				);
 
 				$this->curl->simple_post($this->API1, $data);
