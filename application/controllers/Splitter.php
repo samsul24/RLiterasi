@@ -20,6 +20,8 @@ class Splitter extends CI_Controller
 		$data['title'] = "Split PDF";
 		$this->load->view('admin/adminbar');
 		$this->load->view('admin/split');
+        $this->load->view('footer');
+
 	}
 
 	public function split()
@@ -64,6 +66,17 @@ class Splitter extends CI_Controller
 		redirect('Splitter/detail_buku');
 
 	}
+	public function detail()
+    {
+        $uri = array('id_split' =>  $this->uri->segment(3));
+        $data['split'] = json_decode($this->curl->simple_get($this->API1,$uri));
+		$data['title'] = "Detail PDF";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/users/details', $data);
+
+		
+    
+    }
 	public function detail_buku()
     {
         $uri = array('id_sekolah' =>  $this->uri->segment(3));

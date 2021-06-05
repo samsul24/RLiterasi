@@ -22,6 +22,8 @@ class SuperAdminClient extends CI_Controller
     {
         if($this->session->userdata('id_user_role')){
         $username = $this->session->userdata('username');
+    $data['admin'] = json_decode($this->curl->simple_get($this->API1));
+
         $data['results'] = $this->login_model->get_user($username);
         $data['title'] = "Dashboard Super Admin";
         $this->load->view('superadmin/superbar');

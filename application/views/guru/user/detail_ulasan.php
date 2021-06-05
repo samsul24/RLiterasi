@@ -54,18 +54,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama:</label>
-                                <input type="text" class="form-control" id="nama" value="<?php echo $rows->nama; ?>" name="nama" required readonly >
+                                <input type="text" class="form-control" style="width:600px; " id="nama" value="<?php echo $rows->nama; ?>" name="nama" required readonly >
                             </div>
          
 
                             <div class="form-group">
                                 <label for="ket_siswa">Ulasan Siswa </label>
-                                <input type="text" class="form-control" id="ket_siswa" value="<?php echo $rows->ket_siswa; ?>" name="ket_siswa" required  readonly>
+                                <input type="text" class="form-control" style="width:600px;" id="ket_siswa" value="<?php echo $rows->ket_siswa; ?>" name="ket_siswa" required  readonly>
                             
                             </div>
                             <div class="form-group">
                                 <label for="ulasan_guru">Ulasan Guru </label>
-                                <input type="text" class="form-control" id="text_buku" name="text_buku" value="<?= $rows->text_buku; ?>" required readonly >
+                                <textarea type="text" class="form-control" style="width:600px; height:450px" id="text_buku" name="text_buku" required readonly ><?php echo $rows->text_buku; ?></textarea>
                             
                             </div>
                             <div class="form-group">

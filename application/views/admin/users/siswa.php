@@ -23,6 +23,7 @@
 
 
 </head>
+<div id="main-content">
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -46,8 +47,7 @@
                 Simple Datatable
             </div>
             <div class="card-body">
-                <div class="dataTable-container">
-                    <table class="table table-striped dataTable-table" id="table1">
+                    <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
                                 <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">Id</a></th>
@@ -70,18 +70,18 @@
                             foreach ($siswa as $rows) : ?>
                                 <tr>
 
-                                    <td><?php echo $i++; ?></td>
-                                    <td><?php echo $rows->id_sekolah; ?></td>
-                                    <td><?php echo $rows->nis; ?></td>
-                                    <td><?php echo $rows->nama; ?></td>
-                                    <td><?php echo $rows->no_telp; ?></td>
-                                    <td><?php echo $rows->jenis_kelamin; ?></td>
-                                    <td><?php echo $rows->kelas; ?></td>
-                                    <td><?php echo $rows->email; ?></td>
-                                    <td><?php echo $rows->jurusan; ?></td>
-                                    <td><?php echo $rows->username; ?></td>
-                                    <td><?php echo $rows->password; ?></td>
-                                    <td><?php echo $rows->is_active; ?></td>
+                                    <td style="padding:25px;"><?php echo $i++; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->id_sekolah; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->nis; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->nama; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->no_telp; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->jenis_kelamin; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->kelas; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->email; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->jurusan; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->username; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->password; ?></td>
+                                    <td style="padding:25px;"><?php echo $rows->is_active; ?></td>
                                     <td>
                                         <div class="dataTable-info">
                                             <!-- <a href="<?php echo site_url(); ?>userclient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
@@ -101,24 +101,24 @@
 
     </section>
 </div>
-
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 © Mazer</p>
+            <p>2021 © Literasi</p>
         </div>
-        <div class="float-end">
-            <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">Literasi</a></p>
-        </div>
-    </div>
+</div>
 </footer>
 </div>
-</div>
+
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
-
+<script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
 

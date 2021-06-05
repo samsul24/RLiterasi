@@ -26,6 +26,8 @@
 
 
 </head>
+<div id="main-content">
+
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -49,8 +51,8 @@
                 Simple Datatable
             </div>
         </div>
-        <div class="form-container">
-            <div>
+        <div class="card-body">
+                    <div class="dataTable-container">
                 <!-- Section Title Starts -->
 
                 <!-- Section Title Ends -->
@@ -63,59 +65,59 @@
                         </div>
                         <div class="form-group">
                             <label for="nama_sekolah">Nama Sekolah :</label>
-                            <input type="text" class="form-control" id="nama_sekolah" value="<?php echo $rows->nama_sekolah; ?>" name="nama_sekolah" required>
+                            <input type="text" class="form-control" id="nama_sekolah" value="<?php echo $rows->nama_sekolah; ?>" name="nama_sekolah" required="">
                         </div>
                         <div class="form-group">
                             <label for="npsn">NPSN :</label>
-                            <input type="text" class="form-control" id="npsn" placeholder="Nama Keluarga" value="<?php echo $rows->npsn; ?>" name="npsn" required>
+                            <input type="text" class="form-control" id="npsn" placeholder="NPSN" value="<?php echo $rows->npsn; ?>" name="npsn" required="">
                         </div>
                         <div class="form-group">
                             <label for="nss">NSS :</label>
-                            <input type="text" class="form-control" id="nss" placeholder="Nama Keluarga" value="<?php echo $rows->nss; ?>" name="nss" required>
+                            <input type="text" class="form-control" id="nss" placeholder="NSS" value="<?php echo $rows->nss; ?>" name="nss" required="">
                         </div>
                         <div class="form-group">
                             <label for="alamat_sekolah">Alamat :</label>
-                            <input type="text" class="form-control" id="alamat_sekolah" placeholder="Nama Keluarga" value="<?php echo $rows->alamat_sekolah; ?>" name="alamat_sekolah" required>
+                            <input type="text" class="form-control" id="alamat_sekolah" placeholder="Alamat Sekolah" value="<?php echo $rows->alamat_sekolah; ?>" name="alamat_sekolah" required="">
                         </div>
                         <div class="form-group">
                             <label for="kode_pos">Kode Pos :</label>
-                            <input type="text" class="form-control" id="kode_pos" placeholder="Nama Keluarga" value="<?php echo $rows->kode_pos; ?>" name="kode_pos" required>
+                            <input type="number" class="form-control" id="kode_pos" placeholder="Kode Pos" value="<?php echo $rows->kode_pos; ?>" name="kode_pos" required="">
                         </div>
                         <div class="form-group">
                             <label for="no_telp">No Telepon :</label>
-                            <input type="text" class="form-control" id="no_telp" placeholder="Nama Keluarga" value="<?php echo $rows->no_telp; ?>" name="no_telp" required>
+                            <input type="number" class="form-control" id="no_telp" placeholder="Telepon" value="<?php echo $rows->no_telp; ?>" name="no_telp" required="">
                         </div>
                         <div class="form-group">
                             <label for="kelurahan">Kelurahan :</label>
-                            <input type="text" class="form-control" id="kelurahan" placeholder="Nama Keluarga" value="<?php echo $rows->kelurahan; ?>" name="kelurahan" required>
+                            <input type="text" class="form-control" id="kelurahan" placeholder="Kelurahan" value="<?php echo $rows->kelurahan; ?>" name="kelurahan" required="">
                         </div>
                         <div class="form-group">
                             <label for="kecamatan">Kecamatan :</label>
-                            <input type="text" class="form-control" id="kecamatan" placeholder="Nama Keluarga" value="<?php echo $rows->kecamatan; ?>" name="kecamatan" required>
+                            <input type="text" class="form-control" id="kecamatan" placeholder="Kecamatan" value="<?php echo $rows->kecamatan; ?>" name="kecamatan" required="">
                         </div>
                         <div class="form-group">
                             <label for="kabupaten">Kabupaten :</label>
-                            <input type="text" class="form-control" id="kabupaten" placeholder="Nama Keluarga" value="<?php echo $rows->kabupaten; ?>" name="kabupaten" required>
+                            <input type="text" class="form-control" id="kabupaten" placeholder="Kabupaten" value="<?php echo $rows->kabupaten; ?>" name="kabupaten" required="">
                         </div>
                         <div class="form-group">
                             <label for="provinsi">Provinsi :</label>
-                            <input type="text" class="form-control" id="provinsi" placeholder="Nama Keluarga" value="<?php echo $rows->provinsi; ?>" name="provinsi" required>
+                            <input type="text" class="form-control" id="provinsi" placeholder="Provinsi" value="<?php echo $rows->provinsi; ?>" name="provinsi" required="">
                         </div>
                         <div class="form-group">
                             <label for="website">Website :</label>
-                            <input type="text" class="form-control" id="website" placeholder="Nama Keluarga" value="<?php echo $rows->website; ?>" name="website" required>
+                            <input type="text" class="form-control" id="website" placeholder="Website" value="<?php echo $rows->website; ?>" name="website" required="">
                         </div>
                         <div class="form-group">
                             <label for="visi">Visi :</label>
-                            <input type="text" class="form-control" id="visi" placeholder="Nama Keluarga" value="<?php echo $rows->visi; ?>" name="visi" required>
+                            <input type="text" class="form-control" id="visi" placeholder="Visi" value="<?php echo $rows->visi; ?>" name="visi" required="">
                         </div>
                         <div class="form-group">
                             <label for="misi">Misi :</label>
-                            <input type="text" class="form-control" id="misi" placeholder="Nama Keluarga" value="<?php echo $rows->misi; ?>" name="misi" required>
+                            <input type="text" class="form-control" id="misi" placeholder="Misi" value="<?php echo $rows->misi; ?>" name="misi" required="">
                         </div>
                         <div class="form-group">
                             <label for="email">Email :</label>
-                            <input type="text" class="form-control" id="email" placeholder="Nama Keluarga" value="<?php echo $rows->email; ?>" name="email" required>
+                            <input type="text" class="form-control" id="email" placeholder="Email" value="<?php echo $rows->email; ?>" name="email" required="" readonly>
                         </div>
                         <div class="form-group">
                             <input type="hidden" class="form-control" id="verification_key" placeholder="Nama Keluarga" value="<?php echo $rows->verification_key; ?>" name="verification_key" required>
@@ -131,3 +133,29 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>2021 &copy; Literasi</p>
+            </div>
+            <div class="float-end">
+                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="#">Literasi 2021</a></p>
+            </div>
+        </div>
+    </footer>
+    </div>
+    </div>
+    <script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+
+    <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
+</body>
+
+</html>

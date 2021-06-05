@@ -26,6 +26,8 @@
 
 
     </head>
+<div id="main-content">
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -50,6 +52,8 @@
                 </div>
             </div>
             <div class="form-container">
+            <div class="card-body">
+                
                 <div>
                     <!-- Section Title Starts -->
 
@@ -82,8 +86,7 @@
 
             </div>
             <div class="form-group row">
-            <label for="floatingSelect">sekolah</label>
-                <input style="height:40px; width:547;" type="text" name="id_sekolah" class="form-control form-control-user" id="id_sekolah" value="<?php echo $this->session->userdata('id_sekolah'); ?>" required readonly></input>
+                <input style="height:40px; width:547;" type="hidden" name="id_sekolah" class="form-control form-control-user" id="id_sekolah" value="<?php echo $this->session->userdata('id_sekolah'); ?>" required readonly></input>
                 <span class="text-danger"></span>
 
             </div>
@@ -96,7 +99,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" name="register" value="Tambahkan" class="btn btn-primary btn-user btn-block" />
+                <input type="submit" name="register" value="Tambahkan" style="height:40px; width:547;" class="btn btn-primary btn-user btn-block" />
             </div>
 
             </form>
@@ -104,3 +107,28 @@
         </div>
 </div>
 <!-- filepond validation -->
+<footer>
+    <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+            <p>2021 © Literasi</p>
+        </div>
+</div>
+</footer>
+</div>
+
+<script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
+<script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+
+<script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -49,12 +49,10 @@
             <!-- Tabel -->
             <div class="card">
               <!-- /.card-header -->
-              <div class="card-b  ody">
+              <div class="card-body">
                 <div class='card-header' style="margin-left:-20px;">
                 
-                  <br>
                 </div>
-                <br>
                 <table id="tabel" class="table table-bordered">
                   <thead>
                     <tr>
@@ -92,9 +90,7 @@
                                                         echo "A";}
                                                     else if ($rows->hasil<=100){
                                                         echo "A+";}?>
-                                                    
                                                     </td>
-                                
                                                     <td>
                                                     <a href="<?php echo site_url(); ?>GuruClient/delete_nilai/<?php echo $rows->id_detail_ulasan;; ?>" class="btn btn-danger">
                                                         <i class="fa fa-trash" aria-hidden="true"></i></a>

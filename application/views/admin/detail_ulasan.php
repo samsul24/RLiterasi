@@ -23,6 +23,7 @@
 
 
 </head>
+<div id="main-content">
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -47,17 +48,17 @@
             </div>
             <div class="card-body">
                 <div class="dataTable-container">
-                    <table class="table table-striped dataTable-table" id="table1">
+                    <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">No</a></th>
-                                <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">Id Ulasan</a></th>
-                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Nama</a></th>
-                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Ulasan Siswa</a></th>
-                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Ulasan Guru</a></th>
-                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Hasil</a></th>
-                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Nilai</a></th>
-                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Aksi</a></th>
+                                <th>No</th>
+                                <th>Id Ulasan</th>
+                                <th>Nama</th>
+                                <th>Ulasan Siswa</th>
+                                <th>Ulasan Guru</th>
+                                <th>Hasil</th>
+                                <th>Nilai</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,7 +96,7 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 © Mazer</p>
+            <p>2021 © Literasi</p>
         </div>
         <div class="float-end">
         </div>
@@ -107,7 +108,11 @@
 <script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
-
+<script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
 

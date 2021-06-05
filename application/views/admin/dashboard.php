@@ -23,7 +23,7 @@
 
 </head>
 
-
+<div id="main-content">
       <div class="page-heading">
         <h3>Profile Statistics</h3>
       </div>
@@ -133,60 +133,14 @@
                                     <div class="card-header">
                                     </div>
                                     <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
+                        <canvas id="bar">
+                        </canvas>
+                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                           
-              <div class="col-12 col-xl-8">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>Nilai</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-hover table-lg">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Comment</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="col-3">
-                              <div class="d-flex align-items-center">
-                                <div class="avatar avatar-md">
-                                  <img src="<?php echo base_url() ?>assets/super/assets/images/faces/5.jpg">
-                                </div>
-                                <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                              </div>
-                            </td>
-                            <td class="col-auto">
-                              <p class=" mb-0">100</p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="col-3">
-                              <div class="d-flex align-items-center">
-                                <div class="avatar avatar-md">
-                                  <img src="<?php echo base_url() ?>assets/super/assets/images/faces/2.jpg">
-                                </div>
-                                <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                              </div>
-                            </td>
-                            <td class="col-auto">
-                              <p class=" mb-0">90</p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          
             </div>
           </div>
           <div class="col-12 col-lg-3">
@@ -215,6 +169,8 @@
                     </div>
                 </section>
             </div>
+
+
 
       <footer>
         <div class="footer clearfix mb-0 text-muted">
@@ -245,3 +201,63 @@
 </body>
 
 </html>
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/chartjs/Chart.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script type="text/javascript">
+var chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    info: '#41B1F9',
+    blue: '#3245D1',
+    purple: 'rgb(153, 102, 255)',
+    grey: '#EBEFF6'
+};
+var ctx = document.getElementById("bar").getContext("2d");
+var myBar = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Ags","Sep","Okt","Nov","Des"],
+        datasets: [{
+            label: 'User',
+            backgroundColor: [chartColors.grey, chartColors.grey, chartColors.grey, chartColors.grey, chartColors.info, chartColors.blue, chartColors.grey],
+            data: [
+              <?php echo json_encode($user); ?>
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        barRoundness: 1,
+        title: {
+            display: true,
+            text: "Students in 2020"
+        },
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMax: 40 + 20,
+                    padding: 10,
+                },
+                gridLines: {
+                    drawBorder: false,
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    display: false,
+                    drawBorder: false
+                }
+            }]
+        }
+    }
+});
+</script>
+<script src="<?php echo base_url() ?>assets/super/assets/vendors/chartjs/Chart.min.js"></script>
+<!-- <script src="<?php echo base_url() ?>assets/super/assets/js/pages/ui-chartjs.js"></script> -->

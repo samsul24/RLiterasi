@@ -85,6 +85,26 @@ class SiswaClient extends CI_Controller
     }
     redirect('SiswaClient/buku');
   }
+  public function jumlah()
+  {
+    // $data['user'] = json_decode($this->curl->simple_get($this->API4));
+    // $data['buku'] = json_decode($this->curl->simple_get($this->API));
+    // $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
+    $data['title'] = "Buku";
+    $this->load->view('user/post/jumlah', $data, FALSE);
+  }
+  public function jumlah_process()
+  {
+    $data = array(
+      'angka1' => $this->input->post('angka1'),
+      'angka2' => $this->input->post('angka2'),
+    );
+    $insert = $this->curl->simple_post($this->API1, $data);
+    if ($insert) {
+      $this->session->set_flashdata('result', 'success');
+    }
+    redirect('SiswaClient/buku');
+  }
   public function profile($id = null)
   {
     if ($id === null) {

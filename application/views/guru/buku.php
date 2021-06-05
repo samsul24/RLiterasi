@@ -49,7 +49,7 @@
             <!-- Tabel -->
             <div class="card">
               <!-- /.card-header -->
-              <div class="card-b  ody">
+              <div class="card-body">
                 <div class='card-header' style="margin-left:-20px;">
                   <a class='btn btn-primary' href="<?php echo site_url(); ?>guruclient/post/">
                     <i class="fa fa-plus"></i>

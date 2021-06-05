@@ -15,6 +15,7 @@ class GuruClient extends CI_Controller
         $this->API3= base_url('api/DetailUlasan');
         $this->API4 = base_url('api/DetailBuku');
         $this->API5 = base_url('api/Split');
+        $this->API6 = base_url('api/Sekolah');
 
         $this->load->model('Login_model');
     $this->load->library('form_validation');
@@ -94,8 +95,8 @@ class GuruClient extends CI_Controller
     }
     public function profile()
     {
-        $params = array('id_user' =>  $this->uri->segment(3));
-        $data['guru'] = json_decode($this->curl->simple_get($this->API3, $params));
+        $params = array('id_sekolah' =>  $this->uri->segment(3));
+        $data['sekolah'] = json_decode($this->curl->simple_get($this->API6, $params));
         $this->load->view('guru/profile', $data);
     }
     public function put_process()
@@ -161,10 +162,10 @@ class GuruClient extends CI_Controller
 
   public function proses_detail() {
 
-    $this->form_validation->set_rules('ulasan_guru','Ulasan Guru','trim|required');
+    // $this->form_validation->set_rules('ulasan_guru','Ulasan Guru','trim|required');
 
-    if($this->form_validation->run() === true)
-    {
+    // if($this->form_validation->run() === true)
+    // {
       $id_ulasan   = $this->input->post('id_ulasan');
       $ulasan_siswa   = $this->input->post('ket_siswa');
       $nama   = $this->input->post('nama');
@@ -179,8 +180,8 @@ class GuruClient extends CI_Controller
             );
 
             $insert =   $this->curl->simple_post($this->API3,$data);
-            var_dump($insert);
-            exit;
+            // var_dump($insert);
+            // exit;
       if($insert){
           echo"berhasil";   
           redirect('GuruClient/detail');
@@ -188,10 +189,10 @@ class GuruClient extends CI_Controller
         } else {
             echo"gagal";
         }
-    } else{
+    // } else{
         redirect('GuruClient/detail');
     }
-    }
+    // }
     public function nilai()
     {
         if($this->session->userdata('id_user_role')){

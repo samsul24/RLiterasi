@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/bootstrap.css">
 
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/style.css">
 
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
@@ -22,13 +24,14 @@
 
 
 
+
 </head>
 <div id="main-content">
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>DataTable Siswa</h3>
+                <h3>Data Edit Kategori Nilai</h3>
                 <p class="text-subtitle text-muted">For user to check they list</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -46,62 +49,52 @@
             <div class="card-header">
                 Simple Datatable
             </div>
-            <div class="card-body">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                            <tr>
-                            
-                                <th >No</th>
-                                <th >Nama</th>
-                                <th >judul Buku</th>
-                                <th >Keterangan</th>
-                                <th >Jumlah Karakter</th>
-                                <th >Tanggal & Waktu</th>
-                                <th >Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                    $i = 1;
-                    foreach ($ulasan as $rows) : ?>
-                      <tr>
+        </div>
+        <div class="form-container">
 
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $rows->nama; ?></td>
-                        <td><?php echo $rows->judul; ?></td>
-                        <td><?php echo $rows->ket_siswa; ?></td>
-                        <td style="text-align: center;"><?= str_word_count($rows->ket_siswa); ?></td>
-                        <td><?php echo $rows->tanggal; ?></td>
-                        <td>
-                        <a href="<?= base_url(); ?>Adminclient/detail_ulasan/<?php echo $rows->id_ulasan; ?>"><button type="button" class="btn btn-success "> 
-                                                    <i class="bi bi-eye" aria-hidden="true"></i></button></a>
-               
-                
-                        </td>
-                      </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
+            <div>
+                <!-- Section Title Starts -->
 
+                <!-- Section Title Ends -->
+                <!-- Form Starts -->
+                <form action="<?php echo site_url(); ?>AdminClient/kategori_process" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
+
+                        <?php foreach ($kategori as $rows) : ?>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="id_kategori" value="<?php echo $rows->id_kategori; ?>" name="id_kategori" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="id_sekolah" value="<?php echo $rows->id_sekolah; ?>" name="id_sekolah" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade :</label>
+                            <input type="text" class="form-control" id="grade" value="<?php echo $rows->grade; ?>" name="grade" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="start">Nilai Start :</label>
+                            <input type="number" class="form-control" id="start" value="<?php echo $rows->start; ?>" name="start" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="end">Nilai End :</label>
+                            <input type="number" class="form-control" id="end" value="<?php echo $rows->end; ?>" name="end" required>
+                        </div>
+                        <div class="form-group">
+                          <input type="submit" name="Update" value="Update" class="btn btn-primary btn-user btn-block" />
+                          </div>
+                    <?php endforeach; ?>
+                </form>
             </div>
         </div>
-
-    </section>
-</div>
-
-<footer>
+    </div>
+    <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 © Mazer</p>
+            <p>2021 © Literasi</p>
         </div>
-        <div class="float-end">
-            <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">Literasi</a></p>
-        </div>
-    </div>
+</div>
 </footer>
 </div>
-</div>
+
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
 

@@ -111,7 +111,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>laporanpdf" class="nav-link">
+                <a href="<?php echo site_url(); ?>SiswaClient/jumlah" class="nav-link">
                 <i class="fas fa-file-pdf"></i>
                   <p>Laporan PDF</p>
                 </a>

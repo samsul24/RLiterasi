@@ -24,6 +24,7 @@
 </head>
 
 <body>
+<div id="main-content">
 
     <div class="page-heading">
         <div class="page-title">

@@ -26,7 +26,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>DataTable Siswa</h3>
+                    <h3>Detail Split PDF</h3>
                     <p class="text-subtitle text-muted">For user to check they list</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -50,10 +50,6 @@
                         <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
-                                    <th><a>No</a></th>
-                                    <th><a>PDF</a></th>
-                                    <th><a>Text PDF</a></th>
-                                    <th><a>Aksi</a></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,25 +58,13 @@
                                 foreach ($split as $rows) : ?>
                                     <tr>
 
-                                        <td><?php echo $i++; ?></td>
-                                        <td><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="90" hight="120"></iframe></td>
-                                        <td><?php echo (str_word_count($rows->deskripsi) > 10 ? substr($rows->deskripsi, 0, 30) . "[..]" : $rows->deskripsi); ?></td>
-
-                                        <td>
-                                            <!-- <a href="<?php echo site_url(); ?>Splitter/put/<?php echo $rows->id_split; ?>" class="btn btn-warning">
-                                                <i class="bi bi-pen" aria-hidden="true"></i></a> -->
-                                            <a href="<?= base_url(); ?>Splitter/delete/<?= $rows->id_split; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                                                <i class="bi bi-trash" aria-hidden="true"></i></a>
-                                            <a href="<?= base_url(); ?>Splitter/detail/<?= $rows->id_split; ?>"><button type="button" class="btn btn-outline-success block"> 
-                                                    <i class="bi bi-eye" aria-hidden="true"></i></button></a>
-               
-                                        </td>
-                                    </tr>
+                                        <td ><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="100%" height="800"></iframe></td>
+                                        </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-                
+                   
                 </div>
             </div>
 
@@ -88,15 +72,12 @@
     </div>
 
     <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>2021 © Mazer</p>
-            </div>
-            <div class="float-end">
-            </div>
+    <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+            <p>2021 © Literasi</p>
         </div>
-    </footer>
 </div>
+</footer>
 </div>
 
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -110,6 +91,7 @@
     </script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
+
 
 </body>
 

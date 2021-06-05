@@ -23,6 +23,7 @@
 
 
 </head>
+<div id="main-content">
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -45,14 +46,14 @@
             <div class="card-header">
                 Simple Datatable
                 <div class='card-header' style="margin-left:-20px;">
-                  <a class='btn btn-primary' href="<?php echo site_url(); ?>BukuClient/post/">
-                    <i class="fa fa-plus"></i>
-                    <span>
-                      Tambah
-                    </span>
-                  </a>
-                  </a>
-                  <br>
+                    <a class='btn btn-primary' href="<?php echo site_url(); ?>BukuClient/post/">
+                        <i class="fa fa-plus"></i>
+                        <span>
+                            Tambah
+                        </span>
+                    </a>
+                    </a>
+                    <br>
                 </div>
             </div>
             <div class="card-body">
@@ -69,26 +70,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                    $i = 1;
-                    foreach ($buku as $rows) : ?>
-                      <tr>
+                            <?php
+                            $i = 1;
+                            foreach ($buku as $rows) : ?>
+                                <tr>
 
-                        <td><?php echo $i++; ?></td>
-                        <td><img src="<?php echo base_url('file_buku/' . $rows->cover) ?>" width="90" hight="120"></img></td>
-                        <td><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="90" hight="120"></iframe></td>
-                        <td><?php echo $rows->nama_buku; ?></td>
-                        <td><?php echo $rows->diskripsi; ?></td>
+                                    <td><?php echo $i++; ?></td>
+                                    <td><img src="<?php echo base_url('file_buku/' . $rows->cover) ?>" width="90" hight="120"></img></td>
+                                    <td><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="90" hight="120"></iframe></td>
+                                    <td><?php echo $rows->nama_buku; ?></td>
+                                    <td><?php echo $rows->diskripsi; ?></td>
 
-                        <td>
-                          <a href="<?php echo site_url(); ?>BukuClient/put/<?php echo $rows->id_buku; ?>" class="btn btn-warning">
-                          <i class="bi bi-pen" aria-hidden="true"></i></a>
-                          <a href="<?= base_url(); ?>BukuClient/delete/<?= $rows->id_buku; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                          <i class="bi bi-trash" aria-hidden="true"></i></a>
-                          <a href="<?= base_url(); ?>BukuClient/split/<?= $rows->id_buku; ?>" class="btn btn-success" >
-                          <i class="bi bi-book" aria-hidden="true"></i></a>
-                        </td>
-                      </tr>
+                                    <td>
+                                        <a href="<?php echo site_url(); ?>BukuClient/put/<?php echo $rows->id_buku; ?>" class="btn btn-warning">
+                                            <i class="bi bi-pen" aria-hidden="true"></i></a>
+                                        <a href="<?= base_url(); ?>BukuClient/delete/<?= $rows->id_buku; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
+                                            <i class="bi bi-trash" aria-hidden="true"></i></a>
+                                        <a href="<?= base_url(); ?>BukuClient/split/<?= $rows->id_buku; ?>" class="btn btn-success">
+                                            <i class="bi bi-book" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>

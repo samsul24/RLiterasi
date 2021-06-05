@@ -23,7 +23,6 @@
 
 </head>
 <div class="cc" >
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -49,7 +48,7 @@
             <!-- Tabel -->
             <div class="card">
               <!-- /.card-header -->
-              <div class="card-b  ody">
+              <div class="card-body">
                 <div class='card-header' style="margin-left:-20px;">
                                    <br>
                 </div>

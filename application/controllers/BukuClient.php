@@ -61,8 +61,8 @@ class BukuClient extends CI_Controller
             'cover'              => $cover,
             'pdf_file'              => $file_name,
           );
-          var_dump($data);
-          exit;
+          // var_dump($data);
+          // exit;
         $insert = $this->curl->simple_post($this->API, $data);
         if ($insert) {
           $this->session->set_flashdata('result', '');
