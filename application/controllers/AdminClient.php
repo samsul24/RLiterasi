@@ -194,7 +194,8 @@ class AdminClient extends CI_Controller
     public function kategori_nilai()
     {
         // $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
-        $data['kategori'] = json_decode($this->curl->simple_get($this->API6));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['kategori'] = json_decode($this->curl->simple_get($this->API6,$params));
         $data['title'] = "Detail Ulasan";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/kategori_nilai', $data, False);
