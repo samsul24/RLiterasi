@@ -23,6 +23,7 @@
 
 </head>
 
+<div id="main-content">
 
       <div class="page-heading">
         <h3>Profile Statistics</h3>
@@ -123,13 +124,25 @@
               </div>
             </div>
             <div class="row">
-                            <div class="col-12">
+            <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
                                     </div>
                                     <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
+                        <canvas id="bar">
+                        </canvas>
+                        <?php
+                         $nama_user= "";
+                         $jumlah=null;
+                                foreach ($users as $rows) : 
+                                         $user=$rows->nama; 
+                                         $nama_user .= "'$user'". ", ";
+                                         $user=$rows->id_sekolah; 
+                                         $jumlah .= "'$user'". ", ";
+                                    ?>                                        
+                                    </tr>
+                                <?php endforeach; ?>
+                    </div>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +170,18 @@
                                 <h4>Visitors Profile</h4>
                             </div>
                             <div class="card-body">
-                                <div id="chart-visitors-profile"></div>
+                                <div id="pie"></div>
+                                <?php
+                         $nama_user= "";
+                         $jumlah=null;
+                                foreach ($users as $rows) : 
+                                         $user=$rows->jenis_kelamin; 
+                                         $nama_user .= "'$user'". ", ";
+                                         $user=$rows->id_sekolah; 
+                                         $jumlah .= "'$user'". ", ";
+                                    ?>                                        
+                                    </tr>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -193,3 +217,117 @@
 </body>
 
 </html>
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/chartjs/Chart.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<!-- <script src="https://cdn.plot.ly/plotly-2.0.0-rc.3.min.js"></script> -->
+<script type="text/javascript">
+var chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    info: '#41B1F9',
+    blue: '#3245D1',
+    purple: 'rgb(153, 102, 255)',
+    grey: '#EBEFF6'
+};
+var ctx = document.getElementById("bar").getContext("2d");
+var myBar = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [<?php echo $nama_user; ?>],
+        datasets: [{
+            label: 'User',
+            backgroundColor: [chartColors.orange, chartColors.blue, chartColors.grey, chartColors.grey, chartColors.info, chartColors.blue, chartColors.grey],
+             borderColor: ['rgb(255, 99, 132)'],
+            data: [
+              
+              <?php
+              //  $this->db->group_by('user');
+              //  $this->db->select('user');
+              //  $this->db->select("count(*) as date");
+              //   $this->db->where('is_active', 'aktif');
+              //   $this->db->where('date_created');
+              //   $user = $this->db->get('user')->num_rows();
+                echo $jumlah; 
+                ?>
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        barRoundness: 1,
+        title: {
+            display: true,
+            text: "Students in 2020"
+        },
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMax: 40 + 20,
+                    padding: 10,
+                },
+                gridLines: {
+                    drawBorder: false,
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    display: false,
+                    drawBorder: false
+                }
+            }]
+        }
+    }
+});
+var ctx = document.getElementById("pie").getContext("2d");
+var myBar = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        // labels: [<?php echo $nama_user; ?>],
+        datasets: [{
+          labels: ['Male', 'Female'],
+            backgroundColor: ['#435ebe','#55c6e8'],
+            data: [
+              
+              <?php
+              //  $this->db->group_by('user');
+              //  $this->db->select('user');
+              //  $this->db->select("count(*) as date");
+              //   $this->db->where('is_active', 'aktif');
+              //   $this->db->where('date_created');
+              //   $user = $this->db->get('user')->num_rows();
+                echo $jumlah; 
+                ?>
+            ]
+        }]
+    },
+    options: {
+    series: [50,50],
+    labels: ['Male', 'Female'],
+    colors: ['#435ebe','#55c6e8'],
+    chart: {
+      type: 'donut',
+      width: '100%',
+      height:'350px'
+    },
+    legend: {
+      position: 'bottom'
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: '30%'
+        }
+      }
+    }
+    }
+});
+</script>
+<script> src="<?php echo base_url() ?>assets/super/assets/vendors/chartjs/Chart.min.js"></script>
+<!-- <script src="<?php echo base_url() ?>assets/super/assets/js/pages/ui-chartjs.js"></script> -->

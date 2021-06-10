@@ -17,9 +17,11 @@ class Buku extends REST_Controller
     function index_get()
     {
         $id = $this->get('id_split');
+        $id_sekolah = $this->get('id_sekolah');
         if ($id == '') {
             $this->db->order_by('id_split', 'RANDOM');
             $this->db->limit(1);
+            $this->db->where('split.id_sekolah', $id_sekolah);
             $buku = $this->db->get('split')->result_array();
         } else {
             $this->db->where('id_split', $id);

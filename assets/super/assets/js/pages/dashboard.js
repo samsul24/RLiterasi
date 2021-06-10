@@ -24,24 +24,24 @@ var optionsProfileVisit = {
 	},
 }
 let optionsVisitorsProfile  = {
-	series: [50,50],
-	labels: ['Male', 'Female'],
-	colors: ['#435ebe','#55c6e8'],
-	chart: {
-		type: 'donut',
-		width: '100%',
-		height:'350px'
-	},
-	legend: {
-		position: 'bottom'
-	},
-	plotOptions: {
-		pie: {
-			donut: {
-				size: '30%'
+		series: [50,50],
+		labels: ['Male', 'Female'],
+		colors: ['#435ebe','#55c6e8'],
+		chart: {
+			type: 'donut',
+			width: '100%',
+			height:'350px'
+		},
+		legend: {
+			position: 'bottom'
+		},
+		plotOptions: {
+			pie: {
+				donut: {
+					size: '30%'
+				}
 			}
 		}
-	}
 }
 
 var optionsEurope = {

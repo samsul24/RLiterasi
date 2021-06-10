@@ -63,14 +63,14 @@
                                 <table id="tabel" class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Id Ulasan</th>
-                                            <th>Nama</th>
-                                            <th>Ulasan Siswa</th>
-                                            <th>Text PDF</th>
-                                            <th>Hasil</th>
-                                            <th>Nilai</th>
-                                            <th>Aksi</t>
+                                        <th>No</th>
+                                <!-- <th>Id Ulasan</th> -->
+                                <th>Nama</th>
+                                <th>Ulasan Siswa</th>
+                                <th>Text PDF</th>
+                                <th>Hasil</th>
+                                <th>Nilai</th>
+                                <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,7 +81,7 @@
                                             <tr>
 
                                                 <td><?php echo $i++; ?></td>
-                                                <td><?php echo $rows->id_ulasan; ?></td>
+                                                <!-- <td><?php echo $rows->id_ulasan; ?></td> -->
                                                 <td><?php echo $rows->nama; ?></td>
                                                 <td><?php echo $rows->ulasan_siswa; ?></td>
                                                 <td><?php echo $rows->ulasan_guru; ?></td>
@@ -91,7 +91,7 @@
                                                     echo $percent;
                                                     ?>% Kemiripan</td>
                                                 <td>
-                                                    <a href="<?php echo site_url(); ?>Guruclient/delete_nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-danger">
+                                                    <a href="<?php echo site_url(); ?>Guruclient/delete_nilai/<?php echo $rows->id_ulasan; ?>" class="btn btn-danger">
                                                         <i class="fa fa-trash" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>

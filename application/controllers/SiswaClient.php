@@ -11,12 +11,12 @@ class SiswaClient extends CI_Controller
     $this->load->library('curl');
     // $this->load->model("Literasi_model");
     $this->load->model('Login_model');
-    $this->API =base_url('api/Buku');
-    $this->API1 =base_url('api/Ulasan');
-    $this->API2 =base_url('api/Sekolah');
-    $this->API3 =base_url('api/Siswa');
-    $this->API4 =base_url('api/User');
-    $this->API5 =base_url('api/Split');
+    $this->API = base_url('api/Buku');
+    $this->API1 = base_url('api/Ulasan');
+    $this->API2 = base_url('api/Sekolah');
+    $this->API3 = base_url('api/Siswa');
+    $this->API4 = base_url('api/User');
+    $this->API5 = base_url('api/Split');
   }
 
   public function index()
@@ -55,19 +55,63 @@ class SiswaClient extends CI_Controller
   }
   public function literasi()
   {
-    $data['buku'] = json_decode($this->curl->simple_get($this->API));
-    $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
     $data['title'] = "Buku";
+
+    if (!$this->session->has_userdata('buku') && !$this->session->has_userdata('ulasan')) {
+    $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+
+      $buku = json_decode($this->curl->simple_get($this->API,$params));
+      $ulasan = json_decode($this->curl->simple_get($this->API1));
+
+      $this->session->set_userdata('buku', $buku);
+      $this->session->set_userdata('ulasan', $ulasan);
+    }
+
+    $data['buku'] = $this->session->userdata('buku');
+    $data['ulasan'] = $this->session->userdata('ulasan');
+
     $this->load->view('user/literasi', $data, FALSE);
   }
   public function ulasan()
   {
     $data['user'] = json_decode($this->curl->simple_get($this->API4));
-    $data['buku'] = json_decode($this->curl->simple_get($this->API));
-    $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
+
+
+    if (!$this->session->has_userdata('buku') && !$this->session->has_userdata('ulasan')) {
+      $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah')); 
+      $buku = json_decode($this->curl->simple_get($this->API,$params));
+      $ulasan = json_decode($this->curl->simple_get($this->API1));
+
+      $this->session->set_userdata('buku', $buku);
+      $this->session->set_userdata('ulasan', $ulasan);
+    }
+
+    $data['buku'] = $this->session->userdata('buku');
+    $data['ulasan'] = $this->session->userdata('ulasan');
+
     $data['title'] = "Buku";
+
     $this->load->view('user/post/ulasan', $data, FALSE);
   }
+
+  // public function literasi()
+  // {
+  //   $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+  //   $data['buku'] = json_decode($this->curl->simple_get($this->API,$params));
+  //   $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
+  //   $data['title'] = "Buku";
+  //   $this->load->view('user/literasi', $data, FALSE);
+  // }
+
+  // public function ulasan()
+  // {
+  //   $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+  //   $data['user'] = json_decode($this->curl->simple_get($this->API4));
+  //   $data['buku'] = json_decode($this->curl->simple_get($this->API,$params));
+  //   $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
+  //   $data['title'] = "Buku";
+  //   $this->load->view('user/post/ulasan', $data, FALSE);
+  // }
   public function ulasan_process()
   {
     $data = array(
@@ -85,26 +129,7 @@ class SiswaClient extends CI_Controller
     }
     redirect('SiswaClient/buku');
   }
-  public function jumlah()
-  {
-    // $data['user'] = json_decode($this->curl->simple_get($this->API4));
-    // $data['buku'] = json_decode($this->curl->simple_get($this->API));
-    // $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
-    $data['title'] = "Buku";
-    $this->load->view('user/post/jumlah', $data, FALSE);
-  }
-  public function jumlah_process()
-  {
-    $data = array(
-      'angka1' => $this->input->post('angka1'),
-      'angka2' => $this->input->post('angka2'),
-    );
-    $insert = $this->curl->simple_post($this->API1, $data);
-    if ($insert) {
-      $this->session->set_flashdata('result', 'success');
-    }
-    redirect('SiswaClient/buku');
-  }
+
   public function profile($id = null)
   {
     if ($id === null) {
@@ -119,45 +144,45 @@ class SiswaClient extends CI_Controller
   {
     $file_name = $_FILES['foto']['name'];
     if ($file_name != '') {
-        $config['upload_path'] = 'img/foto' ;
-        $config['allowed_types'] = '*';
+      $config['upload_path'] = 'img/foto';
+      $config['allowed_types'] = '*';
 
-        $new_name = $file_name;
-        $config['file_name'] = $new_name;
+      $new_name = $file_name;
+      $config['file_name'] = $new_name;
 
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
 
-        if (!$this->upload->do_upload('foto')) {
-            // redirect($_SERVER['HTTP_REFERER']);
-          echo"gagal";
+      if (!$this->upload->do_upload('foto')) {
+        // redirect($_SERVER['HTTP_REFERER']);
+        echo "gagal";
+      } else {
+        $dataFile  = $this->upload->data();
+        $file_name = $dataFile['file_name'];
+        $data = array(
+          "id_user" => $this->input->post('id_user'),
+          'foto' => $file_name,
+          'nis' => $this->input->post('nis'),
+          'username' => $this->input->post('username'),
+          'password' => $this->input->post('password'),
+          'nama' => $this->input->post('nama'),
+          'jenis_kelamin' => $this->input->post('kelamin'),
+          'kelas' => $this->input->post('kelas'),
+          'email' => $this->input->post('email'),
+          'jurusan' => $this->input->post('jurusan'),
+          'no_telp' => $this->input->post('no_telp'),
+          'id_user_role' => $this->input->post('id_user_role'),
+          'id_sekolah' => $this->input->post('id_sekolah'),
+        );
+        $update =  $this->curl->simple_put($this->API3, $data, array(CURLOPT_BUFFERSIZE => 10));
+
+        if ($update) {
+          $this->session->set_flashdata('result', 'success');
         } else {
-            $dataFile  = $this->upload->data();
-            $file_name = $dataFile['file_name'];
-    $data = array(
-      "id_user" => $this->input->post('id_user'),
-      'foto' => $file_name,
-      'nis' => $this->input->post('nis'),
-      'username' => $this->input->post('username'),
-      'password' => $this->input->post('password'),
-      'nama' => $this->input->post('nama'),
-      'jenis_kelamin' => $this->input->post('kelamin'),
-      'kelas' => $this->input->post('kelas'),
-      'email' => $this->input->post('email'),
-      'jurusan' => $this->input->post('jurusan'),
-      'no_telp' => $this->input->post('no_telp'),
-      'id_user_role' => $this->input->post('id_user_role'),
-      'id_sekolah' => $this->input->post('id_sekolah'),
-    );
-    $update =  $this->curl->simple_put($this->API3, $data, array(CURLOPT_BUFFERSIZE => 10));
-
-    if ($update) {
-      $this->session->set_flashdata('result', 'success');
-    } else {
-      $this->session->set_flashdata('result', 'failed');
+          $this->session->set_flashdata('result', 'failed');
+        }
+        redirect('SiswaClient/profile/' . $this->input->post('id_user'));
+      }
     }
-    redirect('SiswaClient/profile/' . $this->input->post('id_user'));
-  }
-}
   }
 }

@@ -16,6 +16,7 @@ class GuruClient extends CI_Controller
         $this->API4 = base_url('api/DetailBuku');
         $this->API5 = base_url('api/Split');
         $this->API6 = base_url('api/Sekolah');
+        $this->API7 = base_url('api/Guru');
 
         $this->load->model('Login_model');
     $this->load->library('form_validation');
@@ -60,7 +61,8 @@ class GuruClient extends CI_Controller
     }
     public function buku()
     {
-        $data['buku'] = json_decode($this->curl->simple_get($this->API4));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['buku'] = json_decode($this->curl->simple_get($this->API4,$params));
         $data['title'] = "Buku";
         $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
@@ -74,7 +76,8 @@ class GuruClient extends CI_Controller
     }
     public function ulasan()
     {
-        $data['ulasan'] = json_decode($this->curl->simple_get($this->API1));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['ulasan'] = json_decode($this->curl->simple_get($this->API1,$params));
         $data['title'] = "Ulasan";
         $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
@@ -99,44 +102,67 @@ class GuruClient extends CI_Controller
         $data['sekolah'] = json_decode($this->curl->simple_get($this->API6, $params));
         $this->load->view('guru/profile', $data);
     }
-    public function put_process()
+    public function profile_guru($id = null)
     {
-      $data = array(
-        'foto'         => $this->input->post('foto'),
-        'nis'         => $this->input->post('nis'),
-        'username'         => $this->input->post('username'),
-        'password'         => $this->input->post('password'),
-        'nama'             => $this->input->post('nama'),
-        'jenis_kelamin'    => $this->input->post('jenis_kelamin'),
-        'kelas'            => $this->input->post('kelas'),
-        'email'          => $this->input->post('email'),
-        'jurusan'          => $this->input->post('jurusan'),
-        'no_telp'          => $this->input->post('jurusan'),
-        'id_user_role'     => $this->input->post('id_user_role'),
-        'id_sekolah'     => $this->input->post('id_sekolah'),
-          
-          
-      );
-      
-      $update =  $this->curl->simple_put($this->API3, $data, array(CURLOPT_BUFFERSIZE => 10));
-      if ($update) {
-          echo"berhasil";
-          // $this->session->set_flashdata('result', 'Update Data pengiriman Berhasil');
+        if ($id === null) {
+            redirect('GuruClient');
+          }
+         $params = array('id_user' =>  $id);
+        $data['guru'] = json_decode($this->curl->simple_get($this->API7, $params));
+        $this->load->view('guru/user/profile_guru', $data);
+    }
+    public function put_process()
+  {
+    $file_name = $_FILES['foto']['name'];
+    if ($file_name != '') {
+      $config['upload_path'] = 'img/foto';
+      $config['allowed_types'] = '*';
+
+      $new_name = $file_name;
+      $config['file_name'] = $new_name;
+
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if (!$this->upload->do_upload('foto')) {
+        // redirect($_SERVER['HTTP_REFERER']);
+        echo "gagal";
       } else {
-          echo"gagal";
-          // $this->session->set_flashdata('result', 'Update Data pengiriman Gagal');
+        $dataFile  = $this->upload->data();
+        $file_name = $dataFile['file_name'];
+        $data = array(
+          "id_user" => $this->input->post('id_user'),
+          'foto' => $file_name,
+          'nis' => $this->input->post('nis'),
+          'username' => $this->input->post('username'),
+          'password' => $this->input->post('password'),
+          'nama' => $this->input->post('nama'),
+          'jenis_kelamin' => $this->input->post('kelamin'),
+          'kelas' => $this->input->post('kelas'),
+          'email' => $this->input->post('email'),
+          'jurusan' => $this->input->post('jurusan'),
+          'no_telp' => $this->input->post('no_telp'),
+          'id_user_role' => $this->input->post('id_user_role'),
+          'id_sekolah' => $this->input->post('id_sekolah'),
+        );
+        $update =  $this->curl->simple_put($this->API3, $data, array(CURLOPT_BUFFERSIZE => 10));
+
+        if ($update) {
+          $this->session->set_flashdata('result', 'success');
+        } else {
+          $this->session->set_flashdata('result', 'failed');
+        }
+        redirect('GuruClient/profile_guru/' . $this->input->post('id_user'));
       }
-      // print_r($update);
-      // die;
-      redirect('SiswaClient');
+    }
   }
   public function detail()
   {
-      if($this->session->userdata('id_user_role')){
-      $username = $this->session->userdata('username');
-      $data['results'] = $this->Login_model->get_user($username);
-    //   $data['ulasan'] = json_decode($this->curl->simple_get($this->API));
-      $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+    if ($this->session->userdata('id_user_role')) {
+        $username = $this->session->userdata('username');
+        $data['results'] = $this->Login_model->get_user($username);
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
       $data['title'] = "Detail Ulasan";
       $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
@@ -148,10 +174,8 @@ class GuruClient extends CI_Controller
   public function detail_ulasan()
   {
     $uri = array('id_ulasan' =>  $this->uri->segment(3));
-    $params = array('id_split' =>  $this->session->userdata('id_split'));
-    $data['ulasan'] = json_decode($this->curl->simple_get($this->API1,$uri));
+    $data['ulasan'] = json_decode($this->curl->simple_get($this->API2, $uri));
     $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
-    $data['split'] = json_decode($this->curl->simple_get($this->API5,$params));
     $data['title'] = "Detail Ulasan";
     $this->load->view('guru/header');
         $this->load->view('guru/gurubar');

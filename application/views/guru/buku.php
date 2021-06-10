@@ -31,7 +31,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h2 class="m-0" style="color:#435ebe;"><i class="nav-icon fas fa-user-plus"></i> Data Buku </h2>
+            <h2 class="m-0" style="color:#435ebe;"><i class="nav-icon fas fa-book"></i> Data Buku </h2>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -41,7 +41,7 @@
     <div class="content">
       <div class="container-fluid">
         <div class="alert alert-secondary" role="alert">
-          <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp; &nbsp;<i class="nav-icon fas fa-user"></i> Buku
+          <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp; &nbsp;<i class="nav-icon fas fa-book"></i> Buku
         </div>
 
         <div class="row">

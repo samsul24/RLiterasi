@@ -81,7 +81,8 @@ class AdminClient extends CI_Controller
     }
     public function ulasan()
     {
-        $data['ulasan'] = json_decode($this->curl->simple_get($this->API2));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['ulasan'] = json_decode($this->curl->simple_get($this->API2, $params));
         $data['title'] = "Ulasan";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/ulasan', $data);
@@ -101,7 +102,8 @@ class AdminClient extends CI_Controller
         if ($this->session->userdata('id_user_role')) {
             $username = $this->session->userdata('username');
             $data['results'] = $this->Login_model->get_user($username);
-            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+            $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
             $data['title'] = "Detail Ulasan";
             $this->load->view('admin/adminbar');
             $this->load->view('admin/detail_ulasan', $data, False);

@@ -20,7 +20,7 @@ class User extends REST_Controller
         $id = $this->get('id_user');
         if ($id == '') {      
             $this->db->where('id_user_role', 4 );      
-            $this->db->order_by('id_sekolah', 'ASC');
+            // $this->db->order_by('id_sekolah', 'ASC');
             $user = $this->db->get('user')->result();
         } 
         else {

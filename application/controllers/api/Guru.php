@@ -16,11 +16,14 @@ class Guru extends REST_Controller
 
     function index_get()
     {
+        $id_Sekolah = $this->get('id_sekolah');
         $id = $this->get('id_user');
         if ($id == '') {
             $this->db->select('*');
             $this->db->from('user');
             $this->db->where('id_user_role', 3);
+            $this->db->where('user.id_sekolah', $id_Sekolah);
+
             $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
             $guru = $this->db->get()->result();
         } 

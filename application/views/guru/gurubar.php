@@ -83,14 +83,31 @@
                 </a>
               </li>
             </ul>
-          <li class="nav-item">
-           <a href="<?php echo site_url(); ?>GuruClient/buku" class="nav-link" id="navHome">
-              <i class="bi bi-book-fill"></i>
-              <p>
-              &nbsp;&nbsp;Buku
+            <li class="nav-item has-treeview">
+            <a href="" class="nav-link" id="navData" style="background:#435ebe;">
+              <i class="bi bi-book-fill" style="color:white"></i>
+              <p style="color:white">
+              &nbsp;&nbsp; Buku
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url(); ?>GuruClient/buku" class="nav-link">
+                <i class="bi bi-book"></i>&nbsp;&nbsp;Buku
+          
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url(); ?>Splitter/detail_buku_guru" class="nav-link">
+                <i class="bi bi-bookmark-check"></i>&nbsp;&nbsp;Detail Ulasan
+                </a>
+              </li>
+            </ul>
+        
           <li class="nav-item">
            <a href="<?php echo site_url(); ?>GuruClient/nilai" class="nav-link" id="navHome">
            <i class="bi bi-file-check"></i>

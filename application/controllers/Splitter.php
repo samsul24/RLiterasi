@@ -54,6 +54,7 @@ class Splitter extends CI_Controller
 				$convet_pdf = $parser->parseFile($new_filename);
 				
 				$data = array(
+					'id_sekolah'			=> $this->input->post('id_sekolah'),
 					'pdf_file'         => str_replace($path, '', $new_filename),
 					'deskripsi'			=> $convet_pdf->getText(),
 				);
@@ -72,19 +73,41 @@ class Splitter extends CI_Controller
         $data['split'] = json_decode($this->curl->simple_get($this->API1,$uri));
 		$data['title'] = "Detail PDF";
         $this->load->view('admin/adminbar');
-        $this->load->view('admin/users/details', $data);
-
-		
+        $this->load->view('admin/users/details', $data);	
+    
+    }
+	public function detail_guru()
+    {
+        $uri = array('id_split' =>  $this->uri->segment(3));
+        $data['split'] = json_decode($this->curl->simple_get($this->API1,$uri));
+		$data['title'] = "Detail PDF";
+		$this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
+        $this->load->view('guru/details', $data);	
+        $this->load->view('footer');
     
     }
 	public function detail_buku()
     {
-        $uri = array('id_sekolah' =>  $this->uri->segment(3));
-        $data['buku'] = json_decode($this->curl->simple_get($this->API,$uri));
-        $data['split'] = json_decode($this->curl->simple_get($this->API1,$uri));
+		$params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['buku'] = json_decode($this->curl->simple_get($this->API,$params));
+        $data['split'] = json_decode($this->curl->simple_get($this->API1,$params));
         $data['title'] = "Detail PDF";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/users/detail_buku', $data);
+    
+    }
+	public function detail_buku_guru()
+    {
+		$params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['buku'] = json_decode($this->curl->simple_get($this->API,$params));
+        $data['split'] = json_decode($this->curl->simple_get($this->API1,$params));
+        $data['title'] = "Detail PDF";
+		$this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
+        $this->load->view('guru/detail_buku', $data);
+        $this->load->view('footer');
+
     
     }
 	public function delete()
@@ -92,10 +115,21 @@ class Splitter extends CI_Controller
         $params = array('id_split' =>  $this->uri->segment(3));
         $delete =  $this->curl->simple_delete($this->API1, $params);
         if ($delete) {
-            $this->session->set_flashdata('result', 'Hapus Data PDF Berhasil');
+            $this->session->set_flashdata('result', 'Hapus Data Split Berhasil');
         } else {
-            $this->session->set_flashdata('result', 'Hapus Data PDF Gagal');
+            $this->session->set_flashdata('result', 'Hapus Data Split Gagal');
         }
-        redirect('AdminClient/detail_buku');
+        redirect('Splitter/detail_buku');
+    }
+	public function delete_guru()
+    {
+        $params = array('id_split' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API1, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data Split Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data Split Gagal');
+        }
+        redirect('Splitter/detail_buku');
     }
 }

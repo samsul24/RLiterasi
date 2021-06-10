@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('id_user_role') != 4) {
+<?php if ($this->session->userdata('id_user_role') != 3) {
   redirect('login');
 };
 ?>
@@ -10,16 +10,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="<?php echo base_url(); ?>img/favicon-32x32.png" sizes="32x32" />
+  <!-- maps -->
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- end maps -->
+  <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Profile - Literasi</title>
+  <title>Literasi</title>
+
   <!-- Icon css link -->
   <link href="<?php echo base_url(); ?>css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>css/materialdesignicons.min.css" rel="stylesheet">
 
   <!-- Bootstrap -->
   <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
 
   <!-- Rev slider css -->
   <link href="<?php echo base_url(); ?>vendors/revolution/css/settings.css" rel="stylesheet">
@@ -30,10 +36,7 @@
 
   <!-- Extra plugin css -->
   <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>css/flex.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>css/responsive.css" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,28 +45,31 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 </head>
-<style>
-
-</style>
 
 <body>
 
 
-  <!--================Header Area =================-->
-
-  <header class="main_header_area">
-    <div class="header_top_area">
-      <div class="container">
-        <div class="pull-left">
+    <!--================Header Area =================-->
+    <header class="main_header_area transparent_menu">
+        <div class="header_top_area">
+            <div class="container">
+            <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a> 
+         <a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
+         <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
+
         </div>
-
-      </div>
-    </div>
-    <div class="main_menu_area">
-
+            </div>
+        </div>
+        <div class="main_menu_area">
       <div class="container">
         <nav class="navbar navbar-default">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -74,48 +80,59 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt=""></a>
+            <!-- <a class="navbar-brand" href="index.php"><img src="img/logo.png"></a> -->
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <?php if ($siswa[0]->nis) { ?>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
-                <!-- <li><a href="projectBar.php">Project</a></li> -->
-                <!-- <li><a href="AboutUs.php">About Us</a></li> -->
-                <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
-                <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user');?>">Profile</a></li>
-                <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
-                <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
-                <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<?php echo site_url(); ?>Guruclient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/ulasan">Ulasan</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/buku1">Buku</a></li>
+              <li><a href="<?php echo site_url(); ?>Guruclient/profile">Guru</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
-              </ul>
-            <?php } else { ?>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
-                <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
-                <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
-
-
-              </ul>
-            <?php } ?>
+            </ul>
           </div><!-- /.navbar-collapse -->
         </nav>
       </div>
     </div>
-  </header>
+    </header>
+    <!--================Header Area =================-->
 
+    <!--================Main Slider Area =================-->
+    <section class="main_slider_area slider_2">
+    <div id="main_slider" class="rev_slider" data-version="5.3.1.6">
+      <ul>
+        <li data-index="rs-2972" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+          <!-- MAIN IMAGE -->
+          <img src="<?php echo base_url(); ?>img/home-slider/slider-2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+          <!-- LAYERS -->
+          <div class="slider_text_box2">
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['70','70','70','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Profile  <br><?= $this->session->userdata('username') ?><br></div>
+
+            <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"></div>
+
+          </div>
+        </li>
+        <li data-index="rs-2973" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+          <!-- MAIN IMAGE -->
+          <img src="<?php echo base_url(); ?>img/home-slider/slider-2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+          <!-- LAYERS -->
+          <div class="slider_text_box2">
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['80','80','60','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to PT Kawi Sakti Megah</div>
+
+            <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">Rental Scaffolding and Build Constrution</div>
+
+            <div class="tp-caption" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['140','140','140','130','90']" data-fontsize="['28','28','28','28']" data-lineheight="['38','38','38','38']" data-width="['730']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><a class="slider_btn" href="#">browse services</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </section>
   <!--================Header Area =================-->
   <!--================Banner Area =================-->
-  <section class="banner_area">
-    <div class="container">
-      <div class="banner_inner_text">
-        <h4>Edit User Profile</h4>
-        <h4><?= $this->session->userdata('username') ?></h4>
-      </div>
-    </div>
-  </section>
+
   <!--================End Banner Area =================-->
   <!-- <section class="our_project2_area project_grid_two"> -->
   <br>
@@ -127,8 +144,8 @@
     </div>
   <?php } ?>
 
-  <form action="<?php echo site_url(); ?>SiswaClient/put_process" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
-    <?php foreach ($siswa as $rows) : ?>
+  <form action="<?php echo site_url(); ?>GuruClient/put_process" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
+    <?php foreach ($guru as $rows) : ?>
 
       <div class="container rounded bg-white mt-5 mb-5">
         <div class="row" style="border-style:2px">
@@ -160,8 +177,8 @@
                 </div>
 
                 <div class="col-md-6">
-                  <label for="nis" class="labels">NIS</label>
-                  <input type="number" class="form-control" name="nis" placeholder="Nomor induk siswa" id="nis" value="<?php echo $rows->nis; ?>" required>
+                  <label for="nis" class="labels">NIP</label>
+                  <input type="number" class="form-control" name="nis" placeholder="Nomor induk pegawai" id="nis" value="<?php echo $rows->nis; ?>" required>
                 </div>
                 <div class="col-md-6">
                   <label for="nama" class="labels">Name</label>
@@ -174,16 +191,16 @@
               </div>
               <div class="row mt-3">
                 <div class="col-md-12">
-                  <label for="kelas" class="labels">Kelas</label>
-                  <input type="text" class="form-control" name="kelas" placeholder="kelas" id="kelas" value="<?php echo $rows->kelas; ?>" required>
+                  <label for="kelas" class="labels">Jabatan</label>
+                  <input type="text" class="form-control" name="kelas" placeholder="Jabatan" id="kelas" value="<?php echo $rows->kelas; ?>" required>
                 </div>
                 <div class="col-md-12">
-                  <label for="jurusan" class="labels">Jurusan</label>
-                  <input type="text" class="form-control" name="jurusan" placeholder="Jurusan" id="jurusan" value="<?php echo $rows->jurusan; ?>" required>
+                  <label for="jurusan" class="labels">Mata Pelajaran</label>
+                  <input type="text" class="form-control" name="jurusan" placeholder="Mata Pelajaran" id="jurusan" value="<?php echo $rows->jurusan; ?>" required>
                 </div>
                 <div class="col-md-12">
                   <label for="no_telp" class="labels">PhoneNumber</label>
-                  <input type="tel" class="form-control" name="no_telp" placeholder="0xxxxxxx" id="no_telp" value="<?php echo $rows->no_telp; ?>" required>
+                  <input type="tel" class="form-control" name="no_telp" placeholder="xxxxxxxx" id="no_telp" value="<?php echo $rows->no_telp; ?>" required>
                 </div>
                 <div class="col-md-12">
                   <label for="jenis_kelamin" class="labels">Jenis Kelamin</label>

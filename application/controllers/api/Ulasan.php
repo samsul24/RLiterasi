@@ -17,7 +17,9 @@ class Ulasan extends REST_Controller
     function index_get()
     {
         $id = $this->get('id_ulasan');
+        $id_sekolah = $this->get('id_sekolah');
         if ($id == '') {
+            $this->db->where('ulasan.id_sekolah', $id_sekolah);
             $ulasan = $this->db->get('ulasan')->result();
         } else {
             $this->db->where('id_ulasan', $id);

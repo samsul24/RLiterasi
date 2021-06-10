@@ -22,12 +22,11 @@
 
     <style type="text/css"></style>
 </head>
-
 <div class="wrapper">
     <div class="container-fluid user-auth">
         <div class="hidden-xs col-sm-4 col-md-4 col-lg-4">
             <!-- Logo Starts -->
-            <a class="logo" href="index.html">
+            <a class="logo" href="#">
                 <!-- <img id="logo-user" class="img-responsive" src="<?= base_url(); ?>css/assets/img/logo-sma.png" alt="logo"> -->
             </a>
             <!-- Logo Ends -->
@@ -66,7 +65,7 @@
                     <!-- Carousel Item Ends -->
                     <!-- Carousel Item Starts -->
                     <div class="item item-3">
-                        <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi3.jpg" alt="logo">
+                        <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1.jpg" alt="logo">
                         <div>
                             <blockquote>
                                 <p>Literasi adalah istilah umum yang merujuk kepada seperangkat kemampuan dan keterampilan individu dalam membaca, menulis, berbicara, menghitung dan memecahkan masalah pada tingkat keahlian tertentu yang diperlukan dalam kehidupan sehari-hari</p>
@@ -82,17 +81,18 @@
         </div>
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <!-- Logo Starts -->
-            <!-- <a class="visible-xs" href="index.html">
-                <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1" alt="logo">
+            <a class="visible-xs" href="#">
+                <img href="#"id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>css/assets/img/logo-sma.png" style="width:50px; height:50px" alt="logo">
             </a>
-             -->
+            
             <!-- Logo Ends -->
             <div class="form-container">
-
                 <div>
+<br>
+<br>
                     <!-- Section Title Starts -->
                     <div class="row text-center">
-                        <h3 class="title-body" style="color:white;">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</h3>
+                        <p class="info-form">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</p>
                         <h2 class="title-head hidden-xs">Log<span>-in </span></h2>
                         <?= $this->session->flashdata('message'); ?>
 
@@ -113,17 +113,26 @@
                         <!-- Submit Form Button Starts -->
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">login</button>
-                            </p>
-                        </div>
-                        <p class="text-center"><a href="<?php base_url() ?>Register/forgotPassword">forgot password ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="<?php base_url() ?>Register">register now</a>
+                        <p class="text-center">
+                        <a  href="<?php base_url() ?>Register/forgotPassword">reset password?</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a  href="<?php base_url() ?>Register">create account</a>
+                        </p>
+                            <hr>
+                            <!-- <center><p>OR</p></center> -->
+                        <p class="text-center">
+                    <a href="<?php echo site_url() ?>Login/reg">Register Sekolah &nbsp;&nbsp;<img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio"></a>
                         </p>
                         <!-- Submit Form Button Ends -->
                     </form>
                     <!-- Form Ends -->
                     <br><br><br>
-
-                    <a style="margin-left:650px;" href="<?php echo site_url() ?>Login/reg">Register Sekolah &nbsp;&nbsp;<img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio"></a>
+                    <!-- <div class="form-group">
+                    <p class="text-center">
+                    <a class="btn btn-primary" href="<?php echo site_url() ?>Login/reg">Register Sekolah &nbsp;&nbsp;<img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio"></a>
+                    </p>
+                </div> -->
+    <p class="text-center copyright-text">Copyright © 2021 RLiterasi</p>
                 </div>
             </div>
         </div>

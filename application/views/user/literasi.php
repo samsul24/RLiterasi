@@ -117,7 +117,7 @@
                   <tbody>
                     <tr>
                       <th>ID Buku</th>
-                      <th>: <?php echo json_encode($rows->id_split); ?></th>
+                      <th>: <?php echo $rows->id_split; ?></th>
                     </tr>
                     <!-- <tr>
                       <th>Nama Buku</th>
@@ -136,6 +136,12 @@
             </div>
         </div>
         <div class="col-md-9">
+        <!-- <object
+      type="application/pdf"
+      data=<?php echo base_url('file_buku/' . $rows->pdf_file) ?>
+      width="600"
+      height="700"
+    > -->
           <iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="100%" height="800"></iframe>
         </div>
       <?php endforeach; ?>

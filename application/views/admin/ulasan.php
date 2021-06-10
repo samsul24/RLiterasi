@@ -74,7 +74,7 @@
                         <td><?php echo $rows->tanggal; ?></td>
                         <td>
                         <a href="<?= base_url(); ?>Adminclient/detail_ulasan/<?php echo $rows->id_ulasan; ?>"><button type="button" class="btn btn-success "> 
-                                                    <i class="bi bi-eye" aria-hidden="true"></i></button></a>
+                                                    <i class="bi bi-arrow-right-circle" aria-hidden="true"></i></button></a>
                
                 
                         </td>
@@ -93,11 +93,9 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 © Mazer</p>
+            <p>2021 © Literasi</p>
         </div>
-        <div class="float-end">
-            <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">Literasi</a></p>
-        </div>
+       
     </div>
 </footer>
 </div>

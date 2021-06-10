@@ -17,7 +17,9 @@ class Split extends REST_Controller
     function index_get()
     {
         $id = $this->get('id_split');
+        $id_sekolah = $this->get('id_sekolah');
         if ($id == '') {
+            $this->db->where('split.id_sekolah', $id_sekolah);
             $split = $this->db->get('split')->result();
         } else {
             $this->db->where('id_split', $id);
@@ -28,6 +30,7 @@ class Split extends REST_Controller
     function index_post()
     {
         $data = array(
+            'id_sekolah'              => $this->post('id_sekolah'),
             'pdf_file'              => $this->post('pdf_file'),
             'deskripsi'              => $this->post('deskripsi'),
         );

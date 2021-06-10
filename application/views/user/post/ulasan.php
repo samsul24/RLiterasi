@@ -348,7 +348,7 @@
       return sec;
     }
     $('#resultModal').on('hide.bs.modal', function(e) {
-      window.location.href = "<?php echo site_url(); ?>siswaclient/buku/";
+      window.location.href = "<?php echo site_url(); ?>SiswaClient/buku/";
     })
   </script> -->
 </body>

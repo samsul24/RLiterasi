@@ -12,8 +12,8 @@ class SuperAdminClient extends CI_Controller
         $this->load->model('super_model');       
          $this->load->model('login_model');       
 
-        $this->API2 = base_url('api/User');
-        $this->API1 = base_url('api/Admin');
+         $this->API1 = base_url('api/Admin');
+         $this->API2 = base_url('api/User');
         $this->API3 = base_url('api/Guru');
         $this->API4= base_url('api/Siswa');
     }
@@ -22,7 +22,7 @@ class SuperAdminClient extends CI_Controller
     {
         if($this->session->userdata('id_user_role')){
         $username = $this->session->userdata('username');
-    $data['admin'] = json_decode($this->curl->simple_get($this->API1));
+        $data['users'] = json_decode($this->curl->simple_get($this->API2));
 
         $data['results'] = $this->login_model->get_user($username);
         $data['title'] = "Dashboard Super Admin";

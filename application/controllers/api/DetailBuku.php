@@ -17,7 +17,9 @@ class DetailBuku extends REST_Controller
     function index_get()
     {
         $id = $this->get('id_buku');
+        $id_sekolah = $this->get('id_sekolah');
         if ($id == '') {
+            $this->db->where('buku.id_sekolah', $id_sekolah);
             $detail_buku = $this->db->get('buku')->result();
         } else {
             $this->db->where('id_buku', $id);

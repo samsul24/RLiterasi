@@ -55,7 +55,7 @@
                                 <th>Id Ulasan</th>
                                 <th>Nama</th>
                                 <th>Ulasan Siswa</th>
-                                <th>Ulasan Guru</th>
+                                <th>Text PDF</th>
                                 <th>Hasil</th>
                                 <th>Nilai</th>
                                 <th>Aksi</th>
