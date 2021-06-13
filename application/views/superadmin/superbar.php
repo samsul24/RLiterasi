@@ -31,6 +31,7 @@
               <img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/audio.svg" class="me-2" style="width: 1rem" alt="audio">Super Admin
                 <!-- <img src="<?php echo base_url() ?>assets/super/assets/images/logo/logo.png" alt="Logo" srcset=""> -->
               </a>
+            <hr>
             </div>
             <div class="toggler">
               <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -57,11 +58,9 @@
                 <li class="submenu-item ">
                   <a href="<?php echo site_url(); ?>SuperAdminClient/admin">Admin</a>
                 </li>
+              
                 <li class="submenu-item ">
-                  <a href="<?php echo site_url(); ?>SuperAdminClient/guru">Guru</a>
-                </li>
-                <li class="submenu-item ">
-                  <a href="<?php echo site_url(); ?>SuperAdminClient/siswa">Siswa</a>
+                  <a href="<?php echo site_url(); ?>SuperAdminClient/user">User Sekolah</a>
                 </li>
               </ul>
             </li>

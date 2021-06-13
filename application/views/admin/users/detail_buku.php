@@ -64,7 +64,7 @@
 
                                         <td><?php echo $i++; ?></td>
                                         <td><iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="90" hight="120"></iframe></td>
-                                        <td><?php echo (str_word_count($rows->deskripsi) > 10 ? substr($rows->deskripsi, 0, 30) . "[..]" : $rows->deskripsi); ?></td>
+                                        <td><?php echo preg_replace('/[^A-Za-z0-9\  ]/','',substr($rows->deskripsi,0,37)); ?></td>
 
                                         <td>
                                             <!-- <a href="<?php echo site_url(); ?>Splitter/put/<?php echo $rows->id_split; ?>" class="btn btn-warning">
@@ -90,7 +90,7 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
-                <p>2021 © Mazer</p>
+                <p>2021 © Literasi</p>
             </div>
             <div class="float-end">
             </div>

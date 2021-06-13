@@ -40,6 +40,8 @@ class Admin extends REST_Controller
             'nama'             => $this->post('nama'),
             'jenis_kelamin'    => $this->post('jenis_kelamin'),
             'kelas'            => $this->post('kelas'),
+            'email'          => $this->post('email'),
+            'no_telp'          => $this->post('no_telp'),
             'jurusan'          => $this->post('jurusan'),
             'id_user_role'     => $this->post('id_user_role'),
             
@@ -63,8 +65,11 @@ class Admin extends REST_Controller
             'nama'             => $this->put('nama'),
             'jenis_kelamin'    => $this->put('jenis_kelamin'),
             'kelas'            => $this->put('kelas'),
+            'email'          => $this->put('email'),
             'jurusan'          => $this->put('jurusan'),
+            'no_telp'          => $this->put('no_telp'),
             'id_user_role'     => $this->put('id_user_role'),
+            'id_sekolah'     => $this->put('id_sekolah'),
             );
         $this->db->where('id_user', $id);
         $update = $this->db->update('user', $data);

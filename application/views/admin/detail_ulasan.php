@@ -56,9 +56,9 @@
                                 <th>Nama</th>
                                 <th>Ulasan Siswa</th>
                                 <th>Text PDF</th>
+                                <th>Jumlah</th>
                                 <th>Hasil</th>
-                                <th>Nilai</th>
-                                <th>Aksi</th>
+                                <th style="padding: 30px;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,13 +73,16 @@
                                                 <td><?php echo $rows->ulasan_siswa; ?></td>
                                                 <td><?php echo $rows->ulasan_guru; ?></td>
                                                 <td style="text-align: center;"><?= str_word_count($rows->ulasan_siswa); ?> kata</td>
-                                                <td><?php echo $rows->hasil; ?> <?php
+                                                <td><?php echo $rows->hasil; ?> 
+                                                <!-- <?php
                                                     similar_text($rows->ulasan_siswa, $rows->ulasan_guru, $percent);
                                                     echo $percent;
-                                                    ?>% Kemiripan</td>
+                                                    ?> -->
+                                                    % Kemiripan</td>
                                                 <td>
-                                                    <a href="<?php echo site_url(); ?>AdminClient/delete/<?php echo $rows->id_ulasan; ?>" class="btn btn-danger">
-                                                        <i class="fa fa-trash" aria-hidden="true">delete</i></a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo site_url(); ?>AdminClient/nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-primary">
+                                                        <i class="bi bi-capslock" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                             <?php endforeach; ?>

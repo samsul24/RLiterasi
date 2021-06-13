@@ -51,7 +51,7 @@
               <!-- /.card-header -->
               <div class="card-body">
               
-                <br> <table id="tabel" class="table table-bordered">
+                <br> <table id="table1" class="table table-bordered">
                   <thead>
                     <tr>
                                     <th><a>No</a></th>

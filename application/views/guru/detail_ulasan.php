@@ -49,7 +49,7 @@
                         <!-- Tabel -->
                         <div class="card">
                             <!-- /.card-header -->
-                            <div class="card-b  ody">
+                            <div class="card-body">
                                 <div class='card-header' style="margin-left:-20px;">
                                     <!-- <a class='btn btn-primary' href="<?php echo site_url(); ?>guruclient/post/">
                                         <i class="fa fa-plus"></i>
@@ -68,8 +68,8 @@
                                 <th>Nama</th>
                                 <th>Ulasan Siswa</th>
                                 <th>Text PDF</th>
+                                <th>Jumlah</th>
                                 <th>Hasil</th>
-                                <th>Nilai</th>
                                 <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -85,14 +85,18 @@
                                                 <td><?php echo $rows->nama; ?></td>
                                                 <td><?php echo $rows->ulasan_siswa; ?></td>
                                                 <td><?php echo $rows->ulasan_guru; ?></td>
-                                                <td style="text-align: center;"><?= str_word_count($rows->ulasan_siswa); ?></td>
-                                                <td><?php echo $rows->hasil; ?> <?php
+                                                <td style="text-align: center;"><?= str_word_count($rows->ulasan_siswa); ?> kata</td>
+                                                <td><?php echo $rows->hasil; ?>
+                                                 <!-- <?php
                                                     similar_text($rows->ulasan_siswa, $rows->ulasan_guru, $percent);
                                                     echo $percent;
-                                                    ?>% Kemiripan</td>
+                                                    ?>% Kemiripan -->
+                                                    % Kemiripan
+                                                    </td>
                                                 <td>
-                                                    <a href="<?php echo site_url(); ?>Guruclient/delete_nilai/<?php echo $rows->id_ulasan; ?>" class="btn btn-danger">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="<?php echo site_url(); ?>GuruClient/nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-primary">
+                                                        <i class="bi bi-capslock" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

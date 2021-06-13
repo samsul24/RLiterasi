@@ -183,7 +183,7 @@
                 </div>
                 <div class="col-md-12">
                   <label for="no_telp" class="labels">PhoneNumber</label>
-                  <input type="tel" class="form-control" name="no_telp" placeholder="0xxxxxxx" id="no_telp" value="<?php echo $rows->no_telp; ?>" required>
+                  <input type="tel" class="form-control" name="no_telp" placeholder="xxxxxxxx" id="no_telp" value="<?php echo $rows->no_telp; ?>" required>
                 </div>
                 <div class="col-md-12">
                   <label for="jenis_kelamin" class="labels">Jenis Kelamin</label>

@@ -47,13 +47,21 @@ public function admin()
         $this->load->view('superadmin/users/guru', $data);
     
     }
-    public function siswa()
+    public function user()
     {
         $data['siswa'] = json_decode($this->curl->simple_get($this->API2));
         $data['title'] = "user";
         $this->load->view('superadmin/superbar',true);
-        $this->load->view('superadmin/users/siswa', $data);
+        $this->load->view('superadmin/users/user', $data);
     }
+    public function put()
+    {
+        $params = array('id_user'=>$this->uri->segment(3));
+        $data['user'] = json_decode($this->curl->simple_get($this->API2,$params));
+        $data['title'] = "Edit Data Sekolah";
+        $this->load->view('superadmin/superbar',true);
+          $this->load->view('superadmin/put/admin', $data);
+      }
     public function delete_admin()
     {
         $params = array('id_user' =>  $this->uri->segment(3));

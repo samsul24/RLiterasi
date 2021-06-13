@@ -32,6 +32,7 @@ class DetailUlasan extends REST_Controller
     {
         $data = array(
           'id_ulasan'      => $this->post('id_ulasan'),
+          'id_sekolah'      => $this->post('id_sekolah'),
           'ulasan_siswa'         => $this->post('ulasan_siswa'),
           'ulasan_guru'         => $this->post('ulasan_guru'),
           'nama'         => $this->post('nama'),

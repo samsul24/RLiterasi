@@ -54,7 +54,7 @@
                                 <th >No</th>
                                 <th >Nama</th>
                                 <th >judul Buku</th>
-                                <th >Keterangan</th>
+                                <th >Ulasan Siswa</th>
                                 <th >Jumlah Karakter</th>
                                 <th >Tanggal & Waktu</th>
                                 <th >Aksi</th>

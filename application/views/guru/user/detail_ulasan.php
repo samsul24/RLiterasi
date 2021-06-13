@@ -56,7 +56,9 @@
                                 <label for="nama">Nama:</label>
                                 <input type="text" class="form-control" style="width:600px; " id="nama" value="<?php echo $rows->nama; ?>" name="nama" required readonly >
                             </div>
-         
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="id_sekolah" value="<?php echo $rows->id_sekolah; ?>" name="id_sekolah" required  readonly>
+                            </div>
 
                             <div class="form-group">
                                 <label for="ket_siswa">Ulasan Siswa </label>
@@ -64,9 +66,8 @@
                             
                             </div>
                             <div class="form-group">
-                                <label for="ulasan_guru">Ulasan Guru </label>
-                                <textarea type="text" class="form-control" style="width:600px; height:450px" id="text_buku" name="text_buku" required readonly ><?php echo $rows->text_buku; ?></textarea>
-                            
+                                <label for="ulasan_guru">Teks Buku : </label>
+                                <textarea type="text" class="form-control" style="width:600px; height:450px" id="text_buku" name="text_buku" required readonly ><?php echo preg_replace('/[^A-Za-z0-9\  ]/','',$rows->text_buku); ?></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="hidden" class="form-control" id="hasil" name="hasil" value=""  required  >

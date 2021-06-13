@@ -17,6 +17,8 @@ class GuruClient extends CI_Controller
         $this->API5 = base_url('api/Split');
         $this->API6 = base_url('api/Sekolah');
         $this->API7 = base_url('api/Guru');
+        $this->API8 = base_url('api/BukuBebas');
+        $this->API9 = base_url('api/DetailNilai');
 
         $this->load->model('Login_model');
     $this->load->library('form_validation');
@@ -67,6 +69,16 @@ class GuruClient extends CI_Controller
         $this->load->view('guru/header');
         $this->load->view('guru/gurubar');
         $this->load->view('guru/buku', $data);
+        $this->load->view('footer');
+    }
+    public function buku_bebas()
+    {
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['buku_bebas'] = json_decode($this->curl->simple_get($this->API8,$params));
+        $data['title'] = "Buku";
+        $this->load->view('guru/header');
+        $this->load->view('guru/gurubar');
+        $this->load->view('guru/buku_bebas', $data);
         $this->load->view('footer');
     }
     public function buku1()
@@ -174,10 +186,11 @@ class GuruClient extends CI_Controller
   public function detail_ulasan()
   {
     $uri = array('id_ulasan' =>  $this->uri->segment(3));
-    $data['ulasan'] = json_decode($this->curl->simple_get($this->API2, $uri));
-    $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+    $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+    $data['ulasan'] = json_decode($this->curl->simple_get($this->API1, $uri));
+    $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
     $data['title'] = "Detail Ulasan";
-    $this->load->view('guru/header');
+    $this->load->view('guru/header'); 
         $this->load->view('guru/gurubar');
         $this->load->view('guru/user/detail_ulasan', $data);
         $this->load->view('footer');
@@ -186,24 +199,22 @@ class GuruClient extends CI_Controller
 
   public function proses_detail() {
 
-    // $this->form_validation->set_rules('ulasan_guru','Ulasan Guru','trim|required');
+    $id_ulasan   = $this->input->post('id_ulasan');
+    $ulasan_siswa   = $this->input->post('ket_siswa');
+    $nama   = $this->input->post('nama');
+    $id_sekolah   = $this->input->post('id_sekolah');
+    $ulasan_guru    = $this->input->post('text_buku');
+    similar_text($ulasan_siswa, $ulasan_guru, $hasil);
+    $data = array(
+            'id_ulasan' => $id_ulasan,
+            'nama' =>$nama,
+            'ulasan_siswa' =>$ulasan_siswa,
+            'ulasan_guru' =>$ulasan_guru,
+            'id_sekolah' =>$id_sekolah,
+            'hasil' =>$hasil
+          );
 
-    // if($this->form_validation->run() === true)
-    // {
-      $id_ulasan   = $this->input->post('id_ulasan');
-      $ulasan_siswa   = $this->input->post('ket_siswa');
-      $nama   = $this->input->post('nama');
-      $ulasan_guru    = $this->input->post('text_buku');
-      similar_text($ulasan_siswa, $ulasan_guru, $hasil);
-      $data = array(
-              'id_ulasan' => $id_ulasan,
-              'nama' =>$nama,
-              'ulasan_siswa' =>$ulasan_siswa,
-              'ulasan_guru' =>$ulasan_guru,
-              'hasil' =>$hasil
-            );
-
-            $insert =   $this->curl->simple_post($this->API3,$data);
+          $insert =   $this->curl->simple_post($this->API3,$data);
             // var_dump($insert);
             // exit;
       if($insert){
@@ -213,16 +224,16 @@ class GuruClient extends CI_Controller
         } else {
             echo"gagal";
         }
-    // } else{
         redirect('GuruClient/detail');
     }
-    // }
     public function nilai()
     {
         if($this->session->userdata('id_user_role')){
         $username = $this->session->userdata('username');
         $data['results'] = $this->Login_model->get_user($username);
-        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
+        $data['kategori'] = json_decode($this->curl->simple_get($this->API9,$params));
         $data['title'] = "Nilai";
         $this->load->view('guru/header');
         $this->load->view('guru/gurubar');

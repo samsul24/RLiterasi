@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Mazer Admin Dashboard</title>
+  <title>Dashboard - Super Admin Dashboard</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 <div id="main-content">
 
       <div class="page-heading">
-        <h3>Profile Statistics</h3>
+        <h3>Dashboard Profile </h3>
       </div>
       <div class="page-content">
         <section class="row">

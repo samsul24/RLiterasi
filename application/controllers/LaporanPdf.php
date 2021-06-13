@@ -9,12 +9,14 @@ Class Laporanpdf extends CI_Controller{
     // $this->load->model('siswa_model');  
     $this->load->library('curl');
 
-    $this->API = "http://localhost:8080/antrian/DetailUlasan";
+    $this->API = base_url('api/DetailUlasan');
+    $this->API1 = base_url('api/DetailNilai');
   
   }
     public function index(){   
         $this->load->library('pdf');
         $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API));
+        $data['kategori'] = json_decode($this->curl->simple_get($this->API1));
         $this->load->view('data/laporan_pdf', $data);$paper_size = 'A4';
         $orientation = 'potrait';
         $html = $this->output->get_output();

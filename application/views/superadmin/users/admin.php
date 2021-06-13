@@ -29,13 +29,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>DataTable Siswa</h3>
+                    <h3>DataTable Admin</h3>
                     <p class="text-subtitle text-muted">For user to check they list</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">DataTable</li>
                         </ol>
                     </nav>
@@ -59,7 +59,7 @@
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Nama</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">No Telp</a></th>
                                     <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Username</a></th>
-                                    <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Password</a></th>
+                                    <!-- <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Password</a></th> -->
                                     <th data-sortable="" style="width: 11.4415%;"><a href="#" style="padding:40px">Aksi&nbsp;&nbsp;</th>
                                 </tr>
                             </thead>
@@ -75,7 +75,7 @@
                                         <td><?php echo $rows->nama; ?></td>
                                         <td><?php echo $rows->no_telp; ?></td>
                                         <td><?php echo $rows->username; ?></td>
-                                        <td><?php echo $rows->password; ?></td>
+                                        <!-- <td><?php echo $rows->password; ?></td> -->
                                         <td>
                                             <div class="dataTable-info">
                                                 <!-- <a href="<?php echo site_url(); ?>SuperAdminClient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">

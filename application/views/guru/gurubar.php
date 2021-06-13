@@ -95,7 +95,15 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo site_url(); ?>GuruClient/buku" class="nav-link">
-                <i class="bi bi-book"></i>&nbsp;&nbsp;Buku
+                <i class="bi bi-book"></i>&nbsp;&nbsp;Buku Wajib
+          
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url(); ?>GuruClient/buku_bebas" class="nav-link">
+                <i class="bi bi-book"></i>&nbsp;&nbsp;Buku Bebas
           
                 </a>
               </li>
@@ -103,7 +111,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo site_url(); ?>Splitter/detail_buku_guru" class="nav-link">
-                <i class="bi bi-bookmark-check"></i>&nbsp;&nbsp;Detail Ulasan
+                <i class="bi bi-bookmark-check"></i>&nbsp;&nbsp;Split Buku
                 </a>
               </li>
             </ul>
@@ -128,7 +136,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>SiswaClient/jumlah" class="nav-link">
+                <a href="<?php echo site_url(); ?>LaporanPdf" class="nav-link">
                 <i class="fas fa-file-pdf"></i>
                   <p>Laporan PDF</p>
                 </a>

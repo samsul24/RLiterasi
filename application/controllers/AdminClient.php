@@ -19,6 +19,7 @@ class AdminClient extends CI_Controller
         $this->API4 = base_url('api/DetailBuku');
         $this->API5 = base_url('api/Split');
         $this->API6 = base_url('api/DetailNilai');
+        $this->API7 = base_url('api/Admin');
         $this->load->library('form_validation');
     }
 
@@ -32,6 +33,68 @@ class AdminClient extends CI_Controller
             $this->load->view('admin/dashboard', $data);
         }
     }
+
+    public function profile($id = null)
+    {
+        $params = array('id_user' =>  $this->session->userdata('id_user'));
+        $data['user'] = json_decode($this->curl->simple_get($this->API7,$params));
+        $data['title'] = "Edit Data Sekolah";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/profile', $data);
+      }
+    public function edit_profile()
+    {
+        $params = array('id_user' =>  $this->session->userdata('id_user'));
+        $data['user'] = json_decode($this->curl->simple_get($this->API7,$params));
+        $data['title'] = "Edit Data Sekolah";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/put/profile', $data);
+      }
+      public function put_process_profile()
+      {
+    $foto = $_FILES['foto']['name'];
+
+    if ($foto != '') {
+      $config['upload_path'] = 'assets/admin/img';
+      $config['allowed_types'] = 'jpg|png';
+
+      $this->load->library('upload', $config, 'foto_upload');
+
+      if ($foto != '' && $this->foto_upload->do_upload('foto')) {
+        unlink(FCPATH . 'assets\admin\img\\' . $this->input->post('old_foto'));
+
+        $foto = $this->foto_upload->data('file_name');
+      } else {
+        $foto = $this->input->post('old_foto');
+      }
+
+            $data = array(
+              "id_user" => $this->input->post('id_user'),
+              'foto' => $foto,
+              'nis' => $this->input->post('nis'),
+              'username' => $this->input->post('username'),
+              'password' => $this->input->post('password'),
+              'nama' => $this->input->post('nama'),
+              'jenis_kelamin' => $this->input->post('kelamin'),
+              'kelas' => $this->input->post('kelas'),
+              'email' => $this->input->post('email'),
+              'jurusan' => $this->input->post('jurusan'),
+              'no_telp' => $this->input->post('no_telp'),
+              'id_user_role' => $this->input->post('id_user_role'),
+              'id_sekolah' => $this->input->post('id_sekolah'),
+            );
+            $update =  $this->curl->simple_put($this->API7, $data, array(CURLOPT_BUFFERSIZE => 10));
+    
+            if ($update) {
+              $this->session->set_flashdata('result', 'success');
+            } else {
+              $this->session->set_flashdata('result', 'failed');
+            }
+            redirect('AdminClient/profile/');
+          }
+        }
+
+
     public function guru()
     {
         $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
@@ -52,6 +115,7 @@ class AdminClient extends CI_Controller
         redirect('AdminClient/guru');
     }
 
+
     public function siswa()
     {
         $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
@@ -71,6 +135,8 @@ class AdminClient extends CI_Controller
         }
         redirect('AdminClient/siswa');
     }
+    
+    
     public function buku()
     {
         $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
@@ -112,43 +178,42 @@ class AdminClient extends CI_Controller
     public function detail_ulasan()
     {
         $uri = array('id_ulasan' =>  $this->uri->segment(3));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
         $data['ulasan'] = json_decode($this->curl->simple_get($this->API2, $uri));
-        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
+        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
         $data['title'] = "Detail Ulasan";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/users/detail_ulasan', $data);
     }
-
-
     public function proses_detail()
     {
 
-        $this->form_validation->set_rules('ulasan_guru', 'Ulasan Guru', 'trim|required');
-        if ($this->form_validation->run() === true) {
-            $id_ulasan   = $this->input->post('id_ulasan');
-            $ulasan_siswa   = $this->input->post('ket_siswa');
-            $nama   = $this->input->post('nama');
-            $ulasan_guru    = $this->input->post('text_buku');
-            $hasil         = $this->input->post('hasil');
-            $data = array(
-                'id_ulasan' => $id_ulasan,
-                'nama' => $nama,
-                'ulasan_siswa' => $ulasan_siswa,
-                'ulasan_guru' => $ulasan_guru,
-                'hasil' => $hasil
+      $id_ulasan   = $this->input->post('id_ulasan');
+      $ulasan_siswa   = $this->input->post('ket_siswa');
+      $nama   = $this->input->post('nama');
+      $id_sekolah   = $this->input->post('id_sekolah');
+      $ulasan_guru    = $this->input->post('text_buku');
+      similar_text($ulasan_siswa, $ulasan_guru, $hasil);
+      $data = array(
+              'id_ulasan' => $id_ulasan,
+              'nama' =>$nama,
+              'ulasan_siswa' =>$ulasan_siswa,
+              'ulasan_guru' =>$ulasan_guru,
+              'id_sekolah' =>$id_sekolah,
+              'hasil' =>$hasil
             );
-            $insert =   $this->curl->simple_post($this->API3, $data);
+
+            $insert =   $this->curl->simple_post($this->API3,$data);
             // var_dump($insert);
             // exit;
-            if ($insert) {
-                echo "berhasil";
-                redirect('GuruClient/detail');
-            } else {
-                echo "gagal";
-            }
+      if($insert){
+          echo"berhasil";   
+          redirect('AdminClient/detail');
+          
         } else {
-            redirect('GuruClient/detail');
+            echo"gagal";
         }
+        redirect('AdminClient/detail');
     }
 
 
@@ -161,7 +226,6 @@ class AdminClient extends CI_Controller
         $this->load->view('admin/adminbar');
         $this->load->view('admin/users/post_guru', $data, False);
     }
-
     public function post_process_guru()
     {
         $data = array(
@@ -181,17 +245,15 @@ class AdminClient extends CI_Controller
         redirect('AdminClient/guru', 'refresh');
     }
 
+
     public function nilai()
-    {
-        if ($this->session->userdata('id_user_role')) {
-            $username = $this->session->userdata('username');
-            $data['results'] = $this->Login_model->get_user($username);
-            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3));
-            $data['kategori'] = json_decode($this->curl->simple_get($this->API6));
+    {      
+            $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
+            $data['kategori'] = json_decode($this->curl->simple_get($this->API6,$params));
             $data['title'] = "Detail Ulasan";
             $this->load->view('admin/adminbar');
             $this->load->view('admin/nilai', $data, False);
-        }
     }
     public function kategori_nilai()
     {
@@ -280,6 +342,17 @@ class AdminClient extends CI_Controller
             $this->session->set_flashdata('result', 'Hapus Data Kategori Gagal');
         }
         redirect('AdminClient/kategori_nilai');
+    }
+    public function delete()
+    {
+        $params = array('id_detail_ulasan' =>  $this->uri->segment(3));
+        $delete =  $this->curl->simple_delete($this->API3, $params);
+        if ($delete) {
+            $this->session->set_flashdata('result', 'Hapus Data nilai Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Hapus Data nilai Gagal');
+        }
+        redirect('AdminClient/detail');
     }
     public function delete_nilai()
     {

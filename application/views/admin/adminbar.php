@@ -96,11 +96,15 @@
 
                 <li class="submenu-item ">
                   <a href="<?php echo site_url(); ?>AdminClient/buku">
-                    <i class="bi bi-book"></i>&nbsp;&nbsp;Buku</a>
+                    <i class="bi bi-book"></i>&nbsp;&nbsp;Buku Wajib</a>
+                </li>
+                <li class="submenu-item ">
+                  <a href="<?php echo site_url(); ?>BukuBebasClient">
+                    <i class="bi bi-book"></i>&nbsp;&nbsp;Buku Bebas</a>
                 </li>
                 <li class="submenu-item ">
                   <a href="<?php echo site_url(); ?>Splitter/detail_buku">
-                    <i class="bi bi-book"></i>&nbsp;&nbsp;Detail Buku</a>
+                    <i class="bi bi-book"></i>&nbsp;&nbsp;Split Buku</a>
                 </li>
               </ul>
             </li>
@@ -126,7 +130,11 @@
 
 
             <li class="sidebar-title">Raise Support</li>
-
+            
+              <a href="<?php echo site_url(); ?>AdminClient/Profile" class="sidebar-link">
+                <i class="bi bi-person-bounding-box"></i>
+                <span>Profile</span>
+              </a>
 
             <li class="sidebar-item  has-sub">
               <a href="#" class="sidebar-link">

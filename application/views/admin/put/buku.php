@@ -66,19 +66,22 @@
                         <div class="form-group">
                             <input type="hidden" class="form-control" id="id_sekolah" value="<?php echo $rows->id_sekolah; ?>" name="id_sekolah" required readonly>
                         </div>
-                          <div class="form-group">
-                            <label for="pdf_file">File</label>
+                          <div class="form-group" >
+                            <label for="pdf_file">File </label>
                                 <div style="background : black; width: 100px; height: 130px;">
-                                <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="pdf_file" value="<?php echo $rows->pdf_file; ?>">
+                                <iframe src="<?= base_url('file_buku/') . $rows->pdf_file ?>" class="img-thumbnail"></iframe>
+                                <input type="hidden" size="32" class="form-control-file" placeholder="Choice Foto" name="pdf_file" value="<?php echo  $rows->pdf_file; ?>">
+								<input type="hidden" name="old_pdf_file" value="<?php echo $rows->pdf_file; ?>">
                                 </div>
                                 <div class="invalid-feedback">
                                 <?php echo form_error('pdf_file') ?>
                                 </div>
-                        </div>
+                        </div><br><br>
                     <div class="form-group">
                             <label for="cover">Cover</label>
                                 <div style="background : black; width: 100px; height: 130px;">
                                 <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="cover" value="<?php echo $rows->cover; ?>" >
+								<input type="hidden" name="old_cover" value="<?php echo $rows->cover; ?>">
                                 </div>
                                 <div class="invalid-feedback">
                                 <?php echo form_error('cover') ?>
@@ -90,7 +93,7 @@
                         </div>
                         <div class="form-group">
                             <label for="diskripsi">Deskripsi :</label>
-                            <input type="text" class="form-control" id="diskripsi" placeholder="Nama Keluarga" value="<?php echo $rows->diskripsi; ?>" name="diskripsi" required>
+                            <input type="text" class="form-control" id="diskripsi" placeholder="Deskripsi" value="<?php echo $rows->diskripsi; ?>" name="diskripsi" required>
                         </div>
                         <div class="form-group">
                           <input type="submit" name="Update" value="Update" class="btn btn-primary btn-user btn-block" />
