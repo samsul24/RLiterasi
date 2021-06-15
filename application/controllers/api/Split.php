@@ -31,6 +31,7 @@ class Split extends REST_Controller
     {
         $data = array(
             'id_sekolah'              => $this->post('id_sekolah'),
+            'nama_buku'              => $this->post('nama_buku'),
             'pdf_file'              => $this->post('pdf_file'),
             'deskripsi'              => $this->post('deskripsi'),
         );

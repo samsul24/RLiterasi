@@ -78,7 +78,7 @@
                     <?php endforeach ?>
                     <a href="<?php echo base_url("AdminClient/edit_profile"); ?>" class="btn btn-primary"> <i
                             class="fas fa-pen"></i>&nbsp;Edit</a>
-                    <a href="<?php echo base_url("admin/Change_Password"); ?>" class="btn btn-primary"> <i
+                    <a href="<?php echo base_url("AdminClient/Change_Password"); ?>" class="btn btn-primary"> <i
                             class="fas fa-key"></i>&nbsp;Ubah Kata Sandi</a>
                     </p>
                 </div>

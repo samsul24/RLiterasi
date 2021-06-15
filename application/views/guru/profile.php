@@ -89,7 +89,8 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo site_url(); ?>Guruclient">Home</a></li>
               <li><a href="<?php echo site_url(); ?>Guruclient/ulasan">Ulasan</a></li>
-              <li><a href="<?php echo site_url(); ?>Guruclient/buku1">Buku</a></li>
+              <!-- <li><a href="<?php echo site_url(); ?>Guruclient/buku1">Buku</a></li> -->
+              <li><a href="<?php echo site_url(); ?>GuruClient/profile">Profile</a></li>
               <li><a href="<?php echo site_url(); ?>Guruclient/profile">Guru</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
@@ -147,38 +148,12 @@
 
     <!--================Feature Content Area =================-->
     <section class="feature_content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="f_content_item">
-                        <i class="fa fa-ge" aria-hidden="true"></i>
-                        <b><a href="#">
-                                <h4>inovatif</h4>
-                            </a>
-                            <p>Perusahaan Kawi Sakti Megah dapat menjadi pilihan yang tepat untuk perancangan pembangunan
-                                dengan design yang inovatif dan dapat dikonsultasikan dengan Consultant</p>
-                        </b> </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="f_content_item">
-                        <i class="fa fa-building" aria-hidden="true"></i>
-                        <b><a href="#">
-                                <h4>Project Building</h4>
-                            </a>
-                            <p>Proyek Pembangunan di peruntuhkan untuk pembangunan gedung perkantoran ,pertokoan , dan ruko . </p>
-                        </b></div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="f_content_item">
-                        <i class="fa fa-money" aria-hidden="true"></i>
-                        <b><a href="#"><b>
-                                    <h4>Save Money</h4></a></b>
-                        <p>Pembangunan proyek dapat dilakukan dengan menyesuaikan budget yang di konsulkan dengan
-                            consultan pembangunan proyek sehingga dapat menentukan harga yang sesuai. </b></p>
-                    </div>
-                </div>
+    <!-- <div class="container">
+            <div class="main_c_b_title">
+                <h2>Profile<br class="title_br"></h2>
+                <h6></h6>
             </div>
-        </div>
+            </div> -->
     </section>
     <!--================End Feature Content Area =================-->
 
@@ -189,17 +164,19 @@
                 <div class="col-md-5">
                     <div class="b_companu_l_text">
                         <b>
-                            <h4>Sejarah Perusahaan</h4><br>
+                            <h4>Sejarah <?= $this->session->userdata('nama_sekolah') ?></h4><br>
                             <p>
-                                Bermula sejak tahun 1978, Kawi Sakti Megah adalah perusahaan Perentalan Scaffolding dan rancang bangun yang melayani jasa-jasa pembangunan. awalnya Kawi Sakti Megah Hanyalah sebuah perusahaan dengan nama Gunung Kawi Awning yang bergerak dalam bidang pengerjaan Awning dan Pagar <br> </p>
-                            <p> dengan modal pengalaman dan reputasi perusahaan yang selalu "Belajar" untuk maju, pada tahun 1998 kami mencoba mengembangkan sayap usaha dengan mendirikan Kawi Sakti Megah dengan harapan memenuhi tuntutan pasar yang lebih besar yaitu ikut berpartisipasi melayani masyarakat demi membangun masa depan </p>
+                            Bermula dari kesadaran masyarakat, khususnya masyarakat di Madiun selatan ( Ex Kawedanan Uteran ) akan pentingnya peningkatan pendidikan, maka masyarakat sangat mendambakan adanya sebuah lembaga pendidikan setingkat SLTA, yang mana pada saat itu belum ada satupun lembaga pendidikan setingkat SLTA berdiri/beroperasi di wilayah tersebut. Sehingga setiap lulusan SMP atau MTs apabila ingin melanjutkan pendidikan ke jenjang yang lebih tinggi harus masuk ke Kota Madiun atau daerah lain sehingga lebih menyita waktu dan biaya.<br> </p>
+                            <p> Keinginan masyarakat akan adanya Sekolah Menengah Atas (SMA) di Wilayah Ex Kawedanan Uteran tersebut ternyata sejalan dengan program pemerintah untuk mendirikan/membangun sekolah-sekolah baru di seluruh Indonesia, sebagai upaya pemerataan untuk memperoleh kesempatan belajar bagi anak-anak usia sekolah di seluruh tanah air. Program Pemerintah untuk mendirikan sekolah baru tersebut segera direspon oleh Pemerintah Daerah Kabupaten Madiun dan masyarakat – utamanya masyarakat di Kecamatan Geger – dengan menyiapkan lahan/lokasi pembangunan Sekolah dan persyaratan-persyaratan yang dianggap perlu. Sebagai bukti bahwa masyarakat sangat mendambakan adanya sekolah di wilayah ini, maka masyarakat rela tanah yang menjadi tumpuan kehidupannya dipakai untuk tempat/lokasi pembangunan Sekolah. </p>
                         </b>
                         <!--   <a class="slider_btn" href="#">read more</a> -->
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="b_company_image">
-                        <img src="img/b-company-img.png" alt="">
+                    <br><br><br>
+                    <br><br><br>
+                        <img src="<?= base_url(); ?>img/logo.png" alt="" style="width:600px; height:620px; margin-left:100px" >
                     </div>
                 </div>
             </div>
@@ -211,70 +188,23 @@
     <section class="our_service_area2">
         <div class="container">
             <div class="main_c_b_title">
-                <h2>Our<br class="title_br">Services</h2>
+                <h2>About<br class="title_br">Us</h2>
                 <h6>All About US</h6>
             </div>
             <div class="row service2_inner">
+            
                 <div class="col-md-4 col-sm-6">
                     <div class="service2_item">
                         <div class="service2_item_inner">
                             <div class="service2_item_inner_content">
                                 <div class="service_icon">
-                                    <img src="img/icon/s-icon-6.png" alt="">
-                                    <img src="img/icon/s-icon-hover-6.png" alt="">
-                                </div>
-                                <a href="#">
-                                    <h4>Penyewaan Skafolding</h4>
-                                </a>
-                                <p>Melayani penyewaan Skafolding dengan ketepatan waktu pengiriman dan kemudahan peminjaman</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="service2_item">
-                        <div class="service2_item_inner">
-                            <div class="service2_item_inner_content">
-                                <div class="service_icon">
-                                    <img src="img/icon/s-icon-2.png" alt="">
-                                    <img src="img/icon/s-icon-hover-2.png" alt="">
-                                </div>
-                                <a href="#">
-                                    <h4>Konsultasi PRA Konstruksi</h4>
-                                </a>
-                                <p>Jasa Konsultasi bagi anda yang membutuhkan bantuan dalam hal perencanaan , design ataupun estimasi biaya</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="service2_item">
-                        <div class="service2_item_inner">
-                            <div class="service2_item_inner_content">
-                                <div class="service_icon">
-                                    <img src="img/icon/s-icon-3.png" alt="">
-                                    <img src="img/icon/s-icon-hover-3.png" alt="">
-                                </div>
-                                <a href="#">
-                                    <h4>Perawatan Gedung</h4>
-                                </a>
-                                <p>Layanan Perawatan gedung secara umum, pengecekan bangunan </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="service2_item">
-                        <div class="service2_item_inner">
-                            <div class="service2_item_inner_content">
-                                <div class="service_icon">
-                                    <img src="img/icon/s-icon-1.png" alt="">
+                                    <img src="img/icon/vision.png" alt="">
                                     <img src="img/icon/s-icon-hover-1.png" alt="">
                                 </div>
                                 <a href="#">
-                                    <h4>Rancang Bangun</h4>
+                                    <h4>Visi</h4>
                                 </a>
-                                <p>Melayani perencanaan pembangunan hingga akhir proses pembangunan sebagai konsultan</p>
+                                <p><?= $this->session->userdata('visi') ?></p>
                             </div>
                         </div>
                     </div>
@@ -284,13 +214,13 @@
                         <div class="service2_item_inner">
                             <div class="service2_item_inner_content">
                                 <div class="service_icon">
-                                    <img src="img/icon/s-icon-5.png" alt="">
+                                    <img src="img/icon/mision.png" alt="">
                                     <img src="img/icon/s-icon-hover-5.png" alt="">
                                 </div>
                                 <a href="#">
-                                    <h4>RENOVASI</h4>
+                                    <h4></h4>
                                 </a>
-                                <p>Jasa Renovasi bagi para client yang menginginkan perubahan untuk customer</p>
+                                <p><?= $this->session->userdata('website') ?></p>
                             </div>
                         </div>
                     </div>
@@ -304,9 +234,9 @@
                                     <img src="img/icon/s-icon-hover-4.png" alt="">
                                 </div>
                                 <a href="#">
-                                    <h4>Supplier</h4>
+                                    <h4>Misi</h4>
                                 </a>
-                                <p>Menerima juga jasa di bidang penyediaan peralatan kantor serta kelengkapan AC <br></p>
+                                <p><?= $this->session->userdata('misi') ?> <br></p>
                             </div>
                         </div>
                     </div>
@@ -341,111 +271,97 @@
 
     <!--================Footer Area =================-->
     <footer class="footer_area">
-        <div class="footer_widgets_area">
-            <div class="container">
-                <div class="row footer_widgets_inner">
-                    <div class="col-md-3 col-sm-6">
-                        <aside class="f_widget about_widget">
-                            <img src="img/footer-logo.png" >
-                            <p>Kami melayani pengerjaan dengan konsultan Proyek Terbaik, serta mempunyai kulifikasi tinggi sebagai perusahaan bidang rental Sacffolding dan konstruktor </p>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </aside>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <aside class="f_widget recent_widget">
-                            <div class="f_w_title">
-                                <h3>Recent Portofolio</h3>
-                            </div>
-                            <div class="recent_w_inner">
-                                <div class="media">
-                                    <div class="media-left">
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <p>Pengerjaan Gedung UMM 1</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <p>Pengerjaan kantor BCA Sukun</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <aside class="f_widget address_widget">
-                            <div class="f_w_title">
-                                <h3>Office Address</h3>
-                            </div>
-                            <div class="address_w_inner">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-map-marker"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <p> Jl. Janti Barat Blok A/17 A Malang</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <p>(0341) 350003 </p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <p>info@domain.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <aside class="f_widget give_us_widget">
-                            <h5>Give Us A Call</h5>
-                            <h4>(0341) 350003 </h4>
-                        </aside>
-                    </div>
+    <div class="footer_widgets_area">
+      <div class="container">
+        <div class="row footer_widgets_inner">
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget about_widget">
+              <!-- <img src="img/footer-logo.png"> -->
+              <p><?= $this->session->userdata('visi') ?></p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+              </ul>
+            </aside>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget recent_widget">
+              <div class="f_w_title">
+                <h3>New Event</h3>
+              </div>
+              <div class="recent_w_inner">
+                <div class="media">
+                  <div class="media-left">
+                  </div>
+                  <div class="media-body">
+                    <a href="#">
+                      <p><?= $this->session->userdata('website') ?></p>
+                    </a>
+                  </div>
                 </div>
-            </div>
+               
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget address_widget">
+              <div class="f_w_title">
+                <h3>Office Address</h3>
+              </div>
+              <div class="address_w_inner">
+                <div class="media">
+                  <div class="media-left">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <div class="media-body">
+                    <p> <?= $this->session->userdata('alamat_sekolah') ?></p>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="media-left">
+                    <i class="fa fa-phone"></i>
+                  </div>
+                  <div class="media-body">
+                    <p><?= $this->session->userdata('no_telp') ?> </p>
+                  </div>
+                </div>
+                <div class="media">
+                  <div class="media-left">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <div class="media-body">
+                    <p><?= $this->session->userdata('website') ?></p>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <aside class="f_widget give_us_widget">
+              <h5>Give Us A Call</h5>
+              <h4><?= $this->session->userdata('no_telp') ?> </h4>
+            </aside>
+          </div>
         </div>
-        <div class="footer_copy_right">
-            <div class="container">
-                <h4>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </h4>
-            </div>
-        </div>
-    </footer>
-    <!--================End Footer Area =================-->
+      </div>
+    </div>
+    <div class="footer_copy_right">
+      <div class="container">
+        <h4>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </h4>
+      </div>
+    </div>
+  </footer>
+  <!--================End Footer Area =================-->
 
 
 
 
-
-
-
-
-
-  
 
 
 

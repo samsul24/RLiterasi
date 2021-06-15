@@ -47,17 +47,17 @@ class Login extends CI_Controller
           'alamat_sekolah' => $rows->alamat_sekolah,
           'website' => $rows->website,
           'kabupaten' => $rows->kabupaten,
-          'is_active' => 'aktif',
+          'is_active' => $rows->is_active,
         );
         $this->session->set_userdata($session_data);
       }
-      if ($this->session->userdata('id_user_role') == 1 && $this->session->userdata('is_active') == 'aktif') {
+      if ($this->session->userdata('id_user_role') == 1 and $this->session->userdata('is_active') == 'aktif') {
         redirect('SuperAdminClient');
-      } elseif ($this->session->userdata('id_user_role') == 2 && $this->session->userdata('is_active') == 'aktif') {
+      } elseif ($this->session->userdata('id_user_role') == 2 and $this->session->userdata('is_active') == 'aktif') {
         redirect('AdminClient');
-      } elseif ($this->session->userdata('id_user_role') == 3 && $this->session->userdata('is_active') == 'aktif') {
+      } elseif ($this->session->userdata('id_user_role') == 3 and $this->session->userdata('is_active') == 'aktif') {
         redirect('GuruClient');
-      } elseif ($this->session->userdata('id_user_role') == 4 && $this->session->userdata('is_active') == 'aktif') {
+      } elseif ($this->session->userdata('id_user_role') == 4 and $this->session->userdata('is_active') == 'aktif') {
         redirect('SiswaClient');
       } else {
       $this->session->set_flashdata('result', 'Login gagal');

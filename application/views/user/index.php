@@ -185,77 +185,81 @@
       <div class="left_service_inner">
         <div class="service_item">
           <div class="service_item_inner">
-            <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+          <div class="service_icon">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi 15 Menit</h4>
+              <h4>Membaca</h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis </p>
+            <p>“Membacalah anda akan mengenal dunia lebih dekat. Menulislah anda akan dikenal dekat oleh dunia”
+― Madi Ar-Ranim</p>
 
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Buku</h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+            <p>“Siapapun yang terhibur dengan buku-buku, kebahagiaan tak akan sirna dari dirinya.”
+― Ali bin Abi Thalib</p>
 
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Omnilegent</h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis </p>
+            <p>“Hidup tanpa buku seperti ruang gelap tak berlampu”
+― Titon Rahmawan </p>
 
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Logophile </h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+            <p>Buku harus dijadikan kapak untuk mencairkan lautan beku dalam diri kita - Franz Kafka</p>
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
-            </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+              <h4>Budaya Literasi</h4>
+            </a>“Penguatan budaya literasi adalah kunci memajukan negeri ini.”
+― Lenang Manggala</p>
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Epeolatry </h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis <br></p>
+            <p>“Percayalah, buku yang baik entah bagaimana, pasti akan menemukan pembacanya.”
+― Titon Rahmawan <br></p>
 
           </div>
         </div>
@@ -289,7 +293,7 @@
             </div>
             <ul class="our_project_filter">
               <li class="active" data-filter="*"><a href="#">All</a></li>
-              <li data-filter=".building"><a href="#">Sejarah Indonesia</a></li>
+              <li data-filter=".building"><a href="#">Novel</a></li>
               <li data-filter=".interior"><a href="#">Komik</a></li>
               <li data-filter=".design"><a href="#">Pusat Dunia</a></li>
               <li data-filter=".isolation"><a href="#">Ilmu Komunikasi</a></li>
@@ -300,91 +304,22 @@
         </div>
         <div class="col-md-9">
           <div class="our_project_details">
-            <div class="project_item building isolation tiling">
-              <img src="img/project/project-2.jpg" alt="">
+      <?php foreach ($buku_bebas as $rows) : ?>
+            <div class="project_item building">
+            <img src="<?php echo base_url('file_buku/cover/' . $rows->cover) ?>" width="150" hight="200" alt="" ></img>
               <div class="project_hover">
                 <div class="project_hover_inner">
                   <div class="project_hover_content">
                     <a href="#">
-                      <h4>Sejarah Indonesia</h4>
+                      <h4><?php echo $rows->nama_buku; ?></h4>
                     </a>
                     <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
+                    <a class="view_btn" href="<?php echo site_url(); ?>SiswaClient/buku">View Project</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="project_item building isolation plumbing">
-              <img src="img/project/project-2.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Komik</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project_item building interior design">
-              <img src="img/project/project-3.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Pusat Dunia </h4>
-                    </a>
-                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="project_item interior isolation plumbing">
-              <img src="img/project/project-4.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Ilmu Komunikasi</h4>
-                    </a>
-                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project_item interior design tiling">
-              <img src="img/project/project-4.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Sains</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project_item design plumbing tiling">
-              <img src="img/project/project-3.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>History</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <?php endforeach ; ?>
           </div>
         </div>
       </div>

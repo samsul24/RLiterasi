@@ -86,19 +86,20 @@
                 <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1" alt="logo">
             </a>
 
-            <!-- Logo Ends -->
             <div class="form-container">
                 <div>
                     <!-- Section Title Starts -->
                     <div class="row text-center">
-                        <h2 class="title-head hidden-xs"><span>Forgot </span>Pssword</h2>
+                        <h2 class="title-head hidden-xs"><span>Forgot </span>Password</h2>
                     </div>
+            <!-- Logo Ends --><?= $this->session->flashdata('message'); ?>
+
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->
                     <form class="user" method="post" action="<?php echo base_url(); ?>Register/forgotPassword">
 
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user border-left-primary" id="email" name="email" placeholder="Email" value="<?= set_value('email') ?>" required is_unique>
+                            <input type="text" class="form-control form-control-user border-left-primary" id="email" name="email" placeholder="Email" value="<?= set_value('email') ?>">
                             <span class="text-danger"> <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?></span>
                         </div>
                         <div class="form-group">

@@ -17,6 +17,7 @@ class SiswaClient extends CI_Controller
     $this->API3 = base_url('api/Siswa');
     $this->API4 = base_url('api/User');
     $this->API5 = base_url('api/Split');
+    $this->API6 = base_url('api/BukuBebas');
   }
 
   public function index()
@@ -31,8 +32,10 @@ class SiswaClient extends CI_Controller
         $username = $this->session->userdata('username');
         $data['results'] = $this->Login_model->get_user($username);
         $this->load->library('curl');
-        $data['user'] = json_decode($this->curl->simple_get($this->API));
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['user'] = json_decode($this->curl->simple_get($this->API,$params));
         $data['sekolah'] = json_decode($this->curl->simple_get($this->API2));
+        $data['buku_bebas'] = json_decode($this->curl->simple_get($this->API6,$params));
         $data['title'] = "Dashboard";
         $this->load->view('user/index', $data, FALSE);
       }
@@ -40,8 +43,17 @@ class SiswaClient extends CI_Controller
   }
   public function buku()
   {
+    $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+    $data['buku_bebas'] = json_decode($this->curl->simple_get($this->API6,$params));
     $data['title'] = "Buku";
     $this->load->view('user/buku', $data, FALSE);
+  }
+  public function baca()
+  {
+    $params = array('id_buku_bebas' => $this->uri->segment(3));
+    $data['buku_bebas'] = json_decode($this->curl->simple_get($this->API6, $params));
+    $data['title'] = "Buku Sekolah";
+    $this->load->view('user/baca_buku', $data);
   }
   public function berhasil()
   {
@@ -114,14 +126,22 @@ class SiswaClient extends CI_Controller
   // }
   public function ulasan_process()
   {
-    $data = array(
-      'nama' => $this->input->post('nama'),
-      'judul' => $this->input->post('judul'),
-      'ket_siswa' => $this->input->post('ket_siswa'),
-      'text_buku' => $this->input->post('text_buku'),
-      'tanggal' => $this->input->post('tanggal'),
-      'id_buku' => $this->input->post('id_buku'),
-      'id_sekolah' => $this->input->post('id_sekolah'),
+      $nama = $this->input->post('nama');
+      $judul = $this->input->post('nama_buku');
+      $ket_siswa = $this->input->post('ket_siswa');
+      $text_buku = $this->input->post('text_buku');
+      $tanggal = $this->input->post('tanggal');
+      $id_buku = $this->input->post('id_buku');
+      $id_sekolah = $this->input->post('id_sekolah');
+      $data = array(
+        'id_buku' => $id_buku,
+        'nama' => $nama,
+        'judul' => $judul,
+        'ket_siswa' => $ket_siswa,
+        'text_buku' => $text_buku,
+        'id_sekolah' => $id_sekolah,
+        'tanggal' => $tanggal
+
     );
     $insert = $this->curl->simple_post($this->API1, $data);
     if ($insert) {

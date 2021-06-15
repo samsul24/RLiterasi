@@ -13,6 +13,8 @@ class Register extends CI_Controller
         $this->API = base_url('api/Sekolah');
     }
 
+    //Siswa
+
     public function index()
     {
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -43,7 +45,7 @@ class Register extends CI_Controller
                 'email' => htmlspecialchars($email),
                 'foto' => 'default.png',
                 'username' => htmlspecialchars($username),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'jenis_kelamin' => '-',
                 'kelas' => 'null',
                 'jurusan' => 'null',
@@ -68,11 +70,11 @@ class Register extends CI_Controller
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Congratulation!</strong> You account has been created, Please Activate your account.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                <strong>Congratulation!</strong> You account has been created, Please Activate your account.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
                     </button>
-                </div>'
+                    </div>'
             );
             redirect('Login');
         }
@@ -133,10 +135,10 @@ class Register extends CI_Controller
                     $this->session->set_flashdata(
                         'message',
                         '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Congratulation!</strong> ' . $email . ' has been activated please login!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <strong>Congratulation!</strong> ' . $email . ' has been activated please login!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
                         </div>'
                     );
                     redirect('Login');
@@ -146,11 +148,11 @@ class Register extends CI_Controller
                     $this->session->set_flashdata(
                         'message',
                         '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                       Token Expired!
+                        Token Expired!
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>'
+                        </div>'
                     );
                     redirect('Login');
                 }
@@ -160,9 +162,9 @@ class Register extends CI_Controller
                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Account activation failed! Token Invalid!
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                     </button>
-                </div>'
+                    </div>'
                 );
                 redirect('Login');
             }
@@ -173,13 +175,200 @@ class Register extends CI_Controller
                 '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 Account activation failed! Wrong Email!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
                 </button>
+                </div>'
+            );
+            redirect('Login');
+        }
+    }
+
+    public function awal()
+    {
+        $data['title'] = 'Literasi | Registrasi';
+        $this->load->view('login/choice');
+    }
+    //Batas Siswa
+
+
+    //GURU
+    public function index1()
+    {
+        $this->form_validation->set_rules('username', 'Username', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+            'is_unique' => 'Email sudah digunakan !',
+            'required' => 'Email tidak boleh kosong !',
+            'valid_email' => "Email tidak valid !"
+        ]);
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+            'matches' => 'Password tidak sama !',
+            'required' => 'Password tidak boleh kosong !',
+            'min_length' => 'Password terlalu pendek!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
+        $this->form_validation->set_rules('id_sekolah', 'ID Sekoloah', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $data['sekolah'] = json_decode($this->curl->simple_get($this->API));
+            $data['title'] = 'Literasi | Registrasi';
+            $this->load->view('login/registrasi_guru', $data);
+        } else {
+            $email = $this->input->post('email', true);
+            $username = $this->input->post('username', true);
+            $id_sekolah = $this->input->post('id_sekolah', true);
+            $data = [
+                'nama' => 'null ',
+                'nis' => 'null',
+                'email' => htmlspecialchars($email),
+                'foto' => 'default.png',
+                'username' => htmlspecialchars($username),
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'jenis_kelamin' => '-',
+                'kelas' => 'null',
+                'jurusan' => 'null',
+                'no_telp' => 'null',
+                'id_user_role' => 3,
+                'id_sekolah' => htmlspecialchars($id_sekolah),
+                'is_active' => 'pasif',
+                'date_created' =>  time()
+            ];
+            $token = base64_encode(random_bytes(32));
+            $user_token = [
+                'email' => $email,
+                'token' => $token,
+                'username' => $username,
+                'date_created' => time()
+
+            ];
+            $this->db->insert('user', $data);
+            $this->db->insert('user_token', $user_token);
+            $this->_sendEmail1($token, 'verify');
+
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congratulation!</strong> You account has been created, Please Activate your account.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+                </button>
+                </div>'
+            );
+            redirect('Login');
+        }
+    }
+
+    private function _sendEmail1($token, $type)
+    {
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => 'ensiserver2021@gmail.com',
+            'smtp_pass' => 'literasi2021',
+            'smtp_port' => 465,
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n",
+        ];
+
+        $this->load->library('email', $config);
+        $this->email->initialize($config);
+        $this->email->from('ensiserver2021@gmail.com', 'Literasi 2021');
+        $this->email->to($this->input->post('email'));
+
+        if ($type  == 'verify') {
+            $this->email->subject('Account verification');
+            $this->email->message('Click this link to verify your account : <a href="'
+                . base_url() . 'Register/verify1?email=' . $this->input->post('email') .
+                '&token=' . urlencode($token) . '">Active</a>');
+        } else if ($type == 'forgot') {
+            $this->email->subject('Reset Password');
+            $this->email->message('Click this link to reset your password : <a href="'
+                . base_url() . 'Register/resetPassword?email=' . $this->input->post('email') .
+                '&token=' . urlencode($token) . '">Reset Password</a>');
+        }
+        if ($this->email->send()) {
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die();
+        }
+    }
+
+    public function verify1()
+    {
+        $email = $this->input->get('email');
+        $token =  $this->input->get('token');
+
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+        if ($user) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+            if ($user_token) {
+                if (time() - $user['date_created'] < (60 * 60 * 24)) {
+                    $this->db->set('is_active', 1);
+                    $this->db->where('email', $email);
+                    $this->db->update('user');
+                    $this->db->delete('user_token', ['email' => $email]);
+
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Congratulation!</strong> ' . $email . ' has been activated please login!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>'
+                    );
+                    redirect('Login');
+                } else {
+                    $this->db->delete('user', ['email' => $email]);
+                    $this->db->delete('user_token', ['email' => $email]);
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Token Expired!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>'
+                    );
+                    redirect('Login');
+                }
+            } else {
+                $this->session->set_flashdata(
+                    'message',
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Account activation failed! Token Invalid!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>'
+                );
+                redirect('Login');
+            }
+        } else {
+
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Account activation failed! Wrong Email!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
             </div>'
             );
             redirect('Login');
         }
     }
+
+
+    //BATAS GURU
+
+
+
+
+
+
+
 
     public function logout()
     {
@@ -189,10 +378,10 @@ class Register extends CI_Controller
         $this->session->set_flashdata(
             'message',
             '<div class="alert alert-success alert-dismissible fade show" role="alert">
-               Anda telah Logout !
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            Anda telah Logout !
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
             </div>'
         );
         redirect('Login');
@@ -211,14 +400,12 @@ class Register extends CI_Controller
             $this->load->view('login/forgot_password', $data);
         } else {
             $email = $this->input->post('email');
-            // $username = $this->input->post('username');
             $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
 
             if ($user) {
                 $token = base64_encode(random_bytes(32));
                 $user_token = [
                     'email' => $email,
-                    // 'username' => $username,
                     'token' => $token,
                     'date_created' => time()
 

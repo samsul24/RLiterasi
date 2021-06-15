@@ -61,7 +61,7 @@
                     <!-- Form Starts -->
                 <form action="<?php echo site_url(); ?>BukuBebasClient/post_process" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
                     <div class="form-group">
-                            <label for="pdf_file">File</label>
+                    <label for="pdf_file">File : Maximum pdf file Size 10mb</label>
                                 <div style="background : black; width: 100px; height: 130px;">
                                 <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="pdf_file" >
                                 </div>

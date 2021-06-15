@@ -317,3 +317,77 @@
         </script>
     </body>
 </html>
+
+
+
+<div class="project_item building isolation plumbing">
+              <img src="img/project/project-2.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Komik</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project_item building interior design">
+              <img src="img/project/project-3.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Pusat Dunia </h4>
+                    </a>
+                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="project_item interior isolation plumbing">
+              <img src="img/project/project-4.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Ilmu Komunikasi</h4>
+                    </a>
+                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project_item interior design tiling">
+              <img src="img/project/project-4.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>Sains</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project_item design plumbing tiling">
+              <img src="img/project/project-3.jpg" alt="">
+              <div class="project_hover">
+                <div class="project_hover_inner">
+                  <div class="project_hover_content">
+                    <a href="#">
+                      <h4>History</h4>
+                    </a>
+                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                    <a class="view_btn" href="#">View Project</a>
+                  </div>
+                </div>
+              </div>
+            </div>

@@ -97,7 +97,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo site_url(); ?>GuruClient">Home</a></li>
               <li><a href="<?php echo site_url(); ?>GuruClient/ulasan">Ulasan</a></li>
-              <li><a href="<?php echo site_url(); ?>GuruClient/buku1">Buku</a></li>
+              <!-- <li><a href="<?php echo site_url(); ?>GuruClient/buku1">Buku</a></li> -->
               <li><a href="<?php echo site_url(); ?>GuruClient/profile">Profile</a></li>
               <li><a href="<?php echo site_url(); ?>GuruClient/profile_guru/<?= $this->session->userdata('id_user');?>">Guru</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
@@ -146,76 +146,80 @@
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi 15 Menit</h4>
+              <h4>Membaca</h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis </p>
+            <p>“Membacalah anda akan mengenal dunia lebih dekat. Menulislah anda akan dikenal dekat oleh dunia”
+― Madi Ar-Ranim</p>
 
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Buku</h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+            <p>“Siapapun yang terhibur dengan buku-buku, kebahagiaan tak akan sirna dari dirinya.”
+― Ali bin Abi Thalib</p>
 
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Omnilegent</h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis </p>
+            <p>“Hidup tanpa buku seperti ruang gelap tak berlampu”
+― Titon Rahmawan </p>
 
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Logophile </h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+            <p>Buku harus dijadikan kapak untuk mencairkan lautan beku dalam diri kita - Franz Kafka</p>
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
-            </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis</p>
+              <h4>Budaya Literasi</h4>
+            </a>“Penguatan budaya literasi adalah kunci memajukan negeri ini.”
+― Lenang Manggala</p>
           </div>
         </div>
         <div class="service_item">
           <div class="service_item_inner">
             <div class="service_icon">
-              <img src="img/icon/s-icon-4.png" alt="">
+              <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
             <a href="#">
-              <h4>Literasi Bebas</h4>
+              <h4>Epeolatry </h4>
             </a>
-            <p>Siswa melakukan Literasi selama 15 menit yang dibagi menjadi 2 step, 5 menit membaca 10 menit menulis <br></p>
+            <p>“Percayalah, buku yang baik entah bagaimana, pasti akan menemukan pembacanya.”
+― Titon Rahmawan <br></p>
 
           </div>
         </div>

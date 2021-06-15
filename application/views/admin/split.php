@@ -16,7 +16,8 @@
 				<iframe type="file" src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="100" alt="" name="pdf_file"></iframe></iframe>
 				<br>
                 <input style="height:40px; width:547;" type="hidden" name="id_sekolah" class="form-control form-control-user" id="id_sekolah" value="<?php echo $this->session->userdata('id_sekolah'); ?>" required readonly></input>
-                <span class="text-danger"></span>
+				<input type="hidden" class="form-control" id="nama_buku" value="<?php echo $rows->nama_buku; ?>" name="nama_buku" required>
+			    <span class="text-danger"></span>
 				<input type="hidden" id="pdf_file" name="pdf_file" value="<?= $rows->pdf_file ?>" /><br><br>
 				<input type="submit" name="submit" value="Split File" id="submit" />
 			</fieldset>

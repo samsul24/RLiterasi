@@ -29,7 +29,7 @@ class AdminClient extends CI_Controller
             $username = $this->session->userdata('username');
             $data['results'] = $this->Login_model->get_user($username);
             $data['title'] = "Dashboard Admin";
-            $this->load->view('admin/adminbar');    
+            $this->load->view('admin/adminbar');
             $this->load->view('admin/dashboard', $data);
         }
     }
@@ -37,62 +37,72 @@ class AdminClient extends CI_Controller
     public function profile($id = null)
     {
         $params = array('id_user' =>  $this->session->userdata('id_user'));
-        $data['user'] = json_decode($this->curl->simple_get($this->API7,$params));
+        $data['user'] = json_decode($this->curl->simple_get($this->API7, $params));
         $data['title'] = "Edit Data Sekolah";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/profile', $data);
-      }
+    }
     public function edit_profile()
     {
         $params = array('id_user' =>  $this->session->userdata('id_user'));
-        $data['user'] = json_decode($this->curl->simple_get($this->API7,$params));
+        $data['user'] = json_decode($this->curl->simple_get($this->API7, $params));
         $data['title'] = "Edit Data Sekolah";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/put/profile', $data);
-      }
-      public function put_process_profile()
-      {
-    $foto = $_FILES['foto']['name'];
+    }
+    public function put_process_profile()
+    {
+        $foto = $_FILES['foto']['name'];
+        if ($foto != '' ) {
+            $config['upload_path'] = 'assets/admin/img';
+            $config['allowed_types'] = 'jpg|png';
+            $this->load->library('upload', $config, 'foto_upload');
 
-    if ($foto != '') {
-      $config['upload_path'] = 'assets/admin/img';
-      $config['allowed_types'] = 'jpg|png';
 
-      $this->load->library('upload', $config, 'foto_upload');
+            if ($foto != '' && $this->foto_upload->do_upload('foto')) {
+                unlink(FCPATH . 'assets\admin\img\\' . $this->input->post('old_foto'));
 
-      if ($foto != '' && $this->foto_upload->do_upload('foto')) {
-        unlink(FCPATH . 'assets\admin\img\\' . $this->input->post('old_foto'));
-
-        $foto = $this->foto_upload->data('file_name');
-      } else {
-        $foto = $this->input->post('old_foto');
-      }
+                $foto = $this->foto_upload->data('file_name');
+            } else {
+                $foto = $this->input->post('old_foto');
+            }
 
             $data = array(
-              "id_user" => $this->input->post('id_user'),
-              'foto' => $foto,
-              'nis' => $this->input->post('nis'),
-              'username' => $this->input->post('username'),
-              'password' => $this->input->post('password'),
-              'nama' => $this->input->post('nama'),
-              'jenis_kelamin' => $this->input->post('kelamin'),
-              'kelas' => $this->input->post('kelas'),
-              'email' => $this->input->post('email'),
-              'jurusan' => $this->input->post('jurusan'),
-              'no_telp' => $this->input->post('no_telp'),
-              'id_user_role' => $this->input->post('id_user_role'),
-              'id_sekolah' => $this->input->post('id_sekolah'),
+                "id_user" => $this->input->post('id_user'),
+                'foto' => $foto,
+                'nis' => $this->input->post('nis'),
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password'),
+                'nama' => $this->input->post('nama'),
+                'jenis_kelamin' => $this->input->post('kelamin'),
+                'kelas' => $this->input->post('kelas'),
+                'email' => $this->input->post('email'),
+                'jurusan' => $this->input->post('jurusan'),
+                'no_telp' => $this->input->post('no_telp'),
+                'id_user_role' => $this->input->post('id_user_role'),
+                'id_sekolah' => $this->input->post('id_sekolah'),
             );
             $update =  $this->curl->simple_put($this->API7, $data, array(CURLOPT_BUFFERSIZE => 10));
-    
+
             if ($update) {
-              $this->session->set_flashdata('result', 'success');
+                $this->session->set_flashdata('result', 'success');
             } else {
-              $this->session->set_flashdata('result', 'failed');
+                $this->session->set_flashdata('result', 'failed');
             }
             redirect('AdminClient/profile/');
-          }
         }
+    }
+
+    public function Change_Password()
+    {
+        $params = array('id_user' =>  $this->session->userdata('id_user'));
+        $data['user'] = json_decode($this->curl->simple_get($this->API7, $params));
+        $data['title'] = "Edit Data Sekolah";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/change_password', $data);
+    }
+
+
 
 
     public function guru()
@@ -135,8 +145,8 @@ class AdminClient extends CI_Controller
         }
         redirect('AdminClient/siswa');
     }
-    
-    
+
+
     public function buku()
     {
         $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
@@ -169,7 +179,7 @@ class AdminClient extends CI_Controller
             $username = $this->session->userdata('username');
             $data['results'] = $this->Login_model->get_user($username);
             $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
-            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
+            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3, $params));
             $data['title'] = "Detail Ulasan";
             $this->load->view('admin/adminbar');
             $this->load->view('admin/detail_ulasan', $data, False);
@@ -180,7 +190,7 @@ class AdminClient extends CI_Controller
         $uri = array('id_ulasan' =>  $this->uri->segment(3));
         $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
         $data['ulasan'] = json_decode($this->curl->simple_get($this->API2, $uri));
-        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
+        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3, $params));
         $data['title'] = "Detail Ulasan";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/users/detail_ulasan', $data);
@@ -188,30 +198,29 @@ class AdminClient extends CI_Controller
     public function proses_detail()
     {
 
-      $id_ulasan   = $this->input->post('id_ulasan');
-      $ulasan_siswa   = $this->input->post('ket_siswa');
-      $nama   = $this->input->post('nama');
-      $id_sekolah   = $this->input->post('id_sekolah');
-      $ulasan_guru    = $this->input->post('text_buku');
-      similar_text($ulasan_siswa, $ulasan_guru, $hasil);
-      $data = array(
-              'id_ulasan' => $id_ulasan,
-              'nama' =>$nama,
-              'ulasan_siswa' =>$ulasan_siswa,
-              'ulasan_guru' =>$ulasan_guru,
-              'id_sekolah' =>$id_sekolah,
-              'hasil' =>$hasil
-            );
+        $id_ulasan   = $this->input->post('id_ulasan');
+        $ulasan_siswa   = $this->input->post('ket_siswa');
+        $nama   = $this->input->post('nama');
+        $id_sekolah   = $this->input->post('id_sekolah');
+        $ulasan_guru    = $this->input->post('text_buku');
+        similar_text($ulasan_siswa, $ulasan_guru, $hasil);
+        $data = array(
+            'id_ulasan' => $id_ulasan,
+            'nama' => $nama,
+            'ulasan_siswa' => $ulasan_siswa,
+            'ulasan_guru' => $ulasan_guru,
+            'id_sekolah' => $id_sekolah,
+            'hasil' => $hasil
+        );
 
-            $insert =   $this->curl->simple_post($this->API3,$data);
-            // var_dump($insert);
-            // exit;
-      if($insert){
-          echo"berhasil";   
-          redirect('AdminClient/detail');
-          
+        $insert =   $this->curl->simple_post($this->API3, $data);
+        // var_dump($insert);
+        // exit;
+        if ($insert) {
+            echo "berhasil";
+            redirect('AdminClient/detail');
         } else {
-            echo"gagal";
+            echo "gagal";
         }
         redirect('AdminClient/detail');
     }
@@ -232,7 +241,7 @@ class AdminClient extends CI_Controller
             'id_sekolah'         => $this->input->post('id_sekolah'),
             'nama_buku'         => $this->input->post('nama_buku'),
             'diskripsi'         => $this->input->post('diskripsi'),
-          );
+        );
         // var_dump($data);
         // exit;
         $insert = $this->curl->simple_post($this->API, $data);
@@ -247,19 +256,19 @@ class AdminClient extends CI_Controller
 
 
     public function nilai()
-    {      
-            $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
-            $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3,$params));
-            $data['kategori'] = json_decode($this->curl->simple_get($this->API6,$params));
-            $data['title'] = "Detail Ulasan";
-            $this->load->view('admin/adminbar');
-            $this->load->view('admin/nilai', $data, False);
+    {
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API3, $params));
+        $data['kategori'] = json_decode($this->curl->simple_get($this->API6, $params));
+        $data['title'] = "Detail Ulasan";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/nilai', $data, False);
     }
     public function kategori_nilai()
     {
         // $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
         $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
-        $data['kategori'] = json_decode($this->curl->simple_get($this->API6,$params));
+        $data['kategori'] = json_decode($this->curl->simple_get($this->API6, $params));
         $data['title'] = "Detail Ulasan";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/kategori_nilai', $data, False);
@@ -270,45 +279,45 @@ class AdminClient extends CI_Controller
         $data['kategori'] = json_decode($this->curl->simple_get($this->API6));
         $data['count'] = $this->input->post('count');
         $data['title'] = "Edit Data Sekolah";
-          $this->load->view('admin/adminbar');
-          $this->load->view('admin/post/kategori', $data);
-      }
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/post/kategori', $data);
+    }
 
-      public function post_process_kategori()
-      {
+    public function post_process_kategori()
+    {
         $count = $this->input->post('count');
-        
-        for ($i=0; $i < $count; $i++) { 
-          $data = array(
-            'id_sekolah'         => $this->input->post('id_sekolah')[$i],
-            'grade'         => $this->input->post('grade')[$i],
-            'start'         => $this->input->post('start')[$i],
-            'end'         => $this->input->post('end')[$i],
-           
+
+        for ($i = 0; $i < $count; $i++) {
+            $data = array(
+                'id_sekolah'         => $this->input->post('id_sekolah')[$i],
+                'grade'         => $this->input->post('grade')[$i],
+                'start'         => $this->input->post('start')[$i],
+                'end'         => $this->input->post('end')[$i],
+
             );
             // var_dump($data);
             // exit;
             $insert = $this->curl->simple_post($this->API6, $data);
         }
-          if ($insert) {
+        if ($insert) {
             $this->session->set_flashdata('result', '');
-    
+
             redirect('AdminClient/kategori_nilai', 'refresh');
-          } else {
+        } else {
             $this->session->set_flashdata('result', '');
-          }
-          redirect('AdminClient/kategori_nilai', 'refresh');
         }
-  
+        redirect('AdminClient/kategori_nilai', 'refresh');
+    }
+
 
     public function put_kategori()
     {
-        $params = array('id_kategori'=>$this->uri->segment(3));
-        $data['kategori'] = json_decode($this->curl->simple_get($this->API6,$params));
+        $params = array('id_kategori' => $this->uri->segment(3));
+        $data['kategori'] = json_decode($this->curl->simple_get($this->API6, $params));
         $data['title'] = "Edit Data Sekolah";
-          $this->load->view('admin/adminbar');
-          $this->load->view('admin/put/kategori', $data);
-      }
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/put/kategori', $data);
+    }
     public function kategori_process()
     {
         $data = array(
@@ -317,21 +326,21 @@ class AdminClient extends CI_Controller
             'grade'         => $this->input->post('grade'),
             'start'         => $this->input->post('start'),
             'end'         => $this->input->post('end'),
-         
+
         );
         $update =  $this->curl->simple_put($this->API6, $data, array(CURLOPT_BUFFERSIZE => 10));
 
         if ($update) {
-          echo"berhasil";
-          $this->session->set_flashdata('result', 'Update Data User Berhasil');
+            echo "berhasil";
+            $this->session->set_flashdata('result', 'Update Data User Berhasil');
         } else {
             $this->session->set_flashdata('result', 'Update Data User Gagal');
-          }
+        }
         // print_r($update);
         // exit;
         redirect('AdminClient/kategori_nilai');
     }
-    
+
     public function delete_kategori()
     {
         $params = array('id_kategori' =>  $this->uri->segment(3));

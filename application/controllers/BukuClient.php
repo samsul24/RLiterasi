@@ -94,8 +94,9 @@ class BukuClient extends CI_Controller
   {
     $pdf_file = $_FILES['pdf_file']['name'];
     $cover = $_FILES['cover']['name'];
-
-    if ($pdf_file != ''  || $cover != '') {
+    $nama_buku     = $this->input->post('nama_buku');
+    $diskripsi     = $this->input->post('diskripsi');
+    if ($pdf_file != ''  || $cover != '' || $nama_buku != '' ||$diskripsi != '') {
       $config['upload_path'] = 'file_buku';
       $config['allowed_types'] = 'pdf';
 
@@ -131,7 +132,7 @@ class BukuClient extends CI_Controller
         'id_sekolah'    => $this->input->post('id_sekolah'),
         'nama_buku'     => $this->input->post('nama_buku'),
         'diskripsi'     => $this->input->post('diskripsi'),
-        'cover'         => 'cover/' .$cover,
+        'cover'         => $cover,
         'pdf_file'      => $pdf_file,
       );
 

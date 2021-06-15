@@ -51,7 +51,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class='card-header' style="margin-left:-20px;">
-                  <a class='btn btn-primary' href="<?php echo site_url(); ?>guruclient/post/">
+                  <a class='btn btn-primary' href="<?php echo site_url(); ?>BukuBebasClient/post_buku/">
                     <i class="fa fa-plus"></i>
                     <span>
                       Tambah
@@ -81,7 +81,7 @@
                     <tr>
             
                         <td><?php echo $i++; ?></td>
-                        <td><img src="<?php echo base_url('file_buku/bebas/' . $rows->cover) ?>" width="90" hight="120" ></img></td>
+                        <td><img src="<?php echo base_url('file_buku/cover/' . $rows->cover) ?>" width="90" hight="120" ></img></td>
                         <td><iframe src="<?php echo base_url('file_buku/bebas/' . $rows->pdf_file) ?>" width="90" hight="120" ></iframe></td>
                         <td><?php echo $rows->nama_buku; ?></td>
                         <td><?php echo $rows->diskripsi; ?></td>

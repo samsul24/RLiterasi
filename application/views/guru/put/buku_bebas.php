@@ -63,6 +63,7 @@
                             <label for="pdf_file">File</label>
                                 <div style="background : black; width: 100px; height: 130px;">
                                 <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="pdf_file" value="<?php echo $rows->pdf_file; ?>">
+								                <input type="hidden" name="old_pdf_file" value="<?php echo $rows->pdf_file; ?>">
                                 </div>
                                 <div class="invalid-feedback">
                                 <?php echo form_error('pdf_file') ?>
@@ -72,6 +73,7 @@
                             <label for="cover">Cover</label>
                                 <div style="background : black; width: 100px; height: 130px;">
                                 <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="cover" value="<?php echo $rows->cover; ?>" >
+								                <input type="hidden" name="old_cover" value="<?php echo $rows->cover; ?>">
                                 </div>
                                 <div class="invalid-feedback">
                                 <?php echo form_error('cover') ?>

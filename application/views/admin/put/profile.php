@@ -69,6 +69,10 @@
                   <input type="hidden" name="id_user_role" class="form-control" placeholder="surname" id="id_user_role" value="<?php echo $rows->id_user_role; ?>" required readonly>
                 </div>
 
+                <div class="hidden">
+                  <label for="id_sekolah" class="labels"></label>
+                  <input type="hidden" name="id_sekolah" class="form-control" placeholder="Sekolah" id="id_sekolah" value="<?php echo $rows->id_sekolah; ?>" required readonly>
+                </div>
 
                 
                 <div class="card-body">
@@ -118,17 +122,26 @@
                   </select>
                         </div>
                     </div>
+              <div class="col-md-7">
+                <label for="username" class="labels"></label>
+                <input type="hidden" name="username" class="form-control" placeholder="username" id="username" value="<?php echo $rows->username; ?>" required readonly>
+              </div>
+              <div class="col-md-7">
+                <label for="password" class="labels"></label>
+                <input type="hidden" name="password" class="form-control" placeholder="password" id="password" value="<?php echo $rows->password; ?>" required readonly>
+              </div>
                     <div class=" form-group row">
                         <div class="col-sm-2">Foto</div>
                         <div class="col-sm-10">
                             <div class="row">
                                 <div class="col-sm-3">
-        								<input type="hidden" name="old_foto" value="<?php echo $rows->foto; ?>">
                                     <img src="<?= base_url('assets/admin/img/') . $rows->foto ?>"class="img-thumbnail">
                                 <div class="col-sm-9">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="foto" name="foto" value="<?php echo $rows->foto; ?>">
+								        <input type="hidden" name="old_foto" value="<?php echo $rows->foto; ?>">
                                         <label class="custom-file-label" for="foto"></label>
+                                        
                                         <div class="invalid-feedback">
                                 <?php echo form_error('foto') ?>
                                 </div>
@@ -143,7 +156,7 @@
                         <div class="col-sm-10">
                             <button type="submit" class=" btn btn-primary"><i
                                     class="fas fa-save"></i>&nbsp;Simpan</button>
-                            <a href="<?php echo base_url("admin/profile"); ?>" class="btn btn-primary"> <i
+                            <a href="<?php echo base_url("AdminClient/profile"); ?>" class="btn btn-primary"> <i
                                     class="fas fa-arrow-left"></i>&nbsp;Kembali </a>
                         </div>
                     </div>

@@ -57,6 +57,7 @@ class Splitter extends CI_Controller
 					'id_sekolah'			=> $this->input->post('id_sekolah'),
 					'pdf_file'         => str_replace($path, '', $new_filename),
 					'deskripsi'			=> $convet_pdf->getText(),
+					'nama_buku'			=> $this->input->post('nama_buku'),
 				);
 
 				$this->curl->simple_post($this->API1, $data);

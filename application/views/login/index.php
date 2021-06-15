@@ -116,7 +116,7 @@
                         <p class="text-center">
                         <a  href="<?php base_url() ?>Register/forgotPassword">reset password?</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a  href="<?php base_url() ?>Register">create account</a>
+                            <a  href="<?php base_url() ?>Register/awal">create account</a>
                         </p>
                             <hr>
                             <!-- <center><p>OR</p></center> -->

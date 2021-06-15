@@ -163,7 +163,7 @@
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
               <label for="floatingSelect">Judul</label>
-              <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul Ulasan" required data-error="Mohon masukan judul ulasan">
+              <input type="text" id="nama_buku" name="nama_buku" class="form-control" placeholder="Judul Ulasan" value="<?= $rows->nama_buku ?>" required data-error="Mohon masukan judul ulasan" readonly>
               <div class="help-block with-errors"></div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
