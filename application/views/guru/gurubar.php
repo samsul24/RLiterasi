@@ -145,10 +145,10 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url(); ?>laporanexcel" class="nav-link">
+                <!-- <a href="<?php echo site_url(); ?>laporanexcel" class="nav-link">
                   <i class="fas fa-file-excel"></i>
                   <p>Laporan Excel</p>
-                </a>
+                </a> -->
               </li>
             </ul>
             </li>

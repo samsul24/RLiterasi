@@ -47,6 +47,8 @@ class Login extends CI_Controller
           'alamat_sekolah' => $rows->alamat_sekolah,
           'website' => $rows->website,
           'kabupaten' => $rows->kabupaten,
+          'kecamatan' => $rows->kecamatan,
+          'kelurahan' => $rows->kelurahan,
           'is_active' => $rows->is_active,
         );
         $this->session->set_userdata($session_data);

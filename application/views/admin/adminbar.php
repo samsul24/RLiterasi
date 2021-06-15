@@ -145,9 +145,9 @@
                 <li class="submenu-item ">
                   <a href="<?php echo site_url(); ?>LaporanPdf">Laporan PDF</a>
                 </li>
-                <li class="submenu-item ">
+                <!-- <li class="submenu-item ">
                   <a href="<?php echo site_url(); ?>LaporanExcel">Laporan Excel</a>
-                </li>
+                </li> -->
               </ul>
             </li>
             <li class="sidebar-item active ">

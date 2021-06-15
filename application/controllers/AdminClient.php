@@ -53,7 +53,7 @@ class AdminClient extends CI_Controller
     public function put_process_profile()
     {
         $foto = $_FILES['foto']['name'];
-        if ($foto != '' ) {
+        if ($foto != '') {
             $config['upload_path'] = 'assets/admin/img';
             $config['allowed_types'] = 'jpg|png';
             $this->load->library('upload', $config, 'foto_upload');
