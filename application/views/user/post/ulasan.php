@@ -317,40 +317,43 @@
   <script src="<?php echo base_url(); ?>vendors/counterup/waypoints.min.js"></script>
   <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
   <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
-  <!-- <script>
-    document.getElementById('timer').innerHTML =
-      0 + ":" + 59;
+  <script>
+   document.getElementById('timer').innerHTML =
+      3 + ":" + 00;
     startTimer();
 
     function startTimer() {
       var presentTime = document.getElementById('timer').innerHTML;
-      var timeArray = presentTime.split(/[:]+/);
+      var timeArray = presentTime.split(':');
       var m = timeArray[0];
       var s = checkSecond((timeArray[1] - 1));
       if (s == 59) {
         m = m - 1
       }
+      if (m < 0) {
+      clearTimeout(timerRef)
+      alert("Time is up!")
+      return ;
+      // window.location.href = "<?php echo site_url(); ?>SiswaClient/buku/"
+      }
+      //if(m<0){alert('timer completed')}
       document.getElementById('timer').innerHTML =
         m + ":" + s;
-      setTimeout(startTimer, 1000);
+      var timerRef= setTimeout(startTimer, 1000);
     }
 
     function checkSecond(sec) {
       if (sec < 10 && sec >= 0) {
         sec = "0" + sec
-      }; 
+      }; // add zero in front of numbers < 10
       if (sec < 0) {
-        setTimeout(() => {
-          $("#resultModal").modal("show");
-        }, 500);
-        // window.location.href = "<?php echo site_url(); ?>siswaclient/gagal/";
+        sec = "59";
       }
       return sec;
+      // return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
+        
     }
-    $('#resultModal').on('hide.bs.modal', function(e) {
-      window.location.href = "<?php echo site_url(); ?>SiswaClient/buku/";
-    })
-  </script> -->
+  </script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s'); ?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">
@@ -104,7 +104,7 @@
             <h2>Literasi <br class="title_br" /></h2>
             <h6><?= $this->session->userdata('nama_sekolah') ?></h6>
           </div>
-          
+
           <?php $i = 1;
           foreach ($buku as $rows) : ?>
             <div class="project_left_side">
@@ -136,7 +136,7 @@
             </div>
         </div>
         <div class="col-md-9">
-        <!-- <object
+          <!-- <object
       type="application/pdf"
       data=<?php echo base_url('file_buku/' . $rows->pdf_file) ?>
       width="600"
@@ -261,23 +261,28 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
   <script src="<?php echo base_url(); ?>css/js/gmaps.min.js"></script>
 
-  <!-- <script>
+  <script>
     document.getElementById('timer').innerHTML =
-      0 + ":" + 59;
+      2 + ":" + 00;
     startTimer();
 
     function startTimer() {
       var presentTime = document.getElementById('timer').innerHTML;
-      var timeArray = presentTime.split(/[:]+/);
+      var timeArray = presentTime.split(':');
       var m = timeArray[0];
       var s = checkSecond((timeArray[1] - 1));
       if (s == 59) {
         m = m - 1
       }
+      if (m < 0) {
+      clearTimeout(timerRef)
+      alert("Time is up!")
+      return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
+      }
       //if(m<0){alert('timer completed')}
       document.getElementById('timer').innerHTML =
         m + ":" + s;
-      setTimeout(startTimer, 1000);
+      var timerRef= setTimeout(startTimer, 1000);
     }
 
     function checkSecond(sec) {
@@ -285,11 +290,15 @@
         sec = "0" + sec
       }; // add zero in front of numbers < 10
       if (sec < 0) {
-        window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
+        sec = "59";
       }
       return sec;
+      // return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
+        
     }
-  </script> -->
+
+
+  </script>
 
   <script src="<?php echo base_url(); ?>css/js/theme.js"></script>
 </body>

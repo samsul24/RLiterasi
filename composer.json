@@ -12,10 +12,10 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
+		"dompdf/dompdf": "^0.8.5",
 		"setasign/fpdf": "1.8.*",
         "setasign/fpdi": "^2.0",
-		"smalot/pdfparser": "*",
-		"dompdf/dompdf": "^0.8.5"
+		"smalot/pdfparser": "*"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
