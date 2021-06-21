@@ -1,4 +1,3 @@
-
 <?php if ($this->session->userdata('id_user_role') != 3) {
   redirect('login');
 };
@@ -57,15 +56,15 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a> 
-         <a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     
-         <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s'); ?></a>
+          <a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
 
         </div>
         <!--  <div class="pull-right">
@@ -99,7 +98,7 @@
               <li><a href="<?php echo site_url(); ?>GuruClient/ulasan">Ulasan</a></li>
               <!-- <li><a href="<?php echo site_url(); ?>GuruClient/buku1">Buku</a></li> -->
               <li><a href="<?php echo site_url(); ?>GuruClient/profile">Profile</a></li>
-              <li><a href="<?php echo site_url(); ?>GuruClient/profile_guru/<?= $this->session->userdata('id_user');?>">Guru</a></li>
+              <li><a href="<?php echo site_url(); ?>GuruClient/profile_guru/<?= $this->session->userdata('id_user'); ?>">Guru</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
             </ul>
@@ -119,7 +118,7 @@
           <img src="<?php echo base_url(); ?>img/home-slider/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
           <!-- LAYERS -->
           <div class="slider_text_box2">
-            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['70','70','70','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Literasi  <br><?= $this->session->userdata('nama_sekolah') ?><br></div>
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['70','70','70','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Literasi <br><?= $this->session->userdata('nama_sekolah') ?><br></div>
 
             <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><br>Kota <?= $this->session->userdata('kabupaten') ?></div>
 
@@ -153,7 +152,7 @@
               <h4>Membaca</h4>
             </a>
             <p>“Membacalah anda akan mengenal dunia lebih dekat. Menulislah anda akan dikenal dekat oleh dunia”
-― Madi Ar-Ranim</p>
+              ― Madi Ar-Ranim</p>
 
           </div>
         </div>
@@ -167,7 +166,7 @@
               <h4>Buku</h4>
             </a>
             <p>“Siapapun yang terhibur dengan buku-buku, kebahagiaan tak akan sirna dari dirinya.”
-― Ali bin Abi Thalib</p>
+              ― Ali bin Abi Thalib</p>
 
           </div>
         </div>
@@ -181,7 +180,7 @@
               <h4>Omnilegent</h4>
             </a>
             <p>“Hidup tanpa buku seperti ruang gelap tak berlampu”
-― Titon Rahmawan </p>
+              ― Titon Rahmawan </p>
 
           </div>
         </div>
@@ -206,7 +205,7 @@
             <a href="#">
               <h4>Budaya Literasi</h4>
             </a>“Penguatan budaya literasi adalah kunci memajukan negeri ini.”
-― Lenang Manggala</p>
+            ― Lenang Manggala</p>
           </div>
         </div>
         <div class="service_item">
@@ -219,7 +218,7 @@
               <h4>Epeolatry </h4>
             </a>
             <p>“Percayalah, buku yang baik entah bagaimana, pasti akan menemukan pembacanya.”
-― Titon Rahmawan <br></p>
+              ― Titon Rahmawan <br></p>
 
           </div>
         </div>
@@ -253,7 +252,7 @@
             </div>
             <ul class="our_project_filter">
               <li class="active" data-filter="*"><a href="#">All</a></li>
-              <li data-filter=".building"><a href="#">Sejarah Indonesia</a></li>
+              <li data-filter=".building"><a href="#">Novel</a></li>
               <li data-filter=".interior"><a href="#">Komik</a></li>
               <li data-filter=".design"><a href="#">Pusat Dunia</a></li>
               <li data-filter=".isolation"><a href="#">Ilmu Komunikasi</a></li>
@@ -264,91 +263,22 @@
         </div>
         <div class="col-md-9">
           <div class="our_project_details">
-            <div class="project_item building isolation tiling">
-              <img src="img/project/project-2.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Sejarah Indonesia</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
+            <?php foreach ($buku_bebas as $rows) : ?>
+              <div class="project_item building">
+                <img src="<?php echo base_url('file_buku/cover/' .  $rows->cover) ?>" width="150" hight="200" alt=""></img>
+                <div class="project_hover">
+                  <div class="project_hover_inner">
+                    <div class="project_hover_content">
+                      <a href="#">
+                        <h4><?php echo $rows->nama_buku; ?></h4>
+                      </a>
+                      <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                      <a class="view_btn" href="<?php echo site_url(); ?>GuruClient/viewbuku/<?= $rows->id_buku_bebas; ?>">View Project</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="project_item building isolation plumbing">
-              <img src="img/project/project-2.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Komik</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project_item building interior design">
-              <img src="img/project/project-3.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Pusat Dunia </h4>
-                    </a>
-                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="project_item interior isolation plumbing">
-              <img src="img/project/project-4.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Ilmu Komunikasi</h4>
-                    </a>
-                    <!--   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project_item interior design tiling">
-              <img src="img/project/project-4.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>Sains</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div> 
-                </div>
-              </div>
-            </div>
-            <div class="project_item design plumbing tiling">
-              <img src="img/project/project-3.jpg" alt="">
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4>History</h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="#">View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -362,11 +292,11 @@
       <div class="work_content">
         <div class="main_c_title">
           <h2>Membaca<br class="title_br" />dengan Kami</h2>
-          <h6>Mari Meningkatkan Minat Baca Di Indonesia</h6>
+          <h6>Mari MeningkatkaN Minat Baca Di Indonesia</h6>
         </div>
-        <p>Literasi adalah kemampuan seseorang dalam mengolah 
-              dan memahami informasi saat melakukan proses membaca dan menulis.</p>
-        <a class="get_bg_btn" href="#">Lihat Profile</a>
+        <p>Literasi adalah kemampuan seseorang dalam mengolah
+          dan memahami informasi saat melakukan proses membaca dan menulis.</p>
+        <a class="get_bg_btn" href="<?php echo site_url(); ?>GuruClient/profile">Lihat Profile</a>
       </div>
     </div>
   </section>
@@ -383,29 +313,58 @@
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-archive" aria-hidden="true"></i>
-            <h4 class="counter">245</h4>
+            <h4 class="counter">
+              <?php
+              $this->db->where('buku.id_sekolah', $this->session->userdata('id_sekolah'));
+              // $this->db->where('is_active', 'aktif');
+              $buku = $this->db->get('buku')->num_rows();
+              print($buku);
+              ?>
+
+            </h4>
             <h5>Total Buku</h5>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-building-o" aria-hidden="true"></i>
-            <h4 class="counter">535</h4>
+            <h4 class="counter">
+              <?php
+              $this->db->where('user.id_sekolah', $this->session->userdata('id_sekolah'));
+              $this->db->where('id_user_role', 4);
+              $user = $this->db->get('user')->num_rows();
+              print($user);
+              ?>
+
+            </h4>
             <h5>Total Siswa</h5>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-users" aria-hidden="true"></i>
-            <h4 class="counter">288</h4>
+            <h4 class="counter">
+              <?php
+              $this->db->where('user.id_sekolah', $this->session->userdata('id_sekolah'));
+              $this->db->where('id_user_role', 3);
+              $user = $this->db->get('user')->num_rows();
+              print($user);
+              ?>
+            </h4>
             <h5>Total Guru</h5>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-smile-o" aria-hidden="true"></i>
-            <h4 class="counter">750</h4>
-            <h5>Koleksi</h5>
+            <h4 class="counter">
+              <?php
+              $this->db->where('ulasan.id_sekolah', $this->session->userdata('id_sekolah'));
+              $ulasan = $this->db->get('ulasan')->num_rows();
+              print($ulasan);
+              ?>
+            </h4>
+            <h5>Ulasan</h5>
           </div>
         </div>
       </div>
@@ -414,14 +373,15 @@
 
 
   <!--================Map Area =================-->
-  <div src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5125777338626!2d112.61432889942874!3d-7.945863381324911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sState%20Polytechnic%20of%20Malang!5e0!3m2!1sen!2sid!4v1617527585670!5m2!1sen!2sid" id="mapBox" class="mapBox row m0" data-lat="-7.9465344" data-lon="112.6138529" data-zoom="10" data-marker="img/map-marker.png" data-info="Malang, uttara, Sector 10, Road 22" data-mlat="40.7112969" data-mlon="-74.1393991"></div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.583650189403!2d111.53013701422037!3d-7.727739178722517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bce811e2a437%3A0x5c12acad7e1e9766!2sSMAN%201%20Geger!5e0!3m2!1sid!2sid!4v1624185744022!5m2!1sid!2sid" width="1460" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5044441073137!2d112.61347971422283!3d-7.946708281364234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1624123656523!5m2!1sid!2sid" width="1510" height="450" style="border:0;" allowfullscreen="" loading="lazy" data-info="Malang, uttara, Sector 10, Road 22" data-mlat="40.7112969"></iframe> -->
   <footer class="footer_area">
     <div class="footer_widgets_area">
       <div class="container">
         <div class="row footer_widgets_inner">
           <div class="col-md-3 col-sm-6">
             <aside class="f_widget about_widget">
-              <!-- <img src="img/footer-logo.png"> -->
+              <img src="<?php echo base_url(); ?>img/icon/logo1.png" width="250px" height="100px" style="margin-top:-30px">
               <p><?= $this->session->userdata('visi') ?></p>
               <ul>
                 <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
@@ -446,7 +406,7 @@
                     </a>
                   </div>
                 </div>
-               
+
               </div>
             </aside>
           </div>
@@ -539,8 +499,4 @@
   <script src="<?php echo base_url(); ?>css/js/theme.js"></script>
 </body>
 
-
-
-
-
-
+</html>

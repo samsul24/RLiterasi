@@ -1,3 +1,7 @@
+<?php if ($this->session->userdata('id_user_role') != 4) {
+  redirect('login');
+};
+?>
 <!-- <div class="carousel-item-a intro-item bg-image" style="background-image: url(assets/img/background2.jpg)"> -->
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +83,7 @@
               <!-- <li><a href="projectBar.php">Project</a></li> -->
               <!-- <li><a href="AboutUs.php">About Us</a></li> -->
               <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user'); ?>">Profile</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
               <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
@@ -136,13 +141,7 @@
             </div>
         </div>
         <div class="col-md-9">
-          <!-- <object
-      type="application/pdf"
-      data=<?php echo base_url('file_buku/' . $rows->pdf_file) ?>
-      width="600"
-      height="700"
-    > -->
-          <iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="100%" height="800"></iframe>
+          <iframe src="<?= base_url('file_buku/' . $rows->pdf_file) ?>" width="100%" height="800"></iframe>
         </div>
       <?php endforeach; ?>
       </div>
@@ -275,14 +274,14 @@
         m = m - 1
       }
       if (m < 0) {
-      clearTimeout(timerRef)
-      alert("Time is up!")
-      return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
+        clearTimeout(timerRef)
+        alert("Time is up!")
+        return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
       }
       //if(m<0){alert('timer completed')}
       document.getElementById('timer').innerHTML =
         m + ":" + s;
-      var timerRef= setTimeout(startTimer, 1000);
+      var timerRef = setTimeout(startTimer, 1000);
     }
 
     function checkSecond(sec) {
@@ -294,10 +293,8 @@
       }
       return sec;
       // return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
-        
+
     }
-
-
   </script>
 
   <script src="<?php echo base_url(); ?>css/js/theme.js"></script>

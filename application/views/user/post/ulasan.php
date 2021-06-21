@@ -50,7 +50,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s'); ?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">
@@ -83,6 +83,7 @@
               <!-- <li><a href="projectBar.php">Project</a></li> -->
               <!-- <li><a href="AboutUs.php">About Us</a></li> -->
               <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user'); ?>">Profile</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li>
               <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
@@ -112,72 +113,55 @@
         <div align="right"><strong>Time Left :</strong>
           <span class="badge badge-primary" style="color: #fff;background-color: #007bff;" id="timer"></span>
         </div>
-        <div class="col-xs-6">
-          <h4><strong>Data Literasi</strong></h4>
-          <hr>
-          <?php $i = 1;
-          foreach ($buku as $rows) : ?>
-            <div>
-              <div class="form-group">
-                <label>ID Buku</label>
-                <input type="number" value="<?= $rows->id_split; ?>" class="form-control" readonly>
-              </div>
-              <div class="form-group">
-                <label>Buku</label>
-              </div>
-                <iframe src="<?php echo base_url('file_buku/' . $rows->pdf_file) ?>" width="300" height="300"></iframe>
-              <!-- <div class="form-group">
-                <label>Deskripsi</label>
-                <textarea class="form-control" rows="3" readonly>
-                  <?= $rows->diskripsi; ?>
-                </textarea>
-              </div> -->
-            </div>
+        <?php $i = 1;
+        foreach ($buku as $rows) : ?>
+          <div>
+
           <?php endforeach; ?>
-        </div>
-        <div class="col-xs-6">
-          <form id="contactForm" method="POST" action="<?= base_url() ?>SiswaClient/ulasan_process/" class="contact-form">
-            <h4><strong>Ulasan anda</strong></h4>
-            <hr>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="hidden" id="id_buku" name="id_buku" class="form-control" placeholder="Name" value="<?= $rows->id_split; ?>" readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="hidden" id="text_buku" name="text_buku" class="form-control" placeholder="Name" value="<?= $rows->deskripsi; ?>"readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <input type="hidden" id="id_sekolah" name="id_sekolah" class="form-control" placeholder="Name" value="<?= $this->session->userdata('id_sekolah') ?>" required data-error="Please enter your name" readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <label for="floatingSelect">Tanggal</label>
-              <input type="text" class="form-control" name="tanggal" placeholder="Tanggal ulasan" value="<?php echo date('Y-m-d / H:i:s');?>" required data-error="Please enter your message subject" readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <label for="floatingSelect">Nama</label>
-              <input type="text" id="nama" name="nama" class="form-control" placeholder="Name" value="<?= $this->session->userdata('nama') ?>" required data-error="Please enter your name" readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <label for="floatingSelect">Judul</label>
-              <input type="text" id="nama_buku" name="nama_buku" class="form-control" placeholder="Judul Ulasan" value="<?= $rows->nama_buku ?>" required data-error="Mohon masukan judul ulasan" readonly>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <label for="floatingSelect">Ulasan</label>
-              <textarea id="ket_siswa" name="ket_siswa" rows="7" placeholder="Ulasan" class="form-control" required data-error="Mohon tulis ulasan anda"></textarea>
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-              <button type="submit" id="submit" class="btn btn-primary">Send Message</button>
-              <div id="msgSubmit" class="h3 text-center hidden"></div>
-              <div class="clearfix"></div>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div class="col-xs-6">
+            <form id="contactForm" method="POST" action="<?= base_url() ?>SiswaClient/ulasan_process/" class="contact-form">
+              <h4><strong>Ulasan anda</strong></h4>
+              <hr>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <input type="hidden" id="id_buku" name="id_buku" class="form-control" placeholder="Name" value="<?= $rows->id_split; ?>" readonly>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <input type="hidden" id="text_buku" name="text_buku" class="form-control" placeholder="Name" value="<?= $rows->deskripsi; ?>" readonly>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <input type="hidden" id="id_sekolah" name="id_sekolah" class="form-control" placeholder="Name" value="<?= $this->session->userdata('id_sekolah') ?>" required data-error="Please enter your name" readonly>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <label for="floatingSelect">Tanggal</label>
+                <input type="text" class="form-control" name="tanggal" placeholder="Tanggal ulasan" value="<?php echo date('Y-m-d / H:i:s'); ?>" required data-error="Please enter your message subject" readonly>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <label for="floatingSelect">Nama</label>
+                <input type="text" id="nama" name="nama" class="form-control" placeholder="Name" value="<?= $this->session->userdata('nama') ?>" required data-error="Please enter your name" readonly>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <label for="floatingSelect">Judul</label>
+                <input type="text" id="nama_buku" name="nama_buku" class="form-control" placeholder="Judul Ulasan" value="<?= $rows->nama_buku ?>" required data-error="Mohon masukan judul ulasan" readonly>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <label for="floatingSelect">Ulasan</label>
+                <textarea id="ket_siswa" name="ket_siswa" rows="7" placeholder="Ulasan" class="form-control" required data-error="Mohon tulis ulasan anda" style="margin: 0px -131px 0px 0px; width: 300px; height: 153px;"></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <button type="submit" id="submit" class="btn btn-primary">Send Message</button>
+                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                <div class="clearfix"></div>
+              </div>
+            </form>
+          </div>
       </div>
     </div>
   </section>
@@ -318,7 +302,7 @@
   <script src="<?php echo base_url(); ?>vendors/counterup/jquery.counterup.min.js"></script>
   <script src="<?php echo base_url(); ?>vendors/flex-slider/jquery.flexslider-min.js"></script>
   <script>
-   document.getElementById('timer').innerHTML =
+    document.getElementById('timer').innerHTML =
       3 + ":" + 00;
     startTimer();
 
@@ -331,15 +315,15 @@
         m = m - 1
       }
       if (m < 0) {
-      clearTimeout(timerRef)
-      alert("Time is up!")
-      return ;
-      // window.location.href = "<?php echo site_url(); ?>SiswaClient/buku/"
+        clearTimeout(timerRef)
+        alert("Time is up!")
+        return;
+        // window.location.href = "<?php echo site_url(); ?>SiswaClient/buku/"
       }
       //if(m<0){alert('timer completed')}
       document.getElementById('timer').innerHTML =
         m + ":" + s;
-      var timerRef= setTimeout(startTimer, 1000);
+      var timerRef = setTimeout(startTimer, 1000);
     }
 
     function checkSecond(sec) {
@@ -351,7 +335,7 @@
       }
       return sec;
       // return window.location.href = "<?php echo site_url(); ?>SiswaClient/ulasan/";
-        
+
     }
   </script>
 </body>

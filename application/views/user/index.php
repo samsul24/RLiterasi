@@ -57,7 +57,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s'); ?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">
@@ -74,13 +74,13 @@
         <nav class="navbar navbar-default">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
+            <img src="<?php echo base_url(); ?>img/icon/logo.png" width="200px" height="80px" style="margin:hidden"> <a class="navbar-brand" href="#"></a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <!-- <a class="navbar-brand" href="index.php"><img src="img/logo.png"></a> -->
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -89,16 +89,16 @@
               <li><a href="<?php echo site_url(); ?>SiswaClient">Home</a></li>
               <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
               <!-- <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">Logout</a></li> -->
-             
-              <?php if (empty($this->session->userdata('id_user'))) {?>
-                
-                                <li><a href="<?php echo site_url(); ?>Login">Login</a></li>
-                                <?php }else{?>
-                                <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user');?>">Profile</a></li>
-                               <li><a class="nav-link active"  href="<?php echo site_url(); ?>Login/out">LogOut</a></li>
-                            <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
 
-                               <?php }?>
+              <?php if (empty($this->session->userdata('id_user'))) { ?>
+
+                <li><a href="<?php echo site_url(); ?>Login">Login</a></li>
+              <?php } else { ?>
+                <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user'); ?>">Profile</a></li>
+                <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">LogOut</a></li>
+                <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
+
+              <?php } ?>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
 
             </ul>
@@ -122,7 +122,7 @@
 
             <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><br>Kota <?= $this->session->userdata('kabupaten') ?></div>
 
-            <div class="tp-caption" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['140','140','140','130','90']" data-fontsize="['28','28','28','28']" data-lineheight="['38','38','38','38']" data-width="['730']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><a class="slider_btn" href="skafoldBar.php"> Do-literacy </a></div>
+            <div class="tp-caption" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['140','140','140','130','90']" data-fontsize="['28','28','28','28']" data-lineheight="['38','38','38','38']" data-width="['730']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><a class="slider_btn" href="<?php echo site_url(); ?>SiswaClient/literasi/"> Do-literacy </a></div>
           </div>
         </li>
         <li data-index="rs-2973" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
@@ -130,7 +130,7 @@
           <img src="<?php echo base_url(); ?>img/home-slider/slider-2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
           <!-- LAYERS -->
           <div class="slider_text_box2">
-            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['80','80','60','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">>Welcome to Literasi <br><?= $this->session->userdata('nama_sekolah') ?><br></div>
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['80','80','60','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Literasi <br><?= $this->session->userdata('nama_sekolah') ?><br></div>
 
             <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"><br>Kota <?= $this->session->userdata('kabupaten') ?></div>
 
@@ -185,7 +185,7 @@
       <div class="left_service_inner">
         <div class="service_item">
           <div class="service_item_inner">
-          <div class="service_icon">
+            <div class="service_icon">
               <img src="img/icon/book.png" alt="" style="width: 50px; height:50px;">
               <img src="img/icon/s-icon-hover-4.png" alt="">
             </div>
@@ -193,7 +193,7 @@
               <h4>Membaca</h4>
             </a>
             <p>“Membacalah anda akan mengenal dunia lebih dekat. Menulislah anda akan dikenal dekat oleh dunia”
-― Madi Ar-Ranim</p>
+              ― Madi Ar-Ranim</p>
 
           </div>
         </div>
@@ -207,7 +207,7 @@
               <h4>Buku</h4>
             </a>
             <p>“Siapapun yang terhibur dengan buku-buku, kebahagiaan tak akan sirna dari dirinya.”
-― Ali bin Abi Thalib</p>
+              ― Ali bin Abi Thalib</p>
 
           </div>
         </div>
@@ -221,7 +221,7 @@
               <h4>Omnilegent</h4>
             </a>
             <p>“Hidup tanpa buku seperti ruang gelap tak berlampu”
-― Titon Rahmawan </p>
+              ― Titon Rahmawan </p>
 
           </div>
         </div>
@@ -246,7 +246,7 @@
             <a href="#">
               <h4>Budaya Literasi</h4>
             </a>“Penguatan budaya literasi adalah kunci memajukan negeri ini.”
-― Lenang Manggala</p>
+            ― Lenang Manggala</p>
           </div>
         </div>
         <div class="service_item">
@@ -259,7 +259,7 @@
               <h4>Epeolatry </h4>
             </a>
             <p>“Percayalah, buku yang baik entah bagaimana, pasti akan menemukan pembacanya.”
-― Titon Rahmawan <br></p>
+              ― Titon Rahmawan <br></p>
 
           </div>
         </div>
@@ -304,22 +304,22 @@
         </div>
         <div class="col-md-9">
           <div class="our_project_details">
-      <?php foreach ($buku_bebas as $rows) : ?>
-            <div class="project_item building">
-            <img src="<?php echo base_url('file_buku/cover/' . $rows->cover) ?>" width="150" hight="200" alt="" ></img>
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4><?php echo $rows->nama_buku; ?></h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="<?php echo site_url(); ?>SiswaClient/buku">View Project</a>
+            <?php foreach ($buku_bebas as $rows) : ?>
+              <div class="project_item building ">
+                <img src="<?php echo base_url('file_buku/cover/' . $rows->cover) ?>" width="150" hight="200" alt=""></img>
+                <div class="project_hover">
+                  <div class="project_hover_inner">
+                    <div class="project_hover_content">
+                      <a href="#">
+                        <h4><?php echo $rows->nama_buku; ?></h4>
+                      </a>
+                      <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                      <a class="view_btn" href="<?php echo site_url(); ?>SiswaClient/buku">View Project</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-              <?php endforeach ; ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -353,52 +353,98 @@
       <div class="row counter_inner">
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
-            <i class="fa fa-archive" aria-hidden="true"></i>
-            <h4 class="counter">245</h4>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <h4 class="counter">
+              <?php
+              $this->db->where('buku.id_sekolah', $this->session->userdata('id_sekolah'));
+              // $this->db->where('is_active', 'aktif');
+              $buku = $this->db->get('buku')->num_rows();
+              print($buku);
+              ?>
+
+            </h4>
             <h5>Total Buku</h5>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-building-o" aria-hidden="true"></i>
-            <h4 class="counter">535</h4>
+            <h4 class="counter">
+              <?php
+              $this->db->where('user.id_sekolah', $this->session->userdata('id_sekolah'));
+              $this->db->where('id_user_role', 4);
+              $user = $this->db->get('user')->num_rows();
+              print($user);
+              ?>
+
+            </h4>
             <h5>Total Siswa</h5>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-users" aria-hidden="true"></i>
-            <h4 class="counter">288</h4>
+            <h4 class="counter">
+              <?php
+              $this->db->where('user.id_sekolah', $this->session->userdata('id_sekolah'));
+              $this->db->where('id_user_role', 3);
+              $user = $this->db->get('user')->num_rows();
+              print($user);
+              ?>
+            </h4>
             <h5>Total Guru</h5>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="counter_item">
             <i class="fa fa-smile-o" aria-hidden="true"></i>
-            <h4 class="counter">750</h4>
-            <h5>Koleksi</h5>
+            <h4 class="counter">
+              <?php
+              $this->db->where('ulasan.id_sekolah', $this->session->userdata('id_sekolah'));
+              $ulasan = $this->db->get('ulasan')->num_rows();
+              print($ulasan);
+              ?>
+            </h4>
+            <h5>Ulasan</h5>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <style>
+    .google-maps {
+      position: relative;
+      padding-bottom: 37%;
+      height: 0;
+      overflow: hidden;
+    }
 
-
+    .google-maps iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 500 !important;
+    }
+  </style>
+  <div class="google-maps">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.583650189403!2d111.53013701422037!3d-7.727739178722517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79bce811e2a437%3A0x5c12acad7e1e9766!2sSMAN%201%20Geger!5e0!3m2!1sid!2sid!4v1624185744022!5m2!1sid!2sid" width="1460" height="500" frameborder="0" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+  </div>
   <!--================Map Area =================-->
-  <div src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5125777338626!2d112.61432889942874!3d-7.945863381324911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sState%20Polytechnic%20of%20Malang!5e0!3m2!1sen!2sid!4v1617527585670!5m2!1sen!2sid" id="mapBox" class="mapBox row m0" data-lat="-7.9465344" data-lon="112.6138529" data-zoom="10" data-marker="img/map-marker.png" data-info="Malang, uttara, Sector 10, Road 22" data-mlat="40.7112969" data-mlon="-74.1393991"></div>
+  <!-- <div src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5044441073137!2d112.61347971422283!3d-7.946708281364234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1624123656523!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" data-info="Malang, uttara, Sector 10, Road 22" data-mlat="40.7112969" data-mlon="-74.1393991"></div> -->
   <footer class="footer_area">
     <div class="footer_widgets_area">
       <div class="container">
         <div class="row footer_widgets_inner">
           <div class="col-md-3 col-sm-6">
             <aside class="f_widget about_widget">
-              <!-- <img src="img/footer-logo.png"> -->
+              <img src="<?php echo base_url(); ?>img/icon/logo1.png" width="250px" height="100px" style="margin-top:-30px">
               <p><?= $this->session->userdata('visi') ?></p>
               <ul>
-                <li><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fas fa-facebook " aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fas fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fas fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fas fa-pinterest" aria-hidden="true"></i></a></li>
               </ul>
             </aside>
           </div>

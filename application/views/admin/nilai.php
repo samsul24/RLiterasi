@@ -81,7 +81,7 @@
                                         </td>
 
                                         <td>
-                                            <a href="<?php echo site_url(); ?>AdminClient/delete_nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-danger">
+                                            <a href="<?php echo site_url(); ?>AdminClient/delete_nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
                                                 <i class="fa fa-trash" aria-hidden="true">delete</i></a>
                                         </td>
                                     </tr>

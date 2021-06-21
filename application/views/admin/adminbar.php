@@ -130,11 +130,11 @@
 
 
             <li class="sidebar-title">Raise Support</li>
-            
-              <a href="<?php echo site_url(); ?>AdminClient/Profile" class="sidebar-link">
-                <i class="bi bi-person-bounding-box"></i>
-                <span>Profile</span>
-              </a>
+
+            <a href="<?php echo site_url(); ?>AdminClient/Profile" class="sidebar-link">
+              <i class="bi bi-person-bounding-box"></i>
+              <span>Profile</span>
+            </a>
 
             <li class="sidebar-item  has-sub">
               <a href="#" class="sidebar-link">
@@ -181,25 +181,25 @@
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown me-1">
                   <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-envelope bi-sub fs-4 text-gray-600"></i>
+                    <!-- <i class="bi bi-envelope bi-sub fs-4 text-gray-600"></i> -->
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                  <!-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                     <li>
                       <h6 class="dropdown-header">Mail</h6>
                     </li>
                     <li><a class="dropdown-item" href="#">No new mail</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="nav-item dropdown me-3">
                   <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-bell bi-sub fs-4 text-gray-600"></i>
+                    <!-- <i class="bi bi-bell bi-sub fs-4 text-gray-600"></i> -->
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                  <!-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                     <li>
                       <h6 class="dropdown-header">Notifications</h6>
                     </li>
                     <li><a class="dropdown-item">No notification available</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
               </ul>
               <div class="dropdown">
@@ -218,18 +218,14 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                   <li>
-                    <h6 class="dropdown-header">Hello, John!</h6>
+                    <h6 class="dropdown-header">Hello, <?= $this->session->userdata('nama') ?>!</h6>
                   </li>
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
+                  <li><a class="dropdown-item" href="<?php echo site_url(); ?>AdminClient/Profile"><i class="icon-mid bi bi-person me-2"></i> My
                       Profile</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>
-                      Settings</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
-                      Wallet</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                  <li><a class="dropdown-item" href="<?= base_url() . 'Login/out' ?>" onClick="return confirm('Logout sekarang ??');"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
                 </ul>
               </div>
             </div>

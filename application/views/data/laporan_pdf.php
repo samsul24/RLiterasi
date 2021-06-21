@@ -1,4 +1,3 @@
-<?php if($this->session->userdata('id_user_role')!=2){redirect('login');};?>
 
 <div class="container-fluid">
     <div class="row mt-3">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="<?= base_url(); ?>img/icon/logo1.png">
 
     <!-- Template CSS Files -->
     <link rel="stylesheet" href="<?php echo base_url() ?>css/font-awesome.min.css">
@@ -82,14 +82,14 @@
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <!-- Logo Starts -->
             <a class="visible-xs" href="#">
-                <img href="#"id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>css/assets/img/logo-sma.png" style="width:50px; height:50px" alt="logo">
+                <img href="#" id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>css/assets/img/logo-sma.png" style="width:50px; height:50px" alt="logo">
             </a>
-            
+
             <!-- Logo Ends -->
             <div class="form-container">
                 <div>
-<br>
-<br>
+                    <br>
+                    <br>
                     <!-- Section Title Starts -->
                     <div class="row text-center">
                         <p class="info-form">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</p>
@@ -113,17 +113,17 @@
                         <!-- Submit Form Button Starts -->
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">login</button>
-                        <p class="text-center">
-                        <a  href="<?php base_url() ?>Register/forgotPassword">reset password?</a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a  href="<?php base_url() ?>Register/awal">create account</a>
-                        </p>
+                            <p class="text-center">
+                                <a href="<?php base_url() ?>Register/forgotPassword">reset password?</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="<?php base_url() ?>Register/awal">create account</a>
+                            </p>
                             <hr>
                             <!-- <center><p>OR</p></center> -->
-                        <p class="text-center">
-                    <a href="<?php echo site_url() ?>Login/reg">Register Sekolah &nbsp;&nbsp;<img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio"></a>
-                        </p>
-                        <!-- Submit Form Button Ends -->
+                            <p class="text-center">
+                                <a href="<?php echo site_url() ?>Login/reg">Register Sekolah &nbsp;&nbsp;<img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio"></a>
+                            </p>
+                            <!-- Submit Form Button Ends -->
                     </form>
                     <!-- Form Ends -->
                     <br><br><br>
@@ -132,7 +132,7 @@
                     <a class="btn btn-primary" href="<?php echo site_url() ?>Login/reg">Register Sekolah &nbsp;&nbsp;<img src="<?php echo base_url() ?>assets/super/assets/vendors/svg-loaders/circles.svg" class="me-4" style="width: 3rem" alt="audio"></a>
                     </p>
                 </div> -->
-    <p class="text-center copyright-text">Copyright © 2021 RLiterasi</p>
+                    <p class="text-center copyright-text">Copyright © 2021 RLiterasi</p>
                 </div>
             </div>
         </div>

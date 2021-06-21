@@ -49,27 +49,27 @@
 <body>
 
 
-    <!--================Header Area =================-->
-    <header class="main_header_area transparent_menu">
-        <div class="header_top_area">
-            <div class="container">
-            <div class="pull-left">
+  <!--================Header Area =================-->
+  <header class="main_header_area transparent_menu">
+    <div class="header_top_area">
+      <div class="container">
+        <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a> 
-         <a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     
-         <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s'); ?></a>
+          <a></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a class="nav-link" href="#"><?= $this->session->userdata('username') ?></a>
 
         </div>
-            </div>
-        </div>
-        <div class="main_menu_area">
+      </div>
+    </div>
+    <div class="main_menu_area">
       <div class="container">
         <nav class="navbar navbar-default">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,10 +86,10 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url(); ?>Guruclient">Home</a></li>
-              <li><a href="<?php echo site_url(); ?>Guruclient/ulasan">Ulasan</a></li>
-              <li><a href="<?php echo site_url(); ?>Guruclient/buku1">Buku</a></li>
-              <li><a href="<?php echo site_url(); ?>Guruclient/profile">Guru</a></li>
+              <li><a href="<?php echo site_url(); ?>GuruClient">Home</a></li>
+              <li><a href="<?php echo site_url(); ?>GuruClient/ulasan">Ulasan</a></li>
+              <li><a href="<?php echo site_url(); ?>GuruClient/profile">Profile</a></li>
+              <li><a href="<?php echo site_url(); ?>GuruClient/profile">Guru</a></li>
               <li><a class="nav-link active" href="<?php echo site_url(); ?>login/out">Logout</a></li>
 
             </ul>
@@ -97,11 +97,11 @@
         </nav>
       </div>
     </div>
-    </header>
-    <!--================Header Area =================-->
+  </header>
+  <!--================Header Area =================-->
 
-    <!--================Main Slider Area =================-->
-    <section class="main_slider_area slider_2">
+  <!--================Main Slider Area =================-->
+  <section class="main_slider_area slider_2">
     <div id="main_slider" class="rev_slider" data-version="5.3.1.6">
       <ul>
         <li data-index="rs-2972" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
@@ -109,7 +109,7 @@
           <img src="<?php echo base_url(); ?>img/home-slider/slider-2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
           <!-- LAYERS -->
           <div class="slider_text_box2">
-            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['70','70','70','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Profile  <br><?= $this->session->userdata('username') ?><br></div>
+            <div class="tp-caption first_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['-30','-30','-30','-30','-60']" data-fontsize="['70','70','70','60','40']" data-lineheight="['90','90','70','70','50']" data-width="['none','none','none','none']" data-height="none" data-whitespace="['nowrap','nowrap','nowrap','nowrap','nowrap']" data-type="text" data-responsive_offset="on" data-frames='[{"from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","speed":1500,"to":"o:1;","delay":1700,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"x:left(R);","ease":"Power3.easeIn"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]">Welcome to Profile <br><?= $this->session->userdata('username') ?><br></div>
 
             <div class="tp-caption secand_text" data-x="['left','left','left','left','left']" data-y="['middle','middle','middle','middle']" data-hoffset="['0','15','15','15','15']" data-voffset="['50','50','50','40','0']" data-fontsize="['28','28','28','20','20']" data-lineheight="['38','38','38','30','30']" data-width="['760','760','760','550','400']" data-height="none" data-whitespace="normal" data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1750,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"></div>
 
@@ -129,7 +129,7 @@
         </li>
       </ul>
     </div>
-    </section>
+  </section>
   <!--================Header Area =================-->
   <!--================Banner Area =================-->
 
@@ -152,9 +152,9 @@
           <div class="col-md-3 border-right">
             <br>
             <div class="form-control" style="height:360px;"><br>
-              <img class="rounded-circle mt-5" src="<?php echo base_url('img/foto/' . $rows->foto) ?>" width="150"style="margin-left:45px">
+              <img class="rounded-circle mt-5" src="<?php echo base_url('img/foto/' . $rows->foto) ?>" width="150" style="margin-left:45px">
               <form action="#" method="post" enctype="multipart/form-data"><br><br>
-                <input class="btn btn-success"type="file" name="foto" id="foto" style="width:200px; margin-left:20px" ><br>
+                <input class="btn btn-success" type="file" name="foto" id="foto" style="width:200px; margin-left:20px"><br>
                 <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Change Photos" style=" margin-left:100px">
               </form>
             </div>
@@ -186,7 +186,7 @@
                 </div>
                 <div class="col-md-12">
                   <label for="email" class="labels">Email </label>
-                  <input type="text" class="form-control" name="email" placeholder="name@mail.com" id="email" value="<?php echo $rows->email; ?>" required readonly> 
+                  <input type="text" class="form-control" name="email" placeholder="name@mail.com" id="email" value="<?php echo $rows->email; ?>" required readonly>
                 </div>
               </div>
               <div class="row mt-3">
