@@ -50,7 +50,7 @@
         <div class="pull-left">
           <a href="#"><i class="fa fa-phone"></i><?= $this->session->userdata('no_telp') ?></a>
           <a href="#"><i class="fa fa-map-marker"></i> <?= $this->session->userdata('alamat_sekolah') ?> </a>
-          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s');?></a>
+          <a href="#"><i class="mdi mdi-clock"></i><?php echo date('Y-m-d / H:i:s'); ?></a>
         </div>
         <!--  <div class="pull-right">
                         <ul class="header_social">
@@ -83,9 +83,9 @@
               <!-- <li><a href="projectBar.php">Project</a></li> -->
               <!-- <li><a href="AboutUs.php">About Us</a></li> -->
               <li><a href="<?php echo site_url(); ?>SiswaClient/buku">Buku</a></li>
-              <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user');?>">Profile</a></li>
-                               <li><a class="nav-link active"  href="<?php echo site_url(); ?>Login/out">LogOut</a></li>
-                            <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>SiswaClient/profile/<?= $this->session->userdata('id_user'); ?>">Profile</a></li>
+              <li><a class="nav-link active" href="<?php echo site_url(); ?>Login/out">LogOut</a></li>
+              <li><a class="nav-link active" href="#"><?= $this->session->userdata('username') ?></a></li>
               <!-- <li><a class="nav-link active" href="#"><img src="<?= base_url(); ?>css/assets/img/profil.jpg" style="height: 50px;" class="rounded-circle" alt=""></a></li> -->
 
             </ul>
@@ -120,6 +120,9 @@
               <h2>Buku <br class="title_br" /></h2>
               <h6><?= $this->session->userdata('nama_sekolah') ?></h6>
             </div>
+            <br>
+            <a href="<?php echo site_url(); ?>SiswaClient/post_buku/" class="btn btn-primary" role="button">Tambah</a>
+
             <ul class="our_project_filter">
               <li class="active" data-filter="*"><a href="#">All</a></li>
               <li data-filter=".building"><a href="#">Novel</a></li>
@@ -133,22 +136,22 @@
         </div>
         <div class="col-md-9">
           <div class="our_project_details">
-      <?php foreach ($buku_bebas as $rows) : ?>
-            <div class="project_item building isolation tiling">
-            <img src="<?php echo base_url('file_buku/cover/' . $rows->cover) ?>" width="150" hight="200" alt="" ></img>
-              <div class="project_hover">
-                <div class="project_hover_inner">
-                  <div class="project_hover_content">
-                    <a href="#">
-                      <h4><?php echo $rows->nama_buku; ?></h4>
-                    </a>
-                    <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
-                    <a class="view_btn" href="<?php echo site_url(); ?>SiswaClient/baca/<?= $rows->id_buku_bebas; ?>">View</a>
+            <?php foreach ($buku_bebas as $rows) : ?>
+              <div class="project_item building isolation tiling">
+                <img src="<?php echo base_url('file_buku/cover/' . $rows->cover) ?>" width="150" hight="200" alt=""></img>
+                <div class="project_hover">
+                  <div class="project_hover_inner">
+                    <div class="project_hover_content">
+                      <a href="#">
+                        <h4><?php echo $rows->nama_buku; ?></h4>
+                      </a>
+                      <!--  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p> -->
+                      <a class="view_btn" href="<?php echo site_url(); ?>SiswaClient/baca/<?= $rows->id_buku_bebas; ?>">View</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-              <?php endforeach ; ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>

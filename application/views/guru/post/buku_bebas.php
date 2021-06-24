@@ -2,6 +2,8 @@
   redirect('login');
 }; ?>
 
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,89 +19,92 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/vendors/bootstrap-icons/bootstrap-icons.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/super/assets/css/app.css">
   <link rel="shortcut icon" href="<?php echo base_url() ?>assets/super/assets/images/favicon.svg" type="image/x-icon">
-  <!-- <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style1.css"> -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/assets/css/style1.css">
 
 
 
 </head>
 <div class="cc">
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h2 class="m-0" style="color:#435ebe;"><i class="nav-icon fas fa-book"></i> Tambah Data Buku </h2>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="alert alert-secondary" role="alert">
-          <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; > &nbsp; &nbsp;<i class="nav-icon fas fa-book"></i> Buku
-        </div>
-        <div class="row">
-          <div class="col">
-            <!-- Tabel -->
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div class='card-header' style="margin-left:-20px;">
+        <div id="main-content">
+          <div class="page-heading">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                  <h3>DataTable Nilai</h3>
+                  <div class="alert alert-secondary" role="alert">
+                    <i class="nav-icon fas fa-home"></i> Dashboard &nbsp; &nbsp; ><i class="nav-icon fas fa-user"></i> Nilai
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                  <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <!-- <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+            </ol> -->
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <section class="section">
+              <div class="card">
+                <div class="card-header">
+                  Simple Datatable
+                </div>
+                <div class="card-body">
+                  <div class='card-header' style="margin-left:-20px;">
 
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->
-                <form action="<?php echo site_url(); ?>BukuBebasClient/post_process_buku" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
-                    <div class="form-group">
-                    <label for="pdf_file">File : Maximum pdf file Size 10mb</label>
-                                <div style="background : black; width: 100px; height: 130px;">
-                                <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="pdf_file" >
-                                </div>
-                                <div class="invalid-feedback">
-                                <?php echo form_error('pdf_file') ?>
-                                </div>
+                    <form action="<?php echo site_url(); ?>BukuBebasClient/post_process_buku" class="needs-validation" method="POST" enctype="multipart/form-data" onload="setSelectBoxByText()">
+                      <div class="form-group">
+                        <label for="pdf_file">File : Maximum pdf file Size 10mb</label>
+                        <div style="background : black; width: 100px; height: 130px;">
+                          <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="pdf_file">
                         </div>
-                        <br>
-                    <div class="form-group">
-                            <label for="cover">Cover</label>
-                                <div style="background : black; width: 100px; height: 130px;">
-                                <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="cover" >
-                                </div>
-                                <div class="invalid-feedback">
-                                <?php echo form_error('cover') ?>
-                                </div>
+                        <div class="invalid-feedback">
+                          <?php echo form_error('pdf_file') ?>
                         </div>
-                        <br>
-            <div class="form-group row">
-                <label for="floatingSelect">Nama Buku</label>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="cover">Cover</label>
+                        <div style="background : black; width: 100px; height: 130px;">
+                          <input type="file" size="32" class="form-control-file" placeholder="Choice Foto" name="cover">
+                        </div>
+                        <div class="invalid-feedback">
+                          <?php echo form_error('cover') ?>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group row">
+                        <label for="floatingSelect">Nama Buku</label>
 
-                <input style="height:40px; width:547px;" type="text" name="nama_buku" class="form-control form-control-user" id="nama_buku" required></input>
-                <span class="text-danger"></span>
+                        <input style="height:40px; width:547px;" type="text" name="nama_buku" class="form-control form-control-user" id="nama_buku" required></input>
+                        <span class="text-danger"></span>
 
-            </div>
-            <div class="form-group row">
-                <input style="height:40px; width:547px;" type="hidden" name="id_sekolah" class="form-control form-control-user" id="id_sekolah" value="<?php echo $this->session->userdata('id_sekolah'); ?>" required readonly></input>
-                <span class="text-danger"></span>
+                      </div>
+                      <div class="form-group row">
+                        <input style="height:40px; width:547px;" type="hidden" name="id_sekolah" class="form-control form-control-user" id="id_sekolah" value="<?php echo $this->session->userdata('id_sekolah'); ?>" required readonly></input>
+                        <span class="text-danger"></span>
 
-            </div>
-            <div class="form-group row">
-                <label for="floatingSelect">Deskripsi</label>
+                      </div>
+                      <div class="form-group row">
+                        <label for="floatingSelect">Deskripsi</label>
 
-                <textarea style="height:96px; width:547px;" type="text" name="diskripsi" class="form-control" id="diskripsi" required></textarea>
-                <span class="text-danger"></span>
+                        <textarea style="height:96px; width:547px;" type="text" name="diskripsi" class="form-control" id="diskripsi" required></textarea>
+                        <span class="text-danger"></span>
 
-            </div>
+                      </div>
 
-            <div class="form-group" style="margin-left: -10px;">
-                <input type="submit" name="register" value="Tambahkan" style="height:40px; width:547px;" class="btn btn-primary btn-user btn-block" />
-            </div>
+                      <div class="form-group" style="margin-left:-10px;">
+                        <input type="submit" name="register" value="Tambahkan" style="height:40px; width:00px;" class="btn btn-primary btn-user btn-block" />
+                      </div>
 
-            </form>
-            <!-- Form Ends -->
-        </div>
-</div>
-<!-- filepond validation -->
+                    </form>
+                    <!-- Form Ends -->
+                  </div>
+                </div>
+                <!-- filepond validation -->

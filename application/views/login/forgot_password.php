@@ -83,7 +83,8 @@
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <!-- Logo Starts -->
             <a class="visible-xs" href="index.html">
-                <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/home-slider/literasi1" alt="logo">
+                <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/icon/logo1.png" style="width:150px; height:80px" alt="logo">
+
             </a>
 
             <div class="form-container">
@@ -92,7 +93,7 @@
                     <div class="row text-center">
                         <h2 class="title-head hidden-xs"><span>Forgot </span>Password</h2>
                     </div>
-            <!-- Logo Ends --><?= $this->session->flashdata('message'); ?>
+                    <!-- Logo Ends --><?= $this->session->flashdata('message'); ?>
 
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->

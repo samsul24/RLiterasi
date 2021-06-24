@@ -82,7 +82,8 @@
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
             <!-- Logo Starts -->
             <a class="visible-xs" href="#">
-                <img href="#" id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>css/assets/img/logo-sma.png" style="width:50px; height:50px" alt="logo">
+                <img id="logo" class="img-responsive mobile-logo" src="<?= base_url(); ?>img/icon/logo1.png" style="width:150px; height:80px" alt="logo">
+
             </a>
 
             <!-- Logo Ends -->
