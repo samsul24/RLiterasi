@@ -27,7 +27,7 @@ class Login extends CI_Controller
     $user = $this->input->post('user');
     $password = $this->input->post('password');
     $check = $this->Login_model->login($user, $password);
-    
+
     if ($check) {
       foreach ($check as $rows) {
         $session_data = array(
@@ -62,10 +62,19 @@ class Login extends CI_Controller
       } elseif ($this->session->userdata('id_user_role') == 4 and $this->session->userdata('is_active') == 'aktif') {
         redirect('SiswaClient');
       } else {
-      $this->session->set_flashdata('result', 'Login gagal');
-      redirect('Login');
-    }
-  } else {
+        $this->session->set_flashdata('result', 'Login gagal');
+        redirect('Login');
+      }
+    } else {
+      $this->session->set_flashdata(
+        'message',
+        '<div class="alert alert-danger" role="alert" style="width:500px">
+         Login Gagal
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>'
+      );
       redirect('Login');
     }
     redirect('Login');

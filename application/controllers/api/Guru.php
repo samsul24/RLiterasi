@@ -25,28 +25,25 @@ class Guru extends REST_Controller
             $this->db->where('user.id_sekolah', $id_Sekolah);
             $this->db->join('sekolah', 'sekolah.id_sekolah = user.id_sekolah');
             $guru = $this->db->get()->result();
-        } 
-        else {
+        } else {
             $this->db->where('id_user', $id);
             $guru = $this->db->get('user')->result();
         }
-        $this->response($guru,200);
-       
+        $this->response($guru, 200);
     }
-   
+
     function index_post()
     {
         $data = array(
-            'foto'         => $this->post('foto'),
             'nis'         => $this->post('nis'),
             'username'         => $this->post('username'),
             'password'         => $this->post('password'),
             'nama'             => $this->post('nama'),
             'jenis_kelamin'    => $this->post('jenis_kelamin'),
-            'kelas'            => $this->post('kelas'),
-            'jurusan'          => $this->post('jurusan'),
+            'id_sekolah'     => $this->post('id_sekolah'),
             'id_user_role'     => $this->post('id_user_role'),
-            
+            'is_active'     => $this->post('is_active'),
+            'date_created'     => $this->post('date_created'),
         );
         $insert = $this->db->insert('user', $data);
         if ($insert) {
@@ -69,7 +66,7 @@ class Guru extends REST_Controller
             'kelas'            => $this->put('kelas'),
             'jurusan'          => $this->put('jurusan'),
             'id_user_role'     => $this->put('id_user_role'),
-            );
+        );
         $this->db->where('id_user', $id);
         $update = $this->db->update('user', $data);
         if ($update) {
@@ -78,7 +75,7 @@ class Guru extends REST_Controller
             $this->response(array('status' => 'fail', 502));
         }
     }
-    
+
     function index_delete()
     {
         $id = $this->delete('id_user');
@@ -91,4 +88,3 @@ class Guru extends REST_Controller
         }
     }
 }
-?>

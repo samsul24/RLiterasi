@@ -101,7 +101,61 @@ class AdminClient extends CI_Controller
         $this->load->view('admin/adminbar');
         $this->load->view('admin/change_password', $data);
     }
+    public function Change_Password_Process()
+    {
+        $this->form_validation->set_rules('current_password', 'Kata Sandi Lama', 'required');
+        $this->form_validation->set_rules('new_password1', 'Kata Sandi Baru', 'required');
+        $this->form_validation->set_rules('new_password2', 'Kata Sandi Baru', 'required|matches[new_password1]');
 
+        if ($this->form_validation->run() == FALSE) {
+            $url = base_url('AdminClient/Change_Password');
+
+            echo "<script>
+				alert('Password Tidak Sesuai');
+				window.location.href='$url';
+				</script>";
+        } else {
+            $params = array('id_user' =>  $this->session->userdata('id_user'));
+            $user = json_decode($this->curl->simple_get($this->API7, $params));
+
+            $current = $this->input->post('current_password');
+            $new = $this->input->post('new_password1');
+
+            if (password_verify($current, $user[0]->password)) {
+                $data = array(
+                    'id_user' => $user[0]->id_user,
+                    'foto' => $user[0]->foto,
+                    'nis' => $user[0]->nis,
+                    'username' => $user[0]->username,
+                    'password' => password_hash($new, PASSWORD_DEFAULT),
+                    'nama' => $user[0]->nama,
+                    'jenis_kelamin' => $user[0]->kelamin,
+                    'kelas' => $user[0]->kelas,
+                    'email' => $user[0]->email,
+                    'jurusan' => $user[0]->jurusan,
+                    'no_telp' => $user[0]->no_telp,
+                    'id_user_role' => $user[0]->id_user_role,
+                    'id_sekolah' => $user[0]->id_sekolah,
+                );
+
+                $update =  $this->curl->simple_put($this->API7, $data, array(CURLOPT_BUFFERSIZE => 10));
+
+                if ($update) {
+                    $this->session->set_flashdata('result', 'success');
+                } else {
+                    $this->session->set_flashdata('result', 'failed');
+                }
+                redirect('AdminClient/profile/');
+            } else {
+                $url = base_url('AdminClient/Change_Password');
+
+                echo "<script>
+					alert('Password Tidak Sesuai');
+					window.location.href='$url';
+					</script>";
+            }
+        }
+    }
 
 
 
@@ -238,12 +292,17 @@ class AdminClient extends CI_Controller
     public function post_process_guru()
     {
         $data = array(
-            'id_sekolah'         => $this->input->post('id_sekolah'),
-            'nama_buku'         => $this->input->post('nama_buku'),
-            'diskripsi'         => $this->input->post('diskripsi'),
+            'nis' => $this->input->post('nis'),
+            'username' => $this->input->post('username'),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'nama' => $this->input->post('nama'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'id_sekolah' => $this->session->userdata('id_sekolah'),
+            'id_user_role' => 3,
+            'is_active' => 'aktif',
+            'date_created' => time(),
         );
-        // var_dump($data);
-        // exit;
+
         $insert = $this->curl->simple_post($this->API, $data);
         if ($insert) {
             $this->session->set_flashdata('result', '');
@@ -251,8 +310,12 @@ class AdminClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', '');
         }
+        var_dump($$insert);
+        exit;
         redirect('AdminClient/guru', 'refresh');
     }
+
+
 
 
     public function nilai()

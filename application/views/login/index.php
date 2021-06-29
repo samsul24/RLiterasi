@@ -95,9 +95,12 @@
                     <div class="row text-center">
                         <p class="info-form">Selamat Datang di Rumah Literasi<br>Bersama Berkumpul, Berbagi, Bergerak Bersama</p>
                         <h2 class="title-head hidden-xs">Log<span>-in </span></h2>
-                        <?= $this->session->flashdata('message'); ?>
-
                     </div>
+                    <div class="form-group">
+
+                        <center><?= $this->session->flashdata('message'); ?></center>
+                    </div>
+
                     <!-- Section Title Ends -->
                     <!-- Form Starts -->
                     <form action="<?php echo site_url() ?>login/log_process" method='post'>
