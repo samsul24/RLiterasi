@@ -47,6 +47,8 @@
                     Simple Datatable
                 </div>
                 <div class="card-body">
+                    <?= $this->session->flashdata('message'); ?>
+
                     <div class="dataTable-container">
                         <table class="table table-striped " id="table1">
                             <thead>
@@ -67,7 +69,7 @@
                                         <td><?php echo $i++; ?></td>
                                         <td><?php echo $rows->nama; ?></td>
                                         <td><?php echo $rows->hasil; ?>
-                                        <?php similar_text($rows->ulasan_siswa, $rows->ulasan_guru, $percent);?>
+                                            <?php similar_text($rows->ulasan_siswa, $rows->ulasan_guru, $percent); ?>
                                         </td>
                                         <td>
                                             <?php
@@ -115,10 +117,10 @@
 
 <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
 <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
 

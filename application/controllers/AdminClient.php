@@ -59,13 +59,14 @@ class AdminClient extends CI_Controller
             $this->load->library('upload', $config, 'foto_upload');
 
 
-            if ($foto != '' && $this->foto_upload->do_upload('foto')) {
-                unlink(FCPATH . 'assets\admin\img\\' . $this->input->post('old_foto'));
+            if ($this->foto_upload->do_upload('foto')) {
+                unlink(FCPATH . 'assets/admin/img/' . $this->input->post('old_foto'));
 
                 $foto = $this->foto_upload->data('file_name');
-            } else {
-                $foto = $this->input->post('old_foto');
             }
+        } else {
+            $foto = $this->input->post('old_foto');
+        }
 
             $data = array(
                 "id_user" => $this->input->post('id_user'),
@@ -85,19 +86,26 @@ class AdminClient extends CI_Controller
             $update =  $this->curl->simple_put($this->API7, $data, array(CURLOPT_BUFFERSIZE => 10));
 
             if ($update) {
-                $this->session->set_flashdata('result', 'success');
+                $this->session->set_flashdata(
+                    'message',
+                    '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
+                );
             } else {
                 $this->session->set_flashdata('result', 'failed');
             }
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
+            );
             redirect('AdminClient/profile/');
         }
-    }
+    
 
     public function Change_Password()
     {
         $params = array('id_user' =>  $this->session->userdata('id_user'));
         $data['user'] = json_decode($this->curl->simple_get($this->API7, $params));
-        $data['title'] = "Edit Data Sekolah";
+        $data['title'] = "Change Password";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/change_password', $data);
     }
@@ -176,6 +184,10 @@ class AdminClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data Guru Gagal');
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Hapus.</div>'
+        );
         redirect('AdminClient/guru');
     }
 
@@ -197,6 +209,10 @@ class AdminClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data Siswa Gagal');
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Hapus.</div>'
+        );
         redirect('AdminClient/siswa');
     }
 
@@ -271,11 +287,18 @@ class AdminClient extends CI_Controller
         // var_dump($insert);
         // exit;
         if ($insert) {
-            echo "berhasil";
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil Masuk.</div>'
+            );
             redirect('AdminClient/detail');
         } else {
             echo "gagal";
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil Masuk.</div>'
+        );
         redirect('AdminClient/detail');
     }
 
@@ -363,12 +386,19 @@ class AdminClient extends CI_Controller
             $insert = $this->curl->simple_post($this->API6, $data);
         }
         if ($insert) {
-            $this->session->set_flashdata('result', '');
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Tambah.</div>'
+            );
 
             redirect('AdminClient/kategori_nilai', 'refresh');
         } else {
             $this->session->set_flashdata('result', '');
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Tambah.</div>'
+        );
         redirect('AdminClient/kategori_nilai', 'refresh');
     }
 
@@ -394,13 +424,18 @@ class AdminClient extends CI_Controller
         $update =  $this->curl->simple_put($this->API6, $data, array(CURLOPT_BUFFERSIZE => 10));
 
         if ($update) {
-            echo "berhasil";
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
+            );
             $this->session->set_flashdata('result', 'Update Data User Berhasil');
         } else {
             $this->session->set_flashdata('result', 'Update Data User Gagal');
         }
-        // print_r($update);
-        // exit;
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
+        );
         redirect('AdminClient/kategori_nilai');
     }
 
@@ -413,6 +448,10 @@ class AdminClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data Kategori Gagal');
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Hapus.</div>'
+        );
         redirect('AdminClient/kategori_nilai');
     }
     public function delete()
@@ -435,6 +474,10 @@ class AdminClient extends CI_Controller
         } else {
             $this->session->set_flashdata('result', 'Hapus Data nilai Gagal');
         }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Hapus.</div>'
+        );
         redirect('AdminClient/nilai');
     }
 }

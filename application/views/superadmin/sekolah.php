@@ -47,7 +47,9 @@
         <div class="card-header">
           Simple Datatable
         </div>
+
         <div class="card-body">
+          <?= $this->session->flashdata('message'); ?>
           <div class="dataTable-container">
             <table class="table table-striped" id="table1">
               <thead>
@@ -92,10 +94,10 @@
                     <td><?php echo (str_word_count($rows->misi) > 10 ? substr($rows->misi, 0, 30) . "[..]" : $rows->misi); ?></td>
                     <td>
                       <div class="dataTable-info">
-                      &nbsp;&nbsp;&nbsp; <a href="<?php echo site_url(); ?>SekolahClient/put/<?php echo $rows->id_sekolah; ?>" class="btn btn-circle btn-warning">
-                        <i class="bi bi-pen" aria-hidden="true"></i></a>
+                        &nbsp;&nbsp;&nbsp; <a href="<?php echo site_url(); ?>SekolahClient/put/<?php echo $rows->id_sekolah; ?>" class="btn btn-circle btn-warning">
+                          <i class="bi bi-pen" aria-hidden="true"></i></a>
                         <a href="<?= base_url(); ?>SekolahClient/delete/<?= $rows->id_sekolah; ?>" class="btn btn-circle btn-danger" onClick="return confirm('yakin mau hapus');">
-                        <i class="bi bi-trash" aria-hidden="true"></i></a>
+                          <i class="bi bi-trash" aria-hidden="true"></i></a>
                       </div>
                     </td>
                   </tr>

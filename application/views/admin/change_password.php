@@ -90,3 +90,34 @@
     </div>
 </div>
 </div>
+<footer>
+    <div class="footer clearfix mb-0 text-muted">
+        <div class="float-start">
+            <p>2021 © Literasi</p>
+        </div>
+        <div class="float-end">
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="<?php echo base_url() ?>assets/super/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
+
+
+<script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+
+<script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
+
+
+
+</body>
+
+</html>

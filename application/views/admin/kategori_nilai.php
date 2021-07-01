@@ -43,11 +43,12 @@
         </div>
         <section class="section">
             <div class="card">
-                <div class="card-header" >
+                <div class="card-header">
                     Simple Datatable
                     <div class='card-header' style="margin-left:-20px;">
                         <div class="card">
 
+                            <?= $this->session->flashdata('message'); ?>
                             <div class="card-content">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#border-less">
                                     Tambah
@@ -59,7 +60,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Jumlah Kategori Nilai</h5>
                                                 <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
+                                                    <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
@@ -80,49 +81,49 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="dataTable-container">
+                                    <table class="table table-striped dataTable-table" id="table1">
+                                        <thead>
+                                            <tr>
+                                                <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">No</a></th>
+                                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Start</a></th>
+                                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">End</a></th>
+                                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Grade</a></th>
+                                                <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Aksi</a></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($kategori as $rows) : ?>
+                                                <tr>
+
+                                                    <td><?php echo $i++; ?></td>
+                                                    <td><?php echo $rows->start; ?></td>
+                                                    <td><?php echo $rows->end; ?>
+                                                    <td><?php echo $rows->grade; ?>
+                                                    </td>
+
+                                                    <td>
+                                                        <a href="<?php echo site_url(); ?>AdminClient/put_kategori/<?php echo $rows->id_kategori; ?>" class="btn btn-warning">
+                                                            <i class="bi bi-pen" aria-hidden="true"></i></a>
+                                                        <a href="<?= base_url(); ?>AdminClient/delete_kategori/<?= $rows->id_kategori; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
+                                                            <i class="bi bi-trash" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <div class="dataTable-container">
-                        <table class="table table-striped dataTable-table" id="table1">
-                            <thead>
-                                <tr>
-                                    <th data-sortable="" style="width: 11.7015%;"><a href="#" class="dataTable-sorter">No</a></th>
-                                    <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Start</a></th>
-                                    <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">End</a></th>
-                                    <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Grade</a></th>
-                                    <th data-sortable="" style="width: 16.5121%;"><a href="#" class="dataTable-sorter">Aksi</a></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $i = 1;
-                                foreach ($kategori as $rows) : ?>
-                                    <tr>
-
-                                        <td><?php echo $i++; ?></td>
-                                        <td><?php echo $rows->start; ?></td>
-                                        <td><?php echo $rows->end; ?>
-                                        <td><?php echo $rows->grade; ?>
-                                        </td>
-
-                                        <td>
-                                            <a href="<?php echo site_url(); ?>AdminClient/put_kategori/<?php echo $rows->id_kategori; ?>" class="btn btn-warning">
-                                                <i class="bi bi-pen" aria-hidden="true"></i></a>
-                                                <a href="<?= base_url(); ?>AdminClient/delete_kategori/<?= $rows->id_kategori; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                                            <i class="bi bi-trash" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </div>
 
         </section>
     </div>

@@ -48,6 +48,8 @@
                     Simple Datatable
                 </div>
                 <div class="card-body">
+                    <?= $this->session->flashdata('message'); ?>
+
                     <div class="dataTable-container">
                         <table class="table table-striped" id="table1">
                             <thead>
@@ -81,7 +83,7 @@
                                                 <!-- <a href="<?php echo site_url(); ?>SuperAdminClient/put/<?php echo $rows->id_user; ?>" class="btn btn-warning">
                                                 <i class="bi bi-pen" aria-hidden="true"></i></a> -->
                                                 <a href="<?= base_url(); ?>SuperAdminClient/delete_admin/<?= $rows->id_user; ?>" class="btn btn-danger" onClick="return confirm('yakin mau hapus');">
-                                                <i class="bi bi-trash" aria-hidden="true"></i></a>
+                                                    <i class="bi bi-trash" aria-hidden="true"></i></a>
                                             </div>
                                         </td>
                                     </tr>

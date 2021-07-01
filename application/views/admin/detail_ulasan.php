@@ -24,87 +24,90 @@
 
 </head>
 <div id="main-content">
-<div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>DataTable Siswa</h3>
-                <p class="text-subtitle text-muted">For user to check they list</p>
-            </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">DataTable</li>
-                    </ol>
-                </nav>
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>DataTable Siswa</h3>
+                    <p class="text-subtitle text-muted">For user to check they list</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
-    <section class="section">
-        <div class="card">
-            <div class="card-header">
-                Simple Datatable
-            </div>
-            <div class="card-body">
-                <div class="dataTable-container">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Id Ulasan</th>
-                                <th>Nama</th>
-                                <th>Ulasan Siswa</th>
-                                <th>Text PDF</th>
-                                <th>Jumlah</th>
-                                <th>Hasil</th>
-                                <th style="padding: 30px;">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                                        $i = 1;
-                                        foreach ($detail_ulasan as $rows) : ?>
-                                            <tr>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    Simple Datatable
+                </div>
+                <div class="card-body">
+                    <?= $this->session->flashdata('message'); ?>
 
-                                                <td><?php echo $i++; ?></td>
-                                                <td><?php echo $rows->id_ulasan; ?></td>
-                                                <td><?php echo $rows->nama; ?></td>
-                                                <td><?php echo $rows->ulasan_siswa; ?></td>
-                                                <td><?php echo $rows->ulasan_guru; ?></td>
-                                                <td style="text-align: center;"><?= str_word_count($rows->ulasan_siswa); ?> kata</td>
-                                                <td><?php echo $rows->hasil; ?> 
-                                                <!-- <?php
+                    <div class="dataTable-container">
+                        <table class="table table-striped" id="table1">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Id Ulasan</th>
+                                    <th>Nama</th>
+                                    <th>Ulasan Siswa</th>
+                                    <th>Text PDF</th>
+                                    <th>Jumlah</th>
+                                    <th>Hasil</th>
+                                    <th style="padding: 30px;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                foreach ($detail_ulasan as $rows) : ?>
+                                    <tr>
+
+                                        <td><?php echo $i++; ?></td>
+                                        <td><?php echo $rows->id_ulasan; ?></td>
+                                        <td><?php echo $rows->nama; ?></td>
+                                        <td><?php echo $rows->ulasan_siswa; ?></td>
+                                        <td><?php echo $rows->ulasan_guru; ?></td>
+                                        <td style="text-align: center;"><?= str_word_count($rows->ulasan_siswa); ?> kata</td>
+                                        <td><?php echo $rows->hasil; ?>
+                                            <!-- <?php
                                                     similar_text($rows->ulasan_siswa, $rows->ulasan_guru, $percent);
                                                     echo $percent;
                                                     ?> -->
-                                                    % Kemiripan</td>
-                                                <td>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <a href="<?php echo site_url(); ?>AdminClient/nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-primary">
-                                                        <i class="bi bi-capslock" aria-hidden="true"></i></a>
-                                                </td>
-                                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
+                                            % Kemiripan
+                                        </td>
+                                        <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="<?php echo site_url(); ?>AdminClient/nilai/<?php echo $rows->id_detail_ulasan; ?>" class="btn btn-primary">
+                                                <i class="bi bi-capslock" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
 
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>2021 © Literasi</p>
+            </div>
+            <div class="float-end">
             </div>
         </div>
-
-    </section>
-</div>
-
-<footer>
-    <div class="footer clearfix mb-0 text-muted">
-        <div class="float-start">
-            <p>2021 © Literasi</p>
-        </div>
-        <div class="float-end">
-        </div>
-    </div>
-</footer>
+    </footer>
 </div>
 </div>
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -112,10 +115,10 @@
 
 <script src="<?php echo base_url() ?>assets/super/assets/vendors/simple-datatables/simple-datatables.js"></script>
 <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
 
 <script src="<?php echo base_url() ?>assets/super/assets/js/main.js"></script>
 
