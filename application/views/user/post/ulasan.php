@@ -141,6 +141,9 @@
                 <div class="help-block with-errors"></div>
               </div>
               <div class="col-md-12 col-sm-12 col-xs-12">
+                <input type="hidden" id="id_user" name="id_user" class="form-control" placeholder="id" value="<?= $this->session->userdata('id_user') ?>" required data-error="Please enter your name" readonly>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <label for="floatingSelect">Nama</label>
                 <input type="text" id="nama" name="nama" class="form-control" placeholder="Name" value="<?= $this->session->userdata('nama') ?>" required data-error="Please enter your name" readonly>
                 <div class="help-block with-errors"></div>

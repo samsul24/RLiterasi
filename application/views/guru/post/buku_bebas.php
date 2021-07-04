@@ -98,10 +98,11 @@
                         <span class="text-danger"></span>
 
                       </div>
+                      <div class="form-group row">
 
-                      <div class="form-group" style="margin-left:-10px;">
-                        <input type="submit" name="register" value="Tambahkan" style="height:40px; width:00px;" class="btn btn-primary btn-user btn-block" />
-                      </div>
+                        <div class="form-group" style="margin-left:-10px;">
+                          <input type="submit" name="register" value="Tambahkan" style="height:40px; width:547px;" class="btn btn-primary btn-user btn-block" />
+                        </div>
 
                     </form>
                     <!-- Form Ends -->

@@ -9,7 +9,7 @@ use Restserver\Libraries\REST_Controller;
 class DetailUlasan extends REST_Controller
 {
 
-    function __construct($config ='rest')
+    function __construct($config = 'rest')
     {
         parent::__construct($config);
     }
@@ -31,15 +31,16 @@ class DetailUlasan extends REST_Controller
     function index_post()
     {
         $data = array(
-          'id_ulasan'      => $this->post('id_ulasan'),
-          'id_sekolah'      => $this->post('id_sekolah'),
-          'ulasan_siswa'         => $this->post('ulasan_siswa'),
-          'ulasan_guru'         => $this->post('ulasan_guru'),
-          'nama'         => $this->post('nama'),
-          'hasil'         => $this->post('hasil'),
-      
+            'id_ulasan'      => $this->post('id_ulasan'),
+            'id_sekolah'      => $this->post('id_sekolah'),
+            'id_user'      => $this->post('id_user'),
+            'ulasan_siswa'         => $this->post('ulasan_siswa'),
+            'ulasan_guru'         => $this->post('ulasan_guru'),
+            'nama'         => $this->post('nama'),
+            'hasil'         => $this->post('hasil'),
+
         );
-        $insert = $this->db->insert('detail_ulasan',$data);
+        $insert = $this->db->insert('detail_ulasan', $data);
         if ($insert) {
             $this->response($data, 200);
         } else {
@@ -58,4 +59,3 @@ class DetailUlasan extends REST_Controller
         }
     }
 }
-?>

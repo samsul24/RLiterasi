@@ -126,15 +126,27 @@
               </ul>
             </li>
 
-
-
-
             <li class="sidebar-title">Raise Support</li>
 
-            <a href="<?php echo site_url(); ?>AdminClient/Profile" class="sidebar-link">
-              <i class="bi bi-person-bounding-box"></i>
-              <span>Profile</span>
-            </a>
+            <li class="sidebar-item  has-sub">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-person-bounding-box"></i>
+                <span>Profile</span>
+              </a>
+              <ul class="submenu ">
+                <li class="submenu-item ">
+
+                  <a href="<?php echo site_url(); ?>AdminClient/Profile">
+                    <i class="bi bi-person-square"></i>&nbsp;&nbsp;Profile Admin</a>
+                </li>
+                <li class="submenu-item ">
+
+                  <a href="<?php echo site_url(); ?>AdminClient/ProfileSekolah">
+                    <i class="bi bi-building"></i>&nbsp;&nbsp;Profile Sekolah</a>
+                </li>
+              </ul>
+            </li>
+
 
             <li class="sidebar-item  has-sub">
               <a href="#" class="sidebar-link">

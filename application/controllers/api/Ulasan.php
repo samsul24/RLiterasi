@@ -32,6 +32,7 @@ class Ulasan extends REST_Controller
     {
         $data = array(
             'nama' => $this->post('nama'),
+            'id_user' => $this->post('id_user'),
             'judul' => $this->post('judul'),
             'ket_siswa' => $this->post('ket_siswa'),
             'text_buku' => $this->post('text_buku'),

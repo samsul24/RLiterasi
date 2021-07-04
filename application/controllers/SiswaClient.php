@@ -18,6 +18,9 @@ class SiswaClient extends CI_Controller
     $this->API4 = base_url('api/User');
     $this->API5 = base_url('api/Split');
     $this->API6 = base_url('api/BukuBebas');
+    $this->API7 = base_url('api/DetailUlasan');
+    $this->API8 = base_url('api/DetailNilai');
+
   }
 
   public function index()
@@ -40,6 +43,14 @@ class SiswaClient extends CI_Controller
         $this->load->view('user/index', $data, FALSE);
       }
     }
+  }
+  public function nilai()
+  {
+    $params = array('id_user' =>  $this->session->userdata('id_user'));
+    $data['detail_ulasan'] = json_decode($this->curl->simple_get($this->API7, $params));
+    $data['kategori'] = json_decode($this->curl->simple_get($this->API8, $params));
+    $data['title'] = "Buku";
+    $this->load->view('user/nilai/nilai_siswa', $data, FALSE);
   }
   public function buku()
   {
@@ -190,6 +201,7 @@ class SiswaClient extends CI_Controller
   public function ulasan_process()
   {
     $nama = $this->input->post('nama');
+    $id_user = $this->input->post('id_user');
     $judul = $this->input->post('nama_buku');
     $ket_siswa = $this->input->post('ket_siswa');
     $text_buku = $this->input->post('text_buku');
@@ -198,6 +210,7 @@ class SiswaClient extends CI_Controller
     $id_sekolah = $this->input->post('id_sekolah');
     $data = array(
       'id_buku' => $id_buku,
+      'id_user' => $id_user,
       'nama' => $nama,
       'judul' => $judul,
       'ket_siswa' => $ket_siswa,

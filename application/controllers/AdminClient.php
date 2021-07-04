@@ -20,6 +20,7 @@ class AdminClient extends CI_Controller
         $this->API5 = base_url('api/Split');
         $this->API6 = base_url('api/DetailNilai');
         $this->API7 = base_url('api/Admin');
+        $this->API8 = base_url('api/Sekolah');
         $this->load->library('form_validation');
     }
 
@@ -34,11 +35,55 @@ class AdminClient extends CI_Controller
         }
     }
 
+    public function ProfileSekolah($id = null)
+    {
+        $params = array('id_sekolah' =>  $this->session->userdata('id_sekolah'));
+        $data['sekolah'] = json_decode($this->curl->simple_get($this->API8, $params));
+        $data['title'] = "Edit Profile Sekolah";
+        $this->load->view('admin/adminbar');
+        $this->load->view('admin/profile_sekolah', $data);
+    }
+    public function put_process()
+    {
+        $data = array(
+            'id_sekolah'          => $this->input->post('id_sekolah'),
+            'nama_sekolah'         => $this->input->post('nama_sekolah'),
+            'npsn'                 => $this->input->post('npsn'),
+            'nss'          => $this->input->post('nss'),
+            'alamat_sekolah'          => $this->input->post('alamat_sekolah'),
+            'kode_pos'          => $this->input->post('kode_pos'),
+            'no_telp'          => $this->input->post('no_telp'),
+            'kelurahan'          => $this->input->post('kelurahan'),
+            'kecamatan'          => $this->input->post('kecamatan'),
+            'kabupaten'          => $this->input->post('kabupaten'),
+            'provinsi'          => $this->input->post('provinsi'),
+            'website'          => $this->input->post('website'),
+            'email'          => $this->input->post('email'),
+            'visi'          => $this->input->post('visi'),
+            'misi'          => $this->input->post('misi'),
+            'verification_key'          => $this->input->post('verification_key'),
+            'is_email_verified'          => $this->input->post('is_email_verified'),
+
+
+        );
+        $update =  $this->curl->simple_put($this->API8, $data, array(CURLOPT_BUFFERSIZE => 10));
+
+        if ($update) {
+            $this->session->set_flashdata('result', 'Update Data User Berhasil');
+        } else {
+            $this->session->set_flashdata('result', 'Update Data User Gagal');
+        }
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
+        );
+        redirect('AdminClient/ProfileSekolah');
+    }
     public function profile($id = null)
     {
         $params = array('id_user' =>  $this->session->userdata('id_user'));
         $data['user'] = json_decode($this->curl->simple_get($this->API7, $params));
-        $data['title'] = "Edit Data Sekolah";
+        $data['title'] = "Edit Profile";
         $this->load->view('admin/adminbar');
         $this->load->view('admin/profile', $data);
     }
@@ -68,38 +113,38 @@ class AdminClient extends CI_Controller
             $foto = $this->input->post('old_foto');
         }
 
-            $data = array(
-                "id_user" => $this->input->post('id_user'),
-                'foto' => $foto,
-                'nis' => $this->input->post('nis'),
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'nama' => $this->input->post('nama'),
-                'jenis_kelamin' => $this->input->post('kelamin'),
-                'kelas' => $this->input->post('kelas'),
-                'email' => $this->input->post('email'),
-                'jurusan' => $this->input->post('jurusan'),
-                'no_telp' => $this->input->post('no_telp'),
-                'id_user_role' => $this->input->post('id_user_role'),
-                'id_sekolah' => $this->input->post('id_sekolah'),
-            );
-            $update =  $this->curl->simple_put($this->API7, $data, array(CURLOPT_BUFFERSIZE => 10));
+        $data = array(
+            "id_user" => $this->input->post('id_user'),
+            'foto' => $foto,
+            'nis' => $this->input->post('nis'),
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'nama' => $this->input->post('nama'),
+            'jenis_kelamin' => $this->input->post('kelamin'),
+            'kelas' => $this->input->post('kelas'),
+            'email' => $this->input->post('email'),
+            'jurusan' => $this->input->post('jurusan'),
+            'no_telp' => $this->input->post('no_telp'),
+            'id_user_role' => $this->input->post('id_user_role'),
+            'id_sekolah' => $this->input->post('id_sekolah'),
+        );
+        $update =  $this->curl->simple_put($this->API7, $data, array(CURLOPT_BUFFERSIZE => 10));
 
-            if ($update) {
-                $this->session->set_flashdata(
-                    'message',
-                    '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
-                );
-            } else {
-                $this->session->set_flashdata('result', 'failed');
-            }
+        if ($update) {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
             );
-            redirect('AdminClient/profile/');
+        } else {
+            $this->session->set_flashdata('result', 'failed');
         }
-    
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-light-success color-success" style=""><i class="bi bi-check-circle"></i> Data Berhasil di Ubah.</div>'
+        );
+        redirect('AdminClient/profile/');
+    }
+
 
     public function Change_Password()
     {
@@ -269,6 +314,7 @@ class AdminClient extends CI_Controller
     {
 
         $id_ulasan   = $this->input->post('id_ulasan');
+        $id_user   = $this->input->post('id_user');
         $ulasan_siswa   = $this->input->post('ket_siswa');
         $nama   = $this->input->post('nama');
         $id_sekolah   = $this->input->post('id_sekolah');
@@ -276,6 +322,7 @@ class AdminClient extends CI_Controller
         similar_text($ulasan_siswa, $ulasan_guru, $hasil);
         $data = array(
             'id_ulasan' => $id_ulasan,
+            'id_user' => $id_user,
             'nama' => $nama,
             'ulasan_siswa' => $ulasan_siswa,
             'ulasan_guru' => $ulasan_guru,
@@ -337,7 +384,6 @@ class AdminClient extends CI_Controller
         exit;
         redirect('AdminClient/guru', 'refresh');
     }
-
 
 
 

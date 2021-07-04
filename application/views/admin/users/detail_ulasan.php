@@ -56,33 +56,36 @@
                 <input type="hidden" class="form-control" id="id_ulasan" value="<?php echo $rows->id_ulasan; ?>" name="id_ulasan" required readonly>
               </div>
               <div class="form-group">
-                <label for="nama">Nama :</label>
-                <input type="text" class="form-control" id="nama" value="<?php echo $rows->nama; ?>" name="nama" required readonly>
+                <label for="id_user">id_user :</label>
+                <input type="text" class="form-control" id="id_user" value="<?php echo $rows->id_user; ?>" name="id_user" required readonly>
               </div>
+              <label for="nama">Nama :</label>
+              <input type="text" class="form-control" id="nama" value="<?php echo $rows->nama; ?>" name="nama" required readonly>
+          </div>
 
 
-              <div class="form-group">
-                <input type="hidden" class="form-control" id="id_sekolah" value="<?php echo $rows->id_sekolah; ?>" name="id_sekolah" required readonly>
-              </div>
-              <div class="form-group">
-                <label for="ket_siswa">Ulasan Siswa : </label>
-                <input type="text" class="form-control" id="ket_siswa" value="<?php echo $rows->ket_siswa; ?>" name="ket_siswa" required readonly>
-              </div>
-              <div class="form-group">
-                <label for="ulasan_guru">Teks Buku : </label>
-                <textarea type="text" class="form-control" style=" height:450px" id="text_buku" name="text_buku" required readonly><?php echo preg_replace('/[^A-Za-z0-9\  ]/', '', $rows->text_buku); ?></textarea>
-              </div>
-              <div class="form-group">
-                <input type="hidden" class="form-control" id="hasil" name="hasil" value="" required>
-              </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" id="id_sekolah" value="<?php echo $rows->id_sekolah; ?>" name="id_sekolah" required readonly>
+          </div>
+          <div class="form-group">
+            <label for="ket_siswa">Ulasan Siswa : </label>
+            <input type="text" class="form-control" id="ket_siswa" value="<?php echo $rows->ket_siswa; ?>" name="ket_siswa" required readonly>
+          </div>
+          <div class="form-group">
+            <label for="ulasan_guru">Teks Buku : </label>
+            <textarea type="text" class="form-control" style=" height:450px" id="text_buku" name="text_buku" required readonly><?php echo preg_replace('/[^A-Za-z0-9\  ]/', '', $rows->text_buku); ?></textarea>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" id="hasil" name="hasil" value="" required>
+          </div>
 
-              <div class="form-group">
-                <button type="submit" class="btn btn-warning">
-                  <a style="color:white">Update </a></button>
-                <!-- The Modal -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-warning">
+              <a style="color:white">Update </a></button>
+            <!-- The Modal -->
 
-              </div>
-            <?php endforeach; ?>
+          </div>
+        <?php endforeach; ?>
         </form>
       </div>
     </div>
